@@ -9,7 +9,7 @@
                  style="background-image: url('images/demos/demo-beauty/page-header.jpg'); background-color: #ECEDF1;">
                 <h1 class="page-title font-weight-bold text-dark">Muster Shop</h1>
                 <ul class="breadcrumb pb-0">
-                    <li class="text-dark"><a href="demo-beauty.html" class="text-dark"><i class="d-icon-home"></i></a>
+                    <li class="text-dark"><a href="{{route('index')}}" class="text-dark"><i class="d-icon-home"></i></a>
                     </li>
                     <li class="delimiter text-dark">/</li>
                     <li class="text-dark">Muster Shop</li>
