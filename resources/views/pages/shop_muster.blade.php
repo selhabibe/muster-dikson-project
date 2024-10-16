@@ -32,13 +32,13 @@
                                         <a href="{{ route('products.show', $product->id) }}">
                                             @if ($product->getFirstMediaUrl('product-images'))
                                                 <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
                                                 <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
                                             @endif
                                         </a>
                                         <div class="product-action-vertical">
-                                            <a href="{{route('cart.show')}}" class="btn-product-icon btn-cart" title="Select Options">
+                                            <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
                                                 <i class="d-icon-bag"></i>
                                             </a>
                                         </div>
