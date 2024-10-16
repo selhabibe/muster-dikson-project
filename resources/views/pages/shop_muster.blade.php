@@ -24,19 +24,18 @@
                             <a class="sidebar-close" href="#"><i class="d-icon-times"></i></a>
                         </aside>
                     </nav>
-                    <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper">
+                    <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
                         @foreach($products as $product)
-                            <div class="product-wrap">
-                                <div class="product text-center">
-                                    <figure class="product-media">
+                            <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
+                                <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
                                         <a href="{{ route('products.show', $product->id) }}">
                                             @if ($product->getFirstMediaUrl('product-images'))
-                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}" width="300"
-                                                     height="338">
-                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}" width="300"
-                                                     height="338">
+                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
+                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
+                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                                             @endif
-
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="{{route('cart.show')}}" class="btn-product-icon btn-cart" title="Select Options">
@@ -44,14 +43,13 @@
                                             </a>
                                         </div>
                                     </figure>
-                                    <div class="product-details">
+                                    <div class="product-details" style="padding: 10px; text-align: center;">
                                         <h3 class="product-name">
                                             <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                                         </h3>
                                         <div class="product-price">
-                                            <div class="product-price">
-                                                <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins><del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
-                                            </div>
+                                            <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins>
+                                            <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
                                         </div>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
