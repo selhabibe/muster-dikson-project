@@ -199,8 +199,9 @@
                                 <div class="row mt-6">
                                     <div class="col-md-6 mb-8">
 
-                                        {!! \Illuminate\Support\Str::markdown($product->description) !!}
-
+                                        @if(!is_null($product->description))
+                                            {!! \Illuminate\Support\Str::markdown($product->description) !!}
+                                        @endif
 
                                         {{--                                        <h5 class="description-title mb-4 font-weight-semi-bold ls-m">Features</h5>--}}
 {{--                                        <p class="mb-2">--}}
