@@ -179,7 +179,6 @@
                                     </div>
                                 </div>
 
-
                             </div>
                         </div>
                     </div>
@@ -200,9 +199,10 @@
                                 <div class="row mt-6">
                                     <div class="col-md-6 mb-8">
 
-                                        {!! $product->description !!}
+                                        {!! \Illuminate\Support\Str::markdown($product->description) !!}
 
-{{--                                        <h5 class="description-title mb-4 font-weight-semi-bold ls-m">Features</h5>--}}
+
+                                        {{--                                        <h5 class="description-title mb-4 font-weight-semi-bold ls-m">Features</h5>--}}
 {{--                                        <p class="mb-2">--}}
 {{--                                            Praesent id enim sit amet.Tdio vulputate eleifend in in tortor.--}}
 {{--                                            ellus massa. siti iMassa ristique sit amet condim vel, facilisis--}}
