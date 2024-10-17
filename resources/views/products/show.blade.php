@@ -189,9 +189,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="#product-tab-description">Description</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#product-tab-additional">Additional information</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="#product-tab-additional">Additional information</a>--}}
+{{--                            </li>--}}
 
 
                         </ul>
