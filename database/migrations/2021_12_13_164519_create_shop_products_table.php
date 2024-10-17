@@ -58,6 +58,8 @@ return new class extends Migration
             $table->string('EIN')->unique()->nullable();
             $table->string('code')->nullable();
 
+            $table->string('short_desc')->nullable();
+
             $table->timestamps();
         });
 
