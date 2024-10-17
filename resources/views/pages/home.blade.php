@@ -21,9 +21,7 @@
                             <!-- Hidden Menu with Fade-In Effect -->
                             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.5s ease; display: flex; justify-content: center; align-items: center; text-align: center; color: white;">
                                 <ul style="list-style: none; padding: 0; margin: 0;">
-                                    <li><a href="#" style="color: white; text-decoration: none;">New Arrivals</a></li>
-                                    <li><a href="#" style="color: white; text-decoration: none;">Best Sellers</a></li>
-                                    <li><a href="#" style="color: white; text-decoration: none;">Discounts</a></li>
+                                    <li><a class="text-uppercase" href="#" style="color: white; text-decoration: none;">Salon de coiffure</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -39,9 +37,7 @@
                             <!-- Hidden Menu with Fade-In Effect -->
                             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.5s ease; display: flex; justify-content: center; align-items: center; text-align: center; color: white;">
                                 <ul style="list-style: none; padding: 0; margin: 0;">
-                                    <li><a href="#" style="color: white; text-decoration: none;">New Arrivals</a></li>
-                                    <li><a href="#" style="color: white; text-decoration: none;">Best Sellers</a></li>
-                                    <li><a href="#" style="color: white; text-decoration: none;">Discounts</a></li>
+                                    <li><a class="text-uppercase" href="#" style="color: white; text-decoration: none;">Esthétique</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -104,31 +100,40 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="banner category-banner overlay-dark" style="background-color: #222;">
-                                <figure>
-                                    <img src="{{asset("images/front/banner-muster.png")}}" alt="banner" width="580" height="268">
-                                </figure>
-                                <div class="banner-content y-50">
-{{--                                    <h4 class="banner-subtitle text-uppercase font-weight-normal lh-1 text-white">New--}}
-{{--                                        Collection--}}
-{{--                                    </h4>--}}
-                                    <h3 class="banner-title font-weight-bold lh-1 mb-5 ">Voir Muster</h3>
-                                    <a href="{{route('shop.muster')}}"
-                                       class="btn btn-link btn-black btn-underline text-uppercase">Achetez maintenant<i
-                                            class="d-icon-arrow-right"></i></a>
+                            <a href="{{route('shop.muster')}}"
+                               class="link">
+                                <div class="banner category-banner overlay-dark" style="background-color: #222;">
+                                    <figure>
+                                        <img src="{{asset("images/front/banner-muster.png")}}" alt="banner" width="580" height="268">
+                                    </figure>
+                                    <div class="banner-content y-50">
+                                        {{--                                    <h4 class="banner-subtitle text-uppercase font-weight-normal lh-1 text-white">New--}}
+                                        {{--                                        Collection--}}
+                                        {{--                                    </h4>--}}
+                                        <h3 class="banner-title font-weight-bold lh-1 mb-5 ">Voir Muster</h3>
+                                        <a href="{{route('shop.muster')}}"
+                                           class="btn btn-link btn-black btn-underline text-uppercase">Achetez maintenant<i
+                                                class="d-icon-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                            </div>
+
+                            </a>
+
                         </div>
                         <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="banner category-banner overlay-dark" style="background-color: #E5E6E8;">
-                                <figure>
-                                    <img src="{{asset("images/front/banner-dikson.png")}}" alt="banner" width="580" height="268">
-                                </figure>
-                                <div class="banner-content y-50">
-                                    <h3 class="banner-title font-weight-bold lh-1 mb-5">Voir Dikson</h3>
-                                    <a href="{{route('shop.dikson')}}" class="btn btn-black btn-link btn-underline text-uppercase">Achetez maintenant<i class="d-icon-arrow-right"></i></a>
+                            <a href="{{route('shop.dikson')}}"
+                               class="link">
+                                <div class="banner category-banner overlay-dark" style="background-color: #E5E6E8;">
+                                    <figure>
+                                        <img src="{{asset("images/front/banner-dikson.png")}}" alt="banner" width="580" height="268">
+                                    </figure>
+                                    <div class="banner-content y-50">
+                                        <h3 class="banner-title font-weight-bold lh-1 mb-5">Voir Dikson</h3>
+                                        <a href="{{route('shop.dikson')}}" class="btn btn-black btn-link btn-underline text-uppercase">Achetez maintenant<i class="d-icon-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                            </div>
+
+                            </a>
                         </div>
                     </div>
                 </section>
