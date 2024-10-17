@@ -8,6 +8,56 @@
 
         <main class="main home">
             <div class="page-content">
+                <section style="padding: 0 !important;" id="categorie" class="container-fluid p-0 mb-5">
+                    <div class="row no-gutters">
+                        <!-- First Column with Image and Hover Menu -->
+                        <div class="col-12 col-md-6 overlay-container" style="position: relative;">
+                            <picture>
+                                <source class="image img-fluid" media="(max-width: 575px)" srcset="https://muster-dikson.com/images/img/sezioni/parrucchiere-s.jpg?v=1">
+                                <source class="image img-fluid" media="(min-width: 576px) and (max-width: 1100px)" srcset="https://muster-dikson.com/images/img/sezioni/parrucchiere-md.jpg?v=1 2x">
+                                <source class="image img-fluid" media="(min-width: 1101px)" srcset="https://muster-dikson.com/images/img/sezioni/parrucchiere.jpg?v=1">
+                                <img src="https://muster-dikson.com/images/img/sezioni/parrucchiere.jpg?v=1" class="image img-fluid" alt="">
+                            </picture>
+                            <!-- Hidden Menu with Fade-In Effect -->
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.5s ease; display: flex; justify-content: center; align-items: center; text-align: center; color: white;">
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li><a class="text-uppercase" href="{{route('shop.muster')}}" style="color: white; text-decoration: none;">Salon de coiffure</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Second Column with Image and Hover Menu -->
+                        <div class="col-12 col-md-6 overlay-container" style="position: relative;">
+                            <picture>
+                                <source class="image img-fluid" media="(max-width: 575px)" srcset="https://muster-dikson.com/images/img/sezioni/estetica-s.jpg?v=1">
+                                <source class="image img-fluid" media="(min-width: 576px) and (max-width: 1100px)" srcset="https://muster-dikson.com/images/img/sezioni/estetica-md.jpg?v=1 2x">
+                                <source class="image img-fluid" media="(min-width: 1101px)" srcset="https://muster-dikson.com/images/img/sezioni/estetica.jpg?v=1">
+                                <img src="https://muster-dikson.com/images/img/sezioni/estetica.jpg?v=1" class="image img-fluid" alt="">
+                            </picture>
+                            <!-- Hidden Menu with Fade-In Effect -->
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.5s ease; display: flex; justify-content: center; align-items: center; text-align: center; color: white;">
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li><a class="text-uppercase"  href="{{route('shop.dikson')}}" style="color: white; text-decoration: none;">Esthétique</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Fade-in effect for menu on hover
+                        document.querySelectorAll('.overlay-container').forEach(container => {
+                            container.addEventListener('mouseenter', function() {
+                                this.querySelector('div').style.opacity = '1'; // Fade in menu
+                            });
+                            container.addEventListener('mouseleave', function() {
+                                this.querySelector('div').style.opacity = '0'; // Fade out menu
+                            });
+                        });
+                    </script>
+
+
+                </section>
+
                 <section class="intro-section container mb-lg-4">
                     <div class="row pb-4">
                         <div class="intro-slider animation-slider owl-carousel owl-dot-white owl-theme owl-dot-inner row cols-1 gutter-no mb-4"
