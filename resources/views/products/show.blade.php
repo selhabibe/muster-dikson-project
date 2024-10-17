@@ -199,44 +199,47 @@
                             <div class="tab-pane active in" id="product-tab-description">
                                 <div class="row mt-6">
                                     <div class="col-md-6 mb-8">
-                                        <h5 class="description-title mb-4 font-weight-semi-bold ls-m">Features</h5>
-                                        <p class="mb-2">
-                                            Praesent id enim sit amet.Tdio vulputate eleifend in in tortor.
-                                            ellus massa. siti iMassa ristique sit amet condim vel, facilisis
-                                            quimequistiqutiqu amet condim Dilisis Facilisis quis sapien. Praesent id
-                                            enim sit amet.
-                                        </p>
-                                        <ul class="mb-8">
-                                            <li>Praesent id enim sit amet.Tdio vulputate</li>
-                                            <li>Eleifend in in tortor. ellus massa.Dristique sitii</li>
-                                            <li>Massa ristique sit amet condim vel</li>
-                                            <li>Dilisis Facilisis quis sapien. Praesent id enim sit amet</li>
-                                        </ul>
-                                        <h5 class="description-title mb-3 font-weight-semi-bold ls-m">Specifications
-                                        </h5>
-                                        <table class="table">
-                                            <tbody>
-                                            <tr>
-                                                <th class="font-weight-semi-bold text-dark pl-0">Material</th>
-                                                <td class="pl-4">Praesent id enim sit amet.Tdio</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="font-weight-semi-bold text-dark pl-0">Claimed Size</th>
-                                                <td class="pl-4">Praesent id enim sit</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="font-weight-semi-bold text-dark pl-0">Recommended Use
-                                                </th>
-                                                <td class="pl-4">Praesent id enim sit amet.Tdio vulputate eleifend
-                                                    in in tortor. ellus massa. siti</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="font-weight-semi-bold text-dark border-no pl-0">
-                                                    Manufacturer</th>
-                                                <td class="border-no pl-4">Praesent id enim</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+
+                                        {!! $product->description !!}
+
+{{--                                        <h5 class="description-title mb-4 font-weight-semi-bold ls-m">Features</h5>--}}
+{{--                                        <p class="mb-2">--}}
+{{--                                            Praesent id enim sit amet.Tdio vulputate eleifend in in tortor.--}}
+{{--                                            ellus massa. siti iMassa ristique sit amet condim vel, facilisis--}}
+{{--                                            quimequistiqutiqu amet condim Dilisis Facilisis quis sapien. Praesent id--}}
+{{--                                            enim sit amet.--}}
+{{--                                        </p>--}}
+{{--                                        <ul class="mb-8">--}}
+{{--                                            <li>Praesent id enim sit amet.Tdio vulputate</li>--}}
+{{--                                            <li>Eleifend in in tortor. ellus massa.Dristique sitii</li>--}}
+{{--                                            <li>Massa ristique sit amet condim vel</li>--}}
+{{--                                            <li>Dilisis Facilisis quis sapien. Praesent id enim sit amet</li>--}}
+{{--                                        </ul>--}}
+{{--                                        <h5 class="description-title mb-3 font-weight-semi-bold ls-m">Specifications--}}
+{{--                                        </h5>--}}
+{{--                                        <table class="table">--}}
+{{--                                            <tbody>--}}
+{{--                                            <tr>--}}
+{{--                                                <th class="font-weight-semi-bold text-dark pl-0">Material</th>--}}
+{{--                                                <td class="pl-4">Praesent id enim sit amet.Tdio</td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <th class="font-weight-semi-bold text-dark pl-0">Claimed Size</th>--}}
+{{--                                                <td class="pl-4">Praesent id enim sit</td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <th class="font-weight-semi-bold text-dark pl-0">Recommended Use--}}
+{{--                                                </th>--}}
+{{--                                                <td class="pl-4">Praesent id enim sit amet.Tdio vulputate eleifend--}}
+{{--                                                    in in tortor. ellus massa. siti</td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <th class="font-weight-semi-bold text-dark border-no pl-0">--}}
+{{--                                                    Manufacturer</th>--}}
+{{--                                                <td class="border-no pl-4">Praesent id enim</td>--}}
+{{--                                            </tr>--}}
+{{--                                            </tbody>--}}
+{{--                                        </table>--}}
                                     </div>
                                     <div class="col-md-6 pl-md-6">
                                         <h5 class="description-title font-weight-semi-bold ls-m mb-5">Video Description
