@@ -79,7 +79,7 @@
 
                                 <h1 class="product-name">{{ $product->name }}</h1>
                                 <div class="product-meta">
-                                    SKU: <span class="product-sku">{{ $product->sku }}</span>
+                                    Code: <span class="product-sku">{{ $product->code }}</span>
                                     @if(isset($product->brand->name))
                                         BRAND: <span class="product-brand">  {{ $product->brand->name }}
                                     @endif
