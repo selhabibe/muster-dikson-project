@@ -241,48 +241,48 @@
 {{--                                            </tbody>--}}
 {{--                                        </table>--}}
                                     </div>
-                                    <div class="col-md-6 pl-md-6">
-                                        <h5 class="description-title font-weight-semi-bold ls-m mb-5">Video Description
-                                        </h5>
-                                        <figure class="p-relative d-inline-block mb-2">
-                                            <img src="images/product/product.jpg" width="559" height="370" alt="Product">
-                                            <a class="btn-play btn-iframe" href="video/memory-of-a-woman.mp4">
-                                                <i class="d-icon-play-solid"></i>
-                                            </a>
-                                        </figure>
-                                        <div class="icon-box-wrap d-flex flex-wrap">
-                                            <div class="icon-box icon-box-side icon-border pt-2 pb-2 mb-4 mr-10">
-                                                <div class="icon-box-icon">
-                                                    <i class="d-icon-lock"></i>
-                                                </div>
-                                                <div class="icon-box-content">
+{{--                                    <div class="col-md-6 pl-md-6">--}}
+{{--                                        <h5 class="description-title font-weight-semi-bold ls-m mb-5">Video Description--}}
+{{--                                        </h5>--}}
+{{--                                        <figure class="p-relative d-inline-block mb-2">--}}
+{{--                                            <img src="images/product/product.jpg" width="559" height="370" alt="Product">--}}
+{{--                                            <a class="btn-play btn-iframe" href="video/memory-of-a-woman.mp4">--}}
+{{--                                                <i class="d-icon-play-solid"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </figure>--}}
+{{--                                        <div class="icon-box-wrap d-flex flex-wrap">--}}
+{{--                                            <div class="icon-box icon-box-side icon-border pt-2 pb-2 mb-4 mr-10">--}}
+{{--                                                <div class="icon-box-icon">--}}
+{{--                                                    <i class="d-icon-lock"></i>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="icon-box-content">--}}
 
-                                                </div>
-                                            </div>
-                                            <div class="divider d-xl-show mr-10"></div>
-                                            <div class="icon-box icon-box-side icon-border pt-2 pb-2 mb-4">
-                                                <div class="icon-box-icon">
-                                                    <i class="d-icon-truck"></i>
-                                                </div>
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="divider d-xl-show mr-10"></div>--}}
+{{--                                            <div class="icon-box icon-box-side icon-border pt-2 pb-2 mb-4">--}}
+{{--                                                <div class="icon-box-icon">--}}
+{{--                                                    <i class="d-icon-truck"></i>--}}
+{{--                                                </div>--}}
 
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
-                            <div class="tab-pane" id="product-tab-additional">
-                                <ul class="list-none">
-                                    <li><label>Brands:</label>
-                                        <p>SkillStar, SLS</p>
-                                    </li>
-                                    <li><label>Color:</label>
-                                        <p>Blue, Brown</p>
-                                    </li>
-                                    <li><label>Size:</label>
-                                        <p>Large, Medium, Small</p>
-                                    </li>
-                                </ul>
-                            </div>
+{{--                            <div class="tab-pane" id="product-tab-additional">--}}
+{{--                                <ul class="list-none">--}}
+{{--                                    <li><label>Brands:</label>--}}
+{{--                                        <p>SkillStar, SLS</p>--}}
+{{--                                    </li>--}}
+{{--                                    <li><label>Color:</label>--}}
+{{--                                        <p>Blue, Brown</p>--}}
+{{--                                    </li>--}}
+{{--                                    <li><label>Size:</label>--}}
+{{--                                        <p>Large, Medium, Small</p>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
 
                         </div>
                     </div>
