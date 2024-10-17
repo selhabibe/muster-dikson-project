@@ -21,21 +21,24 @@
                                     @endforeach
 
                                 </div>
-                                <div class="product-thumbs-wrap">
-                                    <div class="product-thumbs">
+                                <div class="product-thumbs-wrap" style="position: relative; display: flex; align-items: center;">
+                                    <div class="product-thumbs" style="display: flex; gap: 15px; overflow: hidden;">
                                         @foreach($product->getMedia('product-images') as $media)
                                             @if ($media->getUrl())
-                                                <div class="product-thumb {{ $loop->first ? 'active' : '' }}">
-                                                    <img src="{{ $media->getUrl() }}" alt="{{ $product->name }}" width="109" height="122">
+                                                <div class="product-thumb {{ $loop->first ? 'active' : '' }}" style="flex: 1; width: 100%; height: 150px; overflow: hidden; position: relative;">
+                                                    <img src="{{ $media->getUrl() }}" alt="{{ $product->name }}" style="width: 100%; height: 100%; object-fit: contain;">
                                                 </div>
                                             @else
-                                                <img src="https://i.makeup.fr/i/i4/i4dfmpe8rxkj.png" alt="Product Image">
+                                                <div class="product-thumb" style="flex: 1; width: 100%; height: 150px; overflow: hidden; position: relative;">
+                                                    <img src="https://i.makeup.fr/i/i4/i4dfmpe8rxkj.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: contain;">
+                                                </div>
                                             @endif
                                         @endforeach
                                     </div>
-                                    <button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
-                                    <button class="thumb-down disabled"><i class="fas fa-chevron-right"></i></button>
+                                    <button class="thumb-up disabled" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%);"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="thumb-down disabled" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%);"><i class="fas fa-chevron-right"></i></button>
                                 </div>
+
 
                             </div>
                         </div>
