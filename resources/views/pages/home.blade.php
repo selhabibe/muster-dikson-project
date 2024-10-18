@@ -100,31 +100,40 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="banner category-banner overlay-dark" style="background-color: #222;">
-                                <figure>
-                                    <img src="{{asset("images/front/banner-muster.png")}}" alt="banner" width="580" height="268">
-                                </figure>
-                                <div class="banner-content y-50">
-{{--                                    <h4 class="banner-subtitle text-uppercase font-weight-normal lh-1 text-white">New--}}
-{{--                                        Collection--}}
-{{--                                    </h4>--}}
-                                    <h3 class="banner-title font-weight-bold lh-1 mb-5 ">Voir Muster</h3>
-                                    <a href="{{route('shop.muster')}}"
-                                       class="btn btn-link btn-black btn-underline text-uppercase">Achetez maintenant<i
-                                            class="d-icon-arrow-right"></i></a>
+                            <a href="{{route('shop.muster')}}"
+                               class="link">
+                                <div class="banner category-banner overlay-dark" style="background-color: #222;">
+                                    <figure>
+                                        <img src="{{asset("images/front/banner-muster.png")}}" alt="banner" width="580" height="268">
+                                    </figure>
+                                    <div class="banner-content y-50">
+                                        {{--                                    <h4 class="banner-subtitle text-uppercase font-weight-normal lh-1 text-white">New--}}
+                                        {{--                                        Collection--}}
+                                        {{--                                    </h4>--}}
+                                        <h3 class="banner-title font-weight-bold lh-1 mb-5 ">Voir Muster</h3>
+                                        <a href="{{route('shop.muster')}}"
+                                           class="btn btn-link btn-black btn-underline text-uppercase">Achetez maintenant<i
+                                                class="d-icon-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                            </div>
+
+                            </a>
+
                         </div>
                         <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="banner category-banner overlay-dark" style="background-color: #E5E6E8;">
-                                <figure>
-                                    <img src="{{asset("images/front/banner-dikson.png")}}" alt="banner" width="580" height="268">
-                                </figure>
-                                <div class="banner-content y-50">
-                                    <h3 class="banner-title font-weight-bold lh-1 mb-5">Voir Dikson</h3>
-                                    <a href="{{route('shop.dikson')}}" class="btn btn-black btn-link btn-underline text-uppercase">Achetez maintenant<i class="d-icon-arrow-right"></i></a>
+                            <a href="{{route('shop.dikson')}}"
+                               class="link">
+                                <div class="banner category-banner overlay-dark" style="background-color: #E5E6E8;">
+                                    <figure>
+                                        <img src="{{asset("images/front/banner-dikson.png")}}" alt="banner" width="580" height="268">
+                                    </figure>
+                                    <div class="banner-content y-50">
+                                        <h3 class="banner-title font-weight-bold lh-1 mb-5">Voir Dikson</h3>
+                                        <a href="{{route('shop.dikson')}}" class="btn btn-black btn-link btn-underline text-uppercase">Achetez maintenant<i class="d-icon-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                            </div>
+
+                            </a>
                         </div>
                     </div>
                 </section>
