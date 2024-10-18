@@ -56,23 +56,23 @@ Route::post('/place-order', [ShopController::class, 'store'])->name('order.store
 
 //Pages
 Route::get('/hairdresser', function () {
-    return view('pages.hairdresser');
+    return view('pages.coming-soon');
 })->name('hairdresser');
 
 Route::get('/beauty', function () {
-    return view('pages.beauty');
+    return view('pages.coming-soon');
 })->name('beauty');
 
 Route::get('/hygiene-safety', function () {
-    return view('pages.hygiene-safety');
+    return view('pages.coming-soon');
 })->name('hygiene-safety');
 
 Route::get('/video', function () {
-    return view('pages.video');
+    return view('pages.coming-soon');
 })->name('video');
 
 Route::get('/downloads', function () {
-    return view('pages.downloads');
+    return view('pages.coming-soon');
 })->name('downloads');
 
 

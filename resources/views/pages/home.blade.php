@@ -100,14 +100,11 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 mb-4">
-                            <a href="{{route('shop.muster')}}"
-                               class="link">
+                            <a href="{{route('shop.muster')}}" class="link">
                                 <div class="banner category-banner overlay-dark" style="background-color: #222;">
                                     <figure>
                                         <img src="{{asset("images/front/banner-muster.png")}}" alt="banner" width="580" height="268">
                                     </figure>
-
-
                                     <div class="banner-content y-50">
                                         {{--                                    <h4 class="banner-subtitle text-uppercase font-weight-normal lh-1 text-white">New--}}
                                         {{--                                        Collection--}}
@@ -118,13 +115,10 @@
                                                 class="d-icon-arrow-right"></i></a>
                                     </div>
                                 </div>
-
                             </a>
-
                         </div>
                         <div class="col-lg-6 col-md-12 mb-4">
-                            <a href="{{route('shop.dikson')}}"
-                               class="link">
+                            <a href="{{route('shop.dikson')}}"  class="link">
                                 <div class="banner category-banner overlay-dark" style="background-color: #E5E6E8;">
                                     <figure>
                                         <img src="{{asset("images/front/banner-dikson.png")}}" alt="banner" width="580" height="268">
@@ -134,7 +128,6 @@
                                         <a href="{{route('shop.dikson')}}" class="btn btn-black btn-link btn-underline text-uppercase">Achetez maintenant<i class="d-icon-arrow-right"></i></a>
                                     </div>
                                 </div>
-
                             </a>
                         </div>
                     </div>
