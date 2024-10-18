@@ -106,6 +106,8 @@
                                     <figure>
                                         <img src="{{asset("images/front/banner-muster.png")}}" alt="banner" width="580" height="268">
                                     </figure>
+
+
                                     <div class="banner-content y-50">
                                         {{--                                    <h4 class="banner-subtitle text-uppercase font-weight-normal lh-1 text-white">New--}}
                                         {{--                                        Collection--}}
