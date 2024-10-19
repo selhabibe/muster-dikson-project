@@ -191,9 +191,19 @@ class ShopController extends Controller
 
     public function beauty()
     {
-
-
         $products = Product::take(4)->get();
         return view('pages.beauty', compact('products'));
+    }
+
+    public function hairstyle()
+    {
+        $categories = Category::where('parent_id', function($query) {
+            $query->select('id')
+                ->from('shop_categories')
+                ->where('name', 'coiffure');
+        })->get();
+        $products = Product::take(4)->get();
+
+        return view('pages.hairstyle', compact('categories','products'));
     }
 }

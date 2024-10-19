@@ -56,9 +56,11 @@ Route::get('/about-us', function () {
 Route::post('/place-order', [ShopController::class, 'store'])->name('order.store');
 
 //Pages
-Route::get('/hairstyle', function () {
-    return view('pages.hairstyle');
-})->name('hairstyle');
+//Route::get('/hairstyle', function () {
+//    return view('pages.hairstyle');
+//})->name('hairstyle');
+
+Route::get('/hairstyle', [ShopController::class, 'hairstyle'])->name('hairstyle');
 
 
 Route::get('/beauty', [ShopController::class, 'beauty'])->name('beauty');

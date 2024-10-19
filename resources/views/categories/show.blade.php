@@ -7,7 +7,7 @@
         <main class="main">
             <div class="page-header"
                  style="background-image: url('images/demos/demo-beauty/page-header.jpg'); background-color: #ECEDF1;">
-                <h1 class="page-title font-weight-bold text-dark">Categorie</h1>
+                <h1 class="page-title font-weight-bold text-dark">{{$category->name}}</h1>
                 <ul class="breadcrumb pb-0">
                     <li class="text-dark"><a href="{{route('index')}}" class="text-dark"><i class="d-icon-home"></i></a>
                     </li>
@@ -56,7 +56,7 @@
                                                 <span class="ratings" style="width:90%"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">({{ $product->reviews_count }} Avis)</a>
+                                            <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">{!! $product->reviews_count !!} </a>
                                         </div>
                                     </div>
                                 </div>
