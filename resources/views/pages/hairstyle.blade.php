@@ -25,19 +25,20 @@
                                 @foreach($categories as $category)
                                     <div class="col-12 col-sm-6 col-lg-4 mb-4">
                                         <div class="category category-default category-rounded category-absolute overlay-zoom code-content">
-                                            <a href="#">
+                                            <a href="{{ route('categories.show', $category->id) }}">
                                                 <figure class="category-media">
                                                     <!-- Assuming each category has an image associated with it -->
                                                     <img src="{{ $category->image_url }}" alt="{{ $category->name }}" width="280" height="280">
                                                 </figure>
                                             </a>
                                             <div class="category-content">
-                                                <h4 class="category-name"><a href="#">{{ $category->name }}</a></h4>
-                                                <a href="#" class="btn btn-primary">Voir plus</a>
+                                                <h4 class="category-name"><a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a></h4>
+                                                <a href="{{ route('categories.show', $category->id) }}" class="btn btn-primary">Voir plus</a>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
+
                             </div>
 
                         </div>
