@@ -24,20 +24,11 @@ class ShopController extends Controller
             return $item->product->price * $item->quantity;
         });
 
-        // Get paginated posts
         $posts = Post::paginate(10);
 
-        // Get 3 most recent posts
         $recentPosts = Post::orderBy('created_at', 'desc')->take(3)->get();
 
-//        return view('posts.index',);
-
         return view('pages.home', compact('cartItems', 'total', 'posts', 'recentPosts'));
-    }
-
-    function getCartItems()
-    {
-
     }
 
     public function showMusterProducts()
@@ -192,6 +183,9 @@ class ShopController extends Controller
 
     public function showCategorie(Category $category)
     {
-        return view('categories.show', compact('category'));
+
+        $products = $category->products;
+
+        return view('categories.show', compact('category', 'products'));
     }
 }
