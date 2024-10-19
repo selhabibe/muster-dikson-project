@@ -37,7 +37,7 @@
 {{--                                <h4 class="widget-title">Service Client</h4>--}}
                                 <ul class="widget-body">
                                     <li>
-                                        <a href="{{route('hairdresser')}}">Coiffeur</a>
+                                        <a href="{{route('hairstyle')}}">Coiffeur</a>
                                     </li>
                                     <li>
                                         <a href="{{route('beauty')}}">Beauté</a>

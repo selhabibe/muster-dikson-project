@@ -56,13 +56,13 @@ Route::get('/about-us', function () {
 Route::post('/place-order', [ShopController::class, 'store'])->name('order.store');
 
 //Pages
-Route::get('/hairdresser', function () {
-    return view('pages.coming-soon');
-})->name('hairdresser');
+Route::get('/hairstyle', function () {
+    return view('pages.hairstyle');
+})->name('hairstyle');
 
-Route::get('/beauty', function () {
-    return view('pages.coming-soon');
-})->name('beauty');
+
+Route::get('/beauty', [ShopController::class, 'beauty'])->name('beauty');
+
 
 Route::get('/hygiene-safety', function () {
     return view('pages.coming-soon');
