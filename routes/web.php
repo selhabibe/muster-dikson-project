@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Mail\MyTestEmail;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Mail;
+use \App\Http\Controllers\BlogController;
 
 Route::get('form', Form::class);
 
@@ -76,7 +77,11 @@ Route::get('/downloads', function () {
 })->name('downloads');
 
 
+Route::get('categories', [ShopController::class, 'showAllCategorie'])->name('categories.index');
+Route::get('categories/{category}', [ShopController::class, 'showCategorie'])->name('categories.show');
 
+Route::get('/post', [BlogController::class, 'recentelyPost'])->name('recentelyPost.show');
+Route::get('/posts/{id}', [BlogController::class, 'show'])->name('posts.show');
 
 
 Route::get('/testroute', function() {

@@ -202,7 +202,7 @@
                                 <i class="icon-box-icon d-icon-truck text-primary" style="font-size: 5rem"></i>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">Livraison & Retour Offerts</h4>
-                                    <p class="d-inline-block" style="max-width: 27rem;">Profitez de la livraison gratuite de vos commandes partout dans le Maroc.
+                                    <p class="d-inline-block" style="max-width: 27rem;">Profitez de la livraison de vos commandes partout dans le Maroc.
                                     </p>
                                 </div>
                             </div>
@@ -232,84 +232,51 @@
 
                 <section class="blog-section container mt-4 mt-lg-10 pt-4 mb-0 mb-lg-6">
                     <h3 class="text-center font-weight-bold lh-1 ls-m pt-4 mb-5">Dernières Nouvelles</h3>
+
                     <div class="owl-carousel owl-theme owl-shadow-carousel row cols-lg-3 cols-sm-2 cols-1 pb-4"
                          data-owl-options="{
-                        'items': 3,
-                        'margin': 20,
-                        'dots': false,
-                        'loop': false,
-                        'nav': false,
-                        'autoplay': true,
-                        'autoplayTimeout': 4000,
-                        'responsive': {
-                            '0': {
-                                'items': 1
-                            },
-                            '576': {
-                                'items': 2
-                            },
-                            '992': {
-                                'items': 3
-                            }
-                        }
-                    }">
-                        <div class="post post-image-gap appear-animate"
-                             data-animation-options="{'name': 'fadeInRightShorter', 'delay': '.5s'}">
-                            <figure class="post-media">
-                                <a href="post-single.html">
-                                    <img src="images/demos/demo34/blog/1.jpg" width="400" height="240" alt="post" />
-                                </a>
-                                <div class="post-calendar">
-                                    <span class="post-day">19</span>
-                                    <span class="post-month">JAN</span>
+                                'items': 3,
+                                'margin': 20,
+                                'dots': false,
+                                'loop': false,
+                                'nav': false,
+                                'autoplay': true,
+                                'autoplayTimeout': 4000,
+                                'responsive': {
+                                    '0': {
+                                        'items': 1
+                                    },
+                                    '576': {
+                                        'items': 2
+                                    },
+                                    '992': {
+                                        'items': 3
+                                    }
+                                }
+                            }">
+                        @foreach ($recentPosts as $recentPost)
+                            <div class="post post-image-gap appear-animate" data-animation-options="{'name': 'fadeInRightShorter', 'delay': '.5s'}">
+                                <figure class="post-media">
+                                    <a href="{{ route('posts.show', $recentPost->id) }}">
+                                        <img src="{{ asset('storage/' . $recentPost->image) }}"
+                                             alt="{{ $recentPost->title }}"
+                                             style="object-fit: contain; width: 400px; height: 240px;" />
+                                    </a>
+                                    <div class="post-calendar">
+                                        <span class="post-day">{{ $recentPost->created_at->format('d') }}</span>
+                                        <span class="post-month">{{ $recentPost->created_at->format('M') }}</span>
+                                    </div>
+                                </figure>
+                                <div class="post-details">
+                                    <h4 class="post-title">
+                                        <a href="{{ route('posts.show', $recentPost->id) }}">{{ $recentPost->title }}</a>
+                                    </h4>
+                                    <p class="post-content">{{ Str::limit($recentPost->body, 100) }}</p>
+                                    <a href="{{ route('posts.show', $recentPost->id) }}" class="btn btn-link btn-underline btn-primary btn-md">En savoir plus<i class="d-icon-arrow-right"></i></a>
                                 </div>
-                            </figure>
-                            <div class="post-details">
-                                <h4 class="post-title"><a href="post-single.html">30% Discount for Shoes & Bags</a></h4>
-                                <p class="post-content">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
-                                    sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti.…</p>
-                                <a href="post-single.html" class="btn btn-link btn-underline btn-primary btn-md">Read
-                                    More<i class="d-icon-arrow-right"></i></a>
                             </div>
-                        </div>
-                        <div class="post post-image-gap appear-animate"
-                             data-animation-options="{'name': 'fadeInUpShorter', 'delay': '.3s'}">
-                            <figure class="post-media">
-                                <a href="post-single.html">
-                                    <img src="images/demos/demo34/blog/2.jpg" width="400" height="240" alt="post" />
-                                </a>
-                                <div class="post-calendar">
-                                    <span class="post-day">19</span>
-                                    <span class="post-month">JAN</span>
-                                </div>
-                            </figure>
-                            <div class="post-details">
-                                <h4 class="post-title"><a href="post-single.html">Quisque a lectus</a></h4>
-                                <p class="post-content">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
-                                    sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti.…</p>
-                                <a href="post-single.html" class="btn btn-link btn-underline btn-primary btn-md">Read
-                                    More<i class="d-icon-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="post post-image-gap appear-animate"
-                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
-                            <figure class="post-media">
-                                <a href="post-single.html">
-                                    <img src="images/demos/demo34/blog/3.jpg" width="400" height="240" alt="post" />
-                                </a>
-                                <div class="post-calendar">
-                                    <span class="post-day">19</span>
-                                    <span class="post-month">JAN</span>
-                                </div>
-                            </figure>
-                            <div class="post-details">
-                                <h4 class="post-title"><a href="post-single.html">Utaliquam sollicitudin leo</a></h4>
-                                <p class="post-content">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
-                                    sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti.…</p>
-                                <a href="post-single.html" class="btn btn-link btn-underline btn-primary btn-md">Read
-                                    More<i class="d-icon-arrow-right"></i></a>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </section>
 

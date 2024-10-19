@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog\Post;
 use App\Models\Cart;
+use App\Models\Shop\Category;
 use App\Models\Shop\Customer;
 use App\Models\Shop\Order;
 use App\Models\Shop\OrderItem;
@@ -22,7 +24,15 @@ class ShopController extends Controller
             return $item->product->price * $item->quantity;
         });
 
-        return view('pages.home', compact('cartItems', 'total'));
+        // Get paginated posts
+        $posts = Post::paginate(10);
+
+        // Get 3 most recent posts
+        $recentPosts = Post::orderBy('created_at', 'desc')->take(3)->get();
+
+//        return view('posts.index',);
+
+        return view('pages.home', compact('cartItems', 'total', 'posts', 'recentPosts'));
     }
 
     function getCartItems()
@@ -172,5 +182,16 @@ class ShopController extends Controller
     private function generateOrderNumber()
     {
         return 'ORD-' . strtoupper(uniqid());
+    }
+
+    public function showAllCategorie()
+    {
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
+    }
+
+    public function showCategorie(Category $category)
+    {
+        return view('categories.show', compact('category'));
     }
 }
