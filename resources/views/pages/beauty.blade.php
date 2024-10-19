@@ -153,18 +153,18 @@
                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 video-wrap">
                                                 <div class="video">
                                                     <figure class="video-media">
-                                                        <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" target="_blank">
-                                                            <img src="https://img.youtube.com/vi/h6rP2yP4VWo/hqdefault.jpg" alt="vidéo" width="360" height="400" style="border-radius: 10px;">
+                                                        <a href="https://www.youtube.com/watch?v=VYBhR94j02M" target="_blank">
+                                                            <img src="https://img.youtube.com/vi/VYBhR94j02M/hqdefault.jpg" alt="vidéo" width="360" height="400" style="border-radius: 10px;">
                                                         </a>
                                                         <div class="video-action-vertical">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" class="btn-video-icon btn-watch" title="Regarder la vidéo">
+                                                            <a href="https://www.youtube.com/watch?v=VYBhR94j02M" class="btn-video-icon btn-watch" title="Regarder la vidéo">
                                                                 <i class="d-icon-play"></i>
                                                             </a>
                                                         </div>
                                                     </figure>
                                                     <div class="video-details">
                                                         <h6 class="video-name">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo">Apprendre les bases du coiffage</a>
+                                                            <a href="https://www.youtube.com/watch?v=VYBhR94j02M">Techniques avancées de coiffage</a>
                                                         </h6>
                                                     </div>
                                                 </div>
@@ -173,62 +173,24 @@
                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 video-wrap">
                                                 <div class="video">
                                                     <figure class="video-media">
-                                                        <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" target="_blank">
-                                                            <img src="https://img.youtube.com/vi/h6rP2yP4VWo/hqdefault.jpg" alt="vidéo" width="360" height="400" style="border-radius: 10px;">
+                                                        <a href="https://www.youtube.com/watch?v=t0C1UlEDPqw&t=20s" target="_blank">
+                                                            <img src="https://img.youtube.com/vi/t0C1UlEDPqw/hqdefault.jpg" alt="vidéo" width="360" height="400" style="border-radius: 10px;">
                                                         </a>
                                                         <div class="video-action-vertical">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" class="btn-video-icon btn-watch" title="Regarder la vidéo">
+                                                            <a href="https://www.youtube.com/watch?v=t0C1UlEDPqw&t=20s" class="btn-video-icon btn-watch" title="Regarder la vidéo">
                                                                 <i class="d-icon-play"></i>
                                                             </a>
                                                         </div>
                                                     </figure>
                                                     <div class="video-details">
                                                         <h6 class="video-name">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo">Apprendre les bases du coiffage</a>
-                                                        </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 video-wrap">
-                                                <div class="video">
-                                                    <figure class="video-media">
-                                                        <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" target="_blank">
-                                                            <img src="https://img.youtube.com/vi/h6rP2yP4VWo/hqdefault.jpg" alt="vidéo" width="360" height="400" style="border-radius: 10px;">
-                                                        </a>
-                                                        <div class="video-action-vertical">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" class="btn-video-icon btn-watch" title="Regarder la vidéo">
-                                                                <i class="d-icon-play"></i>
-                                                            </a>
-                                                        </div>
-                                                    </figure>
-                                                    <div class="video-details">
-                                                        <h6 class="video-name">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo">Apprendre les bases du coiffage</a>
-                                                        </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 video-wrap">
-                                                <div class="video">
-                                                    <figure class="video-media">
-                                                        <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" target="_blank">
-                                                            <img src="https://img.youtube.com/vi/h6rP2yP4VWo/hqdefault.jpg" alt="vidéo" width="360" height="400" style="border-radius: 10px;">
-                                                        </a>
-                                                        <div class="video-action-vertical">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo" class="btn-video-icon btn-watch" title="Regarder la vidéo">
-                                                                <i class="d-icon-play"></i>
-                                                            </a>
-                                                        </div>
-                                                    </figure>
-                                                    <div class="video-details">
-                                                        <h6 class="video-name">
-                                                            <a href="https://www.youtube.com/watch?v=h6rP2yP4VWo">Apprendre les bases du coiffage</a>
+                                                            <a href="https://www.youtube.com/watch?v=t0C1UlEDPqw&t=20s">Tutoriel sur l'utilisation avancée des appareils de coiffage</a>
                                                         </h6>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
 
                                     </div>
                                 </div>
