@@ -10,7 +10,7 @@
                             <figure class="product-media">
                                 <a href="{{ route('products.show', $product->id) }}">
 
-                                    <img src="{{ asset('storage/'.$product->image_1) }}"
+                                    <img src="{{ asset('storage/'.$product->image) }}"
                                          alt="{{ $product->name }}"
                                          width="300"
                                          height="338"
@@ -19,7 +19,7 @@
                             </figure>
                             <div class="product-details">
                                 <h3 class="product-name">
-                                    <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                    <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                                 </h3>
                                 <div class="product-price">
                                     MAD {{ number_format($product->price, 2) }}
@@ -29,7 +29,7 @@
                                         <span class="ratings" style="width:{{ $product->rating * 20 }}%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="{{ route('products.show', $product->slug) }}" class="rating-reviews">({{ $product->reviews_count }} reviews)</a>
+                                    <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">({{ $product->reviews_count }} reviews)</a>
                                 </div>
                             </div>
                         </div>
