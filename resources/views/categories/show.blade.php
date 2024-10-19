@@ -11,8 +11,8 @@
                 <ul class="breadcrumb pb-0">
                     <li class="text-dark"><a href="{{route('index')}}" class="text-dark"><i class="d-icon-home"></i></a>
                     </li>
-                    <li class="delimiter text-dark">/</li>
-                    <li class="text-dark">Categorie</li>
+{{--                    <li class="delimiter text-dark">/</li>--}}
+{{--                    <li class="text-dark">Categorie</li>--}}
                 </ul>
             </div>
             <!-- End PageHeader -->

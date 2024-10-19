@@ -19,7 +19,7 @@
             <div class="page-content mb-10 pb-3 mt-5">
                 <div class="container">
                     <section class="default-section">
-                        <h2 class="title title-center">Catégories</h2>
+{{--                        <h2 class="title title-center">Catégories</h2>--}}
                         <div class="code-template">
                             <div class="row g-4">
                                 @foreach($categories as $category)
