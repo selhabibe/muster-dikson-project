@@ -9,14 +9,14 @@
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="{{ route('products.show', $product->id) }}">
-
-                                    @if ($product->getFirstMediaUrl('product-images'))
-                                        <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-                                        <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-                                    @endif
-
+{{--                                    <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"--}}
+{{--                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">--}}
+{{--                                    --}}
+                                    <img src="{{ $product->getFirstMediaUrl('product-images') }} }}"
+                                         alt="{{ $product->name }}"
+                                         width="300"
+                                         height="338"
+                                         style="object-fit: cover; width: 100%; height: 100%;">
                                 </a>
                             </figure>
                             <div class="product-details">
