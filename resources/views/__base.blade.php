@@ -55,6 +55,8 @@
 
         @include('__libsjs')
 
+        @include('__menu_mobile')
+
         @yield('scripts')
 
     </body>

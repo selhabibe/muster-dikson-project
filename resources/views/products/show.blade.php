@@ -46,10 +46,7 @@
                             <div class="product-details">
                                 <div class="product-navigation">
                                     <ul class="breadcrumb breadcrumb-lg">
-                                        <li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
-                                        <li class="delimiter">/</li>
-                                        <li><a href="product.html" class="active">Products</a></li>
-                                        <li class="delimiter">/</li>
+                                        <li><a href="{{route("index")}}"><i class="d-icon-home"></i></a></li>
                                         <li>{{ $product->name }}</li>
                                     </ul>
 

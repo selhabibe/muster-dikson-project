@@ -1,88 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-
-    <title>Muster Dikson</title>
-
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Riode - Ultimate eCommerce Template">
-    <meta name="author" content="D-THEMES">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/icons/favicon.png">
-
-    <script>
-        WebFontConfig = {
-            google: { families: [ 'Poppins:400,500,600,700' ] }
-        };
-        ( function ( d ) {
-            var wf = d.createElement( 'script' ), s = d.scripts[ 0 ];
-            wf.src = 'js/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore( wf, s );
-        } )( document );
-    </script>
+@extends('.__base_main')
 
 
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/fontawesome-free/css/all.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/animate/animate.min.css')}}">
-
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/magnific-popup/magnific-popup.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/owl-carousel/owl.carousel.min.css')}}">
-
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/sticky-icon/stickyicon.css')}}">
-
-    <!-- Main CSS File -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.min.css')}}">
-</head>
-
-<body class="contact-us">
+@section('content')
 
 <div class="page-wrapper">
-    <header class="header header-border">
-        <div class="header-top">
-            <div class="container">
-                <div class="header-left">
-                    <p class="welcome-msg">Bienvenue dans la boutique Muster & Dikson!</p>
-                </div>
-                <div class="header-right">
-                    <span class="divider"></span>
-                    <a href="{{route('contact')}}" class="contact d-lg-show"><i class="d-icon-map"></i>Contact</a>
-                </div>
-            </div>
-        </div>
-        <!-- End HeaderTop -->
-        <div class="header-middle sticky-header fix-top sticky-content">
-            <div class="container d-flex justify-content-center align-items-center">
-{{--                <div class="d-flex justify-content-center align-items-center">--}}
-                    <a href="#" class="mobile-menu-toggle">
-                        <i class="d-icon-bars2"></i>
-                    </a>
-                    <a href="{{route('index')}}" class="logo">
-                        <img src="{{asset('images/logo/logo.jpg')}}" alt="logo" width="253" height="84" />
-                    </a>
-            </div>
-        </div>
 
-        <div class="header-bottom d-lg-show">
-            <div class="container">
-                <div class="header-left">
-                    <nav class="main-nav">
-                        <ul class="menu">
-                            <li>
-                                <a href="{{route('index')}}">Home</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- End Header -->
     <main class="main">
         <nav class="breadcrumb-nav">
             <div class="container">
@@ -209,17 +131,12 @@
     </main>
     <!-- End Main -->
     @include('__footer')
+    @include('__menu_mobile')
 
     <!-- End Footer -->
 </div>
-<!-- Scroll Top -->
-<a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="d-icon-arrow-up"></i></a>
 
 
-<!-- Plugins JS File -->
-<script src="{{asset('vendor/template/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('vendor/template/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('vendor/template/jquery.gmap/jquery.gmap.min.js')}}"></script>
 
 <!-- Main JS File -->
 <script src="{{asset('js/main.min.js')}}"></script>
@@ -274,6 +191,5 @@
     }
 
 </script>
-</body>
 
-</html>
+@endsection('content')

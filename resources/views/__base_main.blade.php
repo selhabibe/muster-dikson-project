@@ -47,6 +47,7 @@
 
     @yield('content')
 
+    @include('__menu_mobile')
     @include('__footer')
 
     <!-- Plugins JS File -->
