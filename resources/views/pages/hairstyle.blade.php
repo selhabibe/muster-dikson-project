@@ -7,7 +7,7 @@
         <main class="main">
             <div class="page-header"
                  style="background-image: url('images/demos/demo-beauty/page-header.jpg'); background-color: #ECEDF1;">
-                <h1 class="page-title font-weight-bold text-dark">Beauté</h1>
+                <h1 class="page-title font-weight-bold text-dark">Coiffure</h1>
                 <ul class="breadcrumb pb-0">
                     <li class="text-dark"><a href="{{route('index')}}" class="text-dark"><i class="d-icon-home"></i></a>
                     </li>
