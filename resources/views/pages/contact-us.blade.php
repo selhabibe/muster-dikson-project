@@ -130,7 +130,6 @@
 
     </main>
     <!-- End Main -->
-    @include('__footer')
     @include('__menu_mobile')
 
     <!-- End Footer -->
