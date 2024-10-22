@@ -4,7 +4,8 @@
 
         <div class="products-group split-line row box-shadow-2 bg-white gutter-no mb-6">
             @foreach($products as $product)
-                <div class="col-lg-3 col-md-4 col-6">
+                @if ($product->is_visible)
+                    <div class="col-lg-3 col-md-4 col-6">
                     <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
@@ -40,6 +41,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             @endforeach
 
         </div>

@@ -30,7 +30,8 @@
 
                     <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
                         @foreach($products as $product)
-                            <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
+                            @if ($product->is_visible)
+                                <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
                                 <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                     <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
                                         <a href="{{ route('products.show', $product->id) }}">
@@ -65,6 +66,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         @endforeach
                     </div>
 
