@@ -24,17 +24,14 @@
                             <a class="sidebar-close" href="#"><i class="d-icon-times"></i></a>
                         </aside>
                     </nav>
-                    <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
+                    <div class="row product-wrapper" style="display: flex; flex-wrap: wrap;">
                         @foreach($products as $product)
-                            <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-wrap" style="display: flex; flex-direction: column; margin-bottom: 1rem;">
                                 <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                     <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
                                         <a href="{{ route('products.show', $product->id) }}">
                                             @if ($product->getFirstMediaUrl('product-images'))
-                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                                                <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
                                             @endif
                                         </a>
                                         <div class="product-action-vertical">
