@@ -83,9 +83,9 @@
     <!-- End Footer Middle -->
     <div class="container">
         <div class="footer-bottom">
-            <div class="footer-left">
-                <img width="90" height="100" src="{{asset('images/front/madeinitaly.png')}}">
-            </div>
+{{--            <div class="footer-left">--}}
+{{--                <img width="90" height="100" src="{{asset('images/front/madeinitaly.png')}}">--}}
+{{--            </div>--}}
             <div class="footer-center">
                 <p class="copyright">Muster & Dikson &copy; 2024 | <a href="#"> Conditions Générales</a> </p>
             </div>

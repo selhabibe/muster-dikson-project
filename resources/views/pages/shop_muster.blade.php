@@ -27,7 +27,7 @@
                     <div class="row product-wrapper" style="display: flex; flex-wrap: wrap;">
                         @foreach($products as $product)
                             @if ($product->is_visible)
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-wrap" style="display: flex; flex-direction: column; margin-bottom: 1rem;">
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-wrap" style="display: flex; flex-direction: column; margin-bottom: 1rem;">
                                 <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                     <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
                                         <a href="{{ route('products.show', $product->id) }}">
