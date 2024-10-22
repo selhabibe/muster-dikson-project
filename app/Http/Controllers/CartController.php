@@ -147,6 +147,43 @@ class CartController extends Controller
         return response()->json(['success' => 'Cart item updated successfully!']);
     }
 
+    public function update(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity');
+
+        // Get the cart from the session
+        $cart = session()->get('cart', []);
+
+        dd("5544");
+        if (isset($cart[$productId])) {
+            // Update the quantity
+            if ($quantity > 0) {
+                $cart[$productId]['quantity'] = $quantity;
+            } else {
+                // Remove the item if quantity is 0
+                unset($cart[$productId]);
+            }
+
+            // Update the session with the modified cart
+            session()->put('cart', $cart);
+
+            // Recalculate subtotal
+            $newSubtotal = 0;
+            foreach ($cart as $item) {
+                $newSubtotal += $item['quantity'] * $item['price'];
+            }
+
+            return response()->json([
+                'newSubtotal' => $newSubtotal,
+                'productSubtotal' => $cart[$productId]['quantity'] * $cart[$productId]['price']
+            ]);
+        }
+
+
+        return response()->json(['error' => 'Product not found in the cart'], 404);
+    }
+
 
     public function updateQuantity(Request $request)
     {

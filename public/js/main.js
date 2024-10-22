@@ -214,7 +214,7 @@ window.Riode = {};
             paddingOffsetBottom: 0,
         },
         templateCartAddedAlert: '<div class="alert alert-simple alert-btn cart-added-alert">' +
-            '<a href="/cart" class="btn btn-success btn-md">View Cart</a>' +
+            '<a href="/cart" class="btn btn-success btn-md">Voir panier</a>' +
             '<span>"{{name}}" has been added to your cart.</span>' +
             '<button type="button" class="btn btn-link btn-close"><i class="d-icon-times"></i></button>' +
             '</div>',
@@ -1932,7 +1932,7 @@ window.Riode = {};
                     document.body.classList.contains('home')
                 ) {
                     Riode.Minipopup.open({
-                        message: 'Successfully Added',
+                        message: 'Ajouté avec succès',
                         productClass: 'product-cart',
                         name: name,
                         nameLink: $product.find('.product-name > a').attr('href'),
@@ -1941,7 +1941,7 @@ window.Riode = {};
                         price: $product.find('.product-variation-price').length > 0 ? $product.find('.product-variation-price').children('span').html() : $product.find('.product-price .price').html(),
 
                         count: $product.find('.quantity').val(),
-                        actionTemplate: '<div class="action-group d-flex mt-3"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded mr-2">View Cart</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                        actionTemplate: '<div class="action-group d-flex mt-3"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded mr-2">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
                     });
                 }
             });
@@ -1961,7 +1961,7 @@ window.Riode = {};
                         document.body.classList.contains('home'))) & ($product.find('.btn-product.btn-cart').attr('disabled') != 'disabled')
                 ) {
                     Riode.Minipopup.open({
-                        message: 'Successfully Added',
+                        message: 'Ajouté avec succès',
                         productClass: 'product-compare',
                         name: name,
                         nameLink: $product.find('.product-name > a').attr('href'),
@@ -2129,7 +2129,7 @@ window.Riode = {};
             var $product = $(e.currentTarget).closest('.product-single');
             if ($product.find('.btn-product.btn-cart').attr('disabled') != 'disabled') {
                 Riode.Minipopup.open({
-                    message: 'Successfully Added',
+                    message: 'Ajouté avec succès',
                     productClass: 'product-compare',
                     name: $product.find('h1.product-name').text(),
                     nameLink: $product.find('.product-name > a').attr('href'),
@@ -3501,7 +3501,7 @@ window.Riode = {};
                         // if not product single, then open minipopup
                         $product.hasClass('product-single') ||
                             Riode.Minipopup.open({
-                                message: 'Successfully Added',
+                                message: 'Ajouté avec succès',
                                 productClass: 'product-cart',
                                 name: $productName.find('a').text(),
                                 nameLink: $productName.find(' a ').attr('href'),
@@ -3509,13 +3509,13 @@ window.Riode = {};
                                 imageLink: $productName.find(' a ').attr('href'),
                                 price: productPrice,
                                 count: $product.find('.quantity').length > 0 ? $product.find('.quantity').val() : 1,
-                                actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">View Cart</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                                actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
                             });
                     } else {
                         // if not product single, then open minipopup
                         $product.hasClass('product-single') ||
                             Riode.Minipopup.open({
-                                message: 'Successfully Added',
+                                message: 'Ajouté avec succès',
                                 productClass: 'product-cart',
                                 name: $product.find('.product-name').text(),
                                 nameLink: $product.find('.product-name > a').attr('href'),
@@ -3523,7 +3523,7 @@ window.Riode = {};
                                 imageLink: $product.find('.product-name > a').attr('href'),
                                 price: $product.find('.product-price .new-price, .product-price .price').html(),
                                 count: $product.find('.quantity').length > 0 ? $product.find('.quantity').val() : 1,
-                                actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">View Cart</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                                actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
                             });
                     }
                 })
@@ -3533,7 +3533,7 @@ window.Riode = {};
                     e.preventDefault();
                     var $tooltip = $(this).closest('.tooltip');
                     Riode.Minipopup.open({
-                        message: 'Successfully Added To Cart',
+                        message: 'Ajouté avec succès',
                         productClass: 'product-cart',
                         name: $tooltip.find('.tooltip-name').text(),
                         nameLink: $tooltip.find('.tooltip-name > a').attr('href'),
@@ -3541,7 +3541,7 @@ window.Riode = {};
                         imageLink: $tooltip.find('.tooltip-name > a').attr('href'),
                         price: $tooltip.find('.tooltip-price .new-price, .tooltip-price .price').html(),
                         count: $tooltip.find('.quantity').length > 0 ? $tooltip.find('.quantity').val() : 1,
-                        actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">View Cart</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                        actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
                     });
                 });
         },

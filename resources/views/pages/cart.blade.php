@@ -8,7 +8,7 @@
             <div class="page-content pt-7 pb-10">
                 <div class="step-by pr-4 pl-4">
                     <h3 class="title title-simple title-step active">1. Shopping Cart</h3>
-                    <h3 class="title title-simple title-step">2. Checkout</h3>
+                    <h3 class="title title-simple title-step">2. Info contact</h3>
                     <h3 class="title title-simple title-step">3. Order Complete</h3>
                 </div>
                 <div class="container mt-7 mb-2">
