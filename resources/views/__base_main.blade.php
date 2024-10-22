@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title>Muster Dikson</title>
+    <title>Muster & Dikson</title>
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Riode - Ultimate eCommerce Template">
     <meta name="author" content="D-THEMES">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/icons/favicon.png">
+    <link rel="icon" href="{{asset('images/front/favicon-32x32.png')}}" type="image/x-icon">
 
     <script>
         WebFontConfig = {
