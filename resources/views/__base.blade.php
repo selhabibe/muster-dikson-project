@@ -11,7 +11,7 @@
         <meta name="author" content="D-THEMES">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="images/icons/favicon.png">
+        <link rel="icon" href="{{asset('images/front/favicon-32x32.png')}}" type="image/x-icon">
         <!-- Preload Font -->
         <link rel="preload" href="fonts/riode.ttf?5gap68" as="font" type="font/woff2" crossorigin="anonymous">
         <link rel="preload" href="vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
