@@ -38,9 +38,11 @@ class AppServiceProvider extends ServiceProvider
             $sessionId = $request->session()->getId();
             $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
 
+
             // Calculate the total
             $total = $cartItems->sum(function ($item) {
-                return $item->product->price * $item->quantity;
+                if ($item->product) return $item->product->price * $item->quantity;
+                else return 0;
             });
 
             $view->with([
