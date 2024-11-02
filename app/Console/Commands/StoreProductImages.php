@@ -105,7 +105,6 @@ class StoreProductImages extends Command
                 $originalFileName = basename($file);
                 $name = pathinfo($originalFileName, PATHINFO_FILENAME);
 
-                // Extract product name and code from the folder name
                 $productInfo = explode('_', basename($folder));
                 $productName = $productInfo[0];
                 $productCode = $productInfo[1] ?? null;
@@ -118,7 +117,6 @@ class StoreProductImages extends Command
                     continue;
                 }
 
-                // Create a new Media entry
                 $media = new Media();
                 $media->model_id = $product->id;
                 $media->model_type = Product::class;
