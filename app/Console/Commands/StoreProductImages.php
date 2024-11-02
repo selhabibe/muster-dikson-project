@@ -142,6 +142,10 @@ class StoreProductImages extends Command
 
                 $this->info("Stored image for product: $productName in folder: $mediaFolder with filename: $originalFileName");
             }
+
+            // Delete the folder after processing all files
+            Storage::disk('public')->deleteDirectory($folder);
+            $this->info("Deleted folder: $folder");
         }
 
         $this->info("All images processed successfully.");
