@@ -18,17 +18,6 @@
               crossorigin="anonymous">
         <link rel="preload" href="vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
               crossorigin="anonymous">
-        <script>
-            WebFontConfig = {
-                google: { families: [ 'Jost:300,400,500,600,700', 'Poppins:300,400,500,600,700,800' ] }
-            };
-            ( function ( d ) {
-                var wf = d.createElement( 'script' ), s = d.scripts[ 0 ];
-                wf.src = 'js/webfont.js';
-                wf.async = true;
-                s.parentNode.insertBefore( wf, s );
-            } )( document );
-        </script>
 
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/fontawesome-free/css/all.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/animate/animate.min.css')}}">
@@ -41,6 +30,7 @@
 
         <!-- Main CSS File -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/demo34.min.css')}}">
+{{--        <link rel="stylesheet" type="text/css" href="{{ asset('css/demo-beauty.min.css')}}">--}}
 
 
     </head>

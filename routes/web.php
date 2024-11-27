@@ -68,6 +68,11 @@ Route::get('/hairstyle', [ShopController::class, 'hairstyle'])->name('hairstyle'
 Route::get('/beauty', [ShopController::class, 'beauty'])->name('beauty');
 
 
+Route::get('/illaminaction', function () {
+    return view('pages.illaminaction');
+})->name('illaminaction');
+
+
 Route::get('/hygiene-safety', function () {
     return view('pages.coming-soon');
 })->name('hygiene-safety');

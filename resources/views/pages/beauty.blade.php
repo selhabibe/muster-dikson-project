@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="page-wrapper">
-
         <main class="main">
             <div class="page-header"
                  style="background-image: url('images/demos/demo-beauty/page-header.jpg'); background-color: #ECEDF1;">
@@ -199,13 +198,10 @@
                     </section>
 
 
-
                     @include('__new_product')
 
                 </div>
             </div>
         </main>
-
-        <!-- End Footer -->
     </div>
 @endsection('content')
