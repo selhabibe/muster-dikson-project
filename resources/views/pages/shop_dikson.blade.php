@@ -1,6 +1,6 @@
 @extends('.__base')
 
-@section('content')php
+@section('content')
 
     <div class="page-wrapper">
 
