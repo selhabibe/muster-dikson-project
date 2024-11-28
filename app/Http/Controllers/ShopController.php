@@ -43,7 +43,7 @@ class ShopController extends Controller
 
     public function showDiksonProducts()
     {
-        $products = Product::whereHas('categories', function ($query) {
+        $products = Product::whereHas('brand', function ($query) {
             $query->where('name', 'dikson');
         })->withCount('comments')
             ->get();
