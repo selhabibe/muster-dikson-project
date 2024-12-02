@@ -22,7 +22,7 @@
 
                                 </div>
                                 <div class="product-thumbs-wrap" style="position: relative; display: flex; align-items: center;">
-                                    <div class="product-thumbs" style="display: flex; gap: 15px; overflow: hidden;">
+                                    <div class="product-thumbs" style="">
                                         @foreach($product->getMedia('product-images') as $media)
                                             @if ($media->getUrl())
                                                 <div class="product-thumb {{ $loop->first ? 'active' : '' }}" style="flex: 1; width: 100%; height: 150px; overflow: hidden; position: relative;">
