@@ -177,8 +177,7 @@ class ProductResource extends Resource
                                         $query->where('is_visible', true);
                                     })
                                     ->multiple()
-                                    ->required()
-                                    ->searchable(false),
+                                    ->required(),
                             ]),
                     ])
                     ->columnSpan(['lg' => 1]),
