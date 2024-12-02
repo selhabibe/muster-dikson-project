@@ -93,9 +93,9 @@
                                     <span class="link-to-tab rating-reviews">( 6 avis )</span>
                                 </div>
                                 <p class="product-short-desc">
-                                    @if(!is_null($product->short_desc))
-                                        {!! \Illuminate\Support\Str::markdown($product->description) !!}
-                                    @endif
+                                @if (!is_null($product->short_desc))
+                                    {!! \Illuminate\Support\Str::markdown($product->description ?? '') !!}
+                                @endif
 
                                 <hr class="product-divider">
 
