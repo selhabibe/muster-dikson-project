@@ -173,7 +173,9 @@ class ProductResource extends Resource
                                     ->hiddenOn(ProductsRelationManager::class),
 
                                 Forms\Components\Select::make('categories')
-                                    ->relationship('categories', 'name')
+                                    ->relationship('categories', 'name', function ($query) {
+                                        $query->where('is_visible', true);
+                                    })
                                     ->multiple()
                                     ->required(),
                             ]),
