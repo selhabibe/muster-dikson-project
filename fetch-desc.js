@@ -17,7 +17,11 @@ import fs from 'fs';
         const exportDir = path.join('public', 'exports');
         fs.mkdirSync(exportDir, { recursive: true });
 
-        const exportFilePath = path.join(exportDir, 'ps_test2.xlsx');
+        const now = new Date();
+        const year = now.getFullYear(); // Get the year (e.g., 2024)
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Get the month (e.g., 12)
+
+        const exportFilePath = path.join(exportDir, `ps_test2_${year}_${month}.xlsx`);
 
         // Load existing workbook or create new one
         const workbook = new ExcelJS.Workbook();
