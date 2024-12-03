@@ -9,12 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "deeplcom/deepl-php": "^1.10",
         "filament/filament": "^3.0",
         "filament/spatie-laravel-media-library-plugin": "^3.0",
         "filament/spatie-laravel-settings-plugin": "^3.0",
         "filament/spatie-laravel-tags-plugin": "^3.0",
         "filament/spatie-laravel-translatable-plugin": "^3.0",
         "flowframe/laravel-trend": "^0.2.0",
+        "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^11.0",
         "laravel/horizon": "^5.21",
         "laravel/sanctum": "^4.0",
@@ -82,7 +84,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "composer/package-versions-deprecated": true
+            "composer/package-versions-deprecated": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "dev",

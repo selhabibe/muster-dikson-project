@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Shop\Product;
+use App\Services\TranslationService;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Facades\Storage;
@@ -27,13 +28,16 @@ class ProductImport implements ToModel, WithHeadingRow
             $counter++;
         }
 
+        $descriptionTranslated = $this->updateDescription($row['description']);
+
+
        return  new Product([
             'shop_brand_id' => $row['shop_brand_id'],
             'name' => $row['name'],
             'slug' => $slug,
             'sku' => $row['sku'],
             'barcode' => $row['barcode'],
-            'description' => $row['description'],
+            'description' => $descriptionTranslated,
             'qty' => $row['qty'],
             'security_stock' => $row['security_stock'],
             'featured' => $row['featured'],
@@ -58,6 +62,18 @@ class ProductImport implements ToModel, WithHeadingRow
             'volume_value' => $row['volume_value'],
             'volume_unit' => $row['volume_unit'],
         ]);
+    }
+
+    public function updateDescription($description)
+    {
+        $translationService = new TranslationService();
+        try {
+            $translatedDescription = $translationService->translate($description);
+            dd($translatedDescription);
+            return $translatedDescription;
+        } catch (\Exception $e) {
+            return 'Translation failed: ' . $e->getMessage();
+        }
     }
 
 }
