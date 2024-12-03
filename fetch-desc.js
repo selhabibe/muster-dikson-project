@@ -21,7 +21,7 @@ import fs from 'fs';
         const year = now.getFullYear(); // Get the year (e.g., 2024)
         const month = String(now.getMonth() + 1).padStart(2, '0'); // Get the month (e.g., 12)
 
-        const exportFilePath = path.join(exportDir, `ps_test2_${year}_${month}.xlsx`);
+        const exportFilePath = path.join(exportDir, `product_list_${year}_${month}.xlsx`);
 
         // Load existing workbook or create new one
         const workbook = new ExcelJS.Workbook();
@@ -82,7 +82,7 @@ import fs from 'fs';
             faker.number.int({ min: 1, max: 100 }), // qty
             faker.number.int({ min: 1, max: 50 }), // security_stock
             faker.datatype.boolean(), // featured
-            faker.datatype.boolean(), // is_visible
+            false, // is_visible
             faker.commerce.price(), // old_price
             faker.commerce.price(), // price
             faker.commerce.price(), // cost
