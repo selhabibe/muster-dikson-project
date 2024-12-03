@@ -36,10 +36,9 @@ class XlsxParserService
 
     private function fetchTitleFromUrl($url)
     {
-        dump($url);
+        dump("Product URL -> ".$url);
         try {
             // Command to execute Puppeteer script
-//            $command = "node fetch-title.js " . escapeshellarg($url);
             $command = "node fetch-title.js " . escapeshellarg($url);
 
             // Execute the command and capture the output
@@ -54,7 +53,7 @@ class XlsxParserService
     }
   private function fetchDescFromUrl($url)
     {
-        dump($url);
+        dump("Product URL -> ".$url);
         try {
             // Command to execute Puppeteer script
             $command = "node fetch-desc.js " . escapeshellarg($url);

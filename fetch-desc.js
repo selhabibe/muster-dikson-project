@@ -64,7 +64,7 @@ import fs from 'fs';
             const description = Array.from(paragraphs)
                 .map(p => p.textContent.trim())
                 .filter(text => text !== '')
-                .join('\n');
+                .join('');
 
             return { title, description };
         });

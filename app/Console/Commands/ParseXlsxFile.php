@@ -7,18 +7,8 @@ use Illuminate\Console\Command;
 
 class ParseXlsxFile extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'parse:xlsx';
+    protected $signature = 'parse:product-list';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Parse an XLSX file and fetch titles from URLs';
 
     protected $parserService;
@@ -29,13 +19,12 @@ class ParseXlsxFile extends Command
         $this->parserService = $parserService;
     }
 
-
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
-        $filePath = 'C:\Users\ASUS\OneDrive\Bureau\projet\DYNAMIQUE git\m-d-project\muster-dikson-project\public\dikson_products_list4.xlsx';
+        $year = date('Y');
+        $month = date('m');
+
+        $filePath = public_path("dikson_products_list4_{$year}_{$month}.xlsx");
 
         $this->info("Parsing file at: $filePath");
         $results = $this->parserService->parseXlsxFile($filePath);
@@ -51,4 +40,5 @@ class ParseXlsxFile extends Command
 
         $this->info('Parsing complete!');
     }
+
 }

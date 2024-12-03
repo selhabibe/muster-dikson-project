@@ -28,7 +28,7 @@ class ProductImport implements ToModel, WithHeadingRow
             $counter++;
         }
 
-        $descriptionTranslated = $this->updateDescription($row['description']);
+        $descriptionTranslated = $this->translateDescription($row['description']);
 
 
        return  new Product([
@@ -64,7 +64,7 @@ class ProductImport implements ToModel, WithHeadingRow
         ]);
     }
 
-    public function updateDescription($description)
+    public function translateDescription($description)
     {
         $translationService = new TranslationService();
         try {
