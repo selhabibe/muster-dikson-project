@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
+use DeepL\Translator;
 
 class TranslationService
 {
@@ -18,12 +19,12 @@ class TranslationService
         $this->apiKey = env('TRANSLATION_API_KEY');
     }
 
-    public function translate($text, $sourceLang=null, $targetLang = 'fr' )
+    public function translate($text, $sourceLang = null, $targetLang = 'fr' )
     {
 
         if (static::PROD){
             $authKey = $this->apiKey;
-            $translator = new \DeepL\Translator($authKey);;
+            $translator = new Translator($authKey);;
             $result = $translator->translateText($text, $sourceLang, $targetLang);
             return $result->text ?? '';
         }

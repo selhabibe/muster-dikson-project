@@ -69,7 +69,6 @@ class ProductImport implements ToModel, WithHeadingRow
         $translationService = new TranslationService();
         try {
             $translatedDescription = $translationService->translate($description);
-            dd($translatedDescription);
             return $translatedDescription;
         } catch (\Exception $e) {
             return 'Translation failed: ' . $e->getMessage();
