@@ -1,1 +1,6 @@
 ssh root@68.183.47.128
+
+
+php artisan parse:xlsx
+
+php artisan app:import-product ''
