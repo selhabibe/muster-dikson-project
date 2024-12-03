@@ -35,7 +35,7 @@ class ParseXlsxFile extends Command
      */
     public function handle()
     {
-        $filePath = 'C:\Users\ASUS\OneDrive\Bureau\projet\DYNAMIQUE git\m-d-project\muster-dikson-project\public\dikson_products_list1.xlsx';
+        $filePath = 'C:\Users\ASUS\OneDrive\Bureau\projet\DYNAMIQUE git\m-d-project\muster-dikson-project\public\dikson_products_list4.xlsx';
 
         $this->info("Parsing file at: $filePath");
         $results = $this->parserService->parseXlsxFile($filePath);
