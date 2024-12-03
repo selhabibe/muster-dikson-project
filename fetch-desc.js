@@ -27,19 +27,18 @@ import puppeteer from 'puppeteer';
         // Wait for the #descrizione section to appear on the page
         await page.waitForSelector('#descrizione', { timeout: 20000 });
 
-        // Extract all <p> tags content within #descrizione and join them
+        // Extract all <p> tags content within #descrizione and preserve the HTML structure
         const description = await page.evaluate(() => {
             const section = document.querySelector('#descrizione');
             const paragraphs = section.querySelectorAll('p');
             return Array.from(paragraphs)
-                .map(p => p.textContent.trim()) // Get text content of each <p>
-                .filter(text => text !== '') // Remove empty paragraphs
-                .join(' '); // Join all paragraphs into a single block of text
+                .map(p => p.outerHTML) // Get the entire <p> element (including the HTML)
+                .join(''); // Join all <p> tags as a single block of HTML without spaces
         });
 
         // Print the description if it exists
         if (description && description.length > 0) {
-            console.log(description); // Output the joined paragraphs as one block of text
+            console.log(description); // Output the raw HTML of <p> tags
         } else {
             console.error("No description found!");
         }
