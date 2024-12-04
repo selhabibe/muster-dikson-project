@@ -59,6 +59,9 @@ import fs from 'fs';
             const titleElement = document.querySelector('#descrizione h2');
             const title = titleElement ? titleElement.textContent.trim() : '';
 
+            const codeElement = document.querySelector('#descrizione h3');
+            const code = codeElement ? codeElement.textContent.trim() : '';
+
             const section = document.querySelector('#descrizione');
             const paragraphs = section.querySelectorAll('p');
             const description = Array.from(paragraphs)
@@ -66,29 +69,29 @@ import fs from 'fs';
                 .filter(text => text !== '')
                 .join('');
 
-            return { title, description };
+            return { title, description, code };
         });
 
         await browser.close();
 
         // Add new row with scraped and generated data
         const dataRow = [
-            faker.number.int({ min: 1, max: 3 }), // shop_brand_id
+            2, // shop_brand_id
             pageData.title, // name
             faker.helpers.slugify(pageData.title.toLowerCase()), // slug
-            faker.string.uuid(), // sku
+            pageData.code, //faker.string.uuid(), // sku
             faker.number.int({ min: 100000000, max: 999999999 }), // barcode
             pageData.description, // description
-            faker.number.int({ min: 1, max: 100 }), // qty
-            faker.number.int({ min: 1, max: 50 }), // security_stock
+            faker.number.int({ min: 1, max: 10 }), // qty
+            faker.number.int({ min: 1, max: 10 }), // security_stock
             faker.datatype.boolean(), // featured
             false, // is_visible
             faker.commerce.price(), // old_price
             faker.commerce.price(), // price
             faker.commerce.price(), // cost
-            faker.helpers.arrayElement(['downloadable', 'deliverable']), // type
-            faker.datatype.boolean(), // backorder
-            faker.datatype.boolean(), // requires_shipping
+            faker.helpers.arrayElement(['deliverable']), // type
+            true, // backorder
+            true, // requires_shipping
             faker.date.past(), // published_at
             pageData.title, // seo_title
             pageData.description.substring(0, 160), // seo_description
