@@ -5,11 +5,11 @@ namespace App\Console\Commands;
 use App\Services\XlsxParserService;
 use Illuminate\Console\Command;
 
-class ParseXlsxFile extends Command
+class ParseXlsxFileCammand extends Command
 {
     protected $signature = 'parse:product-list';
 
-    protected $description = 'Parse an XLSX file and fetch titles from URLs';
+    protected $description = 'Parse an XLSX file and fetch titles and desc from URLs in a file named "dikson_products_list_2024_12.xlsx"';
 
     protected $parserService;
 

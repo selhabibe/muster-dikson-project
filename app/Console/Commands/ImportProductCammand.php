@@ -5,7 +5,7 @@ use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ProductImport;
 
-class ImportProduct extends Command
+class ImportProductCammand extends Command
 {
     /**
      * The name and signature of the console command.

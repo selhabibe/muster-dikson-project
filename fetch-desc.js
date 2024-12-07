@@ -46,13 +46,13 @@ import fs from 'fs';
         }
 
         // Launch browser and scrape data
-        // const browser = await puppeteer.launch({ headless: true });
+        const browser = await puppeteer.launch({ headless: true });
 
-        const browser = await puppeteer.launch({
-            executablePath: '/usr/bin/chromium-browser',
-            headless:true,
-
-        })
+        // const browser = await puppeteer.launch({
+        //     executablePath: '/usr/bin/chromium-browser',
+        //     headless:true,
+        //
+        // })
         const page = await browser.newPage();
         await page.setUserAgent(
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
