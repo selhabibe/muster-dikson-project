@@ -3,49 +3,40 @@ version: '3.8'
 services:
     app:
         build:
-            context: .
-            dockerfile: ./docker/apache/Dockerfile
-        container_name: filament_app
+            context: ..
+            dockerfile: docker/php/Dockerfile
+        container_name: filament-app
         ports:
             - "8080:80"
         volumes:
-            - ./your-filament-project-files:/var/www/html
-        depends_on:
-            - php
-            - db
-
-    php:
-        build:
-            context: .
-            dockerfile: ./docker/php/Dockerfile
-        container_name: filament_php
-        volumes:
-            - ./your-filament-project-files:/var/www/html
-        working_dir: /var/www/html
+            - ../:/var/www/html
+            - ./apache/apache.conf:/etc/apache2/sites-available/000-default.conf
         environment:
-            - APACHE_DOCUMENT_ROOT=/var/www/html/public
+            - APACHE_LOG_DIR=/var/log/apache2
 
     db:
         image: mysql:8.0
-        container_name: filament_db
+        container_name: filament-db
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: rootpassword
+            MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: filament
-            MYSQL_USER: filamentuser
-            MYSQL_PASSWORD: filamentpassword
+            MYSQL_USER: filament_user
+            MYSQL_PASSWORD: password
+        ports:
+            - "3306:3306"
         volumes:
             - db_data:/var/lib/mysql
 
     phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: filament_phpmyadmin
+        image: phpmyadmin:latest
+        container_name: phpmyadmin
         restart: always
-        ports:
-            - "8081:80"
         environment:
             PMA_HOST: db
-            MYSQL_ROOT_PASSWORD: rootpassword
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "8081:80"
 
 volumes:
     db_data:
