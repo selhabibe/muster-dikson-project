@@ -4,3 +4,14 @@ ssh root@68.183.47.128
 php artisan parse:product-list
 
 php artisan app:import-product public/exports/product_list_2024_12.xlsx
+
+php artisan app:store-product-images
+
+docker-compose up --build
+
+http://127.0.0.1:8080/
+
+phpmyadmin:  http://localhost:8081
+
+docker exec -it filament-app bash
+

@@ -28,68 +28,6 @@ class StoreProductImages extends Command
     /**
      * Execute the console command.
      */
-    public function handle2()
-    {
-        $productFolders = Storage::disk('public')->directories('products');
-        foreach ($productFolders as $folder) {
-            $files = Storage::disk('public')->files($folder);
-
-            foreach ($files as $file) {
-                $mimeType = Storage::disk('public')->mimeType($file);
-                $size = Storage::disk('public')->size($file);
-                $fileName = basename($file);
-                $name = pathinfo($fileName, PATHINFO_FILENAME);
-                $productInfo = explode('_', basename($folder));
-                $productName = $productInfo[0];
-                $productCode = $productInfo[1];
-
-                $product =  $this->getProduct($productCode);
-                if (!$product) {
-                    $this->error('Product not found.');
-                    return;
-                }
-
-//                dump($product);
-//                $media = new Media();
-//                $media->model_id = $product->id;
-//                $media->model_type = Product::class;
-//                $media->collection_name = 'product-images';
-//                $media->name = $name;
-//                $media->file_name = $fileName;
-//                $media->mime_type = $mimeType;
-//                $media->disk = 'public';
-//                $media->size = $size;
-//                $media->manipulations = json_encode([]);
-//                $media->custom_properties = json_encode([]);
-//                $media->generated_conversions = json_encode([]);
-//                $media->responsive_images = json_encode([]);
-//                $media->save();
-
-
-//                // Create a folder using the media id
-                $mediaFolder = storage_path('app/public/' . 76);
-//                dump($mediaFolder);
-//                if (!file_exists($mediaFolder)) {
-                    dump('not exist');
-//                    mkdir($mediaFolder, 0777, true);
-//                }
-//                dump('Exist');
-//
-//
-                $newImagePath = $mediaFolder . '/' . basename($fileName);
-//                dump($newImagePath);
-//                dump("file:");
-//                dump($file);
-                dump($folder);
-//                dump(Storage::disk('public'));
-
-//                Storage::disk('public')->move($file, $newImagePath);
-
-//                $this->info("Stored image for product: $productName");
-            }
-        }
-    }
-
     public function handle()
     {
         // Get all product folders within 'products'
@@ -140,7 +78,7 @@ class StoreProductImages extends Command
 
                 Storage::disk('public')->move($file, $newImagePath);
 
-                $this->info("Stored image for product: $productName in folder: $mediaFolder with filename: $originalFileName");
+                $this->info("Stored image for product: '$productName' in folder: '$mediaFolder' with filename: '$originalFileName'");
             }
 
             // Delete the folder after processing all files

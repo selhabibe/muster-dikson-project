@@ -40,7 +40,7 @@ import fs from 'fs';
                 'published_at', 'seo_title', 'seo_description', 'weight_value',
                 'weight_unit', 'height_value', 'height_unit', 'width_value',
                 'width_unit', 'depth_value', 'depth_unit', 'volume_value',
-                'volume_unit'
+                'volume_unit','product_link'
             ];
             worksheet.addRow(headers);
         }
@@ -110,7 +110,8 @@ import fs from 'fs';
             faker.number.float({ min: 1, max: 50 }), // depth_value
             'cm', // depth_unit
             faker.number.float({ min: 0.1, max: 10 }), // volume_value
-            'l' // volume_unit
+            'l', // volume_unit
+            url
         ];
 
         // Append new row
