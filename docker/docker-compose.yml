@@ -9,8 +9,9 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - ../:/var/www/html
+            - ../:/var/www/html:delegated
             - ./apache/apache.conf:/etc/apache2/sites-available/000-default.conf
+            - ./php.ini:/usr/local/etc/php/php.ini
         environment:
             - APACHE_LOG_DIR=/var/log/apache2
 
@@ -27,6 +28,7 @@ services:
             - "3306:3306"
         volumes:
             - db_data:/var/lib/mysql
+            - ./my.cnf:/etc/mysql/conf.d/my.cnf
 
     phpmyadmin:
         image: phpmyadmin:latest
