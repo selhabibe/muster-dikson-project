@@ -49,11 +49,13 @@ class StoreProductImages extends Command
 
                 // Fetch product by SKU (assuming SKU is unique)
                 $product = Product::where('sku', $productCode)->first();
+                dd( $productCode);
 
                 if (!$product) {
                     $this->error("Product not found for SKU: $productCode");
                     continue;
                 }
+
 
                 $media = new Media();
                 $media->model_id = $product->id;

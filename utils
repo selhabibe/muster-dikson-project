@@ -9,9 +9,15 @@ php artisan app:store-product-images
 
 docker-compose up --build
 
-http://127.0.0.1:8080/
+Local dev : http://127.0.0.1:8080/
 
 phpmyadmin:  http://localhost:8081
 
 docker exec -it filament-app bash
+
+photos:
+storage/app/public/products
+
+24007413 149
+12201201 150
 
