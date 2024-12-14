@@ -3,6 +3,7 @@ import ExcelJS from 'exceljs';
 import { faker } from '@faker-js/faker';
 import path from 'path';
 import fs from 'fs';
+import https from 'https';
 
 (async () => {
     const url = process.argv[2];
@@ -13,17 +14,15 @@ import fs from 'fs';
     }
 
     try {
-        // Ensure the exports directory exists
         const exportDir = path.join('public', 'exports');
         fs.mkdirSync(exportDir, { recursive: true });
 
         const now = new Date();
-        const year = now.getFullYear(); // Get the year (e.g., 2024)
-        const month = String(now.getMonth() + 1).padStart(2, '0'); // Get the month (e.g., 12)
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
 
         const exportFilePath = path.join(exportDir, `product_list_${year}_${month}.xlsx`);
 
-        // Load existing workbook or create new one
         const workbook = new ExcelJS.Workbook();
         let worksheet;
 
@@ -31,28 +30,19 @@ import fs from 'fs';
             await workbook.xlsx.readFile(exportFilePath);
             worksheet = workbook.getWorksheet(1);
         } else {
-            // Create new worksheet with headers if file doesn't exist
             worksheet = workbook.addWorksheet('Sheet1');
-            const headers = [
+            worksheet.addRow([
                 'shop_brand_id', 'name', 'slug', 'sku', 'barcode', 'description',
                 'qty', 'security_stock', 'featured', 'is_visible', 'old_price',
                 'price', 'cost', 'type', 'backorder', 'requires_shipping',
                 'published_at', 'seo_title', 'seo_description', 'weight_value',
                 'weight_unit', 'height_value', 'height_unit', 'width_value',
                 'width_unit', 'depth_value', 'depth_unit', 'volume_value',
-                'volume_unit','product_link'
-            ];
-            worksheet.addRow(headers);
+                'volume_unit', 'product_link', 'image_path'
+            ]);
         }
 
-        // Launch browser and scrape data
         const browser = await puppeteer.launch({ headless: true });
-
-        // const browser = await puppeteer.launch({
-        //     executablePath: '/usr/bin/chromium-browser',
-        //     headless:true,
-        //
-        // })
         const page = await browser.newPage();
         await page.setUserAgent(
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -75,52 +65,63 @@ import fs from 'fs';
                 .filter(text => text !== '')
                 .join('');
 
-            return { title, description, code };
+            const imageElement = document.querySelector('#descrizione .col-md-6.text-center img');
+            const imageSrc = imageElement ? imageElement.src : '';
+
+            return { title, description, code, imageSrc };
         });
 
         await browser.close();
 
-        // Add new row with scraped and generated data
+        const productFolder = path.join('public', `${pageData.title}_${pageData.code}`);
+        fs.mkdirSync(productFolder, { recursive: true });
+
+        const imageFilePath = path.join(productFolder, 'image.jpg');
+        if (pageData.imageSrc) {
+            const file = fs.createWriteStream(imageFilePath);
+            https.get(pageData.imageSrc, (response) => {
+                response.pipe(file);
+            });
+        }
+
         const dataRow = [
-            2, // shop_brand_id
-            pageData.title, // name
-            faker.helpers.slugify(pageData.title.toLowerCase()), // slug
-            pageData.code, //faker.string.uuid(), // sku
-            faker.number.int({ min: 100000000, max: 999999999 }), // barcode
-            pageData.description, // description
-            faker.number.int({ min: 1, max: 10 }), // qty
-            faker.number.int({ min: 1, max: 10 }), // security_stock
-            faker.datatype.boolean(), // featured
-            false, // is_visible
-            faker.commerce.price(), // old_price
-            faker.commerce.price(), // price
-            faker.commerce.price(), // cost
-            faker.helpers.arrayElement(['deliverable']), // type
-            true, // backorder
-            true, // requires_shipping
-            faker.date.past(), // published_at
-            pageData.title, // seo_title
-            pageData.description.substring(0, 160), // seo_description
-            faker.number.float({ min: 0.1, max: 10 }), // weight_value
-            'kg', // weight_unit
-            faker.number.float({ min: 1, max: 50 }), // height_value
-            'cm', // height_unit
-            faker.number.float({ min: 1, max: 50 }), // width_value
-            'cm', // width_unit
-            faker.number.float({ min: 1, max: 50 }), // depth_value
-            'cm', // depth_unit
-            faker.number.float({ min: 0.1, max: 10 }), // volume_value
-            'l', // volume_unit
-            url
+            2,
+            pageData.title,
+            faker.helpers.slugify(pageData.title.toLowerCase()),
+            pageData.code,
+            faker.number.int({ min: 100000000, max: 999999999 }),
+            pageData.description,
+            faker.number.int({ min: 1, max: 10 }),
+            faker.number.int({ min: 1, max: 10 }),
+            faker.datatype.boolean(),
+            false,
+            faker.commerce.price(),
+            faker.commerce.price(),
+            faker.commerce.price(),
+            faker.helpers.arrayElement(['deliverable']),
+            true,
+            true,
+            faker.date.past(),
+            pageData.title,
+            pageData.description.substring(0, 160),
+            faker.number.float({ min: 0.1, max: 10 }),
+            'kg',
+            faker.number.float({ min: 1, max: 50 }),
+            'cm',
+            faker.number.float({ min: 1, max: 50 }),
+            'cm',
+            faker.number.float({ min: 1, max: 50 }),
+            'cm',
+            faker.number.float({ min: 0.1, max: 10 }),
+            'l',
+            url,
+            imageFilePath
         ];
 
-        // Append new row
         worksheet.addRow(dataRow);
 
-        // Save the updated workbook
         await workbook.xlsx.writeFile(exportFilePath);
 
-        console.log('Data appended to Excel file successfully!');
         console.log(`File updated at: ${exportFilePath}`);
     } catch (error) {
         console.error('Error:', error.message);
