@@ -20,8 +20,8 @@ import fs from 'fs';
 
             console.log('Launching browser...');
 
-            const baseDir = path.join('storage', 'app', 'public');
-            const productsDir = path.join(baseDir, 'products');
+            const baseDir = path.join('public');
+            const productsDir = path.join(baseDir, 'products_all');
 
             // Ensure the "products" directory exists
             if (!fs.existsSync(productsDir)) {
