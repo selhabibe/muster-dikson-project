@@ -48,7 +48,7 @@ import fs from 'fs';
             } else {
                 worksheet = workbook.addWorksheet('Sheet1');
                 worksheet.addRow([
-                    'shop_brand_id', 'name', 'slug', 'sku', 'barcode', 'description',
+                    'shop_brand_id', 'name', 'slug', 'sku', 'code','EIN','barcode', 'description',
                     'qty', 'security_stock', 'featured', 'is_visible', 'old_price',
                     'price', 'cost', 'type', 'backorder', 'requires_shipping',
                     'published_at', 'seo_title', 'seo_description', 'weight_value',
@@ -109,6 +109,8 @@ import fs from 'fs';
                 pageData.title, // name
                 faker.helpers.slugify(pageData.title.toLowerCase()), // slug
                 pageData.code, //faker.string.uuid(), // sku
+                pageData.code,//code
+                pageData.code,//EIN
                 faker.number.int({ min: 100000000, max: 999999999 }), // barcode
                 pageData.description, // description
                 faker.number.int({ min: 1, max: 10 }), // qty

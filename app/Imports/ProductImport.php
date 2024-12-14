@@ -36,6 +36,8 @@ class ProductImport implements ToModel, WithHeadingRow
             'name' => $row['name'],
             'slug' => $slug,
             'sku' => $row['sku'],
+            'code' => $row['code'],
+            'EIN' => $row['EIN'],
             'barcode' => $row['barcode'],
             'description' => $descriptionTranslated,
             'qty' => $row['qty'],
