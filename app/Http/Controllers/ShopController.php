@@ -45,7 +45,7 @@ class ShopController extends Controller
         $products = Product::whereHas('brand', function ($query) {
             $query->where('slug', 'dikson');
         })->get();
-        dd($products);
+//        dd($products);
         return view('pages.shop_dikson', ['products' => $products]);
     }
 
