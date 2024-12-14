@@ -30,14 +30,14 @@ class ProductImport implements ToModel, WithHeadingRow
 
         $descriptionTranslated = $this->translateDescription($row['description']);
 
-
+//        dd($row);
        return  new Product([
             'shop_brand_id' => $row['shop_brand_id'],
             'name' => $row['name'],
             'slug' => $slug,
             'sku' => $row['sku'],
             'code' => $row['code'],
-            'EIN' => $row['EIN'],
+            'EIN' => $row['ein'],
             'barcode' => $row['barcode'],
             'description' => $descriptionTranslated,
             'qty' => $row['qty'],
