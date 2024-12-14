@@ -7,10 +7,6 @@ import fs from 'fs';
 
 (async () => {
 
-    let urlArray = ["https://muster-dikson.com/it/prodotto/dikson-treat-shampoo-ristrutturante-24007413",
-        "https://muster-dikson.com/it/prodotto/urtinol"]
-
-    // for (const urlKey in urlArray) {
     const url = process.argv[2];
 
     if (!url) {
@@ -23,10 +19,7 @@ import fs from 'fs';
         try {
 
             console.log('Launching browser...');
-            // browser = await puppeteer.launch({ headless: false }); // Run in non-headless mode for debugging
-            // const page = await browser.newPage();
 
-            // ****************
             const baseDir = path.join('storage', 'app', 'public');
             const productsDir = path.join(baseDir, 'products');
 
@@ -65,14 +58,12 @@ import fs from 'fs';
                 ]);
             }
 
-            // const browser = await puppeteer.launch({ headless: true });
 
             const page = await browser.newPage();
             await page.setUserAgent(
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             );
 
-            // let url = urlArray[urlKey];
 
             await page.goto(url, { waitUntil: 'networkidle2' });
             await page.waitForSelector('#descrizione', { timeout: 20000 });
@@ -112,63 +103,47 @@ import fs from 'fs';
             // Add relative path for the Excel file
             const relativeImagePath = path.relative(baseDir, imagePath);
 
+
             const dataRow = [
-                2,
-                pageData.title,
-                faker.helpers.slugify(pageData.title.toLowerCase()),
-                pageData.code,
-                faker.number.int({ min: 100000000, max: 999999999 }),
-                pageData.description,
-                faker.number.int({ min: 1, max: 10 }),
-                faker.number.int({ min: 1, max: 10 }),
-                faker.datatype.boolean(),
-                false,
-                faker.commerce.price(),
-                faker.commerce.price(),
-                faker.commerce.price(),
-                faker.helpers.arrayElement(['deliverable']),
-                true,
-                true,
-                faker.date.past(),
-                pageData.title,
-                pageData.description.substring(0, 160),
-                faker.number.float({ min: 0.1, max: 10 }),
-                'kg',
-                faker.number.float({ min: 1, max: 50 }),
-                'cm',
-                faker.number.float({ min: 1, max: 50 }),
-                'cm',
-                faker.number.float({ min: 1, max: 50 }),
-                'cm',
-                faker.number.float({ min: 0.1, max: 10 }),
-                'l',
+                2, // shop_brand_id
+                pageData.title, // name
+                faker.helpers.slugify(pageData.title.toLowerCase()), // slug
+                pageData.code, //faker.string.uuid(), // sku
+                faker.number.int({ min: 100000000, max: 999999999 }), // barcode
+                pageData.description, // description
+                faker.number.int({ min: 1, max: 10 }), // qty
+                faker.number.int({ min: 1, max: 10 }), // security_stock
+                faker.datatype.boolean(), // featured
+                false, // is_visible
+                faker.commerce.price(), // old_price
+                faker.commerce.price(), // price
+                faker.commerce.price(), // cost
+                faker.helpers.arrayElement(['deliverable']), // type
+                true, // backorder
+                true, // requires_shipping
+                faker.date.past(), // published_at
+                pageData.title, // seo_title
+                pageData.description.substring(0, 160), // seo_description
+                faker.number.float({ min: 0.1, max: 10 }), // weight_value
+                'kg', // weight_unit
+                faker.number.float({ min: 1, max: 50 }), // height_value
+                'cm', // height_unit
+                faker.number.float({ min: 1, max: 50 }), // width_value
+                'cm', // width_unit
+                faker.number.float({ min: 1, max: 50 }), // depth_value
+                'cm', // depth_unit
+                faker.number.float({ min: 0.1, max: 10 }), // volume_value
+                'l', // volume_unit
                 url,
-                relativeImagePath // Save relative path
+                relativeImagePath
             ];
+
 
             worksheet.addRow(dataRow);
 
             await workbook.xlsx.writeFile(exportFilePath);
 
-            console.log('Data and image saved successfully!');
             console.log(`File updated at: ${exportFilePath}`);
-            // ****************
-            // console.log(url[urlKey])
-            // console.log('Navigating to URL...');
-            // await page.goto(url[urlKey], { waitUntil: 'domcontentloaded', timeout: 30000 });
-            //
-            // console.log('Waiting for selector...');
-            // await page.waitForSelector('#descrizione', { timeout: 10000 });
-            //
-            // console.log('Scraping data...');
-            // const pageData = await page.evaluate(() => {
-            //     const titleElement = document.querySelector('#descrizione h2');
-            //     const title = titleElement ? titleElement.textContent.trim() : '';
-            //     return { title };
-            // });
-
-            console.log('Data scraped:', pageData);
-
 
         } catch (error) {
             console.error('Error occurred:', error.message);
@@ -179,6 +154,5 @@ import fs from 'fs';
 
             }
         }
-    // }
 })();
 

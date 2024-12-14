@@ -24,7 +24,7 @@ class ParseXlsxFileCammand extends Command
         $year = date('Y');
         $month = date('m');
 
-        $filePath = public_path("dikson_products_list_{$year}_{$month}_5.xlsx");
+        $filePath = public_path("dikson_products_list_{$year}_{$month}_2.xlsx");
 
         $this->info("Parsing file at: $filePath");
         $results = $this->parserService->parseXlsxFile($filePath);
