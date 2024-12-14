@@ -35,7 +35,7 @@ class ShopController extends Controller
     {
         $products = Product::whereHas('brand', function ($query) {
             $query->where('name', 'muster');
-        })->withCount('comments')
+        })
             ->get();
 
         return view('pages.shop_muster', ['products' => $products]);
@@ -45,7 +45,7 @@ class ShopController extends Controller
     {
         $products = Product::whereHas('brand', function ($query) {
             $query->where('name', 'dikson');
-        })->withCount('comments')
+        })
             ->get();
 
         return view('pages.shop_dikson', ['products' => $products]);
