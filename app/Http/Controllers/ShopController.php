@@ -34,9 +34,8 @@ class ShopController extends Controller
     public function showMusterProducts()
     {
         $products = Product::whereHas('brand', function ($query) {
-            $query->where('name', 'muster');
-        })
-            ->get();
+            $query->where('slug', 'muster');
+        })->get();
 
         return view('pages.shop_muster', ['products' => $products]);
     }
@@ -44,10 +43,8 @@ class ShopController extends Controller
     public function showDiksonProducts()
     {
         $products = Product::whereHas('brand', function ($query) {
-            $query->where('name', 'dikson');
-        })
-            ->get();
-
+            $query->where('slug', 'dikson');
+        })->get();
         return view('pages.shop_dikson', ['products' => $products]);
     }
 
