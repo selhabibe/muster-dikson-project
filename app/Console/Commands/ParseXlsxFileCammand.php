@@ -24,21 +24,25 @@ class ParseXlsxFileCammand extends Command
         $year = date('Y');
         $month = date('m');
 
-        $filePath = public_path("dikson_products_list_{$year}_{$month}.xlsx");
+//        $filePath = public_path("dikson_products_list_{$year}_{$month}.xlsx");
+        $filePath = public_path("Dikson_products_price.xlsx");
 
-        $this->info("Parsing file at: $filePath");
-        $results = $this->parserService->parseXlsxFile($filePath);
+        if (file_exists($filePath)){
+            $this->info("Parsing file at: $filePath");
+            $results = $this->parserService->parseXlsxFile($filePath);
 
-        foreach ($results as $result) {
-            $this->info("Photo: {$result['photo']}");
-            $this->info("Drive URL: {$result['url_drive']}");
-            $this->info("Muster&Dikson URL: {$result['url_muster_dikson']}");
-            $this->info("Title: {$result['title']}");
-            $this->info("Desc: {$result['desc']}");
-            $this->info("-----------------------------");
-        }
+            foreach ($results as $result) {
+                $this->info("Photo: {$result['photo']}");
+                $this->info("Drive URL: {$result['url_drive']}");
+                $this->info("Muster&Dikson URL: {$result['url_muster_dikson']}");
+                $this->info("Title: {$result['title']}");
+                $this->info("Desc: {$result['desc']}");
+                $this->info("-----------------------------");
+            }
 
-        $this->info('Parsing complete!');
+            $this->info('Parsing complete!');
+        }else   $this->info("file not exist: $filePath");
+
     }
 
 }

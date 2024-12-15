@@ -123,13 +123,13 @@ class ProductResource extends Resource
                                     ->required(),
 
                                 Forms\Components\TextInput::make('EIN')
-                                    ->label('EAN')
-                                    ->numeric()
-                                    ->required(),
+                                    ->label('EIN')
+                                    ->numeric(true),
+//                                    ->required(),
                                 Forms\Components\TextInput::make('code')
                                     ->label('Code')
-                                    ->numeric()
-                                    ->required(),
+                                    ->numeric(),
+//                                    ->required(),
 
 //                                Forms\Components\TextInput::make('security_stock')
 //                                    ->helperText('The safety stock is the limit stock for your products which alerts you if the product stock will soon be out of stock.')
@@ -177,7 +177,7 @@ class ProductResource extends Resource
                                         $query->where('is_visible', true);
                                     })
                                     ->multiple()
-                                    ->required(),
+//                                    ->required(),
                             ]),
                     ])
                     ->columnSpan(['lg' => 1]),
