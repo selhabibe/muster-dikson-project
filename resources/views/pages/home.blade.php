@@ -68,7 +68,7 @@
                                 }">
                             <div class="intro-slide1 banner banner-fixed" style="background-color: #EEF2F5">
                                 <figure>
-                                    <img src="{{asset('images/front/hero.jpg')}}" alt="banner" width="1180" style="opacity: 0.5;"
+                                    <img src="{{asset('images/front/hero-muster.png')}}" alt="banner" width="1180" style="opacity: 0.5;"
                                          height="547" />
                                 </figure>
                                 <div class="banner-content y-50">
