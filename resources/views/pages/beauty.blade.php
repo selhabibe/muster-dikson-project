@@ -26,12 +26,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" href="#tab9-1">Catégories</a>
                                     </li>
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a class="nav-link" href="#tab9-2">Téléchargements</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#tab9-3">Video</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab9-1">

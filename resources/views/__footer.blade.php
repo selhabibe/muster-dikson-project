@@ -39,12 +39,12 @@
                                     <li>
                                         <a href="{{route('ourbrands')}}">Nos marques</a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{route('video')}}">Vidéo</a>
                                     </li>
                                     <li>
                                         <a href="{{route('downloads')}}">Téléchargements</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                             <!-- End Widget -->
