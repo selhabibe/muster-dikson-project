@@ -125,6 +125,11 @@
             text-align: center;
             background-color: #1A2A3A;
             border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            background-color: #1A2A3A;
+            border-radius: 10px;
             overflow: visible; /* Changed from hidden to visible */
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             padding: 2rem;
