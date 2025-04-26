@@ -123,74 +123,35 @@
         .brand-story-image {
             position: relative;
             text-align: center;
-            background-color: #1A2A3A;
+            background-color: #1A2A3A; /* Dark blue background to make white SVGs visible */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             padding: 2rem;
-            background-color: #1A2A3A;
-            border-radius: 10px;
-            overflow: visible; /* Changed from hidden to visible */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            padding: 2rem;
-            min-height: 250px; /* Added minimum height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 250px;
         }
 
-        .brand-main-logo {
-            max-width: 70%; /* Reduced from 80% to 70% */
-            margin: 0 auto;
-            display: block;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
-            z-index: 1; /* Ensure logo is above other elements */
+        .brand-story-image img {
+            max-width: 100%;
+            height: auto;
+            filter: brightness(1.2); /* Slightly brighten the SVG */
         }
 
-        .brand-year-badge {
+        .brand-logo-overlay {
             position: absolute;
-            top: -20px; /* Changed from bottom to top */
-            right: -20px; /* Moved further right */
-            background-color: #20c7d9;
-            color: white;
-            border-radius: 50%;
-            width: 80px; /* Reduced from 100px to 80px */
-            height: 80px; /* Reduced from 100px to 80px */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
-            z-index: 2; /* Ensure badge is above the logo */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            z-index: 2;
         }
 
-        .brand-year-badge span {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: -5px;
+        .brand-logo-overlay img {
+            max-width: 100%;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Add shadow to make it pop */
         }
 
-        .brand-year-badge strong {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 5px 20px rgba(32,199,217,0.4);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            }
-        }
 
         /* Professional Brands Section Styles */
         .professional-brands-section {
@@ -370,10 +331,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="brand-story-image">
-                                    <img src="{{asset('images/logo/M_D_Logo_white_font.png')}}" alt="Muster & Dikson Logo" class="img-fluid brand-main-logo">
-                                    <div class="brand-year-badge">
-                                        <span>Depuis</span>
-                                        <strong>1965</strong>
+                                    <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67ceeabfcd08224bfbbc434d_arrow-down.svg" alt="Muster & Dikson History" class="img-fluid">
+                                    <div class="brand-logo-overlay">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67cee9fb08a4f3d336c40a13_logo-verticale.svg" alt="Muster & Dikson Logo" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -790,8 +750,8 @@
                             min-height: 220px;
                         }
 
-                        .brand-main-logo {
-                            max-width: 60%;
+                        .brand-logo-overlay {
+                            width: 50%;
                         }
                     }
 
@@ -807,20 +767,11 @@
                             min-height: 200px;
                         }
 
-                        .brand-year-badge {
-                            width: 70px;
-                            height: 70px;
-                            top: -15px;
-                            right: -15px;
+                        .brand-logo-overlay {
+                            width: 70%;
                         }
 
-                        .brand-year-badge span {
-                            font-size: 0.8rem;
-                        }
 
-                        .brand-year-badge strong {
-                            font-size: 1.5rem;
-                        }
                     }
                 </style>
 
