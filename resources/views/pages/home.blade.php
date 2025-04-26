@@ -132,23 +132,11 @@
         }
 
         .brand-story-image img {
-            max-width: 100%;
+            max-width: 70%;
             height: auto;
-            filter: brightness(1.2); /* Slightly brighten the SVG */
-        }
-
-        .brand-logo-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            z-index: 2;
-        }
-
-        .brand-logo-overlay img {
-            max-width: 100%;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Add shadow to make it pop */
+            filter: brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Brighten and add shadow */
+            margin: 0 auto;
+            display: block;
         }
 
 
@@ -331,10 +319,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="brand-story-image">
-                                    <img src="{{asset('images/svg/arrow-down.svg')}}" alt="Muster & Dikson History" class="img-fluid">
-                                    <div class="brand-logo-overlay">
-                                        <img src="{{asset('images/svg/logo-verticale.svg')}}" alt="Muster & Dikson Logo" class="img-fluid">
-                                    </div>
+                                    <img src="{{asset('images/svg/logo-verticale.svg')}}" alt="Muster & Dikson Logo" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -750,8 +735,8 @@
                             min-height: 220px;
                         }
 
-                        .brand-logo-overlay {
-                            width: 50%;
+                        .brand-story-image img {
+                            max-width: 60%;
                         }
                     }
 
@@ -767,8 +752,8 @@
                             min-height: 200px;
                         }
 
-                        .brand-logo-overlay {
-                            width: 70%;
+                        .brand-story-image img {
+                            max-width: 80%;
                         }
 
 
