@@ -9,6 +9,7 @@ use App\Mail\MyTestEmail;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Mail;
 use \App\Http\Controllers\BlogController;
+use App\Http\Controllers\NewsletterController;
 
 Route::get('form', Form::class);
 
@@ -110,4 +111,8 @@ Route::get('/testroute', function() {
 
     Mail::to('soufianjill@gmail.com')->send(new MyTestEmail($name));
 });
+
+// Newsletter routes
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/newsletter/unsubscribe/{email}', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
 

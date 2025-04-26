@@ -123,14 +123,68 @@
         .brand-story-image {
             position: relative;
             text-align: center;
+            background-color: #1A2A3A;
+            border-radius: 10px;
+            overflow: visible; /* Changed from hidden to visible */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            min-height: 250px; /* Added minimum height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .brand-logo-overlay {
+        .brand-main-logo {
+            max-width: 70%; /* Reduced from 80% to 70% */
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            z-index: 1; /* Ensure logo is above other elements */
+        }
+
+        .brand-year-badge {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
+            top: -20px; /* Changed from bottom to top */
+            right: -20px; /* Moved further right */
+            background-color: #20c7d9;
+            color: white;
+            border-radius: 50%;
+            width: 80px; /* Reduced from 100px to 80px */
+            height: 80px; /* Reduced from 100px to 80px */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+            z-index: 2; /* Ensure badge is above the logo */
+        }
+
+        .brand-year-badge span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: -5px;
+        }
+
+        .brand-year-badge strong {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(32,199,217,0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
         }
 
         /* Professional Brands Section Styles */
@@ -311,9 +365,10 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="brand-story-image">
-                                    <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67ceeabfcd08224bfbbc434d_arrow-down.svg" alt="Muster & Dikson History" class="img-fluid">
-                                    <div class="brand-logo-overlay">
-                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67cee9fb08a4f3d336c40a13_logo-verticale.svg" alt="Muster & Dikson Logo" class="img-fluid">
+                                    <img src="{{asset('images/logo/M_D_Logo_white_font.png')}}" alt="Muster & Dikson Logo" class="img-fluid brand-main-logo">
+                                    <div class="brand-year-badge">
+                                        <span>Depuis</span>
+                                        <strong>1965</strong>
                                     </div>
                                 </div>
                             </div>
@@ -413,17 +468,41 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <form action="#" method="get" class="px-4">
+                                    <form action="{{ route('newsletter.subscribe') }}" method="post" class="px-4">
+                                        @csrf
                                         <div class="d-flex gap-2">
-                                            <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="newsletter-email" placeholder="Votre adresse email" required="">
+                                            <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="newsletter-email"
+                                                placeholder="Votre adresse email" required value="{{ old('email') }}">
                                             <button class="btn btn-primary stylish-button" type="submit">S'abonner</button>
                                         </div>
                                         <div class="form-check mt-3 text-start">
-                                            <input class="form-check-input" type="checkbox" id="privacy-check" required="">
+                                            <input class="form-check-input" type="checkbox" id="privacy-check" name="privacy_check" required>
                                             <label class="form-check-label small text-white" for="privacy-check">
                                                 J'accepte de recevoir des informations par email
                                             </label>
                                         </div>
+
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mt-3">
+                                                <ul class="mb-0">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
+                                        @if (session('success'))
+                                            <div class="alert alert-success mt-3">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
+
+                                        @if (session('info'))
+                                            <div class="alert alert-info mt-3">
+                                                {{ session('info') }}
+                                            </div>
+                                        @endif
                                     </form>
                                 </div>
                             </div>
@@ -645,6 +724,37 @@
                         font-size: 0.875rem;
                     }
 
+                    /* Alert styles */
+                    .alert {
+                        padding: 0.75rem 1.25rem;
+                        margin-bottom: 1rem;
+                        border: 1px solid transparent;
+                        border-radius: 0.25rem;
+                    }
+
+                    .alert-success {
+                        color: #155724;
+                        background-color: #d4edda;
+                        border-color: #c3e6cb;
+                    }
+
+                    .alert-info {
+                        color: #0c5460;
+                        background-color: #d1ecf1;
+                        border-color: #bee5eb;
+                    }
+
+                    .alert-danger {
+                        color: #721c24;
+                        background-color: #f8d7da;
+                        border-color: #f5c6cb;
+                    }
+
+                    .alert ul {
+                        padding-left: 1.25rem;
+                        margin-bottom: 0;
+                    }
+
                     @media (max-width: 991px) {
                         .featured-product-content {
                             padding-right: 0;
@@ -664,12 +774,47 @@
                             margin-top: 10px;
                             width: 100%;
                         }
+
+                        .brand-story-image {
+                            margin-top: 2rem;
+                        }
+                    }
+
+                    @media (min-width: 768px) and (max-width: 991px) {
+                        .brand-story-image {
+                            min-height: 220px;
+                        }
+
+                        .brand-main-logo {
+                            max-width: 60%;
+                        }
                     }
 
                     @media (max-width: 576px) {
                         .px-4 {
                             padding-left: 1rem !important;
                             padding-right: 1rem !important;
+                        }
+
+                        .brand-story-image {
+                            margin-top: 2rem;
+                            padding: 1.5rem;
+                            min-height: 200px;
+                        }
+
+                        .brand-year-badge {
+                            width: 70px;
+                            height: 70px;
+                            top: -15px;
+                            right: -15px;
+                        }
+
+                        .brand-year-badge span {
+                            font-size: 0.8rem;
+                        }
+
+                        .brand-year-badge strong {
+                            font-size: 1.5rem;
                         }
                     }
                 </style>
