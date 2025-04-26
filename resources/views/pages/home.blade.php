@@ -34,7 +34,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 400;
             margin-bottom: 1.5rem;
             letter-spacing: 2px;
@@ -42,7 +42,7 @@
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
@@ -51,7 +51,7 @@
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             line-height: 1.6;
         }
@@ -80,14 +80,14 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.7rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: #1A2A3A;
         }
 
         .section-description {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             line-height: 1.7;
             color: #555;
             margin-bottom: 1.5rem;
@@ -116,7 +116,7 @@
         }
 
         .feature-text {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: #333;
         }
 
@@ -151,7 +151,7 @@
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #666;
             max-width: 700px;
             margin: 0 auto;
@@ -202,7 +202,7 @@
 
         .brand-title {
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             text-align: center;
             margin: 0;
@@ -484,14 +484,14 @@
                     }
 
                     .featured-title {
-                        font-size: 2.5rem;
+                        font-size: 2.7rem;
                         font-weight: 700;
                         margin-bottom: 1.5rem;
                         color: #1A2A3A;
                     }
 
                     .featured-description {
-                        font-size: 1.1rem;
+                        font-size: 1.3rem;
                         line-height: 1.7;
                         color: #555;
                         margin-bottom: 2rem;
@@ -507,7 +507,7 @@
                         display: flex;
                         align-items: center;
                         margin-bottom: 1rem;
-                        font-size: 1.1rem;
+                        font-size: 1.3rem;
                         color: #333;
                     }
 
@@ -548,7 +548,7 @@
                     }
 
                     .newsletter-title {
-                        font-size: 2.2rem;
+                        font-size: 2.4rem;
                         font-weight: 700;
                         margin-bottom: 1rem;
                         color: white;
@@ -556,7 +556,7 @@
                     }
 
                     .newsletter-description {
-                        font-size: 1.1rem;
+                        font-size: 1.3rem;
                         line-height: 1.6;
                         margin-bottom: 0;
                         color: white;
@@ -840,14 +840,14 @@
                     }
 
                     .benefit-title {
-                        font-size: 1.5rem;
+                        font-size: 1.7rem;
                         font-weight: 600;
                         margin-bottom: 1rem;
                         color: #1A2A3A;
                     }
 
                     .benefit-description {
-                        font-size: 1rem;
+                        font-size: 1.2rem;
                         line-height: 1.6;
                         color: #666;
                     }
@@ -958,7 +958,7 @@
                     }
 
                     .blog-title {
-                        font-size: 1.3rem;
+                        font-size: 1.5rem;
                         font-weight: 600;
                         margin-bottom: 1rem;
                         line-height: 1.4;
@@ -975,7 +975,7 @@
                     }
 
                     .blog-excerpt {
-                        font-size: 1rem;
+                        font-size: 1.2rem;
                         line-height: 1.6;
                         color: #666;
                         margin-bottom: 1.5rem;
@@ -984,6 +984,7 @@
                     .blog-link {
                         color: #1A2A3A;
                         font-weight: 600;
+                        font-size: 1.2rem;
                         text-decoration: none;
                         display: inline-flex;
                         align-items: center;
