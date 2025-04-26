@@ -134,9 +134,9 @@
         .brand-story-image img {
             max-width: 70%;
             height: auto;
-            filter: brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Brighten and add shadow */
             margin: 0 auto;
             display: block;
+            filter: brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Brighten and add shadow for SVG */
         }
 
 
