@@ -186,6 +186,13 @@ class ShopController extends Controller
         return view('categories.show', compact('category', 'products'));
     }
 
+    
+    public function ourbrands()
+    {
+        $products = Product::take(4)->get();
+        return view('pages.ourbrands', compact('products'));
+    }
+
     public function beauty()
     {
         $products = Product::take(4)->get();

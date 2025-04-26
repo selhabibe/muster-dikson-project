@@ -37,13 +37,7 @@
 {{--                                <h4 class="widget-title">Service Client</h4>--}}
                                 <ul class="widget-body">
                                     <li>
-                                        <a href="{{route('hairstyle')}}">Coiffeur</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('beauty')}}">Beauté</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('hygiene-safety')}}">Hygiène Sécurité</a>
+                                        <a href="{{route('ourbrands')}}">Nos marques</a>
                                     </li>
                                     <li>
                                         <a href="{{route('video')}}">Vidéo</a>

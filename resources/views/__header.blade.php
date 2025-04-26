@@ -69,7 +69,7 @@
                             <a style="text-transform: none!important;" href="{{route('about_us')}}">À propos de nous</a>
                         </li>
                         <li class="">
-                            <a style="text-transform: none!important;" href="{{route('beauty')}}">Beauté</a>
+                            <a style="text-transform: none!important;" href="{{route('ourbrands')}}">Nos marques</a>
                         </li>
                         <li class="">
                             <a href="{{route('contact')}}">Contact</a>

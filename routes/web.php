@@ -65,6 +65,22 @@ Route::post('/place-order', [ShopController::class, 'store'])->name('order.store
 Route::get('/hairstyle', [ShopController::class, 'hairstyle'])->name('hairstyle');
 
 
+Route::get('/nos-marques', [ShopController::class, 'ourbrands'])->name('ourbrands');
+
+// Brand specific pages
+Route::get('/brands/dikson', function () {
+    return view('pages.brands.dikson');
+})->name('brand.dikson');
+
+Route::get('/brands/electric', function () {
+    return view('pages.brands.electric');
+})->name('brand.electric');
+
+Route::get('/brands/benexere', function () {
+    return view('pages.brands.benexere');
+})->name('brand.benexere');
+
+
 Route::get('/beauty', [ShopController::class, 'beauty'])->name('beauty');
 
 
