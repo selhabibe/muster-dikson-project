@@ -220,6 +220,7 @@
             opacity: 0;
         }
 
+        
         .brand-card:hover .brand-content {
             bottom: 0;
             opacity: 1;
