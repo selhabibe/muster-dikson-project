@@ -331,9 +331,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="brand-story-image">
-                                    <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67ceeabfcd08224bfbbc434d_arrow-down.svg" alt="Muster & Dikson History" class="img-fluid">
+                                    <img src="{{asset('images/svg/arrow-down.svg')}}" alt="Muster & Dikson History" class="img-fluid">
                                     <div class="brand-logo-overlay">
-                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67cee9fb08a4f3d336c40a13_logo-verticale.svg" alt="Muster & Dikson Logo" class="img-fluid">
+                                        <img src="{{asset('images/svg/logo-verticale.svg')}}" alt="Muster & Dikson Logo" class="img-fluid">
                                     </div>
                                 </div>
                             </div>

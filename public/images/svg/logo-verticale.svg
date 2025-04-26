@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="300px" viewBox="0 0 200 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Muster & Dikson Logo</title>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo-vertical" fill="#FFFFFF">
+            <path d="M40,50 L50,50 L65,80 L80,50 L90,50 L90,110 L80,110 L80,70 L65,100 L50,70 L50,110 L40,110 L40,50 Z" id="M"></path>
+            <path d="M110,50 L160,50 L160,60 L150,60 L150,110 L140,110 L140,60 L110,60 L110,50 Z" id="T"></path>
+            <path d="M40,130 L90,130 L90,140 L70,140 L70,190 L60,190 L60,140 L40,140 L40,130 Z" id="T-2"></path>
+            <path d="M100,130 L150,130 L150,140 L110,140 L110,155 L145,155 L145,165 L110,165 L110,180 L150,180 L150,190 L100,190 L100,130 Z" id="E"></path>
+            <path d="M40,210 L90,210 L90,220 L70,220 L70,270 L60,270 L60,220 L40,220 L40,210 Z" id="T-3"></path>
+            <path d="M100,210 L110,210 L125,240 L140,210 L150,210 L150,270 L140,270 L140,230 L125,260 L110,230 L110,270 L100,270 L100,210 Z" id="M-2"></path>
+            <circle id="Oval" cx="100" cy="25" r="10"></circle>
+            <circle id="Oval-Copy" cx="100" cy="295" r="5"></circle>
+        </g>
+    </g>
+</svg>
