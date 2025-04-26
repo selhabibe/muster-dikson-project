@@ -44,6 +44,9 @@
                                     <li>
                                         <a href="{{route('ourbrands')}}">Nos marques</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('blog')}}">Blog</a>
+                                    </li>
                                     {{-- <li>
                                         <a href="{{route('video')}}">Vidéo</a>
                                     </li>
