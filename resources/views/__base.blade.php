@@ -42,6 +42,9 @@
         <!-- Main CSS File -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/demo34.min.css')}}">
 
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/newsletter.css')}}">
+
 
     </head>
 

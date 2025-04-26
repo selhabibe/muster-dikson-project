@@ -1,0 +1,54 @@
+.newsletter-form {
+    transition: all 0.3s ease;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+}
+
+.newsletter-form .newsletter-title {
+    color: white !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.newsletter-form .form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.newsletter-form .form-control::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.newsletter-form .form-control:focus::placeholder,
+.newsletter-form .form-control:focus::-webkit-input-placeholder,
+.newsletter-form .form-control:focus::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.newsletter-form .form-control {
+    transition: all 0.3s ease;
+    color: white !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    margin-bottom: 1rem;
+}
+
+.newsletter-form .form-control:focus {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border-color: #fff !important;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-form .btn-primary {
+    background-color: #20c7d9;
+    border-color: #20c7d9;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form .btn-primary:hover {
+    background-color: #1ab5c6;
+    border-color: #1ab5c6;
+}
