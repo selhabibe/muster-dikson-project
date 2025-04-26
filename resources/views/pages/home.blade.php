@@ -23,7 +23,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
         }
 
         .hero-content {
@@ -262,8 +262,8 @@
                         <div class="hero-overlay"></div>
                         <div class="container">
                             <div class="hero-content">
-                                <h4 class="hero-subtitle">Beauty Beyond Limits</h4>
-                                <h1 class="hero-title">Professional Hair Care <br>Since 1965</h1>
+                                <h4 class="hero-subtitle">La Beauté Sans Limites</h4>
+                                <h1 class="hero-title">Soins Capillaires Professionnels <br>Depuis 1965</h1>
                                 <p class="hero-description">Découvrez l'excellence des produits professionnels pour les coiffeurs et les esthéticiennes</p>
                                 <div class="hero-buttons">
                                     <a href="{{route('shop.muster')}}" class="btn btn-primary btn-lg">Découvrir nos produits</a>
@@ -412,10 +412,16 @@
                                     <div class="newsletter-form">
                                         <form action="#" method="get">
                                             <div class="input-group">
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Votre adresse email" required>
+                                                <input type="email" class="form-control" name="email" id="newsletter-email" placeholder="Votre adresse email" required>
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary" type="submit">S'abonner</button>
                                                 </div>
+                                            </div>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="checkbox" id="privacy-check" required>
+                                                <label class="form-check-label" for="privacy-check">
+                                                    J'accepte de recevoir des informations par email
+                                                </label>
                                             </div>
                                         </form>
                                     </div>
@@ -513,16 +519,19 @@
                     }
 
                     .newsletter-title {
-                        font-size: 2rem;
+                        font-size: 2.2rem;
                         font-weight: 700;
                         margin-bottom: 1rem;
+                        color: white;
+                        text-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     }
 
                     .newsletter-description {
                         font-size: 1.1rem;
                         line-height: 1.6;
                         margin-bottom: 0;
-                        opacity: 0.9;
+                        color: white;
+                        opacity: 0.95;
                     }
 
                     .newsletter-form .input-group {
@@ -543,6 +552,20 @@
                         text-transform: uppercase;
                         letter-spacing: 1px;
                         border-radius: 0 50px 50px 0;
+                    }
+
+                    .newsletter-form .form-check {
+                        margin-left: 10px;
+                    }
+
+                    .newsletter-form .form-check-label {
+                        color: white;
+                        font-size: 0.9rem;
+                        opacity: 0.9;
+                    }
+
+                    .newsletter-form .form-check-input {
+                        margin-top: 0.25rem;
                     }
 
                     @media (max-width: 991px) {
