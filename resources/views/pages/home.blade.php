@@ -220,7 +220,7 @@
             opacity: 0;
         }
 
-        
+
         .brand-card:hover .brand-content {
             bottom: 0;
             opacity: 1;
@@ -413,22 +413,18 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="newsletter-form">
-                                        <form action="#" method="get">
-                                            <div class="input-group">
-                                                <input type="email" class="form-control" name="email" id="newsletter-email" placeholder="Votre adresse email" required>
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-primary" type="submit">S'abonner</button>
-                                                </div>
-                                            </div>
-                                            <div class="form-check mt-2">
-                                                <input class="form-check-input" type="checkbox" id="privacy-check" required>
-                                                <label class="form-check-label" for="privacy-check">
-                                                    J'accepte de recevoir des informations par email
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    <form action="#" method="get" class="px-4">
+                                        <div class="d-flex gap-2">
+                                            <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="newsletter-email" placeholder="Votre adresse email" required="">
+                                            <button class="btn btn-primary stylish-button" type="submit">S'abonner</button>
+                                        </div>
+                                        <div class="form-check mt-3 text-start">
+                                            <input class="form-check-input" type="checkbox" id="privacy-check" required="">
+                                            <label class="form-check-label small text-white" for="privacy-check">
+                                                J'accepte de recevoir des informations par email
+                                            </label>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -599,6 +595,56 @@
                         border-color: white;
                     }
 
+                    /* New stylish input and button styles */
+                    .stylish-input {
+                        height: 50px;
+                        border-radius: 8px;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        background-color: rgba(255, 255, 255, 0.1);
+                        color: white;
+                        padding: 0 20px;
+                        font-size: 1rem;
+                        transition: all 0.3s ease;
+                    }
+
+                    .stylish-input:focus {
+                        background-color: rgba(255, 255, 255, 0.2);
+                        border-color: rgba(255, 255, 255, 0.5);
+                        box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+                        color: white;
+                    }
+
+                    .stylish-input::placeholder {
+                        color: rgba(255, 255, 255, 0.7);
+                    }
+
+                    .stylish-button {
+                        height: 50px;
+                        border-radius: 8px;
+                        padding: 0 25px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        transition: all 0.3s ease;
+                        background-color: #20c7d9;
+                        border-color: #20c7d9;
+                    }
+
+                    .stylish-button:hover {
+                        background-color: #1ab5c6;
+                        border-color: #1ab5c6;
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .gap-2 {
+                        gap: 0.75rem;
+                    }
+
+                    .small {
+                        font-size: 0.875rem;
+                    }
+
                     @media (max-width: 991px) {
                         .featured-product-content {
                             padding-right: 0;
@@ -608,6 +654,22 @@
                         .newsletter-content {
                             margin-bottom: 2rem;
                             text-align: center;
+                        }
+
+                        .d-flex.gap-2 {
+                            flex-direction: column;
+                        }
+
+                        .stylish-button {
+                            margin-top: 10px;
+                            width: 100%;
+                        }
+                    }
+
+                    @media (max-width: 576px) {
+                        .px-4 {
+                            padding-left: 1rem !important;
+                            padding-right: 1rem !important;
                         }
                     }
                 </style>
