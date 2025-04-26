@@ -4,9 +4,14 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="widget widget-about pl-0">
-                        <a href="" class="logo-footer">
-                            <img src="{{asset("images/logo/M_D_Logo_white_font.png")}}" alt="logo-footer" width="180" height="70" />
-                        </a>
+                        <div class="footer-logos d-flex align-items-center mb-3">
+                            <a href="" class="logo-footer mr-4">
+                                <img src="{{asset("images/logo/M_D_Logo_white_font.png")}}" alt="logo-footer" width="180" height="70" />
+                            </a>
+                            <a href="" class="logo-footer">
+                                <img src="{{asset("images/logo/logo-ML.png")}}" alt="logo-ML" width="100" height="70" style="background-color: white; padding: 5px; border-radius: 4px;" />
+                            </a>
+                        </div>
                         <div class="widget-body">
                             <p>Une entreprise dynamique depuis plus de 50 ans au service permanent du coiffeur et de l'esthéticienne,
                                 qui étudie, produit et agit pour offrir un service toujours meilleur et une gamme de produits de
