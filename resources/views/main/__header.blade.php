@@ -31,7 +31,7 @@
                     </div>
                     <div class="icon-box-content d-lg-show">
                         <h4 class="icon-box-title">Appelez-nous:</h4>
-                        <p>+212 662-750030</p>
+                        <p>+212 671-265232</p>
                     </div>
                 </a>
                 <span class="divider"></span>

@@ -63,7 +63,7 @@
                                         <p> <i class="d-icon-map"></i> N 15 rue Ennakhil cité dakhla Agadir</p>
                                     </li>
                                     <li>
-                                        <p> <i class="d-icon-headphone"></i> +212 662-750030</p>
+                                        <p> <i class="d-icon-headphone"></i> +212 671-265232</p>
                                     </li>
                                     <li>
                                         <p> contact@muster-dikson.ma</p>

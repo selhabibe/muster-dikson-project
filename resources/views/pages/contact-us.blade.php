@@ -29,7 +29,7 @@
 
                                     <h4 class="mb-2 text-capitalize">Tel:</h4>
                                     <p>
-                                        <a href="tel:#">+212 662-750030</a><br>
+                                        <a href="tel:#">+212 671-265232</a><br>
                                     </p>
 
                                     <h4 class="mb-2 text-capitalize">Support:</h4>
