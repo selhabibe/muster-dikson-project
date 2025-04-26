@@ -380,7 +380,7 @@
 
         .section-subtitle {
             display: inline-block;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #20c7d9;
@@ -389,7 +389,7 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.7rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: #1A2A3A;
@@ -397,7 +397,7 @@
         }
 
         .section-description {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             color: #555;
             margin-bottom: 1.5rem;
@@ -427,7 +427,7 @@
         }
 
         .feature-text {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 500;
             color: #333;
         }
@@ -453,14 +453,14 @@
         }
 
         .stat-title {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
             color: #1A2A3A;
         }
 
         .stat-description {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: #666;
             margin-bottom: 0;
         }
@@ -576,14 +576,14 @@
         }
 
         .value-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #1A2A3A;
         }
 
         .value-description {
-            font-size: 1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             color: #666;
             margin-bottom: 0;
@@ -619,7 +619,7 @@
         }
 
         .testimonial-content {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             line-height: 1.7;
             color: #444;
             margin-bottom: 1.5rem;
@@ -636,14 +636,14 @@
         }
 
         .author-name {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
             color: #1A2A3A;
         }
 
         .author-title {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: #666;
             margin-bottom: 0;
         }
@@ -670,7 +670,7 @@
         }
 
         .cta-description {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0;
         }
@@ -683,7 +683,7 @@
             color: white;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
         }
@@ -711,15 +711,15 @@
             }
 
             .about-hero-description {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
 
             .cta-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .btn-cta {
@@ -738,11 +738,11 @@
             }
 
             .about-hero-description {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .stat-card {
@@ -758,7 +758,7 @@
             }
 
             .cta-description {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
         }
     </style>
