@@ -46,6 +46,8 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
         .hero-description {
@@ -544,6 +546,19 @@
                         border: none;
                         padding: 1.2rem 1.5rem;
                         font-size: 1rem;
+                        background-color: #ffffff;
+                        color: #333333;
+                        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+                    }
+
+                    .newsletter-form .form-control::placeholder {
+                        color: #777777;
+                        opacity: 0.8;
+                    }
+
+                    .newsletter-form .form-control:focus {
+                        outline: none;
+                        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 8px rgba(255,255,255,0.6);
                     }
 
                     .newsletter-form .btn {
@@ -556,16 +571,30 @@
 
                     .newsletter-form .form-check {
                         margin-left: 10px;
+                        display: flex;
+                        align-items: center;
                     }
 
                     .newsletter-form .form-check-label {
                         color: white;
                         font-size: 0.9rem;
-                        opacity: 0.9;
+                        opacity: 1;
+                        margin-left: 8px;
+                        cursor: pointer;
                     }
 
                     .newsletter-form .form-check-input {
-                        margin-top: 0.25rem;
+                        margin-top: 0;
+                        width: 18px;
+                        height: 18px;
+                        cursor: pointer;
+                        border: 2px solid white;
+                        background-color: transparent;
+                    }
+
+                    .newsletter-form .form-check-input:checked {
+                        background-color: white;
+                        border-color: white;
                     }
 
                     @media (max-width: 991px) {
