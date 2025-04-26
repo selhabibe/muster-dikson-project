@@ -100,6 +100,7 @@ Route::get('/downloads', function () {
 Route::get('categories', [ShopController::class, 'showAllCategorie'])->name('categories.index');
 Route::get('categories/{category}', [ShopController::class, 'showCategorie'])->name('categories.show');
 
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/post', [BlogController::class, 'recentelyPost'])->name('recentelyPost.show');
 Route::get('/posts/{id}', [BlogController::class, 'show'])->name('posts.show');
 
