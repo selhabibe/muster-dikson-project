@@ -1,0 +1,134 @@
+/* Custom Minipopup Styles */
+.minipopup-area {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1000;
+    font-family: Poppins, sans-serif;
+}
+
+.minipopup-box {
+    position: relative;
+    margin-top: 20px;
+    padding: 20px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 1050;
+}
+
+.minipopup-box.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.minipopup-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.product-purchased {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.product-media {
+    flex: 0 0 70px;
+    margin-right: 15px;
+}
+
+.product-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.product-detail {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+}
+
+.product-name:hover {
+    color: #0088cc;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0088cc;
+}
+
+.product-quantity {
+    font-size: 12px;
+    color: #666;
+}
+
+.action-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-sm {
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-outline {
+    border: 1px solid #0088cc;
+    color: #0088cc;
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    background-color: #0088cc;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #0088cc;
+    color: #fff;
+    border: 1px solid #0088cc;
+}
+
+.btn-primary:hover {
+    background-color: #006699;
+    border-color: #006699;
+}
+
+.btn-rounded {
+    border-radius: 25px;
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    color: #222;
+}

@@ -259,20 +259,27 @@
                                     price: productPrice
                                 };
 
+                                // Show success message
+                                alert('Produit ajouté au panier avec succès!');
+
                                 // Call the Minipopup.open method
                                 if (typeof Riode !== 'undefined' && Riode.Minipopup) {
                                     console.log('Using Riode.Minipopup');
-                                    Riode.Minipopup.open({
-                                        message: 'Ajouté avec succès',
-                                        productClass: 'product-cart',
-                                        name: productData.name || productName,
-                                        nameLink: productData.link || productLink,
-                                        imageSrc: productData.image || productImage,
-                                        imageLink: productData.link || productLink,
-                                        price: productData.price || productPrice,
-                                        count: 1,
-                                        actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
-                                    });
+                                    try {
+                                        Riode.Minipopup.open({
+                                            message: 'Ajouté avec succès',
+                                            productClass: 'product-cart',
+                                            name: productData.name || productName,
+                                            nameLink: productData.link || productLink,
+                                            imageSrc: productData.image || productImage,
+                                            imageLink: productData.link || productLink,
+                                            price: productData.price || productPrice,
+                                            count: 1,
+                                            actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                                        });
+                                    } catch (e) {
+                                        console.error('Error calling Riode.Minipopup.open:', e);
+                                    }
                                 } else {
                                     console.error('Riode.Minipopup is not defined');
 
