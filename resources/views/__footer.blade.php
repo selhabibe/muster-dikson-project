@@ -71,6 +71,12 @@
                                     <li>
                                         <p> contact@muster-dikson.ma</p>
                                     </li>
+                                    <li>
+                                        <p> sales@muster-dikson.ma</p>
+                                    </li>
+                                    <li>
+                                        <p> support@muster-dikson.ma</p>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- End Widget -->
