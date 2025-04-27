@@ -126,7 +126,7 @@
                 </section>
 
                 <!-- Newsletter Section -->
-                <section class="brand-newsletter-section">
+                <section class="newsletter-section">
                     <div class="container">
                         <div class="newsletter-container">
                             <div class="row align-items-center">
@@ -137,14 +137,14 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="newsletter-form" id="benexere-newsletter-form">
+                                    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="px-4" id="benexere-newsletter-form">
                                         @csrf
                                         <input type="hidden" name="form_source" value="benexere_page">
                                         <input type="hidden" name="privacy_check" value="1">
 
                                         @if (session('success'))
                                             <div class="newsletter-message mb-3 text-white">
-                                                <p class="mb-0"><i class="fas fa-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>
+                                                <p class="mb-0"><i class="d-icon-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>
                                             </div>
                                             <div class="alert alert-success mt-3">
                                                 {{ session('success') }}
@@ -167,12 +167,11 @@
                                             </div>
                                         @endif
 
-                                        <div class="form-group mb-3">
-                                            <input type="email" class="form-control" name="email" id="benexere-newsletter-email" placeholder="Votre adresse email" required>
+                                        <div class="d-flex gap-2">
+                                            <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="benexere-newsletter-email"
+                                                placeholder="Votre adresse email" required value="{{ old('email') }}">
+                                            <button class="btn btn-primary stylish-button" type="submit" id="benexere-newsletter-submit">S'abonner</button>
                                         </div>
-                                        <button type="submit" class="btn-subscribe" id="benexere-newsletter-submit">
-                                            S'abonner <i class="fas fa-paper-plane"></i>
-                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -272,13 +271,13 @@
                             newsletterForm.insertBefore(errorMessage, inputContainer);
 
                             // Reset button
-                            submitButton.innerHTML = 'S\'abonner <i class="fas fa-paper-plane"></i>';
+                            submitButton.innerHTML = 'S\'abonner';
                             submitButton.disabled = false;
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        submitButton.innerHTML = 'S\'abonner <i class="fas fa-paper-plane"></i>';
+                        submitButton.innerHTML = 'S\'abonner';
                         submitButton.disabled = false;
 
                         // Show error message
@@ -526,87 +525,142 @@
         }
 
         /* Newsletter Section Styles */
-        .brand-newsletter-section {
+        .newsletter-section {
             padding: 5rem 0;
             background-color: #f8f9fa;
         }
 
         .newsletter-container {
             background-color: #1A2A3A;
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 3rem;
             color: white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .newsletter-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         .newsletter-description {
-            font-size: 1.4rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            line-height: 1.6;
             margin-bottom: 0;
-        }
-
-        .newsletter-form .form-control {
-            height: 50px;
-            border-radius: 8px;
-            border: none;
-            padding: 0.75rem 1.25rem;
-            font-size: 1.1rem;
-            background-color: rgba(255, 255, 255, 0.1);
             color: white;
-            transition: all 0.3s ease;
+            opacity: 0.95;
         }
 
-        .newsletter-form .form-control:focus {
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 0 0.2rem rgba(32, 199, 217, 0.25);
-        }
-
-        .newsletter-form .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-check-label {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            padding-left: 0.5rem;
-        }
-
-        .btn-subscribe {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            background-color: #20c7d9;
-            color: white;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-subscribe i {
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-subscribe:hover {
-            background-color: white;
-            color: #1A2A3A;
-            transform: translateY(-3px);
+        .newsletter-form .input-group {
+            border-radius: 50px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .btn-subscribe:hover i {
-            transform: translateX(5px);
+        .newsletter-form .form-control {
+            border: none;
+            padding: 1.2rem 1.5rem;
+            font-size: 1rem;
+            background-color: #ffffff;
+            color: #333333;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: #777777;
+            opacity: 0.8;
+        }
+
+        .newsletter-form .form-control:focus {
+            outline: none;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 8px rgba(255,255,255,0.6);
+        }
+
+        .newsletter-form .btn {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 0 50px 50px 0;
+        }
+
+        .newsletter-form .form-check {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .newsletter-form .form-check-label {
+            color: white;
+            font-size: 0.9rem;
+            opacity: 1;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        .newsletter-form .form-check-input {
+            margin-top: 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            border: 2px solid white;
+            background-color: transparent;
+        }
+
+        .newsletter-form .form-check-input:checked {
+            background-color: white;
+            border-color: white;
+        }
+
+        /* New stylish input and button styles */
+        .stylish-input {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .stylish-input:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #20c7d9;
+            box-shadow: 0 0 0 0.25rem rgba(32, 199, 217, 0.25);
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .stylish-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .stylish-button {
+            height: 50px;
+            border-radius: 8px;
+            padding: 0 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background-color: #20c7d9;
+            border-color: #20c7d9;
+        }
+
+        .stylish-button:hover {
+            background-color: #1ab5c6;
+            border-color: #1ab5c6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gap-2 {
+            gap: 0.75rem;
         }
 
         /* Newsletter message styles */
@@ -706,6 +760,20 @@
 
             .newsletter-content {
                 margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .newsletter-message {
+                text-align: center;
+            }
+
+            .d-flex.gap-2 {
+                flex-direction: column;
+            }
+
+            .stylish-button {
+                margin-top: 10px;
+                width: 100%;
             }
         }
 
