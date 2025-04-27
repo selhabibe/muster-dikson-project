@@ -1,23 +1,62 @@
-@extends('.__base')
+@extends('.__base_main')
+
+@section('meta')
+    <meta name="description" content="Découvrez les marques professionnelles de Muster & Dikson: Dikson Professionelle, Muster Electric 4 Hair et Muster Benexere Professionelle. Des produits de haute qualité pour les professionnels de la beauté.">
+    <meta name="keywords" content="Muster & Dikson, marques professionnelles, Dikson Professionelle, Muster Electric 4 Hair, Muster Benexere Professionelle, produits coiffure, beauté professionnelle">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Nos Marques Professionnelles | Muster & Dikson">
+    <meta property="og:description" content="Découvrez les marques professionnelles de Muster & Dikson: Dikson Professionelle, Muster Electric 4 Hair et Muster Benexere Professionelle. Des produits de haute qualité pour les professionnels de la beauté.">
+    <meta property="og:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="Nos Marques Professionnelles | Muster & Dikson">
+    <meta property="twitter:description" content="Découvrez les marques professionnelles de Muster & Dikson: Dikson Professionelle, Muster Electric 4 Hair et Muster Benexere Professionelle. Des produits de haute qualité pour les professionnels de la beauté.">
+    <meta property="twitter:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+@endsection
 
 @section('content')
     <div class="page-wrapper">
         <main class="main">
-            <div class="page-header"
-                 style="background-image: url('images/demos/demo-beauty/page-header.jpg'); background-color: #ECEDF1;">
-                <h1 class="page-title font-weight-bold text-dark">Nos marques</h1>
-                <ul class="breadcrumb pb-0">
-                    <li class="text-dark"><a href="{{route('index')}}" class="text-dark"><i class="d-icon-home"></i></a>
-                    </li>
-                    <li class="delimiter text-dark">/</li>
-                    <li class="text-dark">Nos marques</li>
-                </ul>
-            </div>
-            <!-- End PageHeader -->
-
-            <div class="page-content mb-10 pb-3 mt-5">
+            <!-- Hero Section -->
+            <section class="brands-hero-section">
                 <div class="container">
-                    <h2 class="title title-center mb-5">Marque Professionnelles</h2>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Nos marques</li>
+                                </ol>
+                            </nav>
+                            <div class="brands-hero-content text-center">
+                                <span class="brands-hero-subtitle">Excellence professionnelle</span>
+                                <h1 class="brands-hero-title">Nos marques professionnelles</h1>
+                                <p class="brands-hero-description">Découvrez notre gamme complète de marques professionnelles pour tous vos besoins</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Brands Content -->
+            <div class="page-content">
+                <section class="brands-intro-section">
+                    <div class="container">
+                        <div class="section-header text-center">
+                            <span class="section-subtitle">Notre sélection</span>
+                            <h2 class="section-title">Des marques d'exception</h2>
+                            <p class="section-description">
+                                Chez Muster & Dikson, nous proposons des marques professionnelles reconnues pour leur qualité et leur innovation. Chaque marque a été soigneusement sélectionnée pour répondre aux besoins spécifiques des professionnels de la beauté.
+                            </p>
+                        </div>
 
                     <div class="row justify-content-center">
                         <!-- Dikson Professionelle Brand -->
@@ -67,7 +106,7 @@
                     </div>
 
                     <style>
-                        
+
                         .brand-card {
                             position: relative;
                             height: 450px;
@@ -197,10 +236,366 @@
                         .col-md-4:nth-child(3) .brand-card { animation-delay: 0.5s; }
                     </style>
 
-                    {{-- @include('__new_product') --}}
-                </div>
+                    </div>
+                </section>
+
+                <!-- Brand Features Section -->
+                <section class="brand-features-section">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-5 mb-lg-0">
+                                <div class="features-content">
+                                    <span class="section-subtitle">Pourquoi choisir nos marques</span>
+                                    <h2 class="section-title">L'excellence professionnelle à votre service</h2>
+                                    <p class="section-description">
+                                        Nos marques professionnelles sont reconnues dans le monde entier pour leur qualité exceptionnelle et leurs résultats remarquables. Développées en Italie, elles bénéficient d'un savoir-faire unique et d'une recherche constante d'innovation.
+                                    </p>
+                                    <div class="brand-features-list">
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="feature-text">Formules professionnelles de haute qualité</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="feature-text">Produits testés et approuvés par les professionnels</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="feature-text">Résultats visibles et durables</div>
+                                        </div>
+                                        <div class="feature-item">
+                                            <div class="feature-icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="feature-text">Fabrication italienne respectueuse de l'environnement</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="features-image">
+                                    <img src="{{asset('images/front/factory.jpg')}}" alt="Fabrication Muster & Dikson" class="img-fluid rounded">
+                                    <div class="image-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Brand Features Section -->
+
+                <!-- Call to Action Section -->
+                <section class="cta-section">
+                    <div class="container">
+                        <div class="cta-container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="cta-content">
+                                        <h2 class="cta-title">Besoin de plus d'informations?</h2>
+                                        <p class="cta-description">Contactez-nous pour en savoir plus sur nos marques et produits professionnels</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <a href="{{route('contact')}}" class="btn-cta">
+                                        Nous contacter <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Call to Action Section -->
             </div>
         </main>
-        <!-- End Footer -->
+        <!-- End Main -->
     </div>
+
+    <style>
+        /* Brands Hero Section Styles */
+        .brands-hero-section {
+            padding: 6rem 0 4rem;
+            background-color: #1A2A3A;
+            background-image: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), url('{{asset('images/demos/demo-beauty/page-header.jpg')}}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #20c7d9;
+        }
+
+        .breadcrumb-item.active {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .brands-hero-content {
+            padding: 2rem 0;
+        }
+
+        .brands-hero-subtitle {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #20c7d9;
+            letter-spacing: 1px;
+        }
+
+        .brands-hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .brands-hero-description {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Brands Intro Section Styles */
+        .brands-intro-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #20c7d9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2.7rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1A2A3A;
+            line-height: 1.3;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Brand Features Section Styles */
+        .brand-features-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .features-content {
+            padding-right: 3rem;
+        }
+
+        .brand-features-list {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(32, 199, 217, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #20c7d9;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .features-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .features-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .features-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
+        }
+
+        /* Call to Action Section Styles */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .cta-container {
+            background-color: #1A2A3A;
+            border-radius: 12px;
+            padding: 3rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-description {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #20c7d9;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: white;
+            color: #1A2A3A;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-cta:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .brands-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .brands-hero-description {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2.4rem;
+            }
+
+            .features-content {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .btn-cta {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .brands-hero-section {
+                padding: 4rem 0 3rem;
+            }
+
+            .brands-hero-title {
+                font-size: 2.2rem;
+            }
+
+            .brands-hero-description {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-container {
+                padding: 2rem;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-description {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 @endsection('content')

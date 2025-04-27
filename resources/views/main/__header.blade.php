@@ -80,9 +80,9 @@
         </div>
     </div>
 
-    <div class="header-bottom d-lg-show">
+    <div class="header-bottom sticky-header fix-top sticky-content">
         <div class="container">
-            <div class="header-left">
+            <div class="header-center justify-content-center">
                 <nav class="main-nav">
                     <ul class="menu">
                         <li>
