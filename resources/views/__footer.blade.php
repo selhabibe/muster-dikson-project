@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="widget widget-about pl-0">
-                        <div class="footer-logos d-flex align-items-center mb-3">
-                            <a href="" class="logo-footer mr-4">
+                        <div class="footer-logos d-flex align-items-center">
+                            <a href="" class="logo-footer">
                                 <img src="{{asset("images/logo/M_D_Logo_white_font.png")}}" alt="logo-footer" width="180" height="70" />
                             </a>
                             <a href="" class="logo-footer">
-                                <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-ML" width="180" height="70" style="padding: 5px;" />
+                                <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-ML" width="170" height="70" />
                             </a>
                         </div>
                         <div class="widget-body">
