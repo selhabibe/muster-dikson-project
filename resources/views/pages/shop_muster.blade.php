@@ -57,6 +57,11 @@
                                     <p class="shop-intro-text">
                                         Muster Electric 4 Hair propose une gamme complète de produits capillaires professionnels pour tous les types de cheveux. Des colorations permanentes aux soins réparateurs, en passant par les produits de coiffage et de finition, Muster offre des solutions professionnelles pour chaque besoin.
                                     </p>
+                                    <div class="text-center mt-4">
+                                        <a href="{{route('shop.dikson')}}" class="btn-discover">
+                                            Découvrir nos produits <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,33 +127,7 @@
                         <!-- Pagination can be added here if needed -->
                     </div>
 
-                    <!-- Brand Story Section -->
-                    <section class="brand-story-section">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 mb-4 mb-lg-0">
-                                <div class="brand-story-content">
-                                    <span class="section-subtitle">Notre histoire</span>
-                                    <h2 class="section-title">Muster Electric 4 Hair</h2>
-                                    <p class="section-description">
-                                        Depuis sa création, Muster s'est engagé à développer des produits de haute qualité pour les professionnels de la coiffure. La marque combine tradition italienne et innovation technologique pour offrir des solutions capillaires exceptionnelles.
-                                    </p>
-                                    <p class="section-description">
-                                        Chaque produit est formulé avec des ingrédients soigneusement sélectionnés et testé pour garantir des résultats professionnels. Muster est aujourd'hui reconnu dans le monde entier pour la qualité et l'efficacité de ses produits.
-                                    </p>
-                                    <a href="{{route('shop.dikson')}}" class="btn-learn-more">
-                                        Découvrir nos produits <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="brand-story-image">
-                                    <img src="https://cdn.prod.website-files.com/67cecb7a3a28462cd4502f56/67dacee215113144868eaad2_01_HP_BOX_BRAND_DKPRO.webp" alt="Muster Electric 4 Hair" class="img-fluid rounded">
-                                    <div class="image-overlay"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- End Brand Story Section -->
+                    <!-- Brand Story Section will be added later -->
 
                     <!-- Newsletter Section -->
                     <section class="shop-newsletter-section">
@@ -401,6 +380,35 @@
             color: #555;
         }
 
+        .btn-discover {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #1A2A3A;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-discover i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-discover:hover {
+            background-color: #20c7d9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: white;
+        }
+
+        .btn-discover:hover i {
+            transform: translateX(5px);
+        }
+
         /* Shop Filter Section Styles */
         .shop-filter-section {
             padding-bottom: 2rem;
@@ -570,94 +578,7 @@
             color: #20c7d9;
         }
 
-        /* Brand Story Section Styles */
-        .brand-story-section {
-            padding: 5rem 0;
-            background-color: #f8f9fa;
-            border-radius: 12px;
-            margin: 3rem 0;
-            padding: 3rem;
-        }
-
-        .section-subtitle {
-            display: inline-block;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #20c7d9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-title {
-            font-size: 2.7rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #1A2A3A;
-            line-height: 1.3;
-        }
-
-        .section-description {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-learn-more {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            background-color: #1A2A3A;
-            color: white;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-learn-more i {
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-learn-more:hover {
-            background-color: #20c7d9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            color: white;
-        }
-
-        .btn-learn-more:hover i {
-            transform: translateX(5px);
-        }
-
-        .brand-story-image {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .brand-story-image img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
-
-        .brand-story-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
-        }
+        /* Brand Story Section Styles will be added later */
 
         /* Newsletter Section Styles */
         .shop-newsletter-section {
