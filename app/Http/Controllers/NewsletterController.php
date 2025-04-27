@@ -19,6 +19,17 @@ class NewsletterController extends Controller
      */
     public function subscribe(Request $request)
     {
+        // Log the request for debugging
+        \Log::info('Newsletter subscription request received', [
+            'email' => $request->email,
+            'privacy_check' => $request->has('privacy_check') ? 'yes' : 'no',
+            'form_source' => $request->form_source ?? 'unknown',
+            'request_data' => $request->all(),
+            'request_method' => $request->method(),
+            'request_url' => $request->url(),
+            'user_agent' => $request->userAgent()
+        ]);
+
         // Validate the request
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|max:255',
@@ -31,6 +42,10 @@ class NewsletterController extends Controller
         ]);
 
         if ($validator->fails()) {
+            \Log::warning('Newsletter validation failed', [
+                'errors' => $validator->errors()->toArray()
+            ]);
+
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
@@ -48,10 +63,12 @@ class NewsletterController extends Controller
                     'unsubscribed_at' => null,
                 ]);
 
+                \Log::info('User reactivated subscription', ['email' => $existingSubscriber->email]);
                 return redirect()->back()->with('success', 'Vous êtes à nouveau inscrit à notre newsletter !');
             }
 
             // If already active, just return a message
+            \Log::info('User already subscribed', ['email' => $existingSubscriber->email]);
             return redirect()->back()->with('info', 'Vous êtes déjà inscrit à notre newsletter.');
         }
 
@@ -71,6 +88,7 @@ class NewsletterController extends Controller
             \Log::error('Failed to send newsletter confirmation email: ' . $e->getMessage());
         }
 
+        \Log::info('New subscriber added', ['email' => $subscriber->email]);
         return redirect()->back()->with('success', 'Merci de vous être inscrit à notre newsletter !');
     }
 
