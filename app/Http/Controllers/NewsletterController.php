@@ -44,6 +44,14 @@ class NewsletterController extends Controller
                 'errors' => $validator->errors()->toArray()
             ]);
 
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $validator->errors()->first(),
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
@@ -62,11 +70,27 @@ class NewsletterController extends Controller
                 ]);
 
                 \Log::info('User reactivated subscription', ['email' => $existingSubscriber->email]);
+
+                if ($request->ajax()) {
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Vous êtes à nouveau inscrit à notre newsletter !'
+                    ]);
+                }
+
                 return redirect()->back()->with('success', 'Vous êtes à nouveau inscrit à notre newsletter !');
             }
 
             // If already active, just return a message
             \Log::info('User already subscribed', ['email' => $existingSubscriber->email]);
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Vous êtes déjà inscrit à notre newsletter.'
+                ]);
+            }
+
             return redirect()->back()->with('info', 'Vous êtes déjà inscrit à notre newsletter.');
         }
 
@@ -87,6 +111,14 @@ class NewsletterController extends Controller
         }
 
         \Log::info('New subscriber added', ['email' => $subscriber->email]);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Merci de vous être inscrit à notre newsletter !'
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Merci de vous être inscrit à notre newsletter !');
     }
 
