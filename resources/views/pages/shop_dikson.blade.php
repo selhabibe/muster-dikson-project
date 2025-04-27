@@ -92,7 +92,7 @@
                                                 @endif
                                             </a>
                                             <div class="product-action-vertical">
-                                                <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
+                                                <a href="#" class="btn-product-icon btn-cart" data-product-id="{{ $product->id }}" title="Add to Cart">
                                                     <i class="d-icon-bag"></i>
                                                 </a>
                                             </div>
@@ -188,6 +188,58 @@
         </main>
         <!-- End Main -->
     </div>
+
+    @section('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to all cart buttons
+            const cartButtons = document.querySelectorAll('.btn-product-icon.btn-cart');
+
+            cartButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Cart button clicked');
+
+                    const productId = this.getAttribute('data-product-id');
+                    console.log('Product ID:', productId);
+
+                    // Create the cart data
+                    const cartData = {
+                        product_id: productId,
+                        quantity: 1,
+                        _token: '{{ csrf_token() }}'
+                    };
+
+                    console.log('Sending cart data:', cartData);
+
+                    // Send AJAX request to add to cart
+                    fetch('{{ route("cart.add") }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': cartData._token
+                        },
+                        body: JSON.stringify(cartData)
+                    })
+                    .then(response => {
+                        console.log('Response status:', response.status);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Response data:', data);
+                        if (data.success) {
+                            console.log('Product added to cart successfully');
+                            // The minipopup will be handled by the theme's JavaScript
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error adding to cart:', error);
+                    });
+                });
+            });
+        });
+    </script>
+    @endsection
 
     <style>
         /* Shop Hero Section Styles */
