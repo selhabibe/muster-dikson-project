@@ -72,7 +72,7 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="contact-info-card">
                                 <div class="info-icon">
-                                    <i class="fas fa-phone-alt"></i>
+                                    <i class="fas fa-phone"></i>
                                 </div>
                                 <h3 class="info-title">Téléphone</h3>
                                 <p class="info-text">
