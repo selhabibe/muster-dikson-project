@@ -77,46 +77,44 @@
 
 
                     <div class="shop-products-section">
-                        <div class="row">
+                        <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
                             @foreach($products as $product)
                                 @if ($product->is_visible)
-                                    <div class="col-6 col-sm-4 col-md-3 mb-4">
-                                        <div class="product-card">
-                                            <div class="product-image">
-                                                <a href="{{ route('products.show', $product->id) }}">
-                                                    @if ($product->getFirstMediaUrl('product-images'))
-                                                        <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}" class="img-fluid">
-                                                    @endif
+                                    <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
+                                    <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                        <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
+                                            <a href="{{ route('products.show', $product->id) }}">
+                                                @if ($product->getFirstMediaUrl('product-images'))
+                                                    <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
+                                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                                                    <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
+                                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                                                @endif
+                                            </a>
+                                            <div class="product-action-vertical">
+                                                <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
+                                                    <i class="d-icon-bag"></i>
                                                 </a>
-                                                <div class="product-actions">
-                                                    <a href="{{ route('cart.show') }}" class="btn-cart" title="Voir le panier">
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </a>
-                                                </div>
                                             </div>
-                                            <div class="product-info">
-                                                <h3 class="product-name">
-                                                    <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="new-price">{{ number_format($product->price, 2) }} MAD</span>
-                                                    @if($product->old_price)
-                                                        <span class="old-price">{{ number_format($product->old_price, 2) }} MAD</span>
-                                                    @endif
+                                        </figure>
+                                        <div class="product-details" style="padding: 10px; text-align: center;">
+                                            <h3 class="product-name">
+                                                <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
+                                            </h3>
+                                            <div class="product-price">
+                                                <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins>
+                                                <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
+                                            </div>
+                                            <div class="ratings-container">
+                                                <div class="ratings-full">
+                                                    <span class="ratings" style="width:90%"></span>
+                                                    <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <div class="product-rating">
-                                                    <div class="stars">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </div>
-                                                    <a href="{{ route('products.show', $product->id) }}" class="review-count">({{ $product->reviews_count ?? 0 }} Avis)</a>
-                                                </div>
+                                                <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">({{ $product->reviews_count }} Avis)</a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @endif
                             @endforeach
                         </div>
@@ -287,43 +285,40 @@
         }
 
         /* Product Card Styles */
-        .product-card {
+        .product-wrap {
+            transition: all 0.3s ease;
+        }
+
+        .product-wrap:hover {
+            transform: translateY(-10px);
+        }
+
+        .product {
             background-color: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
+        .product:hover {
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .product-image {
-            position: relative;
-            padding-bottom: 100%;
+        .product-media {
+            border-radius: 12px 12px 0 0;
             overflow: hidden;
         }
 
-        .product-image img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .product-media img {
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-image img {
+        .product:hover .product-media img {
             transform: scale(1.05);
         }
 
-        .product-actions {
+        .product-action-vertical {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -331,11 +326,11 @@
             transition: opacity 0.3s ease;
         }
 
-        .product-card:hover .product-actions {
+        .product:hover .product-action-vertical {
             opacity: 1;
         }
 
-        .btn-cart {
+        .btn-product-icon {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -348,17 +343,15 @@
             transition: all 0.3s ease;
         }
 
-        .btn-cart:hover {
+        .btn-product-icon:hover {
             background-color: #20c7d9;
             color: white;
             transform: translateY(-3px);
         }
 
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .product-details {
+            background-color: white;
+            border-radius: 0 0 12px 12px;
         }
 
         .product-name {
@@ -395,24 +388,54 @@
             text-decoration: line-through;
         }
 
-        .product-rating {
+        .ratings-container {
             display: flex;
             align-items: center;
-            margin-top: auto;
+            justify-content: center;
+            margin-top: 0.5rem;
         }
 
-        .stars {
-            color: #FFD700;
+        .ratings-full {
+            position: relative;
             margin-right: 0.5rem;
         }
 
-        .review-count {
+        .ratings {
+            position: relative;
+            display: inline-block;
+            font-family: 'Font Awesome 5 Free';
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: #FFD700;
+        }
+
+        .ratings::before {
+            content: '\f005\f005\f005\f005\f005';
+            font-weight: 900;
+            color: rgba(0,0,0,0.16);
+        }
+
+        .ratings-full .ratings {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .ratings-full .ratings::before {
+            content: '\f005\f005\f005\f005\f005';
+            font-weight: 900;
+            color: #FFD700;
+        }
+
+        .rating-reviews {
             font-size: 0.9rem;
             color: #777;
             text-decoration: none;
         }
 
-        .review-count:hover {
+        .rating-reviews:hover {
             color: #20c7d9;
         }
 
