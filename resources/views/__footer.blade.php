@@ -9,7 +9,7 @@
                                 <img src="{{asset("images/logo/M_D_Logo_white_font.png")}}" alt="logo-footer" width="180" height="70" />
                             </a>
                             <a href="" class="logo-footer">
-                                <img src="{{asset("images/logo/logo-ML5.png")}}" alt="logo-ML" width="100" height="70" style="background-color: white; padding: 5px; border-radius: 4px;" />
+                                <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-ML" width="180" height="70" style="padding: 5px;" />
                             </a>
                         </div>
                         <div class="widget-body">
