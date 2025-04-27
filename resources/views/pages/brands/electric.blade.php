@@ -192,18 +192,40 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <form action="{{ route('newsletter.subscribe') }}" method="post" class="newsletter-form">
+                                    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="newsletter-form" id="electric-newsletter-form">
                                         @csrf
+                                        <input type="hidden" name="form_source" value="electric_page">
+                                        <input type="hidden" name="privacy_check" value="1">
+
+                                        @if (session('success'))
+                                            <div class="newsletter-message mb-3 text-white">
+                                                <p class="mb-0"><i class="fas fa-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>
+                                            </div>
+                                            <div class="alert alert-success mt-3">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
+
+                                        @if (session('info'))
+                                            <div class="alert alert-info mt-3">
+                                                {{ session('info') }}
+                                            </div>
+                                        @endif
+
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mt-3">
+                                                <ul class="mb-0">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
                                         <div class="form-group mb-3">
-                                            <input type="email" class="form-control" name="email" placeholder="Votre adresse email" required>
+                                            <input type="email" class="form-control" name="email" id="electric-newsletter-email" placeholder="Votre adresse email" required>
                                         </div>
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" type="checkbox" name="privacy_check" id="privacy_check" required>
-                                            <label class="form-check-label" for="privacy_check">
-                                                J'accepte de recevoir des informations par email
-                                            </label>
-                                        </div>
-                                        <button type="submit" class="btn-subscribe">
+                                        <button type="submit" class="btn-subscribe" id="electric-newsletter-submit">
                                             S'abonner <i class="fas fa-paper-plane"></i>
                                         </button>
                                     </form>
@@ -217,6 +239,118 @@
         </main>
         <!-- End Main -->
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('electric-newsletter-form');
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent default form submission
+
+                    const submitButton = document.getElementById('electric-newsletter-submit');
+                    const emailInput = document.getElementById('electric-newsletter-email');
+                    const email = emailInput.value.trim();
+
+                    // Validate email
+                    if (!email) {
+                        alert('Veuillez entrer votre adresse email.');
+                        emailInput.focus();
+                        return false;
+                    }
+
+                    // Show loading state
+                    submitButton.innerHTML = 'Envoi en cours...';
+                    submitButton.disabled = true;
+
+                    // Create form data
+                    const formData = new FormData(newsletterForm);
+
+                    // Get CSRF token
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+                    // Make sure we have the CSRF token
+                    if (!csrfToken) {
+                        console.error('CSRF token not found');
+                        // Fall back to traditional form submission if no CSRF token
+                        newsletterForm.submit();
+                        return false;
+                    }
+
+                    // Submit form using fetch API
+                    fetch(newsletterForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        credentials: 'same-origin'
+                    })
+                    .then(response => {
+                        // Check if the response is JSON
+                        const contentType = response.headers.get('content-type');
+                        if (contentType && contentType.includes('application/json')) {
+                            return response.json();
+                        } else {
+                            // If not JSON, reload the page to show the server's response
+                            window.location.reload();
+                            throw new Error('Not JSON response');
+                        }
+                    })
+                    .then(data => {
+                        // Create success message
+                        const messageContainer = document.createElement('div');
+
+                        if (data.success) {
+                            // Show success message
+                            const welcomeMessage = document.createElement('div');
+                            welcomeMessage.className = 'newsletter-message mb-3 text-white';
+                            welcomeMessage.innerHTML = '<p class="mb-0"><i class="fas fa-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>';
+
+                            const successMessage = document.createElement('div');
+                            successMessage.className = 'alert alert-success mt-3';
+                            successMessage.textContent = data.message || 'Merci de vous être inscrit à notre newsletter !';
+
+                            // Clear form and show messages
+                            newsletterForm.innerHTML = '';
+                            newsletterForm.appendChild(welcomeMessage);
+                            newsletterForm.appendChild(successMessage);
+                        } else {
+                            // Show error message
+                            const errorMessage = document.createElement('div');
+                            errorMessage.className = 'alert alert-danger mt-3';
+                            errorMessage.textContent = data.message || 'Une erreur est survenue. Veuillez réessayer.';
+
+                            // Insert error message before the input
+                            const inputContainer = emailInput.parentElement;
+                            newsletterForm.insertBefore(errorMessage, inputContainer);
+
+                            // Reset button
+                            submitButton.innerHTML = 'S\'abonner <i class="fas fa-paper-plane"></i>';
+                            submitButton.disabled = false;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitButton.innerHTML = 'S\'abonner <i class="fas fa-paper-plane"></i>';
+                        submitButton.disabled = false;
+
+                        // Show error message
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'alert alert-danger mt-3';
+                        errorMessage.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+
+                        // Insert error message before the input
+                        const inputContainer = emailInput.parentElement;
+                        newsletterForm.insertBefore(errorMessage, inputContainer);
+                    });
+
+                    return false;
+                });
+            }
+        });
+    </script>
 
     <style>
         /* Brand Hero Section Styles */
@@ -576,6 +710,83 @@
 
         .btn-subscribe:hover i {
             transform: translateX(5px);
+        }
+
+        /* Newsletter message styles */
+        .newsletter-message {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-left: 3px solid #20c7d9;
+            animation: fadeInDown 0.5s ease-in-out;
+        }
+
+        .newsletter-message i {
+            color: #20c7d9;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Alert styles */
+        .alert {
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .alert-success {
+            color: #ffffff;
+            background-color: #28a745;
+            border-left: 4px solid #1e7e34;
+        }
+
+        .alert-info {
+            color: #ffffff;
+            background-color: #17a2b8;
+            border-left: 4px solid #117a8b;
+        }
+
+        .alert-danger {
+            color: #ffffff;
+            background-color: #dc3545;
+            border-left: 4px solid #bd2130;
         }
 
         /* Responsive Styles */
