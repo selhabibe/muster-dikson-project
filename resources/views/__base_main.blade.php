@@ -38,9 +38,6 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.min.css')}}">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/minipopup.css')}}">
 </head>
 
 <body class="contact-us">
@@ -61,27 +58,6 @@
 
     <!-- Main JS File -->
     <script src="{{asset('js/main.min.js')}}"></script>
-
-    <!-- Custom Script for Minipopup -->
-    <script>
-        $(document).ready(function() {
-            // Check if minipopup-area exists, if not create it
-            if ($('.minipopup-area').length === 0) {
-                console.log('Creating minipopup-area');
-                var area = document.createElement('div');
-                area.className = "minipopup-area";
-                $('.page-wrapper').append(area);
-
-                // Initialize Riode.Minipopup if it exists
-                if (typeof Riode !== 'undefined' && Riode.Minipopup) {
-                    console.log('Initializing Riode.Minipopup');
-                    Riode.Minipopup.init();
-                } else {
-                    console.warn('Riode.Minipopup is not defined');
-                }
-            }
-        });
-    </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key="></script>
     <script>

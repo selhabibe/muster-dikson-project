@@ -92,7 +92,7 @@
                                                 @endif
                                             </a>
                                             <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-cart" data-product-id="{{ $product->id }}" title="Add to Cart">
+                                                <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
                                                     <i class="d-icon-bag"></i>
                                                 </a>
                                             </div>
@@ -188,139 +188,6 @@
         </main>
         <!-- End Main -->
     </div>
-
-    @section('script')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add event listeners to all cart buttons
-            const cartButtons = document.querySelectorAll('.btn-product-icon.btn-cart');
-
-            cartButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Cart button clicked');
-
-                    const productId = this.getAttribute('data-product-id');
-                    console.log('Product ID:', productId);
-
-                    // Create the cart data
-                    const formData = new FormData();
-                    formData.append('product_id', productId);
-                    formData.append('quantity', 1);
-                    formData.append('_token', '{{ csrf_token() }}');
-
-                    console.log('Sending cart data:', {
-                        product_id: productId,
-                        quantity: 1,
-                        _token: '{{ csrf_token() }}'
-                    });
-
-                    console.log('Starting AJAX request to add to cart');
-                    console.log('URL:', '{{ route("cart.add") }}');
-
-                    // Store a reference to the button
-                    const $button = $(this);
-
-                    // Send AJAX request to add to cart using jQuery for simplicity
-                    $.ajax({
-                        url: '{{ route("cart.add") }}',
-                        type: 'POST',
-                        data: {
-                            product_id: productId,
-                            quantity: 1,
-                            _token: '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            console.log('Response data:', data);
-
-                            if (data.success) {
-                                console.log('Product added to cart successfully');
-
-                                // Get the product element
-                                const $product = $button.closest('.product');
-                                const productName = $product.find('.product-name').text().trim();
-                                const productLink = $product.find('.product-name > a').attr('href');
-                                const productImage = $product.find('.product-media img').attr('src');
-                                const productPrice = $product.find('.product-price').html() || $product.find('.new-price').html();
-
-                                console.log('Product details:', {
-                                    name: productName,
-                                    link: productLink,
-                                    image: productImage,
-                                    price: productPrice
-                                });
-
-                                // Get product data from the server response
-                                const productData = data.product || {
-                                    name: productName,
-                                    link: productLink,
-                                    image: productImage,
-                                    price: productPrice
-                                };
-
-                                // Show success message
-                                alert('Produit ajouté au panier avec succès!');
-
-                                // Call the Minipopup.open method
-                                if (typeof Riode !== 'undefined' && Riode.Minipopup) {
-                                    console.log('Using Riode.Minipopup');
-                                    try {
-                                        Riode.Minipopup.open({
-                                            message: 'Ajouté avec succès',
-                                            productClass: 'product-cart',
-                                            name: productData.name || productName,
-                                            nameLink: productData.link || productLink,
-                                            imageSrc: productData.image || productImage,
-                                            imageLink: productData.link || productLink,
-                                            price: productData.price || productPrice,
-                                            count: 1,
-                                            actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
-                                        });
-                                    } catch (e) {
-                                        console.error('Error calling Riode.Minipopup.open:', e);
-                                    }
-                                } else {
-                                    console.error('Riode.Minipopup is not defined');
-
-                                    // Create a manual popup if Riode.Minipopup is not available
-                                    const $popup = $('<div class="minipopup-box show" style="top: auto; bottom: 30px; left: 50%; transform: translateX(-50%);">' +
-                                        '<div class="minipopup-title">Ajouté avec succès</div>' +
-                                        '<div class="product product-cart">' +
-                                        '<figure class="product-media"><a href="' + (productData.link || productLink) + '"><img src="' + (productData.image || productImage) + '" alt="product" width="90" height="90"></a></figure>' +
-                                        '<div class="product-detail">' +
-                                        '<a href="' + (productData.link || productLink) + '" class="product-name">' + (productData.name || productName) + '</a>' +
-                                        '<div class="product-price">' + (productData.price || productPrice) + '</div>' +
-                                        '<div class="product-quantity">x 1</div>' +
-                                        '</div></div>' +
-                                        '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>' +
-                                        '</div>');
-
-                                    $('body').append($popup);
-
-                                    // Remove the popup after 4 seconds
-                                    setTimeout(function() {
-                                        $popup.fadeOut(function() {
-                                            $popup.remove();
-                                        });
-                                    }, 4000);
-                                }
-                            } else if (data.error) {
-                                console.error('Error from server:', data.error);
-                                alert(data.error);
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('AJAX Error:', status, error);
-                            console.error('Response Text:', xhr.responseText);
-                            alert('An error occurred while adding the product to the cart. Please try again.');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
-    @endsection
 
     <style>
         /* Shop Hero Section Styles */
