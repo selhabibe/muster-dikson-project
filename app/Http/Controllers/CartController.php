@@ -88,63 +88,69 @@ class CartController extends Controller
     // Add a product to the cart
     public function addToCart(Request $request)
     {
-        $request->validate([
-            'product_id' => 'required|exists:shop_products,id', // Ensure the table name is correct here
-            'quantity' => 'required|integer|min:1',
-        ]);
-
-        $product = Product::find($request->product_id); // This should use your Product model
-
-        $cart = session()->get('cart', []);
-
-        if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] += $request->quantity; // Update quantity
-        } else {
-            $cart[$product->id] = [
-                'name' => $product->name,
-                'quantity' => $request->quantity,
-                'price' => $product->price,
-                'photo' => $product->image, // Assuming you have an image field
-            ];
-        }
-
-
-        $sessionId = $request->session()->getId();
-        $productId = $request->input('product_id');
-        $quantity = $request->input('quantity');
-
-        // Get the product details
-        $product = Product::find($productId);
-        if (!$product) {
-            return response()->json(['error' => 'Product not found'], 404);
-        }
-
-        // Check if product already exists in the cart
-        $cartItem = Cart::where('session_id', $sessionId)
-            ->where('product_id', $productId)
-            ->first();
-
-        if ($cartItem) {
-            $cartItem->quantity += $quantity;
-            $cartItem->save();
-        } else {
-            Cart::create([
-                'session_id' => $sessionId,
-                'product_id' => $productId,
-                'quantity' => $quantity,
+        try {
+            $request->validate([
+                'product_id' => 'required|exists:shop_products,id',
+                'quantity' => 'required|integer|min:1',
             ]);
-        }
 
-        // Return product details along with success message
-        return response()->json([
-            'success' => 'Item added to cart successfully!',
-            'product' => [
-                'name' => $product->name,
-                'link' => route('product.show', $product->id),
-                'image' => $product->image ? asset($product->image) : asset('images/products/default.jpg'),
-                'price' => $product->price_formatted ?? number_format($product->price, 2) . ' MAD',
-            ]
-        ]);
+            $productId = $request->input('product_id');
+            $quantity = $request->input('quantity');
+            $sessionId = $request->session()->getId();
+
+            // Get the product details
+            $product = Product::find($productId);
+            if (!$product) {
+                return response()->json(['error' => 'Product not found'], 404);
+            }
+
+            // Update session cart
+            $cart = session()->get('cart', []);
+            if (isset($cart[$product->id])) {
+                $cart[$product->id]['quantity'] += $quantity;
+            } else {
+                $cart[$product->id] = [
+                    'name' => $product->name,
+                    'quantity' => $quantity,
+                    'price' => $product->price,
+                    'photo' => $product->image,
+                ];
+            }
+            session()->put('cart', $cart);
+
+            // Update database cart
+            $cartItem = Cart::where('session_id', $sessionId)
+                ->where('product_id', $productId)
+                ->first();
+
+            if ($cartItem) {
+                $cartItem->quantity += $quantity;
+                $cartItem->save();
+            } else {
+                Cart::create([
+                    'session_id' => $sessionId,
+                    'product_id' => $productId,
+                    'quantity' => $quantity,
+                ]);
+            }
+
+            // Return product details along with success message
+            return response()->json([
+                'success' => 'Item added to cart successfully!',
+                'product' => [
+                    'name' => $product->name,
+                    'link' => route('products.show', $product->id),
+                    'image' => $product->image ? asset($product->image) : asset('images/products/default.jpg'),
+                    'price' => $product->price_formatted ?? number_format($product->price, 2) . ' MAD',
+                ]
+            ]);
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Error adding to cart: ' . $e->getMessage());
+
+            // Return a friendly error message
+            return response()->json(['error' => 'An error occurred while adding the product to the cart. Please try again.'], 500);
+        }
     }
 
     // Update cart item quantity

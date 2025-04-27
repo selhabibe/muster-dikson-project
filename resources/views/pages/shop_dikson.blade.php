@@ -217,18 +217,30 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
+                            'Accept': 'application/json',
                             'X-CSRF-TOKEN': cartData._token
                         },
                         body: JSON.stringify(cartData)
                     })
                     .then(response => {
                         console.log('Response status:', response.status);
+                        if (!response.ok) {
+                            return response.text().then(text => {
+                                console.error('Response text:', text);
+                                throw new Error('Server responded with status: ' + response.status);
+                            });
+                        }
                         return response.json();
                     })
                     .then(data => {
                         console.log('Response data:', data);
                         if (data.success) {
                             console.log('Product added to cart successfully');
+                        } else if (data.error) {
+                            console.error('Error from server:', data.error);
+                            alert(data.error);
+                            return;
+                        }
 
                             // Manually trigger the minipopup
                             const $product = $(this).closest('.product');
@@ -294,6 +306,7 @@
                     })
                     .catch(error => {
                         console.error('Error adding to cart:', error);
+                        alert('An error occurred while adding the product to the cart. Please try again.');
                     });
                 });
             });
