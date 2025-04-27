@@ -204,109 +204,110 @@
                     console.log('Product ID:', productId);
 
                     // Create the cart data
-                    const cartData = {
+                    const formData = new FormData();
+                    formData.append('product_id', productId);
+                    formData.append('quantity', 1);
+                    formData.append('_token', '{{ csrf_token() }}');
+
+                    console.log('Sending cart data:', {
                         product_id: productId,
                         quantity: 1,
                         _token: '{{ csrf_token() }}'
-                    };
+                    });
 
-                    console.log('Sending cart data:', cartData);
+                    console.log('Starting AJAX request to add to cart');
+                    console.log('URL:', '{{ route("cart.add") }}');
 
-                    // Send AJAX request to add to cart
-                    fetch('{{ route("cart.add") }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json',
-                            'X-CSRF-TOKEN': cartData._token
+                    // Store a reference to the button
+                    const $button = $(this);
+
+                    // Send AJAX request to add to cart using jQuery for simplicity
+                    $.ajax({
+                        url: '{{ route("cart.add") }}',
+                        type: 'POST',
+                        data: {
+                            product_id: productId,
+                            quantity: 1,
+                            _token: '{{ csrf_token() }}'
                         },
-                        body: JSON.stringify(cartData)
-                    })
-                    .then(response => {
-                        console.log('Response status:', response.status);
-                        if (!response.ok) {
-                            return response.text().then(text => {
-                                console.error('Response text:', text);
-                                throw new Error('Server responded with status: ' + response.status);
-                            });
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Response data:', data);
-                        if (data.success) {
-                            console.log('Product added to cart successfully');
-                        } else if (data.error) {
-                            console.error('Error from server:', data.error);
-                            alert(data.error);
-                            return;
-                        }
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log('Response data:', data);
 
-                            // Manually trigger the minipopup
-                            const $product = $(this).closest('.product');
-                            const productName = $product.find('.product-name').text().trim();
-                            const productLink = $product.find('.product-name > a').attr('href');
-                            const productImage = $product.find('.product-media img').attr('src');
-                            const productPrice = $product.find('.product-price').html() || $product.find('.new-price').html();
+                            if (data.success) {
+                                console.log('Product added to cart successfully');
 
-                            console.log('Triggering minipopup with:', {
-                                name: productName,
-                                link: productLink,
-                                image: productImage,
-                                price: productPrice
-                            });
+                                // Get the product element
+                                const $product = $button.closest('.product');
+                                const productName = $product.find('.product-name').text().trim();
+                                const productLink = $product.find('.product-name > a').attr('href');
+                                const productImage = $product.find('.product-media img').attr('src');
+                                const productPrice = $product.find('.product-price').html() || $product.find('.new-price').html();
 
-                            // Get product data from the server response
-                            const productData = data.product || {
-                                name: productName,
-                                link: productLink,
-                                image: productImage,
-                                price: productPrice
-                            };
-
-                            // Call the Minipopup.open method
-                            if (typeof Riode !== 'undefined' && Riode.Minipopup) {
-                                Riode.Minipopup.open({
-                                    message: 'Ajouté avec succès',
-                                    productClass: 'product-cart',
-                                    name: productData.name || productName,
-                                    nameLink: productData.link || productLink,
-                                    imageSrc: productData.image || productImage,
-                                    imageLink: productData.link || productLink,
-                                    price: productData.price || productPrice,
-                                    count: 1,
-                                    actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                                console.log('Product details:', {
+                                    name: productName,
+                                    link: productLink,
+                                    image: productImage,
+                                    price: productPrice
                                 });
-                            } else {
-                                console.error('Riode.Minipopup is not defined');
 
-                                // Create a manual popup if Riode.Minipopup is not available
-                                const $popup = $('<div class="minipopup-box show" style="top: auto; bottom: 30px; left: 50%; transform: translateX(-50%);">' +
-                                    '<div class="minipopup-title">Ajouté avec succès</div>' +
-                                    '<div class="product product-cart">' +
-                                    '<figure class="product-media"><a href="' + (productData.link || productLink) + '"><img src="' + (productData.image || productImage) + '" alt="product" width="90" height="90"></a></figure>' +
-                                    '<div class="product-detail">' +
-                                    '<a href="' + (productData.link || productLink) + '" class="product-name">' + (productData.name || productName) + '</a>' +
-                                    '<div class="product-price">' + (productData.price || productPrice) + '</div>' +
-                                    '<div class="product-quantity">x 1</div>' +
-                                    '</div></div>' +
-                                    '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>' +
-                                    '</div>');
+                                // Get product data from the server response
+                                const productData = data.product || {
+                                    name: productName,
+                                    link: productLink,
+                                    image: productImage,
+                                    price: productPrice
+                                };
 
-                                $('body').append($popup);
-
-                                // Remove the popup after 4 seconds
-                                setTimeout(function() {
-                                    $popup.fadeOut(function() {
-                                        $popup.remove();
+                                // Call the Minipopup.open method
+                                if (typeof Riode !== 'undefined' && Riode.Minipopup) {
+                                    console.log('Using Riode.Minipopup');
+                                    Riode.Minipopup.open({
+                                        message: 'Ajouté avec succès',
+                                        productClass: 'product-cart',
+                                        name: productData.name || productName,
+                                        nameLink: productData.link || productLink,
+                                        imageSrc: productData.image || productImage,
+                                        imageLink: productData.link || productLink,
+                                        price: productData.price || productPrice,
+                                        count: 1,
+                                        actionTemplate: '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
                                     });
-                                }, 4000);
+                                } else {
+                                    console.error('Riode.Minipopup is not defined');
+
+                                    // Create a manual popup if Riode.Minipopup is not available
+                                    const $popup = $('<div class="minipopup-box show" style="top: auto; bottom: 30px; left: 50%; transform: translateX(-50%);">' +
+                                        '<div class="minipopup-title">Ajouté avec succès</div>' +
+                                        '<div class="product product-cart">' +
+                                        '<figure class="product-media"><a href="' + (productData.link || productLink) + '"><img src="' + (productData.image || productImage) + '" alt="product" width="90" height="90"></a></figure>' +
+                                        '<div class="product-detail">' +
+                                        '<a href="' + (productData.link || productLink) + '" class="product-name">' + (productData.name || productName) + '</a>' +
+                                        '<div class="product-price">' + (productData.price || productPrice) + '</div>' +
+                                        '<div class="product-quantity">x 1</div>' +
+                                        '</div></div>' +
+                                        '<div class="action-group d-flex"><a href="/cart" class="btn btn-sm btn-outline btn-primary btn-rounded">Voir panier</a><a href="/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>' +
+                                        '</div>');
+
+                                    $('body').append($popup);
+
+                                    // Remove the popup after 4 seconds
+                                    setTimeout(function() {
+                                        $popup.fadeOut(function() {
+                                            $popup.remove();
+                                        });
+                                    }, 4000);
+                                }
+                            } else if (data.error) {
+                                console.error('Error from server:', data.error);
+                                alert(data.error);
                             }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('AJAX Error:', status, error);
+                            console.error('Response Text:', xhr.responseText);
+                            alert('An error occurred while adding the product to the cart. Please try again.');
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error adding to cart:', error);
-                        alert('An error occurred while adding the product to the cart. Please try again.');
                     });
                 });
             });
