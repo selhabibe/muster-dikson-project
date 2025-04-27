@@ -33,12 +33,10 @@ class NewsletterController extends Controller
         // Validate the request
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|max:255',
-            'privacy_check' => 'required|accepted',
+            // Privacy check is now implicit with a hidden field
         ], [
             'email.required' => 'Veuillez entrer votre adresse email.',
             'email.email' => 'Veuillez entrer une adresse email valide.',
-            'privacy_check.required' => 'Vous devez accepter de recevoir des informations par email.',
-            'privacy_check.accepted' => 'Vous devez accepter de recevoir des informations par email.',
         ]);
 
         if ($validator->fails()) {

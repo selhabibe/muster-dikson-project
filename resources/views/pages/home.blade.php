@@ -421,6 +421,8 @@
                                     <form action="{{ route('newsletter.subscribe') }}" method="POST" class="px-4" id="newsletter-form">
                                         @csrf
                                         <input type="hidden" name="form_source" value="home_page">
+                                        <input type="hidden" name="privacy_check" value="1">
+
                                         @if (session('success'))
                                             <div class="newsletter-message mb-3 text-white">
                                                 <p class="mb-0"><i class="d-icon-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>
@@ -436,27 +438,6 @@
                                             </div>
                                         @endif
 
-                                        <div class="d-flex gap-2">
-                                            <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="newsletter-email"
-                                                placeholder="Votre adresse email" required value="{{ old('email') }}">
-                                            <button class="btn btn-primary stylish-button" type="submit" id="newsletter-submit">S'abonner</button>
-                                        </div>
-
-                                        <!-- Alternative submit button for testing (only visible in development) -->
-                                        @if(config('app.env') !== 'production')
-                                        <div class="mt-2 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-sm btn-outline-light" style="font-size: 0.8rem;">
-                                                Soumettre directement
-                                            </button>
-                                        </div>
-                                        @endif
-                                        <div class="form-check mt-3 text-start">
-                                            <input class="form-check-input" type="checkbox" id="privacy-check" name="privacy_check" required>
-                                            <label class="form-check-label small text-white" for="privacy-check">
-                                                J'accepte de recevoir des informations par email
-                                            </label>
-                                        </div>
-
                                         @if ($errors->any())
                                             <div class="alert alert-danger mt-3">
                                                 <ul class="mb-0">
@@ -466,6 +447,12 @@
                                                 </ul>
                                             </div>
                                         @endif
+
+                                        <div class="d-flex gap-2">
+                                            <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="newsletter-email"
+                                                placeholder="Votre adresse email" required value="{{ old('email') }}">
+                                            <button class="btn btn-primary stylish-button" type="submit" id="newsletter-submit">S'abonner</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -478,36 +465,19 @@
                         const newsletterForm = document.getElementById('newsletter-form');
 
                         if (newsletterForm) {
-                            console.log('Newsletter form found with action: ' + newsletterForm.action);
+                            // Make sure the form submits normally without JavaScript interference
+                            const submitButton = document.getElementById('newsletter-submit');
 
-                            // Add manual form submission handler
-                            document.getElementById('newsletter-submit').addEventListener('click', function(e) {
-                                e.preventDefault();
+                            if (submitButton) {
+                                submitButton.addEventListener('click', function() {
+                                    // Add a loading state to the button
+                                    this.innerHTML = 'Envoi en cours...';
+                                    this.disabled = true;
 
-                                // Get form data
-                                const email = document.getElementById('newsletter-email').value;
-                                const privacyCheck = document.getElementById('privacy-check').checked;
-
-                                // Validate form
-                                if (!email) {
-                                    alert('Veuillez entrer votre adresse email.');
-                                    return;
-                                }
-
-                                if (!privacyCheck) {
-                                    alert('Vous devez accepter de recevoir des informations par email.');
-                                    return;
-                                }
-
-                                // Add a loading state to the button
-                                this.innerHTML = 'Envoi en cours...';
-                                this.disabled = true;
-
-                                // Submit the form
-                                newsletterForm.submit();
-                            });
-                        } else {
-                            console.error('Newsletter form not found');
+                                    // Let the form submit normally
+                                    // No preventDefault() here to ensure normal form submission
+                                });
+                            }
                         }
                     });
                 </script>
