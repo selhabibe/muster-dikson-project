@@ -12,7 +12,7 @@
     <x-filament::section class="mt-6">
         <div class="space-y-4">
             <h2 class="text-xl font-bold tracking-tight">Newsletter Statistics</h2>
-            
+
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <div class="bg-white overflow-hidden shadow rounded-lg">
                     <div class="px-4 py-5 sm:p-6">
@@ -22,7 +22,7 @@
                         </dl>
                     </div>
                 </div>
-                
+
                 <div class="bg-white overflow-hidden shadow rounded-lg">
                     <div class="px-4 py-5 sm:p-6">
                         <dl>
@@ -31,7 +31,7 @@
                         </dl>
                     </div>
                 </div>
-                
+
                 <div class="bg-white overflow-hidden shadow rounded-lg">
                     <div class="px-4 py-5 sm:p-6">
                         <dl>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-6">
                 <h3 class="text-lg font-medium text-gray-900">Recent Subscribers</h3>
                 <div class="mt-2 overflow-x-auto">
@@ -71,7 +71,7 @@
                     </table>
                 </div>
                 <div class="mt-4">
-                    <a href="{{ \Filament\Support\Facades\FilamentView::getUrl(\App\Filament\Resources\NewsletterSubscriberResource::class) }}" class="text-indigo-600 hover:text-indigo-900">View all subscribers</a>
+                    <a href="{{ \App\Filament\Resources\NewsletterSubscriberResource::getUrl('index') }}" class="text-indigo-600 hover:text-indigo-900">View all subscribers</a>
                 </div>
             </div>
         </div>
