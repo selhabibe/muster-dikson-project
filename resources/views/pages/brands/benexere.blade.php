@@ -1,24 +1,56 @@
-@extends('.__base')
+@extends('.__base_main')
+
+@section('meta')
+    <meta name="description" content="Découvrez Muster Benexere Professionelle, une gamme complète de produits de beauté et de bien-être professionnels pour les salons et spas. Qualité et efficacité pour des soins d'exception.">
+    <meta name="keywords" content="Muster Benexere Professionelle, produits beauté professionnels, soins spa, soins esthétiques, produits bien-être, cosmétiques professionnels">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Muster Benexere Professionelle | Muster & Dikson">
+    <meta property="og:description" content="Découvrez Muster Benexere Professionelle, une gamme complète de produits de beauté et de bien-être professionnels pour les salons et spas. Qualité et efficacité pour des soins d'exception.">
+    <meta property="og:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="Muster Benexere Professionelle | Muster & Dikson">
+    <meta property="twitter:description" content="Découvrez Muster Benexere Professionelle, une gamme complète de produits de beauté et de bien-être professionnels pour les salons et spas. Qualité et efficacité pour des soins d'exception.">
+    <meta property="twitter:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+@endsection
 
 @section('content')
     <div class="page-wrapper">
         <main class="main">
-            <div class="page-header"
-                 style="background-image: url('{{asset('images/demos/demo-beauty/page-header.jpg')}}'); background-color: #ECEDF1;">
-                <h1 class="page-title font-weight-bold text-dark">Muster Benexere Professionelle</h1>
-                <ul class="breadcrumb pb-0">
-                    <li class="text-dark"><a href="{{route('index')}}" class="text-dark"><i class="d-icon-home"></i></a>
-                    </li>
-                    <li class="delimiter text-dark">/</li>
-                    <li class="text-dark"><a href="{{route('ourbrands')}}" class="text-dark">Nos marques</a></li>
-                    <li class="delimiter text-dark">/</li>
-                    <li class="text-dark">Muster Benexere Professionelle</li>
-                </ul>
-            </div>
-            <!-- End PageHeader -->
-
-            <div class="page-content mb-10 pb-3 mt-5">
+            <!-- Hero Section -->
+            <section class="brand-hero-section">
                 <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('ourbrands')}}">Nos marques</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Muster Benexere Professionelle</li>
+                                </ol>
+                            </nav>
+                            <div class="brand-hero-content text-center">
+                                <span class="brand-hero-subtitle">Bien-être professionnel</span>
+                                <h1 class="brand-hero-title">Muster Benexere Professionelle</h1>
+                                <p class="brand-hero-description">Des produits de beauté et de bien-être professionnels pour les salons et spas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Brand Content -->
+            <div class="page-content">
+                <section class="brand-intro-section">
+                    <div class="container">
                     <div class="row">
                         <div class="col-lg-5 mb-4">
                             <div class="brand-image-container">
@@ -82,49 +114,197 @@
                             <p>La marque s'engage également à respecter l'environnement en utilisant des ingrédients naturels et des emballages recyclables. Cette approche éco-responsable s'inscrit dans une vision globale du bien-être qui inclut le respect de la nature et de ses ressources.</p>
 
                             <div class="text-center mt-5">
-                                <a href="{{route('shop.muster')}}" class="btn btn-primary btn-rounded mr-2">Découvrir nos produits Benexere</a>
-                                <a href="{{asset('documents/brands/benexere-catalog.pdf')}}" class="btn btn-outline btn-rounded" target="_blank">
-                                    <i class="d-icon-file-pdf"></i> Télécharger le catalogue
+                                <a href="{{route('shop.muster')}}" class="btn-shop">
+                                    Découvrir nos produits Benexere <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="{{asset('documents/brands/benexere-catalog.pdf')}}" class="btn-catalog" target="_blank">
+                                    <i class="fas fa-file-pdf"></i> Télécharger le catalogue
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- Newsletter Section -->
+                <section class="brand-newsletter-section">
+                    <div class="container">
+                        <div class="newsletter-container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="newsletter-content">
+                                        <h2 class="newsletter-title">Restez informé</h2>
+                                        <p class="newsletter-description">Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés et offres exclusives de Muster Benexere Professionelle.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form action="{{ route('newsletter.subscribe') }}" method="post" class="newsletter-form">
+                                        @csrf
+                                        <div class="form-group mb-3">
+                                            <input type="email" class="form-control" name="email" placeholder="Votre adresse email" required>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" name="privacy_check" id="privacy_check" required>
+                                            <label class="form-check-label" for="privacy_check">
+                                                J'accepte de recevoir des informations par email
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn-subscribe">
+                                            S'abonner <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Newsletter Section -->
             </div>
         </main>
-        <!-- End Footer -->
+        <!-- End Main -->
     </div>
 
     <style>
+        /* Brand Hero Section Styles */
+        .brand-hero-section {
+            padding: 6rem 0 4rem;
+            background-color: #1A2A3A;
+            background-image: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), url('{{asset('images/demos/demo-beauty/page-header.jpg')}}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #20c7d9;
+        }
+
+        .breadcrumb-item.active {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .brand-hero-content {
+            padding: 2rem 0;
+        }
+
+        .brand-hero-subtitle {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #20c7d9;
+            letter-spacing: 1px;
+        }
+
+        .brand-hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .brand-hero-description {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Brand Intro Section Styles */
+        .brand-intro-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
         .brand-image-container {
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .brand-image-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .brand-description h2 {
+            font-size: 2.7rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1A2A3A;
+        }
+
+        .brand-description .lead {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #20c7d9;
+        }
+
+        .brand-description p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
         }
 
         .product-category-card {
             background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 2rem;
             height: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
         .product-category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .product-category-card h4 {
-            margin-bottom: 15px;
-            color: #333;
+            font-size: 1.5rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1A2A3A;
+        }
+
+        .product-category-card p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .list-type-check {
+            padding-left: 0;
+            list-style: none;
         }
 
         .list-type-check li {
             position: relative;
             padding-left: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: #555;
         }
 
         .list-type-check li:before {
@@ -133,8 +313,219 @@
             font-weight: 900;
             position: absolute;
             left: 0;
-            top: 2px;
-            color: #26b170;
+            top: 4px;
+            color: #20c7d9;
+        }
+
+        .title-border {
+            position: relative;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1A2A3A;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .title-border:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #20c7d9;
+        }
+
+        .btn-shop {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1A2A3A;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .btn-shop i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-shop:hover {
+            background-color: #20c7d9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: white;
+        }
+
+        .btn-shop:hover i {
+            transform: translateX(5px);
+        }
+
+        .btn-catalog {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: #1A2A3A;
+            border: 2px solid #1A2A3A;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-catalog i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-catalog:hover {
+            background-color: #1A2A3A;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Newsletter Section Styles */
+        .brand-newsletter-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .newsletter-container {
+            background-color: #1A2A3A;
+            border-radius: 12px;
+            padding: 3rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .newsletter-description {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        .newsletter-form .form-control {
+            height: 50px;
+            border-radius: 8px;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-size: 1.1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 0.2rem rgba(32, 199, 217, 0.25);
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-check-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            padding-left: 0.5rem;
+        }
+
+        .btn-subscribe {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #20c7d9;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-subscribe i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-subscribe:hover {
+            background-color: white;
+            color: #1A2A3A;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-subscribe:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .brand-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .brand-hero-description {
+                font-size: 1.3rem;
+            }
+
+            .brand-description h2 {
+                font-size: 2.4rem;
+            }
+
+            .newsletter-container {
+                padding: 2rem;
+            }
+
+            .newsletter-content {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .brand-hero-section {
+                padding: 4rem 0 3rem;
+            }
+
+            .brand-hero-title {
+                font-size: 2.2rem;
+            }
+
+            .brand-hero-description {
+                font-size: 1.2rem;
+            }
+
+            .brand-description h2 {
+                font-size: 2rem;
+            }
+
+            .brand-description .lead {
+                font-size: 1.3rem;
+            }
+
+            .btn-shop, .btn-catalog {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+                text-align: center;
+                justify-content: center;
+            }
         }
     </style>
 @endsection('content')
