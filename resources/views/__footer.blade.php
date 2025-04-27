@@ -95,7 +95,7 @@
 {{--                <img width="90" height="100" src="{{asset('images/front/madeinitaly.png')}}">--}}
 {{--            </div>--}}
             <div class="footer-center">
-                <p class="copyright">Muster & Dikson &copy; 2024 | <a href="#"> Conditions Générales</a> </p>
+                <p class="copyright">Muster & Dikson &copy; 2025 | <a href="#"> Conditions Générales</a> </p>
             </div>
             <div class="footer-right">
                 <div class="social-links">
