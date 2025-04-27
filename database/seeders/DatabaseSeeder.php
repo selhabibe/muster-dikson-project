@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Shop categories created.');
 
         $this->command->warn(PHP_EOL . 'Creating shop customers...');
-        $customers = $this->withProgressBar(1000, fn () => Customer::factory(1)
+        $customers = $this->withProgressBar(100, fn () => Customer::factory(1)
             ->has(Address::factory()->count(rand(1, 3)))
             ->create());
         $this->command->info('Shop customers created.');
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Shop products created.');
 
         $this->command->warn(PHP_EOL . 'Creating orders...');
-        $orders = $this->withProgressBar(1000, fn () => Order::factory(1)
+        $orders = $this->withProgressBar(10, fn () => Order::factory(1)
             ->sequence(fn ($sequence) => ['shop_customer_id' => $customers->random(1)->first()->id])
             ->has(Payment::factory()->count(rand(1, 3)))
             ->has(
@@ -109,7 +109,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Blog categories created.');
 
         $this->command->warn(PHP_EOL . 'Creating blog authors and posts...');
-        $this->withProgressBar(20, fn () => Author::factory(1)
+        $this->withProgressBar(5, fn () => Author::factory(1)
             ->has(
                 Post::factory()->count(5)
                     ->has(
