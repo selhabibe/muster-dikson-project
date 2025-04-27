@@ -113,6 +113,12 @@ class CartController extends Controller
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
 
+        // Get the product details
+        $product = Product::find($productId);
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+
         // Check if product already exists in the cart
         $cartItem = Cart::where('session_id', $sessionId)
             ->where('product_id', $productId)
@@ -129,7 +135,16 @@ class CartController extends Controller
             ]);
         }
 
-        return response()->json(['success' => 'Item added to cart successfully!']);
+        // Return product details along with success message
+        return response()->json([
+            'success' => 'Item added to cart successfully!',
+            'product' => [
+                'name' => $product->name,
+                'link' => route('product.show', $product->id),
+                'image' => $product->image ? asset($product->image) : asset('images/products/default.jpg'),
+                'price' => $product->price_formatted ?? number_format($product->price, 2) . ' MAD',
+            ]
+        ]);
     }
 
     // Update cart item quantity
