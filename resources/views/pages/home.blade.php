@@ -420,6 +420,9 @@
                                 <div class="col-lg-6">
                                     <form action="{{ route('newsletter.subscribe') }}" method="post" class="px-4">
                                         @csrf
+                                        <div class="newsletter-message mb-3 text-white">
+                                            <p class="mb-0"><i class="d-icon-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>
+                                        </div>
                                         <div class="d-flex gap-2">
                                             <input type="email" class="form-control stylish-input flex-grow-1" name="email" id="newsletter-email"
                                                 placeholder="Votre adresse email" required value="{{ old('email') }}">
@@ -624,6 +627,45 @@
                         border-color: white;
                     }
 
+                    /* Newsletter message styles */
+                    .newsletter-message {
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border-radius: 8px;
+                        padding: 10px 15px;
+                        font-size: 1rem;
+                        border-left: 3px solid #20c7d9;
+                        animation: fadeInDown 0.5s ease-in-out;
+                    }
+
+                    .newsletter-message i {
+                        color: #20c7d9;
+                        margin-right: 8px;
+                        animation: pulse 1.5s infinite;
+                    }
+
+                    @keyframes fadeInDown {
+                        from {
+                            opacity: 0;
+                            transform: translateY(-10px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    @keyframes pulse {
+                        0% {
+                            transform: scale(1);
+                        }
+                        50% {
+                            transform: scale(1.2);
+                        }
+                        100% {
+                            transform: scale(1);
+                        }
+                    }
+
                     /* New stylish input and button styles */
                     .stylish-input {
                         height: 50px;
@@ -638,9 +680,11 @@
 
                     .stylish-input:focus {
                         background-color: rgba(255, 255, 255, 0.2);
-                        border-color: rgba(255, 255, 255, 0.5);
-                        box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+                        border-color: #20c7d9;
+                        box-shadow: 0 0 0 0.25rem rgba(32, 199, 217, 0.25);
                         color: white;
+                        outline: none;
+                        transition: all 0.3s ease;
                     }
 
                     .stylish-input::placeholder {
@@ -678,26 +722,38 @@
                     .alert {
                         padding: 0.75rem 1.25rem;
                         margin-bottom: 1rem;
-                        border: 1px solid transparent;
-                        border-radius: 0.25rem;
+                        border: none;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        animation: fadeIn 0.5s ease-in-out;
+                        font-size: 1rem;
+                    }
+
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                        }
+                        to {
+                            opacity: 1;
+                        }
                     }
 
                     .alert-success {
-                        color: #155724;
-                        background-color: #d4edda;
-                        border-color: #c3e6cb;
+                        color: #ffffff;
+                        background-color: #28a745;
+                        border-left: 4px solid #1e7e34;
                     }
 
                     .alert-info {
-                        color: #0c5460;
-                        background-color: #d1ecf1;
-                        border-color: #bee5eb;
+                        color: #ffffff;
+                        background-color: #17a2b8;
+                        border-left: 4px solid #117a8b;
                     }
 
                     .alert-danger {
-                        color: #721c24;
-                        background-color: #f8d7da;
-                        border-color: #f5c6cb;
+                        color: #ffffff;
+                        background-color: #dc3545;
+                        border-left: 4px solid #bd2130;
                     }
 
                     .alert ul {
@@ -713,6 +769,10 @@
 
                         .newsletter-content {
                             margin-bottom: 2rem;
+                            text-align: center;
+                        }
+
+                        .newsletter-message {
                             text-align: center;
                         }
 
