@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="widget widget-about pl-0">
-                        <div class="footer-logos d-flex align-items-center mb-3">
-                            <a href="" class="logo-footer mr-4">
+                        <div class="footer-logos d-flex align-items-center">
+                            <a href="" class="logo-footer">
                                 <img src="{{asset("images/logo/M_D_Logo_white_font.png")}}" alt="logo-footer" width="180" height="70" />
                             </a>
                             <a href="" class="logo-footer">
-                                <img src="{{asset("images/logo/logo-ML.png")}}" alt="logo-ML" width="100" height="70" style="background-color: white; padding: 5px; border-radius: 4px;" />
+                                <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-ML" width="170" height="70" />
                             </a>
                         </div>
                         <div class="widget-body">
@@ -71,6 +71,12 @@
                                     <li>
                                         <p> contact@muster-dikson.ma</p>
                                     </li>
+                                    <li>
+                                        <p> sales@muster-dikson.ma</p>
+                                    </li>
+                                    <li>
+                                        <p> support@muster-dikson.ma</p>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- End Widget -->
@@ -89,7 +95,7 @@
 {{--                <img width="90" height="100" src="{{asset('images/front/madeinitaly.png')}}">--}}
 {{--            </div>--}}
             <div class="footer-center">
-                <p class="copyright">Muster & Dikson &copy; 2024 | <a href="#"> Conditions Générales</a> </p>
+                <p class="copyright">Muster & Dikson &copy; 2025 | <a href="#"> Conditions Générales</a> </p>
             </div>
             <div class="footer-right">
                 <div class="social-links">

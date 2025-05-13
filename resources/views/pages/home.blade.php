@@ -1252,7 +1252,7 @@
                                             <h3 class="blog-title">
                                                 <a href="{{ route('posts.show', $recentPost->id) }}">{{ $recentPost->title }}</a>
                                             </h3>
-                                            <p class="blog-excerpt">{{ Str::limit($recentPost->body, 100) }}</p>
+                                            <p class="blog-excerpt">{{ Str::limit($recentPost->content, 100) }}</p>
                                             <a href="{{ route('posts.show', $recentPost->id) }}" class="blog-link">En savoir plus <i class="d-icon-arrow-right"></i></a>
                                         </div>
                                     </div>
