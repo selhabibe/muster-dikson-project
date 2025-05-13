@@ -25,6 +25,7 @@ storage/app/public/products
 24007413 149
 12201201 150
 
+
 cp -r public/Product_Test_images/* storage/app/public/products/
 
 
