@@ -4,18 +4,15 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="widget widget-about pl-0">
-                        <div class="footer-logos d-flex align-items-center">
+                        <div class="footer-logos">
                             <a href="" class="logo-footer">
                                 <img src="{{asset("images/logo/M_D_Logo_white_font.png")}}" alt="logo-footer" width="180" height="70" />
-                            </a>
-                            <a href="" class="logo-footer">
-                                <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-ML" width="170" height="70" />
                             </a>
                         </div>
                         <div class="widget-body">
                             <p>Une entreprise dynamique depuis plus de 50 ans au service permanent du coiffeur et de l'esthéticienne,
                                 qui étudie, produit et agit pour offrir un service toujours meilleur et une gamme de produits de
-                                qualité supérieure. <br>
+                                qualité supérieure.
                             </p>
                         </div>
                     </div>
@@ -23,7 +20,7 @@
                 </div>
                 <div class="col-lg-8 col-md-12">
                     <div class="row">
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-3 col-sm-12">
                             <div class="widget">
                                 <h4 class="widget-title">À Propos de Nous</h4>
                                 <ul class="widget-body">
@@ -37,7 +34,7 @@
                             </div>
                             <!-- End Widget -->
                         </div>
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-3 col-sm-12">
                             <div class="widget">
 {{--                                <h4 class="widget-title">Service Client</h4>--}}
                                 <ul class="widget-body">
@@ -58,9 +55,9 @@
                             <!-- End Widget -->
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-3 col-sm-12">
                             <div class="widget">
-{{--                                <h4 class="widget-title">My Account</h4>--}}
+                                <h4 class="widget-title">Contact</h4>
                                 <ul class="widget-body">
                                     <li>
                                         <p> <i class="d-icon-map"></i> N 15 rue Ennakhil cité dakhla Agadir</p>
@@ -74,10 +71,20 @@
                                     <li>
                                         <p> sales@muster-dikson.ma</p>
                                     </li>
-                                    <li>
-                                        <p> support@muster-dikson.ma</p>
-                                    </li>
                                 </ul>
+                            </div>
+                            <!-- End Widget -->
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <div class="widget distributor-widget">
+                                <h4 class="widget-title">Distribué par</h4>
+                                <div class="distributor-logo">
+                                    <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-MLPharma" width="150" height="60" />
+                                </div>
+                                <div class="widget-body mt-2">
+                                    <p>Entreprise marocaine spécialisée dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et les centres d'esthétique.</p>
+                                </div>
                             </div>
                             <!-- End Widget -->
                         </div>
@@ -107,3 +114,73 @@
     </div>
     <!-- End Footer Bottom -->
 </footer>
+
+<style>
+    /* MLPharma Distributor Styles */
+    .distributor-widget {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .distributor-logo {
+        margin-bottom: 0.5rem;
+        text-align: left;
+        background-color: white;
+        padding: 8px;
+        border-radius: 6px;
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .distributor-logo img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .distributor-widget .widget-body p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0;
+    }
+
+    .distributor-widget .widget-title {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    /* Adjust column spacing for better layout */
+    .footer .row > [class*="col-"] {
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 991px) {
+        .distributor-widget {
+            margin-top: 1rem;
+        }
+
+        .footer-middle .row > [class*="col-"] {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .distributor-widget {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .distributor-logo {
+            text-align: center;
+            margin: 0 auto 1rem;
+        }
+
+        .distributor-logo img {
+            max-width: 160px;
+        }
+
+        .widget-title {
+            text-align: center;
+        }
+    }
+</style>
