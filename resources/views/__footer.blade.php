@@ -34,7 +34,7 @@
                             </div>
                             <!-- End Widget -->
                         </div>
-                        <div class="col-md-3 col-sm-12">
+                        <div class="col-md-2 col-sm-12">
                             <div class="widget">
 {{--                                <h4 class="widget-title">Service Client</h4>--}}
                                 <ul class="widget-body">
@@ -55,7 +55,7 @@
                             <!-- End Widget -->
                         </div>
 
-                        <div class="col-md-3 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="widget">
                                 <h4 class="widget-title">Contact</h4>
                                 <ul class="widget-body">
@@ -138,9 +138,9 @@
     }
 
     .distributor-widget .widget-body p {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         line-height: 1.5;
-        color: rgba(255, 255, 255, 0.8);
+        color: #999;
         margin-bottom: 0;
     }
 
