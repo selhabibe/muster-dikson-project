@@ -1,6 +1,7 @@
 ssh root@68.183.47.128
 
 
+
 ----------------IMPORT PRODUCT BATCH-----------------
 
 php artisan parse:product-list
@@ -31,7 +32,8 @@ cp -r public/Product_Test_images/* storage/app/public/products/
 
 
 
-
 duplicated 24006253
 24006252
+
+
 
