@@ -25,13 +25,13 @@
                 <!-- End Header Search -->
             </div>
             <div class="header-right">
-                <a href="tel:#" class="icon-box icon-box-side">
+                <a href="tel:+212671265232" class="icon-box icon-box-side">
                     <div class="icon-box-icon mr-0 mr-lg-2">
                         <i class="d-icon-phone"></i>
                     </div>
                     <div class="icon-box-content d-lg-show">
                         <h4 class="icon-box-title">Appelez-nous:</h4>
-                        <p>+212 662-750030</p>
+                        <p>+212 671265232</p>
                     </div>
                 </a>
                 <span class="divider"></span>

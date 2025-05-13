@@ -1022,6 +1022,166 @@
                     }
                 </style>
 
+                <!-- FAQ Section -->
+                <section class="faq-section">
+                    <div class="container">
+                        <div class="section-header text-center">
+                            <h2 class="section-title">Questions Fréquentes</h2>
+                            <p class="section-subtitle">Tout ce que vous devez savoir sur notre marque et nos produits</p>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="accordion" id="faqAccordion">
+                                    <!-- Question 1 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Qu'est-ce qui distingue Muster & Dikson des autres marques de produits capillaires?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Muster & Dikson se distingue par son approche intégrée: nous réalisons tout en interne, de la recherche et formulation à la production et au conditionnement, garantissant une qualité optimale à chaque étape. Depuis plus de 60 ans, nous développons des produits spécifiquement conçus pour les professionnels, offrant des performances élevées, une fiabilité exceptionnelle et un engagement envers la durabilité.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Question 2 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Quels types de produits Muster & Dikson propose-t-il?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Muster & Dikson développe et produit une gamme complète de produits professionnels, notamment des colorations professionnelles, des décolorants, des traitements capillaires, des soins pour la peau et des technologies de beauté. Notre catalogue comprend plusieurs marques spécialisées comme Dikson Professional, Everygreen, HS Milano, Argabeta et Beauty Tech, chacune répondant à des besoins spécifiques des professionnels de la beauté.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Question 3 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Les produits Muster & Dikson sont-ils certifiés?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Oui, Muster & Dikson détient plusieurs certifications importantes qui témoignent de notre engagement envers la qualité. Nous sommes certifiés ISO 9001:2015 pour nos activités de recherche, développement, production et vente de produits cosmétiques pour le traitement des cheveux et du corps. Nous possédons également la certification ISO 22716:2007 pour la production de produits cosmétiques, garantissant le respect des bonnes pratiques de fabrication.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Question 4 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                Comment utiliser au mieux les produits Muster & Dikson?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Pour des résultats optimaux, nous recommandons de suivre les instructions spécifiques à chaque produit. Nos produits sont formulés pour être utilisés par des professionnels, mais beaucoup sont également adaptés à un usage à domicile. Pour les colorations et traitements techniques, nous conseillons toujours de consulter un coiffeur professionnel. N'hésitez pas à contacter notre service client pour des conseils personnalisés sur l'utilisation de nos produits.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Question 5 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                Muster & Dikson s'engage-t-il pour la durabilité?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Absolument. Chez Muster & Dikson, nous sommes engagés dans une démarche de développement durable. Nous travaillons constamment à réduire notre empreinte environnementale en optimisant nos processus de production, en utilisant des emballages plus écologiques et en développant des formulations respectueuses de l'environnement. Notre engagement pour la qualité va de pair avec notre responsabilité envers la planète.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <style>
+                    /* FAQ Section Styles */
+                    .faq-section {
+                        padding: 5rem 0;
+                        background-color: #f8f9fa;
+                    }
+
+                    .accordion-item {
+                        border: none;
+                        margin-bottom: 1rem;
+                        border-radius: 10px !important;
+                        overflow: hidden;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                        background-color: #fff;
+                    }
+
+                    .accordion-button {
+                        padding: 1.5rem 2rem;
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                        color: #1A2A3A;
+                        background-color: #fff;
+                        border: none;
+                        box-shadow: none;
+                    }
+
+                    .accordion-button:not(.collapsed) {
+                        color: #1A2A3A;
+                        background-color: #fff;
+                        box-shadow: none;
+                    }
+
+                    .accordion-button:focus {
+                        box-shadow: none;
+                        border-color: transparent;
+                    }
+
+                    .accordion-button::after {
+                        background-size: 1.2rem;
+                        transition: all 0.3s ease;
+                    }
+
+                    .accordion-button:not(.collapsed)::after {
+                        transform: rotate(-180deg);
+                    }
+
+                    .accordion-body {
+                        padding: 0.5rem 2rem 2rem;
+                        background-color: #fff;
+                    }
+
+                    .accordion-body p {
+                        font-size: 1.2rem;
+                        line-height: 1.7;
+                        color: #555;
+                        margin-bottom: 0;
+                    }
+
+                    @media (max-width: 768px) {
+                        .accordion-button {
+                            padding: 1.2rem 1.5rem;
+                            font-size: 1.1rem;
+                        }
+
+                        .accordion-body {
+                            padding: 0.5rem 1.5rem 1.5rem;
+                        }
+
+                        .accordion-body p {
+                            font-size: 1.1rem;
+                        }
+                    }
+                </style>
+
                 <!-- Blog Section -->
                 <section class="blog-section">
                     <div class="container">

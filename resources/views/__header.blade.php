@@ -18,13 +18,13 @@
                 <a href="#" class="mobile-menu-toggle">
                     <i class="d-icon-bars2"></i>
                 </a>
-                <a href="tel:#" class="call icon-box icon-box-side">
+                <a href="tel:+212671265232" class="call icon-box icon-box-side">
                     <div class="icon-box-icon text-white p-0">
                         <i class="d-icon-phone"></i>
                     </div>
                     <div class="icon-box-content d-lg-show">
                         <h4 class="icon-box-title text-white">Appelez-nous:</h4>
-                        <p class="text-white">+212 662-750030 </p>
+                        <p class="text-white">+212 671265232</p>
                     </div>
                 </a>
             </div>

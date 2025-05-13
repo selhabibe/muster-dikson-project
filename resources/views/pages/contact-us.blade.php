@@ -76,7 +76,7 @@
                                 </div>
                                 <h3 class="info-title">Téléphone</h3>
                                 <p class="info-text">
-                                    <a href="tel:+212662750030" class="info-link">+212 662-750030</a>
+                                    <a href="tel:+212671265232" class="info-link">+212 671265232</a>
                                 </p>
                             </div>
                         </div>
