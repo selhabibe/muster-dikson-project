@@ -1032,72 +1032,67 @@
 
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                                <div class="accordion" id="faqAccordion">
+                                <div class="faq-accordion" id="faqAccordion">
                                     <!-- Question 1 -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Qu'est-ce qui distingue Muster & Dikson des autres marques de produits capillaires?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                            <div class="accordion-body">
+                                    <div class="faq-card">
+                                        <div class="faq-header">
+                                            <h3 class="faq-title">Qu'est-ce qui distingue Muster & Dikson des autres marques de produits capillaires?</h3>
+                                            <div class="faq-toggle"><i class="d-icon-plus"></i></div>
+                                        </div>
+                                        <div class="faq-content" style="display: block;">
+                                            <div class="faq-body">
                                                 <p>Muster & Dikson se distingue par son approche intégrée: nous réalisons tout en interne, de la recherche et formulation à la production et au conditionnement, garantissant une qualité optimale à chaque étape. Depuis plus de 60 ans, nous développons des produits spécifiquement conçus pour les professionnels, offrant des performances élevées, une fiabilité exceptionnelle et un engagement envers la durabilité.</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Question 2 -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Quels types de produits Muster & Dikson propose-t-il?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                            <div class="accordion-body">
+                                    <div class="faq-card">
+                                        <div class="faq-header">
+                                            <h3 class="faq-title">Quels types de produits Muster & Dikson propose-t-il?</h3>
+                                            <div class="faq-toggle"><i class="d-icon-plus"></i></div>
+                                        </div>
+                                        <div class="faq-content">
+                                            <div class="faq-body">
                                                 <p>Muster & Dikson développe et produit une gamme complète de produits professionnels, notamment des colorations professionnelles, des décolorants, des traitements capillaires, des soins pour la peau et des technologies de beauté. Notre catalogue comprend plusieurs marques spécialisées comme Dikson Professional, Everygreen, HS Milano, Argabeta et Beauty Tech, chacune répondant à des besoins spécifiques des professionnels de la beauté.</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Question 3 -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Les produits Muster & Dikson sont-ils certifiés?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                            <div class="accordion-body">
+                                    <div class="faq-card">
+                                        <div class="faq-header">
+                                            <h3 class="faq-title">Les produits Muster & Dikson sont-ils certifiés?</h3>
+                                            <div class="faq-toggle"><i class="d-icon-plus"></i></div>
+                                        </div>
+                                        <div class="faq-content">
+                                            <div class="faq-body">
                                                 <p>Oui, Muster & Dikson détient plusieurs certifications importantes qui témoignent de notre engagement envers la qualité. Nous sommes certifiés ISO 9001:2015 pour nos activités de recherche, développement, production et vente de produits cosmétiques pour le traitement des cheveux et du corps. Nous possédons également la certification ISO 22716:2007 pour la production de produits cosmétiques, garantissant le respect des bonnes pratiques de fabrication.</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Question 4 -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingFour">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                Comment utiliser au mieux les produits Muster & Dikson?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                                            <div class="accordion-body">
+                                    <div class="faq-card">
+                                        <div class="faq-header">
+                                            <h3 class="faq-title">Comment utiliser au mieux les produits Muster & Dikson?</h3>
+                                            <div class="faq-toggle"><i class="d-icon-plus"></i></div>
+                                        </div>
+                                        <div class="faq-content">
+                                            <div class="faq-body">
                                                 <p>Pour des résultats optimaux, nous recommandons de suivre les instructions spécifiques à chaque produit. Nos produits sont formulés pour être utilisés par des professionnels, mais beaucoup sont également adaptés à un usage à domicile. Pour les colorations et traitements techniques, nous conseillons toujours de consulter un coiffeur professionnel. N'hésitez pas à contacter notre service client pour des conseils personnalisés sur l'utilisation de nos produits.</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Question 5 -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingFive">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                Muster & Dikson s'engage-t-il pour la durabilité?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                                            <div class="accordion-body">
+                                    <div class="faq-card">
+                                        <div class="faq-header">
+                                            <h3 class="faq-title">Muster & Dikson s'engage-t-il pour la durabilité?</h3>
+                                            <div class="faq-toggle"><i class="d-icon-plus"></i></div>
+                                        </div>
+                                        <div class="faq-content">
+                                            <div class="faq-body">
                                                 <p>Absolument. Chez Muster & Dikson, nous sommes engagés dans une démarche de développement durable. Nous travaillons constamment à réduire notre empreinte environnementale en optimisant nos processus de production, en utilisant des emballages plus écologiques et en développant des formulations respectueuses de l'environnement. Notre engagement pour la qualité va de pair avec notre responsabilité envers la planète.</p>
                                             </div>
                                         </div>
@@ -1115,51 +1110,64 @@
                         background-color: #f8f9fa;
                     }
 
-                    .accordion-item {
-                        border: none;
-                        margin-bottom: 1rem;
-                        border-radius: 10px !important;
-                        overflow: hidden;
+                    .faq-card {
+                        background-color: #fff;
+                        border-radius: 10px;
                         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-                        background-color: #fff;
-                    }
-
-                    .accordion-button {
-                        padding: 1.5rem 2rem;
-                        font-size: 1.3rem;
-                        font-weight: 600;
-                        color: #1A2A3A;
-                        background-color: #fff;
-                        border: none;
-                        box-shadow: none;
-                    }
-
-                    .accordion-button:not(.collapsed) {
-                        color: #1A2A3A;
-                        background-color: #fff;
-                        box-shadow: none;
-                    }
-
-                    .accordion-button:focus {
-                        box-shadow: none;
-                        border-color: transparent;
-                    }
-
-                    .accordion-button::after {
-                        background-size: 1.2rem;
+                        margin-bottom: 1.5rem;
+                        overflow: hidden;
                         transition: all 0.3s ease;
                     }
 
-                    .accordion-button:not(.collapsed)::after {
-                        transform: rotate(-180deg);
+                    .faq-card:hover {
+                        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
                     }
 
-                    .accordion-body {
-                        padding: 0.5rem 2rem 2rem;
+                    .faq-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 1.5rem 2rem;
+                        cursor: pointer;
+                        background-color: #fff;
+                        transition: all 0.3s ease;
+                    }
+
+                    .faq-title {
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                        color: #1A2A3A;
+                        margin: 0;
+                        padding-right: 2rem;
+                    }
+
+                    .faq-toggle {
+                        flex-shrink: 0;
+                        width: 24px;
+                        height: 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #1A2A3A;
+                        transition: all 0.3s ease;
+                    }
+
+                    .faq-toggle i {
+                        font-size: 1rem;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .faq-card.active .faq-toggle i {
+                        transform: rotate(45deg);
+                    }
+
+                    .faq-content {
+                        display: none;
+                        padding: 0 2rem 1.5rem;
                         background-color: #fff;
                     }
 
-                    .accordion-body p {
+                    .faq-body p {
                         font-size: 1.2rem;
                         line-height: 1.7;
                         color: #555;
@@ -1167,20 +1175,57 @@
                     }
 
                     @media (max-width: 768px) {
-                        .accordion-button {
+                        .faq-header {
                             padding: 1.2rem 1.5rem;
+                        }
+
+                        .faq-title {
                             font-size: 1.1rem;
                         }
 
-                        .accordion-body {
-                            padding: 0.5rem 1.5rem 1.5rem;
+                        .faq-content {
+                            padding: 0 1.5rem 1.2rem;
                         }
 
-                        .accordion-body p {
+                        .faq-body p {
                             font-size: 1.1rem;
                         }
                     }
                 </style>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Initialize FAQ accordion
+                        const faqCards = document.querySelectorAll('.faq-card');
+
+                        faqCards.forEach(card => {
+                            const header = card.querySelector('.faq-header');
+                            const content = card.querySelector('.faq-content');
+
+                            header.addEventListener('click', function() {
+                                // Toggle active class
+                                const isActive = card.classList.contains('active');
+
+                                // Close all accordions
+                                faqCards.forEach(c => {
+                                    c.classList.remove('active');
+                                    c.querySelector('.faq-content').style.display = 'none';
+                                });
+
+                                // If the clicked card wasn't active, open it
+                                if (!isActive) {
+                                    card.classList.add('active');
+                                    content.style.display = 'block';
+                                }
+                            });
+                        });
+
+                        // Open the first FAQ by default
+                        if (faqCards.length > 0) {
+                            faqCards[0].classList.add('active');
+                        }
+                    });
+                </script>
 
                 <!-- Blog Section -->
                 <section class="blog-section">
