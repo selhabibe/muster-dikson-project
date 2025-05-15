@@ -122,15 +122,6 @@
         flex-direction: column;
     }
 
-    .distributor-logo {
-        margin-bottom: 0.5rem;
-        text-align: left;
-        background-color: white;
-        padding: 8px;
-        border-radius: 6px;
-        display: inline-block;
-        width: fit-content;
-    }
 
     .distributor-logo img {
         max-width: 100%;
