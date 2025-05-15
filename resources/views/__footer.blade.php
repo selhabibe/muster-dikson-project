@@ -34,7 +34,7 @@
                             </div>
                             <!-- End Widget -->
                         </div>
-                        <div class="col-md-3 col-sm-12">
+                        <div class="col-md-2 col-sm-12">
                             <div class="widget">
                                 <h4 class="widget-title">Liens Rapides</h4>
                                 <ul class="widget-body">
@@ -108,7 +108,7 @@
 
 <style>
 
-    
+
     /* Footer Styles */
     .footer .widget-title {
         margin-bottom: 1.5rem;
