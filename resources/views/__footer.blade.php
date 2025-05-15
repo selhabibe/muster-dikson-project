@@ -110,6 +110,24 @@
 
 
     /* Footer Styles */
+    .footer-middle {
+        padding: 4rem 0;
+    }
+
+    .footer-middle .row {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .footer-middle .row > [class*="col-"] {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer .widget {
+        margin-bottom: 2rem;
+    }
+
     .footer .widget-title {
         margin-bottom: 1.5rem;
         font-size: 1.2rem;
@@ -122,18 +140,18 @@
     }
 
     .footer .widget-body li {
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
     }
 
     .footer .widget-body p {
         font-size: 1.3rem;
         line-height: 1.6;
         color: #999;
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
     }
 
     .footer .widget-body i {
-        margin-right: 0.5rem;
+        margin-right: 0.8rem;
         width: 1.6rem;
         text-align: center;
     }
@@ -171,14 +189,38 @@
 
     /* Responsive Styles */
     @media (max-width: 991px) {
+        .footer-middle {
+            padding: 3rem 0;
+        }
+
         .footer-middle .row > [class*="col-"] {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
     }
 
     @media (max-width: 767px) {
+        .footer-middle {
+            padding: 2.5rem 0;
+        }
+
+        .footer-middle .row {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        .footer-middle .row > [class*="col-"] {
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 2rem;
+        }
+
         .footer .widget {
             text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer .widget-title {
+            margin-bottom: 1.2rem;
         }
 
         .distributor-logo {
@@ -191,6 +233,7 @@
         }
 
         .footer-bottom {
+            padding: 1.5rem 0;
             flex-direction: column;
             text-align: center;
         }
