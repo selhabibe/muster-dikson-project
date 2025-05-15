@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="container">
+    <div class="footer-wrapper">
         <div class="footer-middle">
             <div class="row">
                 <div class="col-lg-4 col-md-12">
@@ -82,15 +82,11 @@
                             </div>
                             <!-- End Widget -->
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Footer Middle -->
-    <div class="container">
+        <!-- End Footer Middle -->
         <div class="footer-bottom">
             <div class="footer-center">
                 <p class="copyright">Muster & Dikson &copy; 2025 | <a href="#"> Conditions Générales</a> </p>
@@ -102,14 +98,20 @@
                 </div>
             </div>
         </div>
+        <!-- End Footer Bottom -->
     </div>
-    <!-- End Footer Bottom -->
 </footer>
 
 <style>
 
 
     /* Footer Styles */
+    .footer-wrapper {
+        width: 85%;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
     .footer-middle {
         padding: 4rem 0;
     }
@@ -188,7 +190,23 @@
     }
 
     /* Responsive Styles */
+    @media (max-width: 1400px) {
+        .footer-wrapper {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .footer-wrapper {
+            width: 95%;
+        }
+    }
+
     @media (max-width: 991px) {
+        .footer-wrapper {
+            width: 90%;
+        }
+
         .footer-middle {
             padding: 3rem 0;
         }
@@ -199,6 +217,10 @@
     }
 
     @media (max-width: 767px) {
+        .footer-wrapper {
+            width: 95%;
+        }
+
         .footer-middle {
             padding: 2.5rem 0;
         }
@@ -244,6 +266,12 @@
 
         .social-links .social-link {
             margin: 0 0.5rem;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .footer-wrapper {
+            width: 92%;
         }
     }
 </style>
