@@ -34,9 +34,9 @@
                             </div>
                             <!-- End Widget -->
                         </div>
-                        <div class="col-md-2 col-sm-12">
+                        <div class="col-md-3 col-sm-12">
                             <div class="widget">
-{{--                                <h4 class="widget-title">Service Client</h4>--}}
+                                <h4 class="widget-title">Liens Rapides</h4>
                                 <ul class="widget-body">
                                     <li>
                                         <a href="{{route('ourbrands')}}">Nos marques</a>
@@ -44,12 +44,6 @@
                                     <li>
                                         <a href="{{route('blog')}}">Blog</a>
                                     </li>
-                                    {{-- <li>
-                                        <a href="{{route('video')}}">Vidéo</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('downloads')}}">Téléchargements</a>
-                                    </li> --}}
                                 </ul>
                             </div>
                             <!-- End Widget -->
@@ -60,16 +54,16 @@
                                 <h4 class="widget-title">Contact</h4>
                                 <ul class="widget-body">
                                     <li>
-                                        <p> <i class="d-icon-map"></i> N 15 rue Ennakhil cité dakhla Agadir</p>
+                                        <p><i class="d-icon-map"></i> N 15 rue Ennakhil cité dakhla Agadir</p>
                                     </li>
                                     <li>
-                                        <p> <i class="d-icon-headphone"></i> +212 671265232</p>
+                                        <p><i class="d-icon-headphone"></i> +212 671265232</p>
                                     </li>
                                     <li>
-                                        <p> contact@muster-dikson.ma</p>
+                                        <p><i class="d-icon-envelope"></i> contact@muster-dikson.ma</p>
                                     </li>
                                     <li>
-                                        <p> sales@muster-dikson.ma</p>
+                                        <p><i class="d-icon-envelope"></i> sales@muster-dikson.ma</p>
                                     </li>
                                 </ul>
                             </div>
@@ -98,9 +92,6 @@
     <!-- End Footer Middle -->
     <div class="container">
         <div class="footer-bottom">
-{{--            <div class="footer-left">--}}
-{{--                <img width="90" height="100" src="{{asset('images/front/madeinitaly.png')}}">--}}
-{{--            </div>--}}
             <div class="footer-center">
                 <p class="copyright">Muster & Dikson &copy; 2025 | <a href="#"> Conditions Générales</a> </p>
             </div>
@@ -116,49 +107,78 @@
 </footer>
 
 <style>
+
+    
+    /* Footer Styles */
+    .footer .widget-title {
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .footer .widget-body {
+        font-size: 1.3rem;
+    }
+
+    .footer .widget-body li {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer .widget-body p {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: #999;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer .widget-body i {
+        margin-right: 0.5rem;
+        width: 1.6rem;
+        text-align: center;
+    }
+
     /* MLPharma Distributor Styles */
     .distributor-widget {
         display: flex;
         flex-direction: column;
     }
 
+    .distributor-logo {
+        margin-bottom: 1rem;
+    }
 
     .distributor-logo img {
         max-width: 100%;
         height: auto;
     }
 
-    .distributor-widget .widget-body p {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        color: #999;
+    /* Footer Bottom Styles */
+    .footer-bottom {
+        padding: 2rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-bottom .copyright {
         margin-bottom: 0;
     }
 
-    .distributor-widget .widget-title {
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
+    .social-links .social-link {
+        margin-left: 1rem;
     }
 
-    /* Adjust column spacing for better layout */
-    .footer .row > [class*="col-"] {
-        margin-bottom: 0;
-    }
-
+    /* Responsive Styles */
     @media (max-width: 991px) {
-        .distributor-widget {
-            margin-top: 1rem;
-        }
-
         .footer-middle .row > [class*="col-"] {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
     }
 
     @media (max-width: 767px) {
-        .distributor-widget {
+        .footer .widget {
             text-align: center;
-            margin-top: 0;
         }
 
         .distributor-logo {
@@ -170,8 +190,17 @@
             max-width: 160px;
         }
 
-        .widget-title {
+        .footer-bottom {
+            flex-direction: column;
             text-align: center;
+        }
+
+        .footer-right {
+            margin-top: 1rem;
+        }
+
+        .social-links .social-link {
+            margin: 0 0.5rem;
         }
     }
 </style>
