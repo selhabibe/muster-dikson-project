@@ -167,11 +167,13 @@
 
     .distributor-logo {
         margin-bottom: 1rem;
+        text-align: left;
     }
 
     .distributor-logo img {
         max-width: 100%;
         height: auto;
+        margin-left: 0;
     }
 
     /* Footer Bottom Styles */
@@ -247,12 +249,13 @@
         }
 
         .distributor-logo {
-            text-align: center;
-            margin: 0 auto 1rem;
+            text-align: left;
+            margin-bottom: 1rem;
         }
 
         .distributor-logo img {
             max-width: 160px;
+            margin-left: 0;
         }
 
         .footer-bottom {
