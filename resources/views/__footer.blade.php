@@ -46,7 +46,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- End Widget -->
+                            <!-- End Widg
+                             et -->
                         </div>
 
                         <div class="col-md-4 col-sm-12">
@@ -60,10 +61,10 @@
                                         <p><i class="d-icon-headphone"></i> +212 671265232</p>
                                     </li>
                                     <li>
-                                        <p><i class="d-icon-envelope"></i> contact@muster-dikson.ma</p>
+                                        <p><i class="fas fa-envelope"></i> contact@muster-dikson.ma</p>
                                     </li>
                                     <li>
-                                        <p><i class="d-icon-envelope"></i> sales@muster-dikson.ma</p>
+                                        <p><i class="fas fa-envelope"></i> sales@muster-dikson.ma</p>
                                     </li>
                                 </ul>
                             </div>
