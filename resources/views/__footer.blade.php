@@ -75,7 +75,7 @@
                             <div class="widget distributor-widget">
                                 <h4 class="widget-title">Distribué par</h4>
                                 <div class="distributor-logo">
-                                    <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-MLPharma" width="150" height="60" />
+                                    <img src="{{asset("images/logo/logo-ML2.png")}}" alt="logo-MLPharma" width="120" height="60" />
                                 </div>
                                 <div class="widget-body mt-2">
                                     <p>Entreprise marocaine spécialisée dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et les centres d'esthétique.</p>
@@ -165,10 +165,6 @@
         flex-direction: column;
     }
 
-    .distributor-logo {
-        margin-bottom: 1rem;
-        text-align: left;
-    }
 
     .distributor-logo img {
         max-width: 100%;
