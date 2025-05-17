@@ -1392,11 +1392,11 @@
                             <div class="col-lg-6 col-md-6 mb-4">
                                 <div class="certification-card">
                                     <div class="certification-icon">
-                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="ISO 9001:2015 Certificate">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="Certificat ISO 9001:2015">
                                     </div>
                                     <div class="certification-content">
                                         <h3 class="certification-title">ISO 9001:2015</h3>
-                                        <p class="certification-description">For research and development, production and sale of cosmetic products for hair and body treatment.</p>
+                                        <p class="certification-description">Pour la recherche et développement, production et vente de produits cosmétiques pour le traitement des cheveux et du corps.</p>
                                         <a href="{{ asset('documents/certifications/9001-2015.pdf') }}" class="certification-download" target="_blank">
                                             <i class="fas fa-file-pdf"></i> Télécharger le certificat
                                         </a>
@@ -1408,11 +1408,11 @@
                             <div class="col-lg-6 col-md-6 mb-4">
                                 <div class="certification-card">
                                     <div class="certification-icon">
-                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="ISO 9001:2015 Certificate">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="Certificat ISO 9001:2015">
                                     </div>
                                     <div class="certification-content">
                                         <h3 class="certification-title">ISO 9001:2015</h3>
-                                        <p class="certification-description">Research and development, production and sale of cosmetic products for hair and body treatment.</p>
+                                        <p class="certification-description">Recherche et développement, production et vente de produits cosmétiques pour le traitement des cheveux et du corps.</p>
                                         <a href="{{ asset('documents/certifications/9001-2015_1.pdf') }}" class="certification-download" target="_blank">
                                             <i class="fas fa-file-pdf"></i> Télécharger le certificat
                                         </a>
@@ -1424,11 +1424,11 @@
                             <div class="col-lg-6 col-md-6 mb-4">
                                 <div class="certification-card">
                                     <div class="certification-icon">
-                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="ISO 22716:2007 Certificate">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="Certificat ISO 22716:2007">
                                     </div>
                                     <div class="certification-content">
                                         <h3 class="certification-title">ISO 22716:2007</h3>
-                                        <p class="certification-description">Production of cosmetic products for hair and body treatment.</p>
+                                        <p class="certification-description">Production de produits cosmétiques pour le traitement des cheveux et du corps.</p>
                                         <a href="{{ asset('documents/certifications/22716-2007.pdf') }}" class="certification-download" target="_blank">
                                             <i class="fas fa-file-pdf"></i> Télécharger le certificat
                                         </a>
@@ -1440,11 +1440,11 @@
                             <div class="col-lg-6 col-md-6 mb-4">
                                 <div class="certification-card">
                                     <div class="certification-icon">
-                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="Quality Policy Certificate">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="Politique de Qualité">
                                     </div>
                                     <div class="certification-content">
                                         <h3 class="certification-title">ISO 9001:2015</h3>
-                                        <p class="certification-description">Quality Policy</p>
+                                        <p class="certification-description">Politique de Qualité</p>
                                         <a href="{{ asset('documents/certifications/quality-policy.pdf') }}" class="certification-download" target="_blank">
                                             <i class="fas fa-file-pdf"></i> Télécharger le document
                                         </a>
