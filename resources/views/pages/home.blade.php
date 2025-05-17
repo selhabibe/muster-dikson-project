@@ -1379,6 +1379,161 @@
                     }
                 </style>
 
+                <!-- Certifications Section -->
+                <section class="certifications-section">
+                    <div class="certifications-wrapper">
+                        <div class="section-header text-center">
+                            <h2 class="section-title">Nos Certifications</h2>
+                            <p class="section-subtitle">Muster & Dikson s'engage à maintenir les plus hauts standards de qualité dans tous nos produits</p>
+                        </div>
+
+                        <div class="row certifications-container">
+                            <!-- ISO 9001:2015 Certification -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="certification-card">
+                                    <div class="certification-icon">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="ISO 9001:2015 Certificate">
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3 class="certification-title">ISO 9001:2015</h3>
+                                        <p class="certification-description">Pour la recherche et développement, production et vente de produits cosmétiques pour le traitement des cheveux et du corps.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ISO 22716:2007 Certification -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="certification-card">
+                                    <div class="certification-icon">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="ISO 22716:2007 Certificate">
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3 class="certification-title">ISO 22716:2007</h3>
+                                        <p class="certification-description">Production de produits cosmétiques pour le traitement des cheveux et du corps, garantissant le respect des bonnes pratiques de fabrication.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quality Policy Certification -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="certification-card">
+                                    <div class="certification-icon">
+                                        <img src="https://cdn.prod.website-files.com/67cecb793a28462cd4502dc5/67d311177614e3eaf895cae2_Group%208.svg" alt="Quality Policy Certificate">
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3 class="certification-title">Politique de Qualité</h3>
+                                        <p class="certification-description">Notre engagement envers l'excellence et l'innovation dans tous nos processus de production et nos produits.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-footer text-center">
+                            <p class="certification-note">Muster & Dikson, depuis plus de 50 ans au service des coiffeurs et du secteur de la beauté, a obtenu ces certifications, symboles de qualité et de reconnaissance.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <style>
+                    /* Certifications Section Styles */
+                    .certifications-section {
+                        padding: 5rem 0;
+                        background-color: #f8f9fa;
+                    }
+
+                    .certifications-wrapper {
+                        width: 85%;
+                        max-width: 1600px;
+                        margin: 0 auto;
+                    }
+
+                    .certifications-container {
+                        margin-top: 3rem;
+                    }
+
+                    .certification-card {
+                        background-color: white;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+                        height: 100%;
+                        padding: 2.5rem;
+                        transition: all 0.3s ease;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .certification-card:hover {
+                        transform: translateY(-10px);
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    }
+
+                    .certification-icon {
+                        margin-bottom: 2rem;
+                        text-align: left;
+                    }
+
+                    .certification-icon img {
+                        max-width: 80px;
+                        height: auto;
+                    }
+
+                    .certification-content {
+                        flex: 1;
+                    }
+
+                    .certification-title {
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        margin-bottom: 1.5rem;
+                        color: #1A2A3A;
+                    }
+
+                    .certification-description {
+                        font-size: 1.3rem;
+                        line-height: 1.7;
+                        color: #555;
+                    }
+
+                    .certification-footer {
+                        margin-top: 3rem;
+                    }
+
+                    .certification-note {
+                        font-size: 1.4rem;
+                        color: #666;
+                        max-width: 800px;
+                        margin: 0 auto;
+                    }
+
+                    /* Responsive Styles */
+                    @media (max-width: 991px) {
+                        .certifications-wrapper {
+                            width: 90%;
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .certifications-wrapper {
+                            width: 95%;
+                        }
+
+                        .certification-card {
+                            padding: 2rem;
+                        }
+                    }
+
+                    @media (max-width: 575px) {
+                        .certification-icon img {
+                            max-width: 60px;
+                        }
+
+                        .certification-title {
+                            font-size: 1.6rem;
+                        }
+                    }
+                </style>
+
             </div>
 
         </main>
