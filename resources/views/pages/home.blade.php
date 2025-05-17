@@ -1397,6 +1397,9 @@
                                     <div class="certification-content">
                                         <h3 class="certification-title">ISO 9001:2015</h3>
                                         <p class="certification-description">Pour la recherche et développement, production et vente de produits cosmétiques pour le traitement des cheveux et du corps.</p>
+                                        <a href="{{ asset('documents/certifications/9001-2015.pdf') }}" class="certification-download" target="_blank">
+                                            <i class="fas fa-file-pdf"></i> Télécharger le certificat
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -1410,6 +1413,9 @@
                                     <div class="certification-content">
                                         <h3 class="certification-title">ISO 22716:2007</h3>
                                         <p class="certification-description">Production de produits cosmétiques pour le traitement des cheveux et du corps, garantissant le respect des bonnes pratiques de fabrication.</p>
+                                        <a href="{{ asset('documents/certifications/22716-2007.pdf') }}" class="certification-download" target="_blank">
+                                            <i class="fas fa-file-pdf"></i> Télécharger le certificat
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -1423,6 +1429,9 @@
                                     <div class="certification-content">
                                         <h3 class="certification-title">Politique de Qualité</h3>
                                         <p class="certification-description">Notre engagement envers l'excellence et l'innovation dans tous nos processus de production et nos produits.</p>
+                                        <a href="{{ asset('documents/certifications/quality-policy.pdf') }}" class="certification-download" target="_blank">
+                                            <i class="fas fa-file-pdf"></i> Télécharger le document
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -1493,6 +1502,38 @@
                         font-size: 1.3rem;
                         line-height: 1.7;
                         color: #555;
+                        margin-bottom: 1.5rem;
+                    }
+
+                    .certification-download {
+                        display: inline-flex;
+                        align-items: center;
+                        color: #1A2A3A;
+                        font-weight: 600;
+                        font-size: 1.2rem;
+                        text-decoration: none;
+                        padding: 0.5rem 1rem;
+                        border: 1px solid #1A2A3A;
+                        border-radius: 5px;
+                        transition: all 0.3s ease;
+                        margin-top: auto;
+                    }
+
+                    .certification-download i {
+                        margin-right: 0.5rem;
+                        color: #dc3545;
+                        font-size: 1.4rem;
+                    }
+
+                    .certification-download:hover {
+                        background-color: #1A2A3A;
+                        color: white;
+                        transform: translateY(-3px);
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    }
+
+                    .certification-download:hover i {
+                        color: white;
                     }
 
                     .certification-footer {
@@ -1521,6 +1562,11 @@
                         .certification-card {
                             padding: 2rem;
                         }
+
+                        .certification-download {
+                            font-size: 1.1rem;
+                            padding: 0.4rem 0.8rem;
+                        }
                     }
 
                     @media (max-width: 575px) {
@@ -1530,6 +1576,15 @@
 
                         .certification-title {
                             font-size: 1.6rem;
+                        }
+
+                        .certification-description {
+                            font-size: 1.2rem;
+                        }
+
+                        .certification-download {
+                            width: 100%;
+                            justify-content: center;
                         }
                     }
                 </style>
