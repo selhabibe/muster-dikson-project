@@ -23,7 +23,7 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
-    protected static ?string $navigationParentItem = 'Products';
+    protected static ?string $navigationParentItem = 'Produits';
 
     protected static ?int $navigationSort = 1;
 
@@ -53,10 +53,10 @@ class CategoryResource extends Resource
                             ->label('Parent')
                             ->relationship('parent', 'name', fn (Builder $query) => $query->where('parent_id', null))
                             ->searchable()
-                            ->placeholder('Select parent category'),
+                            ->placeholder('Sélectionner une catégorie parent'),
 
                         Forms\Components\Toggle::make('is_visible')
-                            ->label('Visible to customers.')
+                            ->label('Visible pour les clients.')
                             ->default(true),
 
                         Forms\Components\MarkdownEditor::make('description')
@@ -84,7 +84,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nom')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('parent.name')
@@ -92,10 +92,10 @@ class CategoryResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_visible')
-                    ->label('Visibility')
+                    ->label('Visibilité')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label('Updated Date')
+                    ->label('Date de mise à jour')
                     ->date()
                     ->sortable(),
             ])

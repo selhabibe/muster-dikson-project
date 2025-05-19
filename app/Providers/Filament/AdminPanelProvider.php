@@ -52,7 +52,7 @@ class AdminPanelProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->brandLogoHeight('2.2rem')
             ->navigationGroups([
-                'Shop',
+                'Boutique',
                 'Blog',
                 'Marketing',
             ])

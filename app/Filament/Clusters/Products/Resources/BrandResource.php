@@ -22,7 +22,7 @@ class BrandResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark-square';
 
-    protected static ?string $navigationParentItem = 'Products';
+    protected static ?string $navigationParentItem = 'Produits';
 
     protected static ?int $navigationSort = 2;
 
@@ -53,7 +53,7 @@ class BrandResource extends Resource
                             ->url(),
 
                         Forms\Components\Toggle::make('is_visible')
-                            ->label('Visible to customers.')
+                            ->label('Visible pour les clients.')
                             ->default(true),
 
                         Forms\Components\MarkdownEditor::make('description')
@@ -81,18 +81,18 @@ class BrandResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nom')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('website')
-                    ->label('Website')
+                    ->label('Site web')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_visible')
-                    ->label('Visibility')
+                    ->label('Visibilité')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label('Updated Date')
+                    ->label('Date de mise à jour')
                     ->date()
                     ->sortable(),
             ])

@@ -32,7 +32,7 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-bolt';
 
-    protected static ?string $navigationLabel = 'Products';
+    protected static ?string $navigationLabel = 'Produits';
 
     protected static ?int $navigationSort = 0;
 
@@ -190,7 +190,7 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('id')
+                    ->label('ID')
                     ->searchable()
                     ->sortable(),
 
@@ -199,45 +199,47 @@ class ProductResource extends Resource
                     ->collection('product-images'),
 
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nom')
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('brand.name')
+                    ->label('Marque')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
 
                 Tables\Columns\IconColumn::make('is_visible')
-                    ->label('Visibility')
+                    ->label('Visibilité')
                     ->sortable()
                     ->toggleable(),
 
                 Tables\Columns\TextColumn::make('price')
-                    ->label('Price')
+                    ->label('Prix')
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('sku')
-                    ->label('SKU')
+                    ->label('Référence')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
 
                 Tables\Columns\TextColumn::make('qty')
-                    ->label('Quantity')
+                    ->label('Quantité')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
 
                 Tables\Columns\TextColumn::make('security_stock')
+                    ->label('Stock de sécurité')
                     ->searchable()
                     ->sortable()
                     ->toggleable()
                     ->toggledHiddenByDefault(),
 
                 Tables\Columns\TextColumn::make('published_at')
-                    ->label('Publish Date')
+                    ->label('Date de publication')
                     ->date()
                     ->sortable()
                     ->toggleable()
@@ -246,31 +248,40 @@ class ProductResource extends Resource
             ->filters([
                 QueryBuilder::make()
                     ->constraints([
-                        TextConstraint::make('name'),
-                        TextConstraint::make('slug'),
+                        TextConstraint::make('name')
+                            ->label('Nom'),
+                        TextConstraint::make('slug')
+                            ->label('Slug'),
                         TextConstraint::make('sku')
-                            ->label('SKU (Stock Keeping Unit)'),
+                            ->label('Référence (Stock Keeping Unit)'),
                         TextConstraint::make('barcode')
-                            ->label('Barcode (ISBN, UPC, GTIN, etc.)'),
-                        TextConstraint::make('description'),
+                            ->label('Code-barres (ISBN, UPC, GTIN, etc.)'),
+                        TextConstraint::make('description')
+                            ->label('Description'),
                         NumberConstraint::make('old_price')
-                            ->label('Compare at price')
+                            ->label('Prix de comparaison')
                             ->icon('heroicon-m-currency-dollar'),
                         NumberConstraint::make('price')
+                            ->label('Prix')
                             ->icon('heroicon-m-currency-dollar'),
                         NumberConstraint::make('cost')
-                            ->label('Cost per item')
+                            ->label('Coût par article')
                             ->icon('heroicon-m-currency-dollar'),
                         NumberConstraint::make('qty')
-                            ->label('Quantity'),
-                        NumberConstraint::make('security_stock'),
+                            ->label('Quantité'),
+                        NumberConstraint::make('security_stock')
+                            ->label('Stock de sécurité'),
                         BooleanConstraint::make('is_visible')
-                            ->label('Visibility'),
-                        BooleanConstraint::make('featured'),
-                        BooleanConstraint::make('backorder'),
+                            ->label('Visibilité'),
+                        BooleanConstraint::make('featured')
+                            ->label('Mis en avant'),
+                        BooleanConstraint::make('backorder')
+                            ->label('Commande en attente'),
                         BooleanConstraint::make('requires_shipping')
+                            ->label('Nécessite une expédition')
                             ->icon('heroicon-m-truck'),
-                        DateConstraint::make('published_at'),
+                        DateConstraint::make('published_at')
+                            ->label('Date de publication'),
                     ])
                     ->constraintPickerColumns(2),
             ], layout: Tables\Enums\FiltersLayout::AboveContentCollapsible)
@@ -282,7 +293,7 @@ class ProductResource extends Resource
                 Tables\Actions\DeleteBulkAction::make()
                     ->action(function () {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title('Allons, allons, ne soyez pas effronté, laissez quelques enregistrements pour que les autres puissent jouer avec !')
                             ->warning()
                             ->send();
                     }),
@@ -321,7 +332,7 @@ class ProductResource extends Resource
         /** @var Product $record */
 
         return [
-            'Brand' => optional($record->brand)->name,
+            'Marque' => optional($record->brand)->name,
         ];
     }
 
