@@ -308,15 +308,21 @@
                     <div class="container">
                         <div class="mlpharma-container">
                             <div class="row align-items-center">
-                                <div class="col-lg-8 mb-4 mb-lg-0">
-                                    <div class="mlpharma-content">
-                                        <h2 class="mlpharma-title">Distribué par MLPharma</h2>
-                                        <p class="mlpharma-description">MLPharma est notre distributeur officiel au Maroc, spécialisé dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et les centres d'esthétique.</p>
+                                <div class="col-lg-3 col-md-4 mb-4 mb-md-0 text-center">
+                                    <div class="mlpharma-logo">
+                                        <img src="{{asset('images/logo/logo-ML2.png')}}" alt="MLPharma Logo" class="img-fluid">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 text-lg-end">
+                                <div class="col-lg-6 col-md-8 mb-4 mb-lg-0">
+                                    <div class="mlpharma-content">
+                                        <span class="mlpharma-badge">Distributeur Officiel</span>
+                                        <h2 class="mlpharma-title">MLPharma</h2>
+                                        <p class="mlpharma-description">Notre partenaire exclusif au Maroc, spécialisé dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et les centres d'esthétique.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 text-lg-end">
                                     <a href="http://mlpharma.ma/" target="_blank" class="btn-mlpharma">
-                                        Visiter MLPharma <i class="fas fa-external-link-alt"></i>
+                                        Visiter le site <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
                             </div>
@@ -733,54 +739,101 @@
         }
 
         .mlpharma-container {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #20c7d9 0%, #1A2A3A 100%);
             border-radius: 12px;
             padding: 3rem;
-            color: #1A2A3A;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 5px solid #20c7d9;
+            color: white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mlpharma-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .mlpharma-logo {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            max-width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .mlpharma-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .mlpharma-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .mlpharma-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #1A2A3A;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .mlpharma-description {
             font-size: 1.4rem;
-            color: #555;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0;
+            line-height: 1.6;
         }
 
         .btn-mlpharma {
             display: inline-flex;
             align-items: center;
             padding: 1rem 2rem;
-            background-color: #20c7d9;
-            color: white;
+            background-color: white;
+            color: #1A2A3A;
             border-radius: 30px;
             font-weight: 600;
             font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 1rem;
         }
 
         .btn-mlpharma i {
             margin-left: 0.5rem;
             transition: transform 0.3s ease;
+            color: #20c7d9;
         }
 
         .btn-mlpharma:hover {
             background-color: #1A2A3A;
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .btn-mlpharma:hover i {
             transform: translateX(5px);
+            color: white;
         }
 
         /* Responsive Styles */
@@ -804,6 +857,10 @@
             .btn-cta, .btn-mlpharma {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .mlpharma-logo {
+                margin-bottom: 1.5rem;
             }
         }
 
@@ -838,6 +895,31 @@
 
             .cta-description, .mlpharma-description {
                 font-size: 1.2rem;
+            }
+
+            .mlpharma-logo {
+                max-width: 150px;
+                padding: 1rem;
+            }
+
+            .mlpharma-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .mlpharma-container::before {
+                width: 200px;
+                height: 200px;
+            }
+
+            .mlpharma-content {
+                text-align: center;
+            }
+
+            .mlpharma-logo {
+                margin-bottom: 1rem;
             }
         }
     </style>
