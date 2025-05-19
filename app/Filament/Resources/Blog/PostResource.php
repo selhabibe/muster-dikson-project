@@ -70,13 +70,14 @@ class PostResource extends Resource
                             ->required(),
 
                         Forms\Components\DatePicker::make('published_at')
-                            ->label('Published Date'),
+                            ->label('Date de publication'),
 
                         SpatieTagsInput::make('tags'),
                     ])
                     ->columns(2),
 
                 Forms\Components\Section::make('Image')
+                    ->label('Image')
                     ->schema([
                         Forms\Components\FileUpload::make('image')
                             ->image()
@@ -109,9 +110,9 @@ class PostResource extends Resource
 
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
-                    ->getStateUsing(fn (Post $record): string => $record->published_at?->isPast() ? 'Published' : 'Draft')
+                    ->getStateUsing(fn (Post $record): string => $record->published_at?->isPast() ? 'Publié' : 'Brouillon')
                     ->colors([
-                        'success' => 'Published',
+                        'success' => 'Publié',
                     ]),
 
                 Tables\Columns\TextColumn::make('category.name')
@@ -120,11 +121,11 @@ class PostResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 Tables\Columns\TextColumn::make('published_at')
-                    ->label('Published Date')
+                    ->label('Date de publication')
                     ->date(),
 
                 Tables\Columns\TextColumn::make('comments.customer.name')
-                    ->label('Comment Authors')
+                    ->label('Auteurs des commentaires')
                     ->listWithLineBreaks()
                     ->limitList(2)
                     ->expandableLimitedList(),
@@ -151,10 +152,10 @@ class PostResource extends Resource
                     ->indicateUsing(function (array $data): array {
                         $indicators = [];
                         if ($data['published_from'] ?? null) {
-                            $indicators['published_from'] = 'Published from ' . Carbon::parse($data['published_from'])->toFormattedDateString();
+                            $indicators['published_from'] = 'Publié depuis ' . Carbon::parse($data['published_from'])->toFormattedDateString();
                         }
                         if ($data['published_until'] ?? null) {
-                            $indicators['published_until'] = 'Published until ' . Carbon::parse($data['published_until'])->toFormattedDateString();
+                            $indicators['published_until'] = 'Publié jusqu\'au ' . Carbon::parse($data['published_until'])->toFormattedDateString();
                         }
 
                         return $indicators;
@@ -171,7 +172,7 @@ class PostResource extends Resource
                 Tables\Actions\DeleteBulkAction::make()
                     ->action(function () {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title('Allons, allons, ne soyez pas effronté, laissez quelques enregistrements pour que les autres puissent jouer avec !')
                             ->warning()
                             ->send();
                     }),
@@ -206,9 +207,10 @@ class PostResource extends Resource
                                 ->grow(false),
                         ])->from('lg'),
                     ]),
-                Components\Section::make('Content')
+                Components\Section::make('Contenu')
                     ->schema([
                         Components\TextEntry::make('content')
+                            ->label('Contenu')
                             ->prose()
                             ->markdown()
                             ->hiddenLabel(),
@@ -259,11 +261,11 @@ class PostResource extends Resource
         $details = [];
 
         if ($record->author) {
-            $details['Author'] = $record->author->name;
+            $details['Auteur'] = $record->author->name;
         }
 
         if ($record->category) {
-            $details['Category'] = $record->category->name;
+            $details['Catégorie'] = $record->category->name;
         }
 
         return $details;

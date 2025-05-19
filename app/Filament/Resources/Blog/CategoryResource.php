@@ -50,7 +50,7 @@ class CategoryResource extends Resource
                     ->columnSpan('full'),
 
                 Forms\Components\Toggle::make('is_visible')
-                    ->label('Visible to customers.')
+                    ->label('Visible pour les clients.')
                     ->default(true),
             ]);
     }
@@ -94,12 +94,16 @@ class CategoryResource extends Resource
     {
         return $infolist
             ->schema([
-                TextEntry::make('name'),
-                TextEntry::make('slug'),
-                TextEntry::make('description'),
+                TextEntry::make('name')
+                    ->label('Nom'),
+                TextEntry::make('slug')
+                    ->label('Slug'),
+                TextEntry::make('description')
+                    ->label('Description'),
                 IconEntry::make('is_visible')
-                    ->label('Visibility'),
+                    ->label('Visibilité'),
                 TextEntry::make('updated_at')
+                    ->label('Date de mise à jour')
                     ->dateTime(),
             ])
             ->columns(1)

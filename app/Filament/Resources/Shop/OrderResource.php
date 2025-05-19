@@ -48,11 +48,11 @@ class OrderResource extends Resource
                             ->schema(static::getDetailsFormSchema())
                             ->columns(2),
 
-                        Forms\Components\Section::make('Order items')
+                        Forms\Components\Section::make('Articles de commande')
                             ->headerActions([
                                 Action::make('reset')
-                                    ->modalHeading('Are you sure?')
-                                    ->modalDescription('All existing items will be removed from the order.')
+                                    ->modalHeading('Êtes-vous sûr ?')
+                                    ->modalDescription('Tous les articles existants seront supprimés de la commande.')
                                     ->requiresConfirmation()
                                     ->color('danger')
                                     ->action(fn (Forms\Set $set) => $set('items', [])),
@@ -66,11 +66,11 @@ class OrderResource extends Resource
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\Placeholder::make('created_at')
-                            ->label('Created at')
+                            ->label('Créé le')
                             ->content(fn (Order $record): ?string => $record->created_at?->diffForHumans()),
 
                         Forms\Components\Placeholder::make('updated_at')
-                            ->label('Last modified at')
+                            ->label('Dernière modification le')
                             ->content(fn (Order $record): ?string => $record->updated_at?->diffForHumans()),
                     ])
                     ->columnSpan(['lg' => 1])
@@ -105,7 +105,7 @@ class OrderResource extends Resource
                             ->money(),
                     ]),
                 Tables\Columns\TextColumn::make('shipping_price')
-                    ->label('Shipping cost')
+                    ->label('Frais de livraison')
                     ->searchable()
                     ->sortable()
                     ->toggleable()
@@ -114,7 +114,7 @@ class OrderResource extends Resource
                             ->money(),
                     ]),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label('Order Date')
+                    ->label('Date de commande')
                     ->date()
                     ->toggleable(),
             ])->defaultSort('created_at', 'desc')
@@ -142,10 +142,10 @@ class OrderResource extends Resource
                     ->indicateUsing(function (array $data): array {
                         $indicators = [];
                         if ($data['created_from'] ?? null) {
-                            $indicators['created_from'] = 'Order from ' . Carbon::parse($data['created_from'])->toFormattedDateString();
+                            $indicators['created_from'] = 'Commande depuis ' . Carbon::parse($data['created_from'])->toFormattedDateString();
                         }
                         if ($data['created_until'] ?? null) {
-                            $indicators['created_until'] = 'Order until ' . Carbon::parse($data['created_until'])->toFormattedDateString();
+                            $indicators['created_until'] = 'Commande jusqu\'au ' . Carbon::parse($data['created_until'])->toFormattedDateString();
                         }
 
                         return $indicators;
@@ -158,14 +158,14 @@ class OrderResource extends Resource
                 Tables\Actions\DeleteBulkAction::make()
                     ->action(function () {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title('Allons, allons, ne soyez pas effronté, laissez quelques enregistrements pour que les autres puissent jouer avec !')
                             ->warning()
                             ->send();
                     }),
             ])
             ->groups([
                 Tables\Grouping\Group::make('created_at')
-                    ->label('Order Date')
+                    ->label('Date de commande')
                     ->date()
                     ->collapsible(),
             ]);
@@ -210,7 +210,7 @@ class OrderResource extends Resource
         /** @var Order $record */
 
         return [
-            'Customer' => optional($record->customer)->name,
+            'Client' => optional($record->customer)->name,
         ];
     }
 
@@ -250,7 +250,7 @@ class OrderResource extends Resource
                         ->maxLength(255),
 
                     Forms\Components\TextInput::make('email')
-                        ->label('Email address')
+                        ->label('Adresse email')
                         ->required()
                         ->email()
                         ->maxLength(255)
@@ -260,18 +260,18 @@ class OrderResource extends Resource
                         ->maxLength(255),
 
                     Forms\Components\Select::make('gender')
-                        ->placeholder('Select gender')
+                        ->placeholder('Sélectionner le genre')
                         ->options([
-                            'male' => 'Male',
-                            'female' => 'Female',
+                            'male' => 'Homme',
+                            'female' => 'Femme',
                         ])
                         ->required()
                         ->native(false),
                 ])
                 ->createOptionAction(function (Action $action) {
                     return $action
-                        ->modalHeading('Create customer')
-                        ->modalSubmitActionLabel('Create customer')
+                        ->modalHeading('Créer un client')
+                        ->modalSubmitActionLabel('Créer un client')
                         ->modalWidth('lg');
                 }),
 
@@ -300,7 +300,7 @@ class OrderResource extends Resource
             ->relationship()
             ->schema([
                 Forms\Components\Select::make('shop_product_id')
-                    ->label('Product')
+                    ->label('Produit')
                     ->options(Product::query()->pluck('name', 'id'))
                     ->required()
                     ->reactive()
@@ -313,7 +313,7 @@ class OrderResource extends Resource
                     ->searchable(),
 
                 Forms\Components\TextInput::make('qty')
-                    ->label('Quantity')
+                    ->label('Quantité')
                     ->numeric()
                     ->default(1)
                     ->columnSpan([
@@ -322,7 +322,7 @@ class OrderResource extends Resource
                     ->required(),
 
                 Forms\Components\TextInput::make('unit_price')
-                    ->label('Unit Price')
+                    ->label('Prix unitaire')
                     ->disabled()
                     ->dehydrated()
                     ->numeric()
@@ -333,7 +333,7 @@ class OrderResource extends Resource
             ])
             ->extraItemActions([
                 Action::make('openProduct')
-                    ->tooltip('Open product')
+                    ->tooltip('Ouvrir le produit')
                     ->icon('heroicon-m-arrow-top-right-on-square')
                     ->url(function (array $arguments, Repeater $component): ?string {
                         $itemData = $component->getRawItemState($arguments['item']);
