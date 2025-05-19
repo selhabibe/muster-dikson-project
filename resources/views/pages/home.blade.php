@@ -39,6 +39,7 @@
             margin-bottom: 1.5rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            color: #ffffff;
         }
 
         .hero-title {
