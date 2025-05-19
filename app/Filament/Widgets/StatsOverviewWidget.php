@@ -82,18 +82,18 @@ class StatsOverviewWidget extends BaseWidget
         };
 
         return [
-            Stat::make('Revenue',  $formatNumber($revenue) . ' MAD' )
-                ->description('Revenue in the selected period')
+            Stat::make('Revenus',  $formatNumber($revenue) . ' MAD' )
+                ->description('Revenus dans la période sélectionnée')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart($revenueChartData)
                 ->color('success'),
-            Stat::make('New customers', $formatNumber($newCustomers))
-                ->description('Customers acquired in the selected period')
+            Stat::make('Nouveaux clients', $formatNumber($newCustomers))
+                ->description('Clients acquis dans la période sélectionnée')
 //                ->descriptionIcon('heroicon-m-user')
                 ->chart($customersChartData)
                 ->color('info'),
-            Stat::make('New orders', $formatNumber($newOrders))
-                ->description('Orders placed in the selected period')
+            Stat::make('Nouvelles commandes', $formatNumber($newOrders))
+                ->description('Commandes passées dans la période sélectionnée')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart($ordersChartData)
                 ->color('success'),

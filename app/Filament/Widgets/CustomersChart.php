@@ -8,7 +8,7 @@ use Filament\Widgets\ChartWidget;
 
 class CustomersChart extends ChartWidget
 {
-    protected static ?string $heading = 'Total customers';
+    protected static ?string $heading = 'Total des clients';
 
     protected static ?int $sort = 2;
 
@@ -40,12 +40,12 @@ class CustomersChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Customers',
+                    'label' => 'Clients',
                     'data' => $customerData,
                     'fill' => 'start',
                 ],
             ],
-            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'labels' => ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
         ];
     }
 
