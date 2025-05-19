@@ -8,7 +8,7 @@
     <title>Muster & Dikson</title>
 
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Riode - Ultimate eCommerce Template">
+    <meta name="description" content="Muster & Dikson, produits professionnels pour coiffeurs et esthéticiennes">
     <meta name="author" content="D-THEMES">
 
     <!-- Favicon -->
