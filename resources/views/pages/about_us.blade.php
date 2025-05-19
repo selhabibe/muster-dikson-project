@@ -302,6 +302,28 @@
                     </div>
                 </section>
                 <!-- End Call to Action Section -->
+
+                <!-- MLPharma Section -->
+                <section class="mlpharma-section">
+                    <div class="container">
+                        <div class="mlpharma-container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="mlpharma-content">
+                                        <h2 class="mlpharma-title">Distribué par MLPharma</h2>
+                                        <p class="mlpharma-description">MLPharma est notre distributeur officiel au Maroc, spécialisé dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et les centres d'esthétique.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <a href="http://mlpharma.ma/" target="_blank" class="btn-mlpharma">
+                                        Visiter MLPharma <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End MLPharma Section -->
             </div>
         </main>
         <!-- End Main -->
@@ -650,7 +672,7 @@
 
         /* Call to Action Section Styles */
         .cta-section {
-            padding: 5rem 0;
+            padding: 5rem 0 3rem;
             background-color: white;
         }
 
@@ -704,6 +726,63 @@
             transform: translateX(5px);
         }
 
+        /* MLPharma Section Styles */
+        .mlpharma-section {
+            padding: 0 0 5rem;
+            background-color: white;
+        }
+
+        .mlpharma-container {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 3rem;
+            color: #1A2A3A;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid #20c7d9;
+        }
+
+        .mlpharma-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1A2A3A;
+        }
+
+        .mlpharma-description {
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .btn-mlpharma {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #20c7d9;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-mlpharma i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-mlpharma:hover {
+            background-color: #1A2A3A;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-mlpharma:hover i {
+            transform: translateX(5px);
+        }
+
         /* Responsive Styles */
         @media (max-width: 991px) {
             .about-hero-title {
@@ -718,11 +797,11 @@
                 font-size: 2.4rem;
             }
 
-            .cta-title {
+            .cta-title, .mlpharma-title {
                 font-size: 2rem;
             }
 
-            .btn-cta {
+            .btn-cta, .btn-mlpharma {
                 width: 100%;
                 justify-content: center;
             }
@@ -749,15 +828,15 @@
                 margin-bottom: 1.5rem;
             }
 
-            .cta-container {
+            .cta-container, .mlpharma-container {
                 padding: 2rem;
             }
 
-            .cta-title {
+            .cta-title, .mlpharma-title {
                 font-size: 1.5rem;
             }
 
-            .cta-description {
+            .cta-description, .mlpharma-description {
                 font-size: 1.2rem;
             }
         }
