@@ -72,6 +72,7 @@ class ProductResource extends Resource
                             ->columns(2),
 
                         Forms\Components\Section::make('Images')
+                            ->label('Images')
                             ->schema([
                                 SpatieMediaLibraryFileUpload::make('media')
                                     ->collection('product-images')
@@ -82,7 +83,7 @@ class ProductResource extends Resource
                             ])
                             ->collapsible(),
 
-                        Forms\Components\Section::make('Pricing')
+                        Forms\Components\Section::make('Prix')
                             ->schema([
                                 Forms\Components\TextInput::make('price')
                                     ->numeric()
@@ -90,19 +91,19 @@ class ProductResource extends Resource
                                     ->required(),
 
                                 Forms\Components\TextInput::make('old_price')
-                                    ->label('Compare at price')
+                                    ->label('Prix de comparaison')
                                     ->numeric()
                                     ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/']),
 
                                 Forms\Components\TextInput::make('cost')
-                                    ->label('Cost per item')
-                                    ->helperText('Customers won\'t see this price.')
+                                    ->label('Coût par article')
+                                    ->helperText('Les clients ne verront pas ce prix.')
                                     ->numeric()
                                     ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/'])
                                     ->required(),
                             ])
                             ->columns(2),
-                        Forms\Components\Section::make('Inventory')
+                        Forms\Components\Section::make('Inventaire')
                             ->schema([
 //                                Forms\Components\TextInput::make('sku')
 //                                    ->label('SKU (Stock Keeping Unit)')
@@ -117,7 +118,7 @@ class ProductResource extends Resource
 //                                    ->required(),
 
                                 Forms\Components\TextInput::make('qty')
-                                    ->label('Quantity')
+                                    ->label('Quantité')
                                     ->numeric()
                                     ->rules(['integer', 'min:0'])
                                     ->required(),
@@ -153,19 +154,20 @@ class ProductResource extends Resource
 
                 Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\Section::make('Status')
+                        Forms\Components\Section::make('Statut')
                             ->schema([
                                 Forms\Components\Toggle::make('is_visible')
                                     ->label('Visible')
-                                    ->helperText('This product will be hidden from all sales channels.')
+                                    ->helperText('Ce produit sera masqué de tous les canaux de vente.')
                                     ->default(true),
 
                                 Forms\Components\DatePicker::make('published_at')
-                                    ->label('Availability')
+                                    ->label('Disponibilité')
                                     ->default(now()),
                             ]),
 
                         Forms\Components\Section::make('Associations')
+                            ->label('Associations')
                             ->schema([
                                 Forms\Components\Select::make('shop_brand_id')
                                     ->relationship('brand', 'name')
