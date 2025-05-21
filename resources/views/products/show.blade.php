@@ -179,9 +179,6 @@
                     _token: '{{ csrf_token() }}'
                 };
 
-                // Show loading state
-                addToCartButton.classList.add('loading');
-
                 fetch('{{ route("cart.add") }}', {
                     method: 'POST',
                     headers: {
@@ -192,9 +189,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Remove loading state
-                    addToCartButton.classList.remove('loading');
-
+                    console.log(data);
                     if (data.success === 'Item added to cart successfully!') {
                         // Show success message
                         messageElement.textContent = 'Product added to cart successfully!';
@@ -209,7 +204,6 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    addToCartButton.classList.remove('loading');
 
                     // Show error message
                     messageElement.textContent = 'Failed to add product to cart. Please try again.';
