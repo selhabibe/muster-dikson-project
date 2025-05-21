@@ -317,7 +317,7 @@
                                     <div class="mlpharma-content">
                                         <span class="mlpharma-badge">Distributeur Officiel</span>
                                         <h2 class="mlpharma-title">MLPharma</h2>
-                                        <p class="mlpharma-description">Notre partenaire exclusif au Maroc, spécialisé dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et aux centres d'esthétique.</p>
+                                        <p class="mlpharma-description">Notre partenaire exclusif au Maroc, spécialisé dans la distribution de produits cosmétiques professionnels de haute qualité pour les salons de coiffure et les centres d'esthétique.</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 text-lg-end">
