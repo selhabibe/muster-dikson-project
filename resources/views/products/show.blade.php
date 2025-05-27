@@ -171,6 +171,53 @@
             @section('scripts')
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
+                        // Initialize Owl Carousel
+                        let productCarousel = $('.product-single-carousel').owlCarousel({
+                            items: 1,
+                            nav: true,
+                            dots: false,
+                            loop: false,
+                            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+                            responsive: {
+                                0: { nav: false },
+                                768: { nav: true }
+                            }
+                        });
+
+                        // Thumbnail click functionality
+                        $('.product-thumb').on('click', function() {
+                            const index = $(this).index();
+
+                            // Remove active class from all thumbnails
+                            $('.product-thumb').removeClass('active');
+
+                            // Add active class to clicked thumbnail
+                            $(this).addClass('active');
+
+                            // Go to corresponding slide in carousel
+                            productCarousel.trigger('to.owl.carousel', [index, 300]);
+                        });
+
+                        // Update thumbnail active state when carousel changes
+                        productCarousel.on('changed.owl.carousel', function(event) {
+                            const currentIndex = event.item.index;
+                            $('.product-thumb').removeClass('active');
+                            $('.product-thumb').eq(currentIndex).addClass('active');
+                        });
+
+                        // Thumbnail navigation buttons
+                        $('.thumb-prev').on('click', function() {
+                            $('.product-thumbs').animate({
+                                scrollLeft: '-=100'
+                            }, 300);
+                        });
+
+                        $('.thumb-next').on('click', function() {
+                            $('.product-thumbs').animate({
+                                scrollLeft: '+=100'
+                            }, 300);
+                        });
+
                         // Add to cart functionality
                         const addToCartButton = document.getElementById('add-to-cart-btn');
                         const quantityInput = document.getElementById('product-quantity');
