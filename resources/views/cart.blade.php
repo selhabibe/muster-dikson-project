@@ -33,11 +33,36 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             color: #999;
-            font-size: 1.1rem;
+            font-size: 18px; /* Standardized to 18px for better readability */
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .step-item:hover {
+            background: #f8f9fa;
+            color: #2f7fd0;
+            text-decoration: none;
         }
 
         .step-item.active {
             color: #2f7fd0;
+        }
+
+        .step-item.completed {
+            color: #28a745;
+        }
+
+        .step-item.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .step-item.disabled:hover {
+            background: transparent;
+            color: #999;
         }
 
         .step-number {
@@ -51,11 +76,26 @@
             justify-content: center;
             margin-right: 1rem;
             font-weight: 700;
+            font-size: 16px; /* Standardized font size */
+            transition: all 0.3s ease;
         }
 
         .step-item.active .step-number {
             background: #2f7fd0;
             color: #fff;
+        }
+
+        .step-item.completed .step-number {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .step-item:hover .step-number {
+            transform: scale(1.05);
+        }
+
+        .step-item.disabled:hover .step-number {
+            transform: none;
         }
 
         .cart-content {
@@ -79,7 +119,7 @@
 
         .cart-items-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
+            font-size: 28px; /* Standardized h2 size (28px) */
             font-weight: 700;
             color: #222;
             margin: 0;
@@ -120,7 +160,7 @@
 
         .item-name {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
+            font-size: 20px; /* Standardized h3 size (20px) */
             font-weight: 600;
             color: #222;
             margin: 0;
@@ -128,7 +168,7 @@
         }
 
         .item-price {
-            font-size: 1.2rem;
+            font-size: 18px; /* Standardized body text (18px) */
             font-weight: 700;
             color: #2f7fd0;
         }
@@ -181,13 +221,13 @@
             text-align: center;
             border: none;
             background: transparent;
-            font-size: 1.1rem;
+            font-size: 16px; /* Standardized input text (16px) */
             font-weight: 600;
             color: #222;
         }
 
         .item-subtotal {
-            font-size: 1.3rem;
+            font-size: 20px; /* Standardized h3 size (20px) */
             font-weight: 700;
             color: #222;
         }
@@ -198,7 +238,7 @@
             border: none;
             border-radius: 8px;
             padding: 0.5rem 1rem;
-            font-size: 0.9rem;
+            font-size: 14px; /* Standardized button text (14px) */
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -221,7 +261,7 @@
 
         .summary-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.6rem;
+            font-size: 24px; /* Standardized h2 size (24px) */
             font-weight: 700;
             color: #222;
             margin: 0 0 2rem 0;
@@ -239,17 +279,17 @@
         .summary-row:last-child {
             border-bottom: 2px solid #2f7fd0;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 18px; /* Standardized body text (18px) */
             color: #222;
         }
 
         .summary-label {
-            font-size: 1.1rem;
+            font-size: 16px; /* Standardized body text (16px) */
             color: #666;
         }
 
         .summary-value {
-            font-size: 1.1rem;
+            font-size: 16px; /* Standardized body text (16px) */
             font-weight: 600;
             color: #222;
         }
@@ -261,7 +301,7 @@
             border: none;
             border-radius: 12px;
             padding: 1.2rem 2rem;
-            font-size: 1.2rem;
+            font-size: 18px; /* Standardized button text (18px) */
             font-weight: 700;
             font-family: 'Poppins', sans-serif;
             cursor: pointer;
@@ -285,13 +325,13 @@
         }
 
         .empty-cart-icon {
-            font-size: 4rem;
+            font-size: 64px; /* Standardized large icon (64px) */
             color: #ddd;
             margin-bottom: 1rem;
         }
 
         .empty-cart-text {
-            font-size: 1.3rem;
+            font-size: 20px; /* Standardized h3 size (20px) */
             margin-bottom: 2rem;
         }
 
@@ -345,17 +385,17 @@
 
         @media (max-width: 480px) {
             .step-item {
-                font-size: 0.9rem;
+                font-size: 16px; /* Maintain minimum 16px for mobile */
             }
 
             .step-number {
                 width: 30px;
                 height: 30px;
-                font-size: 0.9rem;
+                font-size: 14px; /* Standardized mobile font */
             }
 
             .item-name {
-                font-size: 1.1rem;
+                font-size: 18px; /* Maintain readability on mobile */
             }
 
             .quantity-controls {
@@ -365,7 +405,7 @@
             .qty-btn {
                 width: 30px;
                 height: 30px;
-                font-size: 1rem;
+                font-size: 16px; /* Standardized mobile button text */
             }
 
             .qty-input {
@@ -382,11 +422,18 @@
                     <div class="step-number">1</div>
                     <span>Panier</span>
                 </div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <span>Informations de contact</span>
-                </div>
-                <div class="step-item">
+                @if($cartItems->count() > 0)
+                    <a href="{{ route('checkout') }}" class="step-item">
+                        <div class="step-number">2</div>
+                        <span>Informations de contact</span>
+                    </a>
+                @else
+                    <div class="step-item disabled">
+                        <div class="step-number">2</div>
+                        <span>Informations de contact</span>
+                    </div>
+                @endif
+                <div class="step-item disabled">
                     <div class="step-number">3</div>
                     <span>Commande terminée</span>
                 </div>
