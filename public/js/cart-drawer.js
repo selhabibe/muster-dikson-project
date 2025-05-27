@@ -124,6 +124,9 @@ class CartDrawer {
         // Render cart items
         if (this.cartItemsList) {
             this.cartItemsList.innerHTML = items.map(item => this.renderCartItem(item)).join('');
+
+            // Bind delete buttons
+            this.bindDeleteButtons();
         }
     }
 
@@ -141,6 +144,11 @@ class CartDrawer {
                         <span class="cart-item-quantity">Qté: ${item.quantity}</span>
                         <span class="cart-item-price">${item.subtotal.toFixed(2)} MAD</span>
                     </div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="cart-item-remove" data-item-id="${item.id}" title="Supprimer">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </div>
             </div>
         `;
@@ -218,13 +226,75 @@ class CartDrawer {
         }
     }
 
-    showSuccessToast(productName = null) {
+    bindDeleteButtons() {
+        const deleteButtons = this.cartItemsList.querySelectorAll('.cart-item-remove');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const itemId = button.getAttribute('data-item-id');
+                await this.removeFromCart(itemId, button);
+            });
+        });
+    }
+
+    async removeFromCart(itemId, buttonElement) {
+        try {
+            // Show loading state on button
+            const originalContent = buttonElement.innerHTML;
+            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            buttonElement.disabled = true;
+
+            const response = await fetch(`/cart/item/${itemId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Update header cart info immediately
+                this.updateHeaderCartInfo(data.cart_count, data.cart_total);
+
+                // Show success toast
+                this.showSuccessToast(`${data.product_name} supprimé du panier!`, 'success');
+
+                // Remove item from DOM with animation
+                const cartItem = buttonElement.closest('.cart-item');
+                cartItem.style.transform = 'translateX(-100%)';
+                cartItem.style.opacity = '0';
+
+                setTimeout(() => {
+                    // Reload cart data to refresh the entire list
+                    this.loadCartData();
+                }, 300);
+
+            } else {
+                throw new Error(data.message || 'Failed to remove item');
+            }
+        } catch (error) {
+            console.error('Error removing item:', error);
+
+            // Reset button state
+            buttonElement.innerHTML = originalContent;
+            buttonElement.disabled = false;
+
+            // Show error toast
+            this.showSuccessToast('Erreur lors de la suppression', 'error');
+        }
+    }
+
+    showSuccessToast(message = null, type = 'success') {
         if (this.successToast) {
             const messageElement = this.successToast.querySelector('.toast-message');
-            if (messageElement && productName) {
-                messageElement.textContent = `${productName} ajouté au panier!`;
+            if (messageElement && message) {
+                messageElement.textContent = message;
             }
 
+            // Update toast styling based on type
+            this.successToast.className = `toast-notification ${type}`;
             this.successToast.classList.add('show');
 
             setTimeout(() => {

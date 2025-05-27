@@ -43,6 +43,7 @@ Route::get('/shop/muster/benexere', [ShopController::class, 'showMusterBenexereP
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/data', [CartController::class, 'getCartData'])->name('cart.data');
+Route::delete('/cart/item/{id}', [CartController::class, 'removeFromCart'])->name('cart.item.remove');
 //Route::post('/cart/updatess', [CartController::class, 'updateCartItem'])->name('cart.updatesss');
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeCartItem'])->name('cart.remove');
 //Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.update');

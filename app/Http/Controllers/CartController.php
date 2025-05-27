@@ -158,13 +158,18 @@ class CartController extends Controller
         $cartCount = $cartItems->sum('quantity');
 
         $cartItemsData = $cartItems->map(function ($item) {
+            $imageUrl = $item->product->getFirstMediaUrl('product-images');
+            if (!$imageUrl) {
+                $imageUrl = 'https://i.makeup.fr/i/i4/i4dfmpe8rxkj.png'; // Fallback image
+            }
+
             return [
                 'id' => $item->id,
                 'product_id' => $item->product_id,
                 'name' => $item->product->name,
                 'price' => $item->product->price,
                 'quantity' => $item->quantity,
-                'image' => $item->product->image,
+                'image' => $imageUrl,
                 'subtotal' => $item->product->price * $item->quantity
             ];
         });
@@ -175,6 +180,51 @@ class CartController extends Controller
             'cart_total' => $cartTotal,
             'cart_items' => $cartItemsData
         ]);
+    }
+
+    // Remove item from cart (for cart drawer)
+    public function removeFromCart($id, Request $request)
+    {
+        try {
+            $sessionId = $request->session()->getId();
+
+            // Find and delete the cart item
+            $cartItem = Cart::where('id', $id)
+                ->where('session_id', $sessionId)
+                ->with('product')
+                ->first();
+
+            if (!$cartItem) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Item not found in cart'
+                ], 404);
+            }
+
+            $productName = $cartItem->product->name;
+            $cartItem->delete();
+
+            // Get updated cart data
+            $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
+            $cartTotal = $cartItems->sum(function ($item) {
+                return $item->product ? ($item->product->price * $item->quantity) : 0;
+            });
+            $cartCount = $cartItems->sum('quantity');
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Item removed from cart successfully',
+                'product_name' => $productName,
+                'cart_count' => $cartCount,
+                'cart_total' => $cartTotal
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error removing item from cart'
+            ], 500);
+        }
     }
 
     // Update cart item quantity
