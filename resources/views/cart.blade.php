@@ -533,27 +533,39 @@
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
-                        // Update the quantity input
-                        cartItem.find('.qty-input').val(quantity);
+                        if (response.success) {
+                            // Update the quantity input
+                            cartItem.find('.qty-input').val(quantity);
 
-                        // Update the subtotal
-                        var price = parseFloat(cartItem.find('.item-price').text().replace(' MAD', '').replace(',', ''));
-                        var newSubtotal = (price * quantity).toFixed(2);
-                        cartItem.find('.item-subtotal').text(newSubtotal + ' MAD');
+                            // Update the subtotal
+                            cartItem.find('.item-subtotal').text(response.item_subtotal + ' MAD');
 
-                        // Update the decrease button state
-                        var decreaseBtn = cartItem.find('.qty-decrease');
-                        if (quantity <= 1) {
-                            decreaseBtn.prop('disabled', true);
+                            // Update the decrease button state
+                            var decreaseBtn = cartItem.find('.qty-decrease');
+                            if (quantity <= 1) {
+                                decreaseBtn.prop('disabled', true);
+                            } else {
+                                decreaseBtn.prop('disabled', false);
+                            }
+
+                            // Update cart totals
+                            $('#cart-subtotal').text(response.cart_total + ' MAD');
+                            $('#cart-total').text(response.cart_total + ' MAD');
                         } else {
-                            decreaseBtn.prop('disabled', false);
+                            alert('Erreur: ' + (response.message || 'Erreur inconnue'));
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', xhr.responseText);
+                        var errorMessage = 'Erreur lors de la mise à jour de la quantité';
+
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage += ': ' + xhr.responseJSON.message;
+                        } else if (xhr.responseJSON && xhr.responseJSON.error) {
+                            errorMessage += ': ' + xhr.responseJSON.error;
                         }
 
-                        // Update cart totals
-                        updateCartTotals();
-                    },
-                    error: function() {
-                        alert('Erreur lors de la mise à jour de la quantité');
+                        alert(errorMessage);
                     }
                 });
             }

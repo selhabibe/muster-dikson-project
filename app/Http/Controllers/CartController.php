@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Shop\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
@@ -149,39 +150,77 @@ class CartController extends Controller
 
     public function update(Request $request)
     {
-        $productId = $request->input('product_id');
-        $quantity = $request->input('quantity');
+        try {
+            \Log::info('Cart update request received', $request->all());
 
-        // Get the cart from the session
-        $cart = session()->get('cart', []);
+            $request->validate([
+                'cart_id' => 'required|integer',
+                'quantity' => 'required|integer|min:1',
+            ]);
 
-        dd("5544");
-        if (isset($cart[$productId])) {
+            $cartId = $request->input('cart_id');
+            $quantity = $request->input('quantity');
+            $sessionId = $request->session()->getId();
+
+            \Log::info('Cart update params', [
+                'cart_id' => $cartId,
+                'quantity' => $quantity,
+                'session_id' => $sessionId
+            ]);
+
+            // Find the cart item by ID and session
+            $cartItem = Cart::where('id', $cartId)
+                ->where('session_id', $sessionId)
+                ->with('product')
+                ->first();
+
+            \Log::info('Cart item found', ['cart_item' => $cartItem ? $cartItem->toArray() : null]);
+
+            if (!$cartItem) {
+                \Log::warning('Cart item not found', ['cart_id' => $cartId, 'session_id' => $sessionId]);
+                return response()->json(['error' => 'Cart item not found'], 404);
+            }
+
+            if (!$cartItem->product) {
+                \Log::error('Product not found for cart item', ['cart_item_id' => $cartId]);
+                return response()->json(['error' => 'Product not found for cart item'], 404);
+            }
+
             // Update the quantity
-            if ($quantity > 0) {
-                $cart[$productId]['quantity'] = $quantity;
-            } else {
-                // Remove the item if quantity is 0
-                unset($cart[$productId]);
-            }
+            $cartItem->quantity = $quantity;
+            $cartItem->save();
 
-            // Update the session with the modified cart
-            session()->put('cart', $cart);
+            // Calculate new subtotal for this item
+            $itemSubtotal = $cartItem->product->price * $quantity;
 
-            // Recalculate subtotal
-            $newSubtotal = 0;
-            foreach ($cart as $item) {
-                $newSubtotal += $item['quantity'] * $item['price'];
-            }
+            // Calculate new cart total
+            $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
+            $cartTotal = $cartItems->sum(function ($item) {
+                return $item->product ? ($item->product->price * $item->quantity) : 0;
+            });
+
+            \Log::info('Cart update successful', [
+                'item_subtotal' => $itemSubtotal,
+                'cart_total' => $cartTotal
+            ]);
 
             return response()->json([
-                'newSubtotal' => $newSubtotal,
-                'productSubtotal' => $cart[$productId]['quantity'] * $cart[$productId]['price']
+                'success' => true,
+                'message' => 'Quantity updated successfully',
+                'item_subtotal' => number_format($itemSubtotal, 2),
+                'cart_total' => number_format($cartTotal, 2)
             ]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Cart update validation error', ['errors' => $e->errors()]);
+            return response()->json(['error' => 'Validation failed', 'details' => $e->errors()], 422);
+        } catch (\Exception $e) {
+            \Log::error('Cart update error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'request' => $request->all()
+            ]);
+            return response()->json(['error' => 'Failed to update cart item: ' . $e->getMessage()], 500);
         }
-
-
-        return response()->json(['error' => 'Product not found in the cart'], 404);
     }
 
 
