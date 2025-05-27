@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Request $request)
+    public function boot()
     {
         Model::unguard();
 
@@ -34,21 +34,39 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        View::composer('*', function ($view) use ($request) {
-            $sessionId = $request->session()->getId();
-            $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
+        View::composer('*', function ($view) {
+            try {
+                $request = request();
 
+                // Check if session is available and started
+                if ($request->hasSession() && $request->session()->isStarted()) {
+                    $sessionId = $request->session()->getId();
+                    $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
 
-            // Calculate the total
-            $total = $cartItems->sum(function ($item) {
-                if ($item->product) return $item->product->price * $item->quantity;
-                else return 0;
-            });
+                    // Calculate the total
+                    $total = $cartItems->sum(function ($item) {
+                        if ($item->product) return $item->product->price * $item->quantity;
+                        else return 0;
+                    });
 
-            $view->with([
-                'cartItems' => $cartItems,
-                'cartTotal' => $total
-            ]);
+                    $view->with([
+                        'cartItems' => $cartItems,
+                        'cartTotal' => $total
+                    ]);
+                } else {
+                    // Provide empty defaults when session is not available
+                    $view->with([
+                        'cartItems' => collect(),
+                        'cartTotal' => 0
+                    ]);
+                }
+            } catch (\Exception $e) {
+                // Fallback to empty cart if any error occurs
+                $view->with([
+                    'cartItems' => collect(),
+                    'cartTotal' => 0
+                ]);
+            }
         });
     }
 }

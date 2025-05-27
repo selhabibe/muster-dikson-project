@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\Cart;
 
 class ErrorController extends Controller
@@ -33,7 +34,7 @@ class ErrorController extends Controller
             }
         } catch (\Exception $e) {
             // Log the error for debugging but continue with empty cart
-            \Log::warning('Error loading cart data for 404 page: ' . $e->getMessage());
+            Log::warning('Error loading cart data for 404 page: ' . $e->getMessage());
             $cartItems = collect();
             $cartTotal = 0;
         }
@@ -45,7 +46,7 @@ class ErrorController extends Controller
             ], 404);
         } catch (\Exception $e) {
             // If the main 404 view fails, use the simple fallback
-            \Log::error('Error rendering 404 page: ' . $e->getMessage());
+            Log::error('Error rendering 404 page: ' . $e->getMessage());
             return response()->view('pages.404-simple', [], 404);
         }
     }
