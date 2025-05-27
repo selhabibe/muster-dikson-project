@@ -690,34 +690,28 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Handle add to cart form submissions
+            // Handle add to cart form submissions with modern cart drawer
             document.querySelectorAll('.add-to-cart-form').forEach(form => {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
 
                     const button = this.querySelector('.btn-cart');
                     const originalIcon = button.innerHTML;
+                    const productId = this.querySelector('input[name="product_id"]').value;
+                    const quantity = parseInt(this.querySelector('input[name="quantity"]').value);
 
                     // Show loading state
                     button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
                     button.disabled = true;
 
-                    fetch(this.action, {
-                        method: 'POST',
-                        body: new FormData(this),
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
+                    try {
+                        // Use global cart function for consistent behavior
+                        const success = await window.addToCartGlobal(productId, quantity);
+
+                        if (success) {
                             // Show success state
                             button.innerHTML = '<i class="fas fa-check"></i>';
                             button.style.backgroundColor = '#28a745';
-
-                            // Show success message
-                            showNotification('Produit ajouté au panier !', 'success');
 
                             // Reset button after 2 seconds
                             setTimeout(() => {
@@ -726,18 +720,14 @@
                                 button.style.backgroundColor = '';
                             }, 2000);
                         } else {
-                            throw new Error(data.message || 'Erreur lors de l\'ajout au panier');
+                            throw new Error('Failed to add to cart');
                         }
-                    })
-                    .catch(error => {
+                    } catch (error) {
                         console.error('Error:', error);
 
                         // Show error state
                         button.innerHTML = '<i class="fas fa-times"></i>';
                         button.style.backgroundColor = '#dc3545';
-
-                        // Show error message
-                        showNotification('Erreur lors de l\'ajout au panier', 'error');
 
                         // Reset button after 2 seconds
                         setTimeout(() => {
@@ -745,46 +735,9 @@
                             button.disabled = false;
                             button.style.backgroundColor = '';
                         }, 2000);
-                    });
+                    }
                 });
             });
-
-            // Simple notification function
-            function showNotification(message, type) {
-                // Create notification element
-                const notification = document.createElement('div');
-                notification.className = `notification notification-${type}`;
-                notification.textContent = message;
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    padding: 1rem 1.5rem;
-                    border-radius: 8px;
-                    color: white;
-                    font-weight: 600;
-                    z-index: 9999;
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease;
-                    background-color: ${type === 'success' ? '#28a745' : '#dc3545'};
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                `;
-
-                document.body.appendChild(notification);
-
-                // Animate in
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(0)';
-                }, 100);
-
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(100%)';
-                    setTimeout(() => {
-                        document.body.removeChild(notification);
-                    }, 300);
-                }, 3000);
-            }
         });
     </script>
 @endsection('content')

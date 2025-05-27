@@ -96,9 +96,12 @@
                                                 @endif
                                             </a>
                                             <div class="product-action-vertical">
-                                                <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
+                                                <button class="btn-product-icon btn-cart"
+                                                        data-product-id="{{ $product->id }}"
+                                                        data-quantity="1"
+                                                        title="Ajouter au panier">
                                                     <i class="d-icon-bag"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </figure>
                                         <div class="product-details" style="padding: 10px; text-align: center;">
@@ -296,6 +299,54 @@
                     return false;
                 });
             }
+
+            // Handle add to cart button clicks
+            document.querySelectorAll('.btn-cart').forEach(button => {
+                button.addEventListener('click', async function(e) {
+                    e.preventDefault();
+
+                    const productId = this.getAttribute('data-product-id');
+                    const quantity = parseInt(this.getAttribute('data-quantity'));
+                    const originalIcon = this.innerHTML;
+
+                    // Show loading state
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    this.disabled = true;
+
+                    try {
+                        // Use global cart function for consistent behavior
+                        const success = await window.addToCartGlobal(productId, quantity);
+
+                        if (success) {
+                            // Show success state
+                            this.innerHTML = '<i class="fas fa-check"></i>';
+                            this.style.backgroundColor = '#28a745';
+
+                            // Reset button after 2 seconds
+                            setTimeout(() => {
+                                this.innerHTML = originalIcon;
+                                this.disabled = false;
+                                this.style.backgroundColor = '';
+                            }, 2000);
+                        } else {
+                            throw new Error('Failed to add to cart');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+
+                        // Show error state
+                        this.innerHTML = '<i class="fas fa-times"></i>';
+                        this.style.backgroundColor = '#dc3545';
+
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            this.innerHTML = originalIcon;
+                            this.disabled = false;
+                            this.style.backgroundColor = '';
+                        }, 2000);
+                    }
+                });
+            });
         });
     </script>
 

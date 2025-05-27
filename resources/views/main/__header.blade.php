@@ -48,12 +48,14 @@
                 </div>
                 <span class="divider"></span>
                 <div class="dropdown cart-dropdown type2 off-canvas mr-0 mr-lg-2">
-                    <a href="{{route('cart.show')}}" class="label-block link">
+                    <a href="#" class="label-block link cart-trigger" id="cart-trigger">
                         <div class="cart-label d-lg-show">
                             <span class="cart-name">Panier:</span>
-                            <span class="cart-price">{{ number_format($cartTotal, 2) }} MAD</span>
+                            <span class="cart-price" id="header-cart-total">{{ number_format($cartTotal, 2) }} MAD</span>
                         </div>
-                        <i class="d-icon-bag"><span class="cart-count">{{ $cartItems->count() }}</span></i>
+                        <i class="d-icon-bag cart-icon" id="cart-icon">
+                            <span class="cart-count" id="header-cart-count">{{ $cartItems->count() }}</span>
+                        </i>
                     </a>
                     <div class="canvas-overlay"></div>
                 </div>
@@ -103,3 +105,62 @@
         </div>
     </div>
 </header>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer-content">
+        <div class="cart-drawer-header">
+            <h3 class="cart-drawer-title">
+                <i class="fas fa-shopping-bag"></i>
+                Votre Panier
+            </h3>
+            <button class="cart-drawer-close" id="cart-drawer-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="cart-drawer-body" id="cart-drawer-body">
+            <div class="cart-empty-state" id="cart-empty-state" style="display: none;">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h4>Votre panier est vide</h4>
+                <p>Découvrez nos produits et ajoutez-les à votre panier</p>
+                <a href="{{ route('shop.index') }}" class="btn btn-primary">Continuer vos achats</a>
+            </div>
+
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Cart items will be populated here -->
+            </div>
+        </div>
+
+        <div class="cart-drawer-footer" id="cart-drawer-footer">
+            <div class="cart-total-section">
+                <div class="cart-subtotal">
+                    <span>Sous-total:</span>
+                    <span class="cart-total-amount" id="drawer-cart-total">0.00 MAD</span>
+                </div>
+            </div>
+
+            <div class="cart-actions">
+                <a href="{{ route('cart.show') }}" class="btn btn-outline-primary btn-block">
+                    <i class="fas fa-shopping-cart"></i>
+                    Voir le panier
+                </a>
+                <a href="{{ route('checkout') }}" class="btn btn-primary btn-block">
+                    <i class="fas fa-credit-card"></i>
+                    Commander
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Toast -->
+<div class="toast-notification" id="success-toast">
+    <div class="toast-content">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message">Produit ajouté au panier!</span>
+    </div>
+</div>

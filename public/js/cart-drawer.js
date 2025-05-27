@@ -23,6 +23,7 @@ class CartDrawer {
 
     init() {
         this.bindEvents();
+        this.bindCartButtons();
         this.loadCartData();
     }
 
@@ -49,6 +50,56 @@ class CartDrawer {
             if (e.key === 'Escape' && this.drawer.classList.contains('active')) {
                 this.closeDrawer();
             }
+        });
+    }
+
+    bindCartButtons() {
+        // Handle all cart buttons on the page
+        document.querySelectorAll('.btn-cart').forEach(button => {
+            button.addEventListener('click', async (e) => {
+                e.preventDefault();
+
+                const productId = button.getAttribute('data-product-id');
+                const quantity = parseInt(button.getAttribute('data-quantity')) || 1;
+                const originalIcon = button.innerHTML;
+
+                // Show loading state
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                button.disabled = true;
+
+                try {
+                    // Use the cart drawer's add to cart method
+                    const success = await this.addToCart(productId, quantity);
+
+                    if (success) {
+                        // Show success state
+                        button.innerHTML = '<i class="fas fa-check"></i>';
+                        button.style.backgroundColor = '#28a745';
+
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            button.innerHTML = originalIcon;
+                            button.disabled = false;
+                            button.style.backgroundColor = '';
+                        }, 2000);
+                    } else {
+                        throw new Error('Failed to add to cart');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+
+                    // Show error state
+                    button.innerHTML = '<i class="fas fa-times"></i>';
+                    button.style.backgroundColor = '#dc3545';
+
+                    // Reset button after 2 seconds
+                    setTimeout(() => {
+                        button.innerHTML = originalIcon;
+                        button.disabled = false;
+                        button.style.backgroundColor = '';
+                    }, 2000);
+                }
+            });
         });
     }
 

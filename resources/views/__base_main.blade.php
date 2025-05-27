@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Muster & Dikson</title>
 
@@ -38,6 +39,9 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.min.css')}}">
+
+    <!-- Cart Drawer CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/cart-drawer.css')}}">
 </head>
 
 <body class="contact-us">
@@ -58,6 +62,9 @@
 
     <!-- Main JS File -->
     <script src="{{asset('js/main.min.js')}}"></script>
+
+    <!-- Cart Drawer JS -->
+    <script src="{{asset('js/cart-drawer.js')}}"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key="></script>
     <script>
