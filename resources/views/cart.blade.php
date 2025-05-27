@@ -119,7 +119,7 @@
 
         .cart-items-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 28px; /* Standardized h2 size (28px) */
+            font-size: 25px; /* Standardized h2 size (28px) */
             font-weight: 700;
             color: #222;
             margin: 0;
@@ -130,7 +130,7 @@
             grid-template-columns: 120px 1fr auto;
             gap: 2rem;
             align-items: center;
-            padding: 2rem 0;
+            padding: 2rem 1rem;
             border-bottom: 1px solid #f0f0f0;
         }
 
@@ -160,7 +160,7 @@
 
         .item-name {
             font-family: 'Poppins', sans-serif;
-            font-size: 20px; /* Standardized h3 size (20px) */
+            font-size: 18px; /* Standardized h3 size (20px) */
             font-weight: 600;
             color: #222;
             margin: 0;
@@ -227,7 +227,7 @@
         }
 
         .item-subtotal {
-            font-size: 20px; /* Standardized h3 size (20px) */
+            font-size: 18px; /* Standardized h3 size (20px) */
             font-weight: 700;
             color: #222;
         }
