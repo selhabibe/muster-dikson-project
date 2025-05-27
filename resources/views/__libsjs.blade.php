@@ -8,3 +8,6 @@
     <script src="{{asset('vendor/template/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Main JS File -->
     <script src="{{asset('js/main.js')}}"></script>
+
+    <!-- Cart Drawer JS -->
+    <script src="{{asset('js/cart-drawer.js')}}"></script>

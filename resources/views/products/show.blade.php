@@ -237,36 +237,23 @@
                             quantityInput.value = currentValue + 1;
                         });
 
-                        // Add to cart
-                        addToCartButton.addEventListener('click', function (e) {
+                        // Add to cart with modern UX
+                        addToCartButton.addEventListener('click', async function (e) {
                             e.preventDefault();
 
                             const productId = this.getAttribute('data-product-id');
-                            const quantity = quantityInput.value;
-
-                            const cartData = {
-                                product_id: productId,
-                                quantity: quantity,
-                                _token: '{{ csrf_token() }}'
-                            };
+                            const quantity = parseInt(quantityInput.value);
 
                             // Show loading state
                             const originalText = this.innerHTML;
                             this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Ajout en cours...</span>';
                             this.disabled = true;
 
-                            fetch('{{ route("cart.add") }}', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': cartData._token
-                                },
-                                body: JSON.stringify(cartData)
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log(data);
-                                if (data.success === 'Item added to cart successfully!') {
+                            try {
+                                // Use global cart function
+                                const success = await window.addToCartGlobal(productId, quantity);
+
+                                if (success) {
                                     // Show success state
                                     this.innerHTML = '<i class="fas fa-check"></i> <span>Ajouté!</span>';
                                     this.classList.add('success');
@@ -277,13 +264,19 @@
                                         this.disabled = false;
                                         this.classList.remove('success');
                                     }, 2000);
+                                } else {
+                                    throw new Error('Failed to add to cart');
                                 }
-                            })
-                            .catch(error => {
+                            } catch (error) {
                                 console.error('Error:', error);
-                                this.innerHTML = originalText;
-                                this.disabled = false;
-                            });
+                                this.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Erreur</span>';
+
+                                // Reset after 2 seconds
+                                setTimeout(() => {
+                                    this.innerHTML = originalText;
+                                    this.disabled = false;
+                                }, 2000);
+                            }
                         });
                     });
                 </script>

@@ -130,7 +130,51 @@ class CartController extends Controller
             ]);
         }
 
-        return response()->json(['success' => 'Item added to cart successfully!']);
+        // Get updated cart data for response
+        $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
+        $cartTotal = $cartItems->sum(function ($item) {
+            return $item->product ? ($item->product->price * $item->quantity) : 0;
+        });
+        $cartCount = $cartItems->sum('quantity');
+
+        return response()->json([
+            'success' => 'Item added to cart successfully!',
+            'cart_count' => $cartCount,
+            'cart_total' => $cartTotal,
+            'product_name' => $product->name
+        ]);
+    }
+
+    // Get cart data for AJAX updates
+    public function getCartData(Request $request)
+    {
+        $sessionId = $request->session()->getId();
+        $cartItems = Cart::where('session_id', $sessionId)->with('product')->get();
+
+        $cartTotal = $cartItems->sum(function ($item) {
+            return $item->product ? ($item->product->price * $item->quantity) : 0;
+        });
+
+        $cartCount = $cartItems->sum('quantity');
+
+        $cartItemsData = $cartItems->map(function ($item) {
+            return [
+                'id' => $item->id,
+                'product_id' => $item->product_id,
+                'name' => $item->product->name,
+                'price' => $item->product->price,
+                'quantity' => $item->quantity,
+                'image' => $item->product->image,
+                'subtotal' => $item->product->price * $item->quantity
+            ];
+        });
+
+        return response()->json([
+            'success' => true,
+            'cart_count' => $cartCount,
+            'cart_total' => $cartTotal,
+            'cart_items' => $cartItemsData
+        ]);
     }
 
     // Update cart item quantity
