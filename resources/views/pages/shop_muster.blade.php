@@ -1,21 +1,21 @@
 @extends('.__base_main')
 
 @section('meta')
-    <meta name="description" content="Découvrez notre gamme complète de produits Muster Electric 4 Hair. Des produits capillaires professionnels de haute qualité pour tous les types de cheveux.">
-    <meta name="keywords" content="Muster Electric 4 Hair, produits capillaires professionnels, coloration professionnelle, soins capillaires, coiffure professionnelle, acheter Muster">
+    <meta name="description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes depuis 1989. Solutions professionnelles pour une expérience beauté unique et complète.">
+    <meta name="keywords" content="Muster Beauty Tech, technologies esthétiques, équipements beauté professionnels, innovation beauté, appareils esthétiques, bien-être authentique">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="Produits Muster Electric 4 Hair | Muster & Dikson">
-    <meta property="og:description" content="Découvrez notre gamme complète de produits Muster Electric 4 Hair. Des produits capillaires professionnels de haute qualité pour tous les types de cheveux.">
+    <meta property="og:title" content="Muster Beauty Tech - Technologies Esthétiques Innovantes | Muster & Dikson">
+    <meta property="og:description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes depuis 1989. Solutions professionnelles pour une expérience beauté unique et complète.">
     <meta property="og:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="Produits Muster Electric 4 Hair | Muster & Dikson">
-    <meta property="twitter:description" content="Découvrez notre gamme complète de produits Muster Electric 4 Hair. Des produits capillaires professionnels de haute qualité pour tous les types de cheveux.">
+    <meta property="twitter:title" content="Muster Beauty Tech - Technologies Esthétiques Innovantes | Muster & Dikson">
+    <meta property="twitter:description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes depuis 1989. Solutions professionnelles pour une expérience beauté unique et complète.">
     <meta property="twitter:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
 
     <!-- Canonical URL -->
@@ -34,14 +34,14 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('brand.electric')}}">Muster Electric 4 Hair</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Produits</li>
+                                    <li class="breadcrumb-item"><a href="{{route('ourbrands')}}">Nos Marques</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Muster Beauty Tech</li>
                                 </ol>
                             </nav>
                             <div class="shop-hero-content text-center">
-                                <span class="shop-hero-subtitle">Collection professionnelle</span>
-                                <h1 class="shop-hero-title">Produits Muster Electric 4 Hair</h1>
-                                <p class="shop-hero-description">Découvrez notre gamme complète de produits capillaires professionnels</p>
+                                <span class="shop-hero-subtitle">Excellence et Innovation depuis 1989</span>
+                                <h1 class="shop-hero-title">Muster Beauty Tech</h1>
+                                <p class="shop-hero-description">Nous évoluons vers l'avenir de la beauté professionnelle, transformant la technologie en art et les esthéticiennes en véritables consultantes du changement</p>
                             </div>
                         </div>
                     </div>
@@ -54,12 +54,19 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="shop-intro-content text-center">
+                                    <h2 class="section-title mb-4">Célébrez l'Art de la Beauté</h2>
                                     <p class="shop-intro-text">
-                                        Muster Electric 4 Hair propose une gamme complète de produits capillaires professionnels pour tous les types de cheveux. Des colorations permanentes aux soins réparateurs, en passant par les produits de coiffage et de finition, Muster offre des solutions professionnelles pour chaque besoin.
+                                        Depuis 1989, Müster Beauty Technology accompagne les professionnels de la beauté avec des technologies esthétiques hautement innovantes conçues pour des résultats visibles et une expérience de bien-être authentique. Notre mission est d'offrir des outils technologiques d'excellence, qui valorisent le talent des esthéticiennes, améliorent la qualité de la peau et offrent des moments de transformation profonde.
                                     </p>
-                                    <div class="text-center mt-4">
-                                        <a href="{{route('shop.dikson')}}" class="btn-discover">
-                                            Découvrir nos produits <i class="fas fa-arrow-right"></i>
+                                    <p class="shop-intro-text-secondary">
+                                        Nous croyons en la beauté comme renaissance et en la technologie comme alliée du changement. Un monde exclusif d'<strong>INNOVATION</strong>, d'<strong>EFFICACITÉ</strong> et de <strong>FONCTIONNALITÉ</strong>, pour faire vivre au client une <strong>EXPÉRIENCE BEAUTÉ UNIQUE ET COMPLÈTE</strong>.
+                                    </p>
+                                    <div class="text-center mt-5">
+                                        <a href="#products-section" class="btn-discover">
+                                            Découvrir nos technologies <i class="fas fa-arrow-down"></i>
+                                        </a>
+                                        <a href="https://cdn.prod.website-files.com/67cecb7a3a28462cd4502f56/6821ca0c9018799b0e5ac56b_Muster-Beauty-Tech_Brand-Book_2025.pdf" class="btn-catalog" target="_blank">
+                                            <i class="fas fa-file-pdf"></i> Catalogue 2025
                                         </a>
                                     </div>
                                 </div>
@@ -67,10 +74,11 @@
                         </div>
                     </div>
 
-                    <div class="shop-filter-section">
+                    <div class="shop-filter-section" id="products-section">
                         <div class="row align-items-center">
                             <div class="col-md-6">
-                                <h2 class="shop-section-title">Nos produits</h2>
+                                <h2 class="shop-section-title">Nos Technologies Esthétiques</h2>
+                                <p class="section-subtitle">Solutions innovantes pour des résultats exceptionnels</p>
                             </div>
                             <div class="col-md-6 text-md-end">
                                 <div class="shop-filter-options">
@@ -144,7 +152,40 @@
                         <!-- Pagination can be added here if needed -->
                     </div>
 
-                    <!-- Brand Story Section will be added later -->
+                    <!-- Brand Story Section -->
+                    <section class="brand-story-section">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="brand-story-content">
+                                        <h2 class="brand-story-title">Innovation & Excellence depuis 1989</h2>
+                                        <p class="brand-story-text">
+                                            Müster Beauty Technology transforme la technologie en art et fait des esthéticiennes de véritables consultantes du changement. Avec des solutions innovantes, personnalisées et efficaces, nous offrons un nouveau standard de bien-être et d'authenticité pour chaque individu.
+                                        </p>
+                                        <div class="brand-features">
+                                            <div class="feature-item">
+                                                <i class="fas fa-lightbulb"></i>
+                                                <span>Innovation constante</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-award"></i>
+                                                <span>Excellence reconnue</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-users"></i>
+                                                <span>Support professionnel</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="brand-story-image">
+                                        <img src="{{ asset('images/demos/demo-beauty/beauty-tech-hero.jpg') }}" alt="Muster Beauty Tech" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     <!-- Newsletter Section -->
                     <section class="shop-newsletter-section">
@@ -152,8 +193,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="newsletter-content">
-                                        <h2 class="newsletter-title">Restez informé</h2>
-                                        <p class="newsletter-description">Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés et offres exclusives de Muster Electric 4 Hair.</p>
+                                        <h2 class="newsletter-title">Restez à la pointe de l'innovation</h2>
+                                        <p class="newsletter-description">Abonnez-vous à notre newsletter pour découvrir les dernières technologies esthétiques Muster Beauty Tech et nos formations exclusives.</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -164,7 +205,7 @@
 
                                         @if (session('success'))
                                             <div class="newsletter-message mb-3 text-white">
-                                                <p class="mb-0"><i class="fas fa-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>
+                                                <p class="mb-0"><i class="fas fa-heart"></i> Bienvenue dans l'univers Muster Beauty Tech !</p>
                                             </div>
                                             <div class="alert alert-success mt-3">
                                                 {{ session('success') }}
@@ -270,7 +311,7 @@
                             // Show success message
                             const welcomeMessage = document.createElement('div');
                             welcomeMessage.className = 'newsletter-message mb-3 text-white';
-                            welcomeMessage.innerHTML = '<p class="mb-0"><i class="fas fa-heart"></i> Nous sommes ravis que vous vous abonniez à notre newsletter</p>';
+                            welcomeMessage.innerHTML = '<p class="mb-0"><i class="fas fa-heart"></i> Bienvenue dans l\'univers Muster Beauty Tech !</p>';
 
                             const successMessage = document.createElement('div');
                             successMessage.className = 'alert alert-success mt-3';
@@ -431,24 +472,46 @@
 
         /* Shop Intro Section Styles */
         .shop-intro-section {
-            padding: 2rem 0 3rem;
+            padding: 3rem 0 4rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .shop-intro-content {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1A2A3A;
+            margin-bottom: 2rem;
+        }
+
         .shop-intro-text {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             line-height: 1.8;
             color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-intro-text-secondary {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .shop-intro-text-secondary strong {
+            color: #20c7d9;
+            font-weight: 700;
         }
 
         .btn-discover {
             display: inline-flex;
             align-items: center;
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 2rem;
             background-color: #1A2A3A;
             color: white;
             border-radius: 30px;
@@ -456,6 +519,8 @@
             font-size: 1.1rem;
             text-decoration: none;
             transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
         }
 
         .btn-discover i {
@@ -474,6 +539,37 @@
             transform: translateX(5px);
         }
 
+        .btn-catalog {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: #1A2A3A;
+            border: 2px solid #1A2A3A;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .btn-catalog i {
+            margin-right: 0.5rem;
+            color: #e74c3c;
+        }
+
+        .btn-catalog:hover {
+            background-color: #1A2A3A;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-catalog:hover i {
+            color: white;
+        }
+
         /* Shop Filter Section Styles */
         .shop-filter-section {
             padding-bottom: 2rem;
@@ -482,10 +578,17 @@
         }
 
         .shop-section-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #1A2A3A;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
             margin-bottom: 0;
+            font-style: italic;
         }
 
         /* Product Card Styles */
@@ -643,7 +746,58 @@
             color: #20c7d9;
         }
 
-        /* Brand Story Section Styles will be added later */
+        /* Brand Story Section Styles */
+        .brand-story-section {
+            padding: 4rem 0;
+            background-color: #f8f9fa;
+            margin-top: 4rem;
+        }
+
+        .brand-story-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1A2A3A;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-story-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .brand-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .feature-item i {
+            color: #20c7d9;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .brand-story-image {
+            text-align: center;
+        }
+
+        .brand-story-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
         /* Newsletter Section Styles */
         .shop-newsletter-section {
@@ -846,7 +1000,22 @@
             }
 
             .brand-story-section {
-                padding: 2rem;
+                padding: 3rem 0 2rem;
+            }
+
+            .brand-story-title {
+                font-size: 1.8rem;
+            }
+
+            .brand-features {
+                margin-top: 1.5rem;
+            }
+
+            .btn-discover, .btn-catalog {
+                display: block;
+                text-align: center;
+                margin: 0.5rem auto;
+                max-width: 280px;
             }
 
             .newsletter-title {
