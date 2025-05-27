@@ -18,7 +18,7 @@ Route::get('/', [ShopController::class, 'index'])->name('index');
 
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show-no-price');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 //Route::get('/contact', function () {
 //    return view('pages.contact-us');
