@@ -88,45 +88,7 @@
         box-shadow: 0 5px 15px rgba(32, 199, 217, 0.3);
     }
 
-    .helpful-links {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid #dee2e6;
-    }
 
-    .helpful-links h5 {
-        color: #1A2A3A;
-        margin-bottom: 1.5rem;
-        font-weight: 600;
-    }
-
-    .helpful-links .link-list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .helpful-links .link-list li a {
-        color: #666;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .helpful-links .link-list li a:hover {
-        color: #20c7d9;
-    }
-
-    .helpful-links .link-list li a i {
-        font-size: 1.1rem;
-    }
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
@@ -141,11 +103,6 @@
         .error-description {
             font-size: 1.1rem;
             padding: 0 1rem;
-        }
-
-        .helpful-links .link-list {
-            flex-direction: column;
-            gap: 1rem;
         }
 
         .error-actions .btn {
@@ -205,33 +162,6 @@
                             <a href="{{route('ourbrands')}}" class="btn btn-outline-primary btn-lg">
                                 <i class="d-icon-star"></i> Nos marques
                             </a>
-                        </div>
-
-                        <!-- Helpful Links -->
-                        <div class="helpful-links">
-                            <h5>Liens utiles</h5>
-                            <ul class="link-list">
-                                <li>
-                                    <a href="{{route('shop.muster')}}">
-                                        <i class="d-icon-bag"></i> Boutique Muster
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('shop.dikson')}}">
-                                        <i class="d-icon-bag"></i> Boutique Dikson
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('about_us')}}">
-                                        <i class="d-icon-info"></i> À propos de nous
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('contact')}}">
-                                        <i class="d-icon-phone"></i> Contact
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
