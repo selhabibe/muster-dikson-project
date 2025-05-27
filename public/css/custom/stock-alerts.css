@@ -1,0 +1,145 @@
+/* Stock Alert Styles */
+
+/* Stock alerts for product detail pages */
+.stock-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid;
+    animation: fadeInAlert 0.3s ease-in-out;
+}
+
+.stock-alert i {
+    font-size: 1.2rem;
+}
+
+.stock-alert.out-of-stock {
+    background-color: #fff5f5;
+    color: #c53030;
+    border-color: #fed7d7;
+}
+
+.stock-alert.out-of-stock i {
+    color: #e53e3e;
+}
+
+.stock-alert.low-stock {
+    background-color: #fffbeb;
+    color: #d69e2e;
+    border-color: #fbd38d;
+}
+
+.stock-alert.low-stock i {
+    color: #ed8936;
+}
+
+/* Stock alerts for product cards */
+.stock-alert-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    border: 1px solid;
+    animation: fadeInAlert 0.3s ease-in-out;
+}
+
+.stock-alert-card i {
+    font-size: 0.9rem;
+}
+
+.stock-alert-card.out-of-stock {
+    background-color: #fff5f5;
+    color: #c53030;
+    border-color: #fed7d7;
+}
+
+.stock-alert-card.out-of-stock i {
+    color: #e53e3e;
+}
+
+.stock-alert-card.low-stock {
+    background-color: #fffbeb;
+    color: #d69e2e;
+    border-color: #fbd38d;
+}
+
+.stock-alert-card.low-stock i {
+    color: #ed8936;
+}
+
+/* Animation for stock alerts */
+@keyframes fadeInAlert {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stock-alert {
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .stock-alert-card {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .stock-alert.out-of-stock {
+        background-color: #2d1b1b;
+        color: #fc8181;
+        border-color: #742a2a;
+    }
+    
+    .stock-alert.low-stock {
+        background-color: #2d2016;
+        color: #f6e05e;
+        border-color: #975a16;
+    }
+    
+    .stock-alert-card.out-of-stock {
+        background-color: #2d1b1b;
+        color: #fc8181;
+        border-color: #742a2a;
+    }
+    
+    .stock-alert-card.low-stock {
+        background-color: #2d2016;
+        color: #f6e05e;
+        border-color: #975a16;
+    }
+}
+
+/* Hover effects for interactive elements */
+.product:hover .stock-alert-card {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styling for better integration */
+.stock-alert-card + .product-price {
+    margin-top: 0.5rem;
+}
+
+.stock-alert + .product-rating {
+    margin-top: 0;
+}

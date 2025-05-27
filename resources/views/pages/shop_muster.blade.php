@@ -108,6 +108,20 @@
                                             <h3 class="product-name">
                                                 <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                                             </h3>
+
+                                            <!-- Stock Alert for Product Cards -->
+                                            @if($product->qty <= 0)
+                                                <div class="stock-alert-card out-of-stock">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <span>Rupture de stock</span>
+                                                </div>
+                                            @elseif($product->qty <= $product->security_stock)
+                                                <div class="stock-alert-card low-stock">
+                                                    <i class="fas fa-exclamation-circle"></i>
+                                                    <span>Stock limité</span>
+                                                </div>
+                                            @endif
+
                                             <div class="product-price">
                                                 <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins>
                                                 <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>

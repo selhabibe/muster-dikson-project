@@ -49,4 +49,46 @@ class Product extends Model implements HasMedia
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    /**
+     * Check if the product is out of stock
+     */
+    public function isOutOfStock(): bool
+    {
+        return $this->qty <= 0;
+    }
+
+    /**
+     * Check if the product has low stock
+     */
+    public function hasLowStock(): bool
+    {
+        return $this->qty > 0 && $this->qty <= $this->security_stock;
+    }
+
+    /**
+     * Get stock status as string
+     */
+    public function getStockStatus(): string
+    {
+        if ($this->isOutOfStock()) {
+            return 'out_of_stock';
+        } elseif ($this->hasLowStock()) {
+            return 'low_stock';
+        }
+        return 'in_stock';
+    }
+
+    /**
+     * Get stock alert message
+     */
+    public function getStockAlertMessage(): ?string
+    {
+        if ($this->isOutOfStock()) {
+            return 'Rupture de stock';
+        } elseif ($this->hasLowStock()) {
+            return 'Stock limité (' . $this->qty . ' restant' . ($this->qty > 1 ? 's' : '') . ')';
+        }
+        return null;
+    }
 }

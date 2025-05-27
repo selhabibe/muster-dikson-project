@@ -47,6 +47,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/newsletter.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/product-page.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/cart-drawer.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/stock-alerts.css')}}">
 
 
     </head>

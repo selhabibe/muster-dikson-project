@@ -68,6 +68,19 @@
                                             <span class="product-brand">Marque: <strong>{{ $product->brand->name }}</strong></span>
                                         @endif
                                     </div>
+
+                                    <!-- Stock Alert -->
+                                    @if($product->qty <= 0)
+                                        <div class="stock-alert out-of-stock">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>Rupture de stock</span>
+                                        </div>
+                                    @elseif($product->qty <= $product->security_stock)
+                                        <div class="stock-alert low-stock">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            <span>Stock limité ({{ $product->qty }} restant{{ $product->qty > 1 ? 's' : '' }})</span>
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="product-price-section">

@@ -42,6 +42,9 @@
 
     <!-- Cart Drawer CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/cart-drawer.css')}}">
+
+    <!-- Stock Alerts CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/stock-alerts.css')}}">
 </head>
 
 <body class="contact-us">
