@@ -48,6 +48,16 @@ class ShopController extends Controller
         return view('pages.shop_dikson', ['products' => $products]);
     }
 
+     public function showMusterBenexereProducts()
+    {
+        $products = Product::whereHas('brand', function ($query) {
+            $query->where('slug', 'benexere');
+        })->get();
+
+        return view('pages.muster.benexere.shop_benexere', ['products' => $products]);
+    }
+
+
     public function cart()
     {
         $products = Product::whereHas('categories', function ($query) {
@@ -186,7 +196,7 @@ class ShopController extends Controller
         return view('categories.show', compact('category', 'products'));
     }
 
-    
+
     public function ourbrands()
     {
         $products = Product::take(4)->get();

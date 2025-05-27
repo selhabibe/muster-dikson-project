@@ -66,6 +66,8 @@
 
                                 <p>Avec une philosophie centrée sur le bien-être global, Benexere combine des ingrédients naturels de haute qualité avec des formulations avancées pour créer des produits qui nourrissent, protègent et embellissent la peau. Chaque produit est développé pour répondre aux besoins spécifiques des professionnels de la beauté et de leurs clients.</p>
 
+                                <p>Cette marque d'excellence s'engage à respecter l'environnement en utilisant des ingrédients naturels et des emballages recyclables. Cette approche éco-responsable s'inscrit dans une vision globale du bien-être qui inclut le respect de la nature et de ses ressources.</p>
+
                                 <div class="brand-features mt-4">
                                     <h4>Points forts de la marque:</h4>
                                     <ul class="list list-type-check">
@@ -111,10 +113,59 @@
                         <div class="col-12">
                             <h3 class="title title-border mb-4">L'expérience Benexere</h3>
                             <p>Muster Benexere Professionelle ne se contente pas de proposer des produits de qualité, mais offre une véritable expérience de bien-être. Chaque produit est conçu pour stimuler les sens et créer un moment de détente et de plaisir pour les clients des salons et spas.</p>
+
                             <p>La marque s'engage également à respecter l'environnement en utilisant des ingrédients naturels et des emballages recyclables. Cette approche éco-responsable s'inscrit dans une vision globale du bien-être qui inclut le respect de la nature et de ses ressources.</p>
 
-                            <div class="text-center mt-5">
-                                <a href="{{route('shop.muster')}}" class="btn-shop">
+                            <p>Avec plus de 50 ans d'expérience au service des professionnels de la beauté, Muster Benexere Professionelle continue d'innover pour offrir des solutions toujours plus performantes et respectueuses de l'environnement. Chaque formulation est le résultat d'une recherche approfondie et d'un savoir-faire artisanal italien reconnu mondialement.</p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-6">
+                        <div class="col-12">
+                            <h3 class="title title-border mb-4">Philosophie et valeurs</h3>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="philosophy-card">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h4>Respect de l'environnement</h4>
+                                <p>Benexere s'engage pour un avenir durable en privilégiant des ingrédients naturels et des emballages éco-responsables. Notre démarche environnementale fait partie intégrante de notre vision du bien-être global.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="philosophy-card">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h4>Bien-être holistique</h4>
+                                <p>Notre approche du bien-être va au-delà des soins esthétiques. Nous créons des expériences sensorielles complètes qui nourrissent le corps, l'esprit et l'âme pour un équilibre parfait.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="philosophy-card">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <h4>Innovation et recherche</h4>
+                                <p>Nos laboratoires italiens développent constamment de nouvelles formulations en combinant tradition artisanale et technologies de pointe pour des résultats exceptionnels.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="philosophy-card">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Partenariat professionnel</h4>
+                                <p>Nous accompagnons les professionnels de la beauté avec des formations, des conseils personnalisés et un support technique pour garantir le succès de leurs traitements.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-6">
+                        <div class="col-12">
+                            <div class="text-center">
+                                <a href="{{route('shop.muster.benexere')}}" class="btn-shop">
                                     Découvrir nos produits Benexere <i class="fas fa-arrow-right"></i>
                                 </a>
                                 <a href="{{asset('documents/brands/benexere-catalog.pdf')}}" class="btn-catalog" target="_blank">
@@ -738,6 +789,60 @@
             color: #ffffff;
             background-color: #dc3545;
             border-left: 4px solid #bd2130;
+        }
+
+        /* Philosophy Cards Styles */
+        .philosophy-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #20c7d9;
+        }
+
+        .philosophy-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #20c7d9, #1A2A3A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .philosophy-card:hover .philosophy-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(32, 199, 217, 0.3);
+        }
+
+        .philosophy-card h4 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #1A2A3A;
+        }
+
+        .philosophy-card p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 0;
         }
 
         /* Responsive Styles */

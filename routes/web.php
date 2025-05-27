@@ -37,6 +37,8 @@ Route::get('/shop', function () {
 
 Route::get('/shop/muster', [ShopController::class, 'showMusterProducts'])->name('shop.muster');
 Route::get('/shop/dikson', [ShopController::class, 'showDiksonProducts'])->name('shop.dikson');
+Route::get('/shop/muster/benexere', [ShopController::class, 'showMusterBenexereProducts'])->name('shop.muster.benexere');
+
 
 
 // Cart routes
