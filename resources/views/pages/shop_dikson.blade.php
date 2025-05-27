@@ -78,7 +78,7 @@
 
                     <div class="shop-products-section">
                         <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
-                            @if($products)
+                            @if(isset($products) && $products->count() > 0)
                                 @foreach($products as $product)
                                     @if ($product->is_visible)
                                         <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
@@ -127,7 +127,18 @@
                                         </div>
                                     </div>
                                     @endif
-                            @endforeach
+                                @endforeach
+                            @else
+                                <div class="col-12">
+                                    <div class="no-products-message text-center" style="padding: 3rem 0;">
+                                        <i class="fas fa-box-open" style="font-size: 4rem; color: #ccc; margin-bottom: 1rem;"></i>
+                                        <h3 style="color: #666; margin-bottom: 1rem;">Aucun produit disponible</h3>
+                                        <p style="color: #999;">Nous travaillons à ajouter de nouveaux produits Dikson Professionelle. Revenez bientôt !</p>
+                                        <a href="{{ route('index') }}" class="btn-learn-more" style="margin-top: 1rem;">
+                                            Retour à l'accueil <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             @endif
                         </div>
 

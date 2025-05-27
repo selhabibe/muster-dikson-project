@@ -31,9 +31,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 
 
-Route::get('/shop', function () {
-    return view('pages.shop_dikson');
-})->name('shop.index');
+Route::get('/shop', [ShopController::class, 'showDiksonProducts'])->name('shop.index');
 
 Route::get('/shop/muster', [ShopController::class, 'showMusterProducts'])->name('shop.muster');
 Route::get('/shop/dikson', [ShopController::class, 'showDiksonProducts'])->name('shop.dikson');
