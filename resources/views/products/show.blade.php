@@ -72,13 +72,13 @@
                                     <!-- Stock Alert -->
                                     @if($product->qty <= 0)
                                         <div class="stock-alert out-of-stock">
-                                            <i class="fas fa-exclamation-triangle"></i>
-                                            <span>Rupture de stock</span>
+                                            <i class="fas fa-clock"></i>
+                                            <span>Temporairement indisponible</span>
                                         </div>
                                     @elseif($product->qty <= $product->security_stock)
                                         <div class="stock-alert low-stock">
-                                            <i class="fas fa-exclamation-circle"></i>
-                                            <span>Stock limité ({{ $product->qty }} restant{{ $product->qty > 1 ? 's' : '' }})</span>
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>Dernières pièces disponibles ({{ $product->qty }} restant{{ $product->qty > 1 ? 's' : '' }})</span>
                                         </div>
                                     @endif
                                 </div>

@@ -85,9 +85,22 @@ class Product extends Model implements HasMedia
     public function getStockAlertMessage(): ?string
     {
         if ($this->isOutOfStock()) {
-            return 'Rupture de stock';
+            return 'Temporairement indisponible';
         } elseif ($this->hasLowStock()) {
-            return 'Stock limité (' . $this->qty . ' restant' . ($this->qty > 1 ? 's' : '') . ')';
+            return 'Dernières pièces disponibles (' . $this->qty . ' restant' . ($this->qty > 1 ? 's' : '') . ')';
+        }
+        return null;
+    }
+
+    /**
+     * Get stock alert message for cards (shorter version)
+     */
+    public function getStockAlertCardMessage(): ?string
+    {
+        if ($this->isOutOfStock()) {
+            return 'Bientôt disponible';
+        } elseif ($this->hasLowStock()) {
+            return 'Dernières pièces';
         }
         return null;
     }

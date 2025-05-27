@@ -112,13 +112,13 @@
                                             <!-- Stock Alert for Product Cards -->
                                             @if($product->qty <= 0)
                                                 <div class="stock-alert-card out-of-stock">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                    <span>Rupture de stock</span>
+                                                    <i class="fas fa-clock"></i>
+                                                    <span>Bientôt disponible</span>
                                                 </div>
                                             @elseif($product->qty <= $product->security_stock)
                                                 <div class="stock-alert-card low-stock">
-                                                    <i class="fas fa-exclamation-circle"></i>
-                                                    <span>Stock limité</span>
+                                                    <i class="fas fa-info-circle"></i>
+                                                    <span>Dernières pièces</span>
                                                 </div>
                                             @endif
 
