@@ -54,7 +54,8 @@ class Handler extends ExceptionHandler
     {
         // Handle 404 errors with custom page
         if ($exception instanceof NotFoundHttpException) {
-            return response()->view('pages.404', [], 404);
+            $controller = new \App\Http\Controllers\ErrorController();
+            return $controller->show404($request);
         }
 
         return parent::render($request, $exception);
