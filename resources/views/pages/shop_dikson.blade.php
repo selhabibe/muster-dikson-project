@@ -78,7 +78,8 @@
 
                     <div class="shop-products-section">
                         <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
-                            @foreach($products as $product)
+                            @if($products)
+                                @foreach($products as $product)
                                 @if ($product->is_visible)
                                     <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
                                     <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
@@ -87,14 +88,20 @@
                                                 @if ($product->getFirstMediaUrl('product-images'))
                                                     <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
                                                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-                                                    <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
+                                                @else
+                                                    <img src="{{ asset('images/placeholder.jpg') }}" alt="{{ $product->name }}"
                                                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
                                                 @endif
                                             </a>
                                             <div class="product-action-vertical">
-                                                <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
-                                                    <i class="d-icon-bag"></i>
-                                                </a>
+                                                <form action="{{ route('cart.add') }}" method="POST" class="add-to-cart-form">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <button type="submit" class="btn-product-icon btn-cart" title="Ajouter au panier">
+                                                        <i class="d-icon-bag"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </figure>
                                         <div class="product-details" style="padding: 10px; text-align: center;">
@@ -103,20 +110,25 @@
                                             </h3>
                                             <div class="product-price">
                                                 <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins>
-                                                <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
+                                                @if($product->old_price && $product->old_price > $product->price)
+                                                    <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
+                                                @endif
                                             </div>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
-                                                    <span class="ratings" style="width:90%"></span>
+                                                    <span class="ratings" style="width:{{ $product->rating ?? 0 }}%"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">({{ $product->reviews_count }} Avis)</a>
+                                                <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">
+                                                    ({{ $product->reviews_count ?? 0 }} Avis)
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 @endif
                             @endforeach
+                            @endif
                         </div>
 
                         <div class="shop-pagination">
@@ -664,4 +676,104 @@
             }
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle add to cart form submissions
+            document.querySelectorAll('.add-to-cart-form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const button = this.querySelector('.btn-cart');
+                    const originalIcon = button.innerHTML;
+
+                    // Show loading state
+                    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    button.disabled = true;
+
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success state
+                            button.innerHTML = '<i class="fas fa-check"></i>';
+                            button.style.backgroundColor = '#28a745';
+
+                            // Show success message
+                            showNotification('Produit ajouté au panier !', 'success');
+
+                            // Reset button after 2 seconds
+                            setTimeout(() => {
+                                button.innerHTML = originalIcon;
+                                button.disabled = false;
+                                button.style.backgroundColor = '';
+                            }, 2000);
+                        } else {
+                            throw new Error(data.message || 'Erreur lors de l\'ajout au panier');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+
+                        // Show error state
+                        button.innerHTML = '<i class="fas fa-times"></i>';
+                        button.style.backgroundColor = '#dc3545';
+
+                        // Show error message
+                        showNotification('Erreur lors de l\'ajout au panier', 'error');
+
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            button.innerHTML = originalIcon;
+                            button.disabled = false;
+                            button.style.backgroundColor = '';
+                        }, 2000);
+                    });
+                });
+            });
+
+            // Simple notification function
+            function showNotification(message, type) {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 1rem 1.5rem;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: 600;
+                    z-index: 9999;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    background-color: ${type === 'success' ? '#28a745' : '#dc3545'};
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                `;
+
+                document.body.appendChild(notification);
+
+                // Animate in
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
 @endsection('content')
