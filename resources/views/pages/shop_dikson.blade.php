@@ -80,53 +80,53 @@
                         <div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" style="display: flex; flex-wrap: wrap;">
                             @if($products)
                                 @foreach($products as $product)
-                                @if ($product->is_visible)
-                                    <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
-                                    <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                                        <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
-                                            <a href="{{ route('products.show', $product->id) }}">
-                                                @if ($product->getFirstMediaUrl('product-images'))
-                                                    <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
-                                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-                                                @else
-                                                    <img src="{{ asset('images/placeholder.jpg') }}" alt="{{ $product->name }}"
-                                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-                                                @endif
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <form action="{{ route('cart.add') }}" method="POST" class="add-to-cart-form">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                    <input type="hidden" name="quantity" value="1">
-                                                    <button type="submit" class="btn-product-icon btn-cart" title="Ajouter au panier">
-                                                        <i class="d-icon-bag"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details" style="padding: 10px; text-align: center;">
-                                            <h3 class="product-name">
-                                                <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
-                                            </h3>
-                                            <div class="product-price">
-                                                <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins>
-                                                @if($product->old_price && $product->old_price > $product->price)
-                                                    <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
-                                                @endif
-                                            </div>
-                                            <div class="ratings-container">
-                                                <div class="ratings-full">
-                                                    <span class="ratings" style="width:{{ $product->rating ?? 0 }}%"></span>
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div>
-                                                <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">
-                                                    ({{ $product->reviews_count ?? 0 }} Avis)
+                                    @if ($product->is_visible)
+                                        <div class="product-wrap" style="flex: 1 1 calc(25% - 1rem); margin: 0.5rem; display: flex; flex-direction: column;">
+                                        <div class="product text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                            <figure class="product-media" style="position: relative; padding-bottom: 100%; overflow: hidden;">
+                                                <a href="{{ route('products.show', $product->id) }}">
+                                                    @if ($product->getFirstMediaUrl('product-images'))
+                                                        <img src="{{ $product->getFirstMediaUrl('product-images') }}" alt="{{ $product->name }}"
+                                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                                                    @else
+                                                        <img src="{{ asset('images/placeholder.jpg') }}" alt="{{ $product->name }}"
+                                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                                                    @endif
                                                 </a>
+                                                <div class="product-action-vertical">
+                                                    <form action="{{ route('cart.add') }}" method="POST" class="add-to-cart-form">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        <button type="submit" class="btn-product-icon btn-cart" title="Ajouter au panier">
+                                                            <i class="d-icon-bag"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </figure>
+                                            <div class="product-details" style="padding: 10px; text-align: center;">
+                                                <h3 class="product-name">
+                                                    <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
+                                                </h3>
+                                                <div class="product-price">
+                                                    <ins class="new-price">{{ number_format($product->price, 2) }} MAD</ins>
+                                                    @if($product->old_price && $product->old_price > $product->price)
+                                                        <del class="old-price">{{ number_format($product->old_price, 2) }} MAD</del>
+                                                    @endif
+                                                </div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full">
+                                                        <span class="ratings" style="width:{{ $product->rating ?? 0 }}%"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <a href="{{ route('products.show', $product->id) }}" class="rating-reviews">
+                                                        ({{ $product->reviews_count ?? 0 }} Avis)
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                @endif
+                                    @endif
                             @endforeach
                             @endif
                         </div>
