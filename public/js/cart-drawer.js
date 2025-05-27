@@ -225,9 +225,6 @@ class CartDrawer {
                 // Animate cart icon
                 this.animateCartIcon();
 
-                // Show success toast with product name
-                this.showSuccessToast(data.product_name);
-
                 // Update cart display immediately with returned data
                 if (data.cart_count !== undefined) {
                     this.updateHeaderCartInfo(data.cart_count, data.cart_total);
