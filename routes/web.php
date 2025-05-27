@@ -118,3 +118,8 @@ Route::get('/testroute', function() {
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::get('/newsletter/unsubscribe/{email}', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
 
+// Test route for 404 page (can be removed after testing)
+Route::get('/test-404', function () {
+    abort(404);
+})->name('test.404');
+

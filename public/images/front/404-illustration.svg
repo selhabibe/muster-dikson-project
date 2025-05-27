@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+
+  <!-- Main illustration elements -->
+  <!-- Magnifying glass -->
+  <circle cx="150" cy="120" r="40" stroke="#20c7d9" stroke-width="4" fill="none"/>
+  <line x1="180" y1="150" x2="210" y2="180" stroke="#20c7d9" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Question mark inside magnifying glass -->
+  <path d="M140 110 Q140 100 150 100 Q160 100 160 110 Q160 115 155 118 L155 125" stroke="#1A2A3A" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="155" cy="135" r="2" fill="#1A2A3A"/>
+
+  <!-- Document/page icon -->
+  <rect x="250" y="80" width="80" height="100" rx="4" fill="white" stroke="#20c7d9" stroke-width="2"/>
+  <rect x="250" y="80" width="60" height="20" rx="4" fill="#20c7d9"/>
+  <line x1="260" y1="110" x2="310" y2="110" stroke="#e9ecef" stroke-width="2"/>
+  <line x1="260" y1="125" x2="320" y2="125" stroke="#e9ecef" stroke-width="2"/>
+  <line x1="260" y1="140" x2="300" y2="140" stroke="#e9ecef" stroke-width="2"/>
+  <line x1="260" y1="155" x2="315" y2="155" stroke="#e9ecef" stroke-width="2"/>
+
+  <!-- X mark on document -->
+  <line x1="305" y1="95" x2="315" y2="105" stroke="#dc3545" stroke-width="3" stroke-linecap="round"/>
+  <line x1="315" y1="95" x2="305" y2="105" stroke="#dc3545" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Floating elements -->
+  <circle cx="80" cy="80" r="8" fill="#20c7d9" opacity="0.3"/>
+  <circle cx="350" cy="60" r="6" fill="#20c7d9" opacity="0.2"/>
+  <circle cx="60" cy="200" r="10" fill="#20c7d9" opacity="0.25"/>
+  <circle cx="340" cy="220" r="7" fill="#20c7d9" opacity="0.3"/>
+
+  <!-- Decorative lines -->
+  <line x1="50" y1="250" x2="120" y2="250" stroke="#20c7d9" stroke-width="2" opacity="0.3"/>
+  <line x1="280" y1="250" x2="350" y2="250" stroke="#20c7d9" stroke-width="2" opacity="0.3"/>
+
+  <!-- Small stars/sparkles -->
+  <g fill="#20c7d9" opacity="0.4">
+    <polygon points="100,50 102,56 108,56 103,60 105,66 100,62 95,66 97,60 92,56 98,56" />
+    <polygon points="320,40 322,46 328,46 323,50 325,56 320,52 315,56 317,50 312,46 318,46" />
+    <polygon points="70,180 72,186 78,186 73,190 75,196 70,192 65,196 67,190 62,186 68,186" />
+  </g>
+
+  <!-- Bottom wave decoration -->
+  <path d="M0 280 Q100 260 200 280 T400 280 L400 300 L0 300 Z" fill="#20c7d9" opacity="0.1"/>
+</svg>

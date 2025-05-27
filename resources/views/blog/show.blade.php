@@ -265,10 +265,10 @@
             color: #666;
         }
 
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: ">";
-            color: #999;
-        }
+        /*.breadcrumb-item + .breadcrumb-item::before {*/
+        /*    content: ">";*/
+        /*    color: #999;*/
+        /*}*/
 
         /* Post Single Styles */
         .post-single {
