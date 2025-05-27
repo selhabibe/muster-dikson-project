@@ -45,6 +45,7 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/newsletter.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/product-page.css')}}">
 
 
     </head>
