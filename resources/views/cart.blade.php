@@ -119,7 +119,7 @@
 
         .cart-items-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 25px; /* Standardized h2 size (28px) */
+            font-size: 22px; /* Standardized h2 size (28px) */
             font-weight: 700;
             color: #222;
             margin: 0;
