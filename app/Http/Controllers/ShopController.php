@@ -50,8 +50,8 @@ class ShopController extends Controller
 
      public function showMusterBenexereProducts()
     {
-        $products = Product::whereHas('categories', function ($query) {
-            $query->where('name', 'Benexere');
+        $products = Product::whereHas('brand', function ($query) {
+            $query->where('slug', 'muster');
         })->get();
 
         return view('pages.muster.benexere.shop_benexere', ['products' => $products]);
