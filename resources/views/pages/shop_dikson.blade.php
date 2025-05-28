@@ -721,15 +721,19 @@
                         const success = await window.addToCartGlobal(productId, quantity);
 
                         if (success) {
-                            // Show success state
-                            button.innerHTML = '<i class="fas fa-check"></i>';
-                            button.style.backgroundColor = '#28a745';
+                            // Show success state with times icon and red background
+                            button.innerHTML = '<i class="fas fa-times"></i>';
+                            button.style.backgroundColor = 'rgb(220, 53, 69)';
+                            button.style.borderColor = 'rgb(220, 53, 69)';
+                            button.style.color = '#fff';
 
                             // Reset button after 2 seconds
                             setTimeout(() => {
                                 button.innerHTML = originalIcon;
                                 button.disabled = false;
                                 button.style.backgroundColor = '';
+                                button.style.borderColor = '';
+                                button.style.color = '';
                             }, 2000);
                         } else {
                             throw new Error('Failed to add to cart');
@@ -739,13 +743,17 @@
 
                         // Show error state
                         button.innerHTML = '<i class="fas fa-times"></i>';
-                        button.style.backgroundColor = '#dc3545';
+                        button.style.backgroundColor = 'rgb(220, 53, 69)';
+                        button.style.borderColor = 'rgb(220, 53, 69)';
+                        button.style.color = '#fff';
 
                         // Reset button after 2 seconds
                         setTimeout(() => {
                             button.innerHTML = originalIcon;
                             button.disabled = false;
                             button.style.backgroundColor = '';
+                            button.style.borderColor = '';
+                            button.style.color = '';
                         }, 2000);
                     }
                 });

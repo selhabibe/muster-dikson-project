@@ -373,15 +373,19 @@
                         const success = await window.addToCartGlobal(productId, quantity);
 
                         if (success) {
-                            // Show success state
-                            this.innerHTML = '<i class="fas fa-check"></i>';
-                            this.style.backgroundColor = '#28a745';
+                            // Show success state with times icon and red background
+                            this.innerHTML = '<i class="fas fa-times"></i>';
+                            this.style.backgroundColor = 'rgb(220, 53, 69)';
+                            this.style.borderColor = 'rgb(220, 53, 69)';
+                            this.style.color = '#fff';
 
                             // Reset button after 2 seconds
                             setTimeout(() => {
                                 this.innerHTML = originalIcon;
                                 this.disabled = false;
                                 this.style.backgroundColor = '';
+                                this.style.borderColor = '';
+                                this.style.color = '';
                             }, 2000);
                         } else {
                             throw new Error('Failed to add to cart');
@@ -391,13 +395,17 @@
 
                         // Show error state
                         this.innerHTML = '<i class="fas fa-times"></i>';
-                        this.style.backgroundColor = '#dc3545';
+                        this.style.backgroundColor = 'rgb(220, 53, 69)';
+                        this.style.borderColor = 'rgb(220, 53, 69)';
+                        this.style.color = '#fff';
 
                         // Reset button after 2 seconds
                         setTimeout(() => {
                             this.innerHTML = originalIcon;
                             this.disabled = false;
                             this.style.backgroundColor = '';
+                            this.style.borderColor = '';
+                            this.style.color = '';
                         }, 2000);
                     }
                 });

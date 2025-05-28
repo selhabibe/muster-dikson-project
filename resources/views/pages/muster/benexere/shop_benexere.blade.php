@@ -810,4 +810,64 @@
             }
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle add to cart button clicks
+            document.querySelectorAll('.btn-cart').forEach(button => {
+                button.addEventListener('click', async function(e) {
+                    e.preventDefault();
+
+                    const productId = this.getAttribute('data-product-id');
+                    const quantity = parseInt(this.getAttribute('data-quantity'));
+                    const originalIcon = this.innerHTML;
+
+                    // Show loading state
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    this.disabled = true;
+
+                    try {
+                        // Use global cart function for consistent behavior
+                        const success = await window.addToCartGlobal(productId, quantity);
+
+                        if (success) {
+                            // Show success state with times icon and red background
+                            this.innerHTML = '<i class="fas fa-times"></i>';
+                            this.style.backgroundColor = 'rgb(220, 53, 69)';
+                            this.style.borderColor = 'rgb(220, 53, 69)';
+                            this.style.color = '#fff';
+
+                            // Reset button after 2 seconds
+                            setTimeout(() => {
+                                this.innerHTML = originalIcon;
+                                this.disabled = false;
+                                this.style.backgroundColor = '';
+                                this.style.borderColor = '';
+                                this.style.color = '';
+                            }, 2000);
+                        } else {
+                            throw new Error('Failed to add to cart');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+
+                        // Show error state
+                        this.innerHTML = '<i class="fas fa-times"></i>';
+                        this.style.backgroundColor = 'rgb(220, 53, 69)';
+                        this.style.borderColor = 'rgb(220, 53, 69)';
+                        this.style.color = '#fff';
+
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            this.innerHTML = originalIcon;
+                            this.disabled = false;
+                            this.style.backgroundColor = '';
+                            this.style.borderColor = '';
+                            this.style.color = '';
+                        }, 2000);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection('content')

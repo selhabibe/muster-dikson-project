@@ -512,6 +512,23 @@
     margin-bottom: 2px;
 }
 
+/* Cart button state styles */
+.btn-cart-icon .fa-spinner {
+    animation: fa-spin 1s infinite linear;
+}
+
+.btn-cart-icon .fa-times {
+    font-size: 1.4rem;
+}
+
+/* Ensure FontAwesome icons are properly displayed */
+.btn-cart-icon i {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", "riode";
+    font-weight: 900;
+    display: inline-block;
+    line-height: 1;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .cart-drawer-content {
