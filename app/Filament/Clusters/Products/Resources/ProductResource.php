@@ -286,7 +286,8 @@ class ProductResource extends Resource
                             ->warning()
                             ->send();
                     }),
-            ]);
+            ])
+            ->defaultSort('id', 'desc');
     }
 
     public static function getRelations(): array
