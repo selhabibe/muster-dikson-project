@@ -104,7 +104,7 @@
                                                 @endif
                                             </a>
                                             <div class="product-action-vertical">
-                                                <button class="btn-product-icon btn-cart"
+                                                <button class="btn-cart btn-cart-icon"
                                                         data-product-id="{{ $product->id }}"
                                                         data-quantity="1"
                                                         title="Ajouter au panier">

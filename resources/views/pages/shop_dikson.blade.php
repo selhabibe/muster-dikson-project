@@ -94,14 +94,12 @@
                                                     @endif
                                                 </a>
                                                 <div class="product-action-vertical">
-                                                    <form action="{{ route('cart.add') }}" method="POST" class="add-to-cart-form">
-                                                        @csrf
-                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                        <input type="hidden" name="quantity" value="1">
-                                                        <button type="submit" class="btn-product-icon btn-cart" title="Ajouter au panier">
-                                                            <i class="d-icon-bag"></i>
-                                                        </button>
-                                                    </form>
+                                                    <button class="btn-cart btn-cart-icon"
+                                                            data-product-id="{{ $product->id }}"
+                                                            data-quantity="1"
+                                                            title="Ajouter au panier">
+                                                        <i class="d-icon-bag"></i>
+                                                    </button>
                                                 </div>
                                             </figure>
                                             <div class="product-details" style="padding: 10px; text-align: center;">

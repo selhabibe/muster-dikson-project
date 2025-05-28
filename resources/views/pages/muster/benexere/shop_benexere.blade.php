@@ -96,9 +96,12 @@
                                                 @endif
                                             </a>
                                             <div class="product-action-vertical">
-                                                <a href="{{ route('cart.show') }}" class="btn-product-icon btn-cart" title="Select Options">
+                                                <button class="btn-cart btn-cart-icon"
+                                                        data-product-id="{{ $product->id }}"
+                                                        data-quantity="1"
+                                                        title="Ajouter au panier">
                                                     <i class="d-icon-bag"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </figure>
                                         <div class="product-details" style="padding: 10px; text-align: center;">
