@@ -1,25 +1,40 @@
-@extends('.__base_main')
+@extends('.__base')
 
-@section('meta')
-    <meta name="description" content="Découvrez l'histoire de Muster & Dikson, entreprise spécialisée dans les produits professionnels pour coiffeurs et esthéticiennes depuis plus de 50 ans.">
-    <meta name="keywords" content="Muster & Dikson, produits de beauté professionnels, coiffure, esthétique, entreprise beauté, histoire">
+@section('seo')
+    <x-seo-head
+        title="À propos de Muster & Dikson - Notre Histoire et Nos Valeurs"
+        description="Découvrez l'histoire de Muster & Dikson, entreprise spécialisée dans les produits professionnels pour coiffeurs et esthéticiennes depuis plus de 50 ans."
+        keywords="Muster & Dikson, produits de beauté professionnels, coiffure, esthétique, entreprise beauté, histoire, MLPharma, Maroc"
+        :image="asset('images/front/factory.jpg')"
+        :structured-data="[
+            '@context' => 'https://schema.org/',
+            '@type' => 'AboutPage',
+            'name' => 'À propos de Muster & Dikson',
+            'description' => 'Découvrez l\'histoire de Muster & Dikson, entreprise spécialisée dans les produits professionnels pour coiffeurs et esthéticiennes depuis plus de 50 ans.',
+            'mainEntity' => [
+                '@type' => 'Organization',
+                'name' => 'Muster & Dikson',
+                'foundingDate' => '1965',
+                'description' => 'Entreprise spécialisée dans les produits professionnels de coiffure et beauté',
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'addressCountry' => 'MA',
+                    'addressLocality' => 'Casablanca'
+                ]
+            ]
+        ]"
+        :breadcrumbs="[
+            ['name' => 'Accueil', 'url' => route('index')],
+            ['name' => 'À propos de nous', 'url' => route('about_us')]
+        ]"
+    />
+@endsection
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="À propos de Muster & Dikson - Notre Histoire et Nos Valeurs">
-    <meta property="og:description" content="Découvrez l'histoire de Muster & Dikson, entreprise spécialisée dans les produits professionnels pour coiffeurs et esthéticiennes depuis plus de 50 ans.">
-    <meta property="og:image" content="{{ asset('images/front/factory.jpg') }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="À propos de Muster & Dikson - Notre Histoire et Nos Valeurs">
-    <meta property="twitter:description" content="Découvrez l'histoire de Muster & Dikson, entreprise spécialisée dans les produits professionnels pour coiffeurs et esthéticiennes depuis plus de 50 ans.">
-    <meta property="twitter:image" content="{{ asset('images/front/factory.jpg') }}">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ url()->current() }}">
+@section('breadcrumbs')
+    <x-breadcrumb :items="[
+        ['name' => 'Accueil', 'url' => route('index')],
+        ['name' => 'À propos de nous', 'url' => route('about_us')]
+    ]" />
 @endsection
 
 @section('content')
@@ -123,7 +138,12 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
                                 <div class="history-image">
-                                    <img src="{{asset('images/front/factory.jpg')}}" alt="Usine Muster & Dikson" class="img-fluid rounded">
+                                    <img src="{{asset('images/front/factory.jpg')}}"
+                                         alt="Usine Muster & Dikson - Fabrication de produits professionnels de coiffure depuis 1965"
+                                         class="img-fluid rounded"
+                                         loading="lazy"
+                                         width="600"
+                                         height="400">
                                     <div class="image-overlay"></div>
                                 </div>
                             </div>
@@ -153,7 +173,12 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-5 mb-lg-0">
                                 <div class="values-image">
-                                    <img src="{{asset('images/front/factory2.jpg')}}" alt="Laboratoire Muster & Dikson" class="img-fluid rounded">
+                                    <img src="{{asset('images/front/factory2.jpg')}}"
+                                         alt="Laboratoire Muster & Dikson - Recherche et développement de produits innovants"
+                                         class="img-fluid rounded"
+                                         loading="lazy"
+                                         width="600"
+                                         height="400">
                                     <div class="image-overlay"></div>
                                 </div>
                             </div>
@@ -310,7 +335,12 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-3 col-md-4 mb-4 mb-md-0 text-center">
                                     <div class="mlpharma-logo">
-                                        <img src="{{asset('images/logo/logo-ML2.png')}}" alt="MLPharma Logo" class="img-fluid">
+                                        <img src="{{asset('images/logo/logo-ML2.png')}}"
+                                             alt="MLPharma - Distributeur officiel Muster & Dikson au Maroc"
+                                             class="img-fluid"
+                                             loading="lazy"
+                                             width="200"
+                                             height="100">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-8 mb-4 mb-lg-0">

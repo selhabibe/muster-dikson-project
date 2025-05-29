@@ -1,2 +1,30 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /app/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /thank-you/
+Disallow: /form/
+Disallow: /testroute/
+
+# Disallow file types
+Disallow: *.pdf$
+Disallow: *.xlsx$
+Disallow: *.xls$
+Disallow: *.doc$
+Disallow: *.docx$
+
+# Allow important directories
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /vendor/
+
+# Sitemap location
+Sitemap: https://musterdikson.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1

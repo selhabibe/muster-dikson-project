@@ -179,6 +179,48 @@ class ProductResource extends Resource
                                     ->multiple()
                                     ->required(),
                             ]),
+
+                        Forms\Components\Section::make('SEO')
+                            ->schema([
+                                Forms\Components\TextInput::make('seo_title')
+                                    ->label('Titre SEO')
+                                    ->maxLength(60)
+                                    ->helperText('Titre optimisé pour les moteurs de recherche (max 60 caractères)')
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(function ($state, Forms\Set $set, Forms\Get $get) {
+                                        if (empty($state) && $get('name')) {
+                                            $set('seo_title', Str::limit($get('name'), 60));
+                                        }
+                                    }),
+
+                                Forms\Components\Textarea::make('seo_description')
+                                    ->label('Description SEO')
+                                    ->maxLength(160)
+                                    ->rows(3)
+                                    ->helperText('Description optimisée pour les moteurs de recherche (max 160 caractères)')
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(function ($state, Forms\Set $set, Forms\Get $get) {
+                                        if (empty($state) && $get('description')) {
+                                            $set('seo_description', Str::limit(strip_tags($get('description')), 160));
+                                        }
+                                    }),
+
+                                Forms\Components\Placeholder::make('seo_preview')
+                                    ->label('Aperçu SEO')
+                                    ->content(function (Forms\Get $get) {
+                                        $title = $get('seo_title') ?: $get('name') ?: 'Titre du produit';
+                                        $description = $get('seo_description') ?: Str::limit(strip_tags($get('description') ?: ''), 160) ?: 'Description du produit';
+
+                                        return view('filament.components.seo-preview', [
+                                            'title' => $title,
+                                            'description' => $description,
+                                            'url' => 'musterdikson.com/products/...'
+                                        ]);
+                                    })
+                                    ->columnSpanFull(),
+                            ])
+                            ->collapsible()
+                            ->collapsed(),
                     ])
                     ->columnSpan(['lg' => 1]),
             ])

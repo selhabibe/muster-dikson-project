@@ -13,6 +13,7 @@ class Post extends Model
 {
     use HasFactory;
     use HasTags;
+    use \App\Traits\HasSeo;
 
     /**
      * @var string

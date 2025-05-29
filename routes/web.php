@@ -2,6 +2,7 @@
 
 use App\Livewire\Form;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
@@ -117,6 +118,14 @@ Route::get('/testroute', function() {
 // Newsletter routes
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::get('/newsletter/unsubscribe/{email}', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
+
+// SEO routes
+Route::get('/sitemap.xml', function() {
+    Artisan::call('sitemap:generate');
+    return response()->file(public_path('sitemap.xml'), [
+        'Content-Type' => 'application/xml'
+    ]);
+})->name('sitemap');
 
 
 

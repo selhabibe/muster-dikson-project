@@ -15,6 +15,7 @@ class Product extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
+    use \App\Traits\HasSeo;
 
     /**
      * @var string

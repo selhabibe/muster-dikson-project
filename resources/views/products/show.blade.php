@@ -1,5 +1,38 @@
 @extends('.__base')
 
+@section('seo')
+    @php
+        $seoData = $product->getSeoMetaTags([
+            'title' => $product->name . ' - Produits Professionnels Muster & Dikson',
+            'description' => 'Découvrez ' . $product->name . ' de ' . ($product->brand->name ?? 'Muster & Dikson') . '. Produit professionnel de qualité pour coiffeurs et esthéticiennes.'
+        ]);
+        $structuredData = $product->getStructuredData();
+    @endphp
+
+    <x-seo-head
+        :title="$seoData['title']"
+        :description="$seoData['description']"
+        :keywords="$seoData['keywords']"
+        :canonical="$seoData['canonical']"
+        :image="$seoData['image']"
+        type="product"
+        :structured-data="$structuredData"
+        :breadcrumbs="[
+            ['name' => 'Accueil', 'url' => route('index')],
+            ['name' => 'Produits', 'url' => route('products.index')],
+            ['name' => $product->name, 'url' => route('products.show', $product->id)]
+        ]"
+    />
+@endsection
+
+@section('breadcrumbs')
+    <x-breadcrumb :items="[
+        ['name' => 'Accueil', 'url' => route('index')],
+        ['name' => 'Produits', 'url' => route('products.index')],
+        ['name' => $product->name, 'url' => route('products.show', $product->id)]
+    ]" />
+@endsection
+
 @section('content')
     <div class="page-wrapper">
         <main class="main">
@@ -27,7 +60,12 @@
                                         @foreach($product->getMedia('product-images') as $media)
                                             @if ($media->getUrl())
                                                 <div class="product-image-container">
-                                                    <img src="{{ $media->getUrl() }}" alt="{{ $product->name }}" class="product-main-img">
+                                                    <img src="{{ $media->getUrl() }}"
+                                                         alt="{{ $product->name }} - {{ $product->brand->name ?? 'Muster & Dikson' }} - Image {{ $loop->iteration }}"
+                                                         class="product-main-img"
+                                                         loading="{{ $loop->first ? 'eager' : 'lazy' }}"
+                                                         width="600"
+                                                         height="600">
                                                 </div>
                                             @endif
                                         @endforeach
@@ -40,11 +78,19 @@
                                             @foreach($product->getMedia('product-images') as $media)
                                                 @if ($media->getUrl())
                                                     <div class="product-thumb {{ $loop->first ? 'active' : '' }}">
-                                                        <img src="{{ $media->getUrl() }}" alt="{{ $product->name }}">
+                                                        <img src="{{ $media->getUrl() }}"
+                                                             alt="{{ $product->name }} - Miniature {{ $loop->iteration }}"
+                                                             loading="lazy"
+                                                             width="80"
+                                                             height="80">
                                                     </div>
                                                 @else
                                                     <div class="product-thumb">
-                                                        <img src="https://i.makeup.fr/i/i4/i4dfmpe8rxkj.png" alt="Product Image">
+                                                        <img src="https://i.makeup.fr/i/i4/i4dfmpe8rxkj.png"
+                                                             alt="{{ $product->name }} - Image par défaut"
+                                                             loading="lazy"
+                                                             width="80"
+                                                             height="80">
                                                     </div>
                                                 @endif
                                             @endforeach

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Muster & Dikson</title>
 
-        <meta name="keywords" content="HTML5 Template" />
-        <meta name="description" content="Creative Multi-Purpose eCommerce Template">
-        <meta name="author" content="D-THEMES">
+        <!-- SEO Meta Tags -->
+        @hasSection('seo')
+            @yield('seo')
+        @else
+            <x-seo-head />
+        @endif
 
         <!-- Favicon -->
         <link rel="icon" href="{{asset('images/front/favicon-32x32.png')}}" type="image/x-icon">
@@ -53,17 +55,26 @@
     </head>
 
     <body class="home">
+        <div class="page-wrapper">
+            <header>
+                @include('__header')
+            </header>
 
-        @include('__header')
+            <main id="main-content">
+                @hasSection('breadcrumbs')
+                    @yield('breadcrumbs')
+                @endif
 
-        @yield('content')
+                @yield('content')
+            </main>
 
-        @include('__footer')
+            <footer>
+                @include('__footer')
+            </footer>
+        </div>
 
         @include('__libsjs')
-
         @include('__menu_mobile')
-
         @yield('scripts')
 
     </body>
