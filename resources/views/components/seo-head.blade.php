@@ -1,7 +1,7 @@
 @props([
-    'title' => 'Muster & Dikson - Produits Professionnels de Coiffure et Beauté au Maroc',
-    'description' => 'Découvrez les produits professionnels Muster & Dikson pour coiffeurs et esthéticiennes. Qualité et innovation depuis 1965. Distributeur officiel au Maroc.',
-    'keywords' => 'Muster, Dikson, coiffure professionnelle, produits capillaires, beauté, Maroc, MLPharma, ciseaux professionnels',
+    'title' => 'Muster & Dikson - Produits Professionnels Coiffure Maroc',
+    'description' => 'Découvrez les produits professionnels Muster & Dikson pour coiffeurs et esthéticiennes au Maroc. Qualité italienne depuis 1965. Ciseaux, soins capillaires, colorations. Distributeur MLPharma.',
+    'keywords' => 'Muster, Dikson, coiffure professionnelle, produits capillaires, beauté, Maroc, MLPharma, ciseaux professionnels, colorations',
     'canonical' => null,
     'image' => null,
     'type' => 'website',

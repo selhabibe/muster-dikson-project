@@ -2,9 +2,9 @@
 
 @section('seo')
     <x-seo-head
-        title="Muster & Dikson - Produits Professionnels de Coiffure et Beauté au Maroc"
-        description="Découvrez les produits professionnels Muster & Dikson pour coiffeurs et esthéticiennes. Qualité et innovation depuis 1965. Distributeur officiel au Maroc."
-        keywords="Muster, Dikson, coiffure professionnelle, produits capillaires, beauté, Maroc, ciseaux professionnels, soins capillaires"
+        title="Muster & Dikson - Produits Professionnels Coiffure Maroc"
+        description="Découvrez les produits professionnels Muster & Dikson pour coiffeurs et esthéticiennes au Maroc. Qualité italienne et innovation depuis 1965. Ciseaux, soins capillaires et colorations professionnelles. Distributeur officiel MLPharma."
+        keywords="Muster, Dikson, coiffure professionnelle, produits capillaires, beauté, Maroc, ciseaux professionnels, soins capillaires, MLPharma, colorations"
         :structured-data="[
             '@context' => 'https://schema.org/',
             '@type' => 'Organization',
@@ -289,8 +289,6 @@
     </style>
 
     <div class="page-wrapper">
-        <h1 class="d-none">Muster & Dikson</h1>
-
         <main class="main home">
             <div class="page-content">
 

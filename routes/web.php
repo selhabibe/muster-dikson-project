@@ -127,5 +127,10 @@ Route::get('/sitemap.xml', function() {
     ]);
 })->name('sitemap');
 
+// SEO Test route (remove in production)
+Route::get('/test-seo', function() {
+    return view('test-seo');
+})->name('test.seo');
+
 
 
