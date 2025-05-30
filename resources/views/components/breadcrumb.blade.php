@@ -5,8 +5,9 @@
 ])
 
 @if(count($items) > 0)
-<nav aria-label="Fil d'Ariane" class="{{ $class }} breadcrumb-{{ $theme }}">
-    <ol class="breadcrumb breadcrumb-{{ $theme }}" itemscope itemtype="https://schema.org/BreadcrumbList">
+<div class="container">
+    <nav aria-label="Fil d'Ariane" class="{{ $class }} breadcrumb-{{ $theme }}">
+        <ol class="breadcrumb breadcrumb-{{ $theme }}" itemscope itemtype="https://schema.org/BreadcrumbList">
         @foreach($items as $index => $item)
             <li class="breadcrumb-item{{ $loop->last ? ' active' : '' }}" 
                 itemprop="itemListElement" 
@@ -34,113 +35,98 @@
                 <meta itemprop="position" content="{{ $index + 1 }}">
             </li>
         @endforeach
-    </ol>
-</nav>
+        </ol>
+    </nav>
+</div>
 @endif
 
 <style>
 .breadcrumb-nav {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     padding: 1rem 0;
+}
+
+.breadcrumb-nav .container {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem 1.5rem;
+    padding: 0;
     margin-bottom: 0;
     list-style: none;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 8px;
-    font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 1px solid #dee2e6;
+    background: transparent;
+    border: none;
+    font-size: 0.875rem;
+    box-shadow: none;
 }
 
 .breadcrumb-item {
     display: flex;
     align-items: center;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
     content: "›";
-    padding: 0 0.75rem;
-    color: #6c757d;
-    font-size: 1.2rem;
-    font-weight: 400;
+    padding: 0 0.5rem;
+    color: #999;
+    font-size: 0.875rem;
+    font-weight: 300;
 }
 
 .breadcrumb-item a {
-    color: #20c7d9;
+    color: #666;
     text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-weight: 500;
+    transition: color 0.2s ease;
+    padding: 0;
+    border-radius: 0;
+    font-weight: 400;
 }
 
 .breadcrumb-item a:hover {
-    color: #1ba3b3;
-    background-color: rgba(32, 199, 217, 0.1);
+    color: #333;
+    background-color: transparent;
     text-decoration: none;
-    transform: translateY(-1px);
+    transform: none;
 }
 
 .breadcrumb-item.active {
-    color: #495057;
+    color: #333;
 }
 
 .breadcrumb-item.active span {
-    font-weight: 600;
-    color: #343a40;
-    padding: 0.25rem 0.5rem;
-    background-color: rgba(52, 58, 64, 0.1);
-    border-radius: 4px;
+    font-weight: 400;
+    color: #333;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 /* Icon support */
 .breadcrumb-item i {
-    margin-right: 0.5rem;
-    font-size: 0.9rem;
-}
-
-/* Enhanced visual hierarchy */
-.breadcrumb-item:first-child a {
-    padding-left: 0;
-}
-
-.breadcrumb-item:last-child {
-    font-weight: 600;
+    margin-right: 0.25rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
 }
 
 /* Mobile responsive */
 @media (max-width: 768px) {
-    .breadcrumb-nav {
-        margin-bottom: 1.5rem;
-        padding: 0.5rem 0;
-    }
-
     .breadcrumb {
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .breadcrumb-item + .breadcrumb-item::before {
-        padding: 0 0.5rem;
-        font-size: 1rem;
-    }
-
-    .breadcrumb-item a,
-    .breadcrumb-item.active span {
-        padding: 0.2rem 0.4rem;
+        padding: 0 0.4rem;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .breadcrumb {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
     }
 
     .breadcrumb-item + .breadcrumb-item::before {
@@ -150,49 +136,32 @@
 
 /* Dark theme styles */
 .breadcrumb-dark .breadcrumb {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    color: #f8f9fa;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .breadcrumb-dark .breadcrumb-item a {
-    color: #20c7d9;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .breadcrumb-dark .breadcrumb-item a:hover {
-    color: #ffffff;
-    background-color: rgba(32, 199, 217, 0.2);
+    color: rgba(255, 255, 255, 1);
+    background-color: transparent;
 }
 
 .breadcrumb-dark .breadcrumb-item.active span {
-    color: #f8f9fa;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 1);
+    background-color: transparent;
 }
 
 .breadcrumb-dark .breadcrumb-item + .breadcrumb-item::before {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
 }
 
-/* Auto dark mode support */
-@media (prefers-color-scheme: dark) {
-    .breadcrumb-light .breadcrumb {
-        background: linear-gradient(135deg, #343a40 0%, #495057 100%);
-        border-color: #495057;
-        color: #f8f9fa;
-    }
-
-    .breadcrumb-light .breadcrumb-item a {
-        color: #20c7d9;
-    }
-
-    .breadcrumb-light .breadcrumb-item a:hover {
-        background-color: rgba(32, 199, 217, 0.2);
-    }
-
-    .breadcrumb-light .breadcrumb-item.active span {
-        color: #f8f9fa;
-        background-color: rgba(248, 249, 250, 0.1);
-    }
+.breadcrumb-dark .breadcrumb-item i {
+    opacity: 0.6;
 }
+
+
 </style>

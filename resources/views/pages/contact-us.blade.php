@@ -33,9 +33,7 @@
             ['name' => 'Accueil', 'url' => route('index')],
             ['name' => 'Contact', 'url' => route('contact')]
         ]"
-        theme="dark"
-        class="breadcrumb-nav position-absolute"
-        style="top: 2rem; left: 0; right: 0; z-index: 10;"
+        theme="light"
     />
 @endsection
 
