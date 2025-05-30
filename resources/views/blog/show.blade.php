@@ -245,30 +245,7 @@
             margin-bottom: 3rem;
         }
 
-        .breadcrumb {
-            background-color: transparent;
-            padding: 0;
-            margin-bottom: 0;
-        }
 
-        .breadcrumb-item a {
-            color: #1A2A3A;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .breadcrumb-item a:hover {
-            color: #20c7d9;
-        }
-
-        .breadcrumb-item.active {
-            color: #666;
-        }
-
-        /*.breadcrumb-item + .breadcrumb-item::before {*/
-        /*    content: ">";*/
-        /*    color: #999;*/
-        /*}*/
 
         /* Post Single Styles */
         .post-single {
