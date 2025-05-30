@@ -59,7 +59,7 @@
     list-style: none;
     background: transparent;
     border: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     box-shadow: none;
 }
 
