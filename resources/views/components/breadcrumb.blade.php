@@ -13,10 +13,20 @@
                 itemtype="https://schema.org/ListItem">
                 
                 @if($loop->last)
-                    <span itemprop="name" aria-current="page">{{ $item['name'] }}</span>
+                    <span itemprop="name" aria-current="page">
+                        @if($loop->first && $item['name'] === 'Accueil')
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                        @endif
+                        {{ $item['name'] }}
+                    </span>
                 @else
                     <a href="{{ $item['url'] }}" itemprop="item">
-                        <span itemprop="name">{{ $item['name'] }}</span>
+                        <span itemprop="name">
+                            @if($loop->first && $item['name'] === 'Accueil')
+                                <i class="fas fa-home" aria-hidden="true"></i>
+                            @endif
+                            {{ $item['name'] }}
+                        </span>
                     </a>
                 @endif
                 
@@ -29,59 +39,133 @@
 
 <style>
 .breadcrumb-nav {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
 }
 
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0;
     list-style: none;
-    background-color: #f8f9fa;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #dee2e6;
 }
 
 .breadcrumb-item {
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-    content: "/";
-    padding: 0 0.5rem;
+    content: "›";
+    padding: 0 0.75rem;
     color: #6c757d;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .breadcrumb-item a {
-    color: #0d6efd;
+    color: #20c7d9;
     text-decoration: none;
-    transition: color 0.15s ease-in-out;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 .breadcrumb-item a:hover {
-    color: #0a58ca;
-    text-decoration: underline;
+    color: #1ba3b3;
+    background-color: rgba(32, 199, 217, 0.1);
+    text-decoration: none;
+    transform: translateY(-1px);
 }
 
 .breadcrumb-item.active {
-    color: #6c757d;
+    color: #495057;
 }
 
 .breadcrumb-item.active span {
-    font-weight: 500;
+    font-weight: 600;
+    color: #343a40;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(52, 58, 64, 0.1);
+    border-radius: 4px;
+}
+
+/* Icon support */
+.breadcrumb-item i {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Enhanced visual hierarchy */
+.breadcrumb-item:first-child a {
+    padding-left: 0;
+}
+
+.breadcrumb-item:last-child {
+    font-weight: 600;
 }
 
 /* Mobile responsive */
 @media (max-width: 768px) {
+    .breadcrumb-nav {
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .breadcrumb {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        padding: 0 0.5rem;
+        font-size: 1rem;
+    }
+
+    .breadcrumb-item a,
+    .breadcrumb-item.active span {
+        padding: 0.2rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
     .breadcrumb {
         padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
-    
+
     .breadcrumb-item + .breadcrumb-item::before {
-        padding: 0 0.25rem;
+        padding: 0 0.3rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .breadcrumb {
+        background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+        border-color: #495057;
+        color: #f8f9fa;
+    }
+
+    .breadcrumb-item a {
+        color: #20c7d9;
+    }
+
+    .breadcrumb-item a:hover {
+        background-color: rgba(32, 199, 217, 0.2);
+    }
+
+    .breadcrumb-item.active span {
+        color: #f8f9fa;
+        background-color: rgba(248, 249, 250, 0.1);
     }
 }
 </style>

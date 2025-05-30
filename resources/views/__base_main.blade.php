@@ -103,30 +103,18 @@
     <!-- Critical JS (loaded synchronously) -->
     <script src="{{asset('/vendor/template/jquery/jquery.min.js')}}"></script>
 
-    <!-- Combined JS File (loads asynchronously) -->
+    <!-- Essential plugins (loaded synchronously for functionality) -->
+    <script src="{{asset('vendor/template/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('vendor/template/jquery.gmap/jquery.gmap.min.js')}}"></script>
+
+    <!-- Main JS File (loaded synchronously) -->
+    <script src="{{asset('js/main.min.js')}}"></script>
+
+    <!-- Cart Drawer JS -->
+    <script src="{{asset('js/cart-drawer.js')}}"></script>
+
+    <!-- Combined JS File (loads asynchronously for enhancements) -->
     <script src="{{asset('js/combined.min.js')}}" async></script>
-
-    <!-- Page-specific JS (loads after combined) -->
-    <script>
-        // Load page-specific scripts after page load
-        window.addEventListener('load', function() {
-            const scripts = [
-                "{{asset('vendor/template/magnific-popup/jquery.magnific-popup.min.js')}}",
-                "{{asset('vendor/template/jquery.gmap/jquery.gmap.min.js')}}",
-                "{{asset('js/main.min.js')}}",
-                "{{asset('js/cart-drawer.js')}}"
-            ];
-
-            scripts.forEach((src, index) => {
-                setTimeout(() => {
-                    const script = document.createElement('script');
-                    script.src = src;
-                    script.async = true;
-                    document.head.appendChild(script);
-                }, index * 100);
-            });
-        });
-    </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key="></script>
     <script>
