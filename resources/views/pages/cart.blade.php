@@ -1,5 +1,14 @@
 @extends('.__base_main')
 
+@section('seo')
+    <x-seo-head
+        title="Panier - Muster & Dikson"
+        description="Consultez votre panier d'achats et finalisez votre commande de produits professionnels Muster & Dikson."
+        keywords="panier, commande, produits professionnels, Muster & Dikson"
+        noindex="true"
+    />
+@endsection
+
 @section('content')
 
     <div class="page-wrapper">

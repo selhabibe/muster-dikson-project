@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Muster & Dikson</title>
+    <!-- SEO Meta Tags -->
+    @hasSection('seo')
+        @yield('seo')
+    @else
+        <x-seo-head />
+    @endif
 
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Riode - Ultimate eCommerce Template">
-    <meta name="author" content="D-THEMES">
+    <!-- Additional Meta Tags for specific pages -->
+    @yield('meta')
 
     <!-- Favicon -->
     <link rel="icon" href="{{asset('images/front/favicon-32x32.png')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{asset('images/front/favicon-32x32.png')}}">
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://maps.googleapis.com">
+
+    <!-- DNS Prefetch for better performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//maps.googleapis.com">
 
     <script>
         WebFontConfig = {
@@ -48,14 +63,25 @@
 </head>
 
 <body class="contact-us">
+    <div class="page-wrapper">
+        <header>
+            @include('main.__header')
+        </header>
 
-    @include('main.__header')
+        <main id="main-content">
+            @hasSection('breadcrumbs')
+                @yield('breadcrumbs')
+            @endif
 
+            @yield('content')
+        </main>
 
-    @yield('content')
+        <footer>
+            @include('__footer')
+        </footer>
+    </div>
 
     @include('__menu_mobile')
-    @include('__footer')
 
     <!-- Plugins JS File -->
 

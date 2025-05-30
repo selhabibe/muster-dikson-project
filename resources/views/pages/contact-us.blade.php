@@ -1,25 +1,40 @@
 @extends('.__base_main')
 
-@section('meta')
-    <meta name="description" content="Contactez Muster & Dikson pour toute question concernant nos produits professionnels pour coiffeurs et esthéticiennes. Notre équipe est à votre disposition.">
-    <meta name="keywords" content="contact Muster & Dikson, produits coiffure professionnels, contact beauté, service client">
+@section('seo')
+    <x-seo-head
+        title="Contactez Muster & Dikson - Service Client et Support"
+        description="Contactez Muster & Dikson pour toute question concernant nos produits professionnels pour coiffeurs et esthéticiennes. Notre équipe est à votre disposition."
+        keywords="contact Muster & Dikson, produits coiffure professionnels, contact beauté, service client, Agadir, Maroc"
+        :structured-data="[
+            '@context' => 'https://schema.org/',
+            '@type' => 'ContactPage',
+            'name' => 'Contact Muster & Dikson',
+            'description' => 'Contactez notre équipe pour toute question sur nos produits professionnels',
+            'mainEntity' => [
+                '@type' => 'Organization',
+                'name' => 'Muster & Dikson',
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'streetAddress' => 'N 15 rue Ennakhil cité dakhla',
+                    'addressLocality' => 'Agadir',
+                    'addressCountry' => 'MA'
+                ],
+                'telephone' => '+212671265232',
+                'email' => 'contact@muster-dikson.ma'
+            ]
+        ]"
+        :breadcrumbs="[
+            ['name' => 'Accueil', 'url' => route('index')],
+            ['name' => 'Contact', 'url' => route('contact')]
+        ]"
+    />
+@endsection
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="Contactez Muster & Dikson - À votre service">
-    <meta property="og:description" content="Contactez Muster & Dikson pour toute question concernant nos produits professionnels pour coiffeurs et esthéticiennes. Notre équipe est à votre disposition.">
-    <meta property="og:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="Contactez Muster & Dikson - À votre service">
-    <meta property="twitter:description" content="Contactez Muster & Dikson pour toute question concernant nos produits professionnels pour coiffeurs et esthéticiennes. Notre équipe est à votre disposition.">
-    <meta property="twitter:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ url()->current() }}">
+@section('breadcrumbs')
+    <x-breadcrumb :items="[
+        ['name' => 'Accueil', 'url' => route('index')],
+        ['name' => 'Contact', 'url' => route('contact')]
+    ]" />
 @endsection
 
 @section('content')
