@@ -210,11 +210,12 @@ class ProductResource extends Resource
                                     ->content(function (Forms\Get $get) {
                                         $title = $get('seo_title') ?: $get('name') ?: 'Titre du produit';
                                         $description = $get('seo_description') ?: Str::limit(strip_tags($get('description') ?: ''), 160) ?: 'Description du produit';
-
+                                        $slug = $get('slug') ?: $get('id') ?: 'slug';
+                                        
                                         return view('filament.components.seo-preview', [
                                             'title' => $title,
                                             'description' => $description,
-                                            'url' => 'musterdikson.com/products/...'
+                                            'url' => 'muster-dikson.com/products/'.$slug
                                         ]);
                                     })
                                     ->columnSpanFull(),
