@@ -36,7 +36,6 @@
 <meta name="description" content="{{ $optimizedDescription }}">
 <meta name="keywords" content="{{ $keywords }}">
 <meta name="author" content="Muster & Dikson">
-<meta name="generator" content="Laravel {{ app()->version() }}">
 <meta name="theme-color" content="#1a365d">
 
 <!-- Canonical URL -->
