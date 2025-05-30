@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <nav aria-label="breadcrumb">
+                            <nav aria-label="breadcrumb" class="inline-breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('brand.benexere')}}">Muster Benexere Professionelle</a></li>
