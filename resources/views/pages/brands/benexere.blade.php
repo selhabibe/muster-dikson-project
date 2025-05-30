@@ -359,30 +359,7 @@
             margin-bottom: 3rem;
         }
 
-        .breadcrumb {
-            background-color: transparent;
-            padding: 0;
-            margin-bottom: 2rem;
-        }
 
-        .breadcrumb-item a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .breadcrumb-item a:hover {
-            color: #20c7d9;
-        }
-
-        .breadcrumb-item.active {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: ">";
-            color: rgba(255, 255, 255, 0.5);
-        }
 
         .brand-hero-content {
             padding: 2rem 0;

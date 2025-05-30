@@ -60,6 +60,9 @@
     <link rel="preload" href="{{ asset('css/combined.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/combined.min.css') }}"></noscript>
 
+    <!-- Unified Breadcrumb CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/breadcrumb-unified.css') }}">
+
     <!-- Essential CSS Files (loaded synchronously) -->
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.min.css')}}">
