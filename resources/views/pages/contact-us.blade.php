@@ -23,18 +23,20 @@
                 'email' => 'contact@muster-dikson.ma'
             ]
         ]"
-        :breadcrumbs="[
-            ['name' => 'Accueil', 'url' => route('index')],
-            ['name' => 'Contact', 'url' => route('contact')]
-        ]"
+
     />
 @endsection
 
 @section('breadcrumbs')
-    <x-breadcrumb :items="[
-        ['name' => 'Accueil', 'url' => route('index')],
-        ['name' => 'Contact', 'url' => route('contact')]
-    ]" />
+    <x-breadcrumb
+        :items="[
+            ['name' => 'Accueil', 'url' => route('index')],
+            ['name' => 'Contact', 'url' => route('contact')]
+        ]"
+        theme="dark"
+        class="breadcrumb-nav position-absolute"
+        style="top: 2rem; left: 0; right: 0; z-index: 10;"
+    />
 @endsection
 
 @section('content')
@@ -45,12 +47,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                            </ol>
-                        </nav>
+
                         <div class="contact-hero-content text-center">
                             <span class="contact-hero-subtitle">Nous sommes à votre écoute</span>
                             <h1 class="contact-hero-title">Contactez-nous</h1>
@@ -257,30 +254,7 @@
         margin-bottom: 3rem;
     }
 
-    .breadcrumb {
-        background-color: transparent;
-        padding: 0;
-        margin-bottom: 2rem;
-    }
 
-    .breadcrumb-item a {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .breadcrumb-item a:hover {
-        color: #20c7d9;
-    }
-
-    .breadcrumb-item.active {
-        color: rgba(255, 255, 255, 0.7);
-    }
-
-    .breadcrumb-item + .breadcrumb-item::before {
-        content: ">";
-        color: rgba(255, 255, 255, 0.5);
-    }
 
     .contact-hero-content {
         padding: 2rem 0;

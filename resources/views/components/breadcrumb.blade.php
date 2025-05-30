@@ -1,11 +1,12 @@
 @props([
     'items' => [],
-    'class' => 'breadcrumb-nav'
+    'class' => 'breadcrumb-nav',
+    'theme' => 'light' // light or dark
 ])
 
 @if(count($items) > 0)
-<nav aria-label="Fil d'Ariane" class="{{ $class }}">
-    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<nav aria-label="Fil d'Ariane" class="{{ $class }} breadcrumb-{{ $theme }}">
+    <ol class="breadcrumb breadcrumb-{{ $theme }}" itemscope itemtype="https://schema.org/BreadcrumbList">
         @foreach($items as $index => $item)
             <li class="breadcrumb-item{{ $loop->last ? ' active' : '' }}" 
                 itemprop="itemListElement" 
@@ -147,23 +148,49 @@
     }
 }
 
-/* Dark mode support */
+/* Dark theme styles */
+.breadcrumb-dark .breadcrumb {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: #f8f9fa;
+}
+
+.breadcrumb-dark .breadcrumb-item a {
+    color: #20c7d9;
+}
+
+.breadcrumb-dark .breadcrumb-item a:hover {
+    color: #ffffff;
+    background-color: rgba(32, 199, 217, 0.2);
+}
+
+.breadcrumb-dark .breadcrumb-item.active span {
+    color: #f8f9fa;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb-dark .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Auto dark mode support */
 @media (prefers-color-scheme: dark) {
-    .breadcrumb {
+    .breadcrumb-light .breadcrumb {
         background: linear-gradient(135deg, #343a40 0%, #495057 100%);
         border-color: #495057;
         color: #f8f9fa;
     }
 
-    .breadcrumb-item a {
+    .breadcrumb-light .breadcrumb-item a {
         color: #20c7d9;
     }
 
-    .breadcrumb-item a:hover {
+    .breadcrumb-light .breadcrumb-item a:hover {
         background-color: rgba(32, 199, 217, 0.2);
     }
 
-    .breadcrumb-item.active span {
+    .breadcrumb-light .breadcrumb-item.active span {
         color: #f8f9fa;
         background-color: rgba(248, 249, 250, 0.1);
     }

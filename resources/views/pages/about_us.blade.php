@@ -23,18 +23,20 @@
                 ]
             ]
         ]"
-        :breadcrumbs="[
-            ['name' => 'Accueil', 'url' => route('index')],
-            ['name' => 'À propos de nous', 'url' => route('about_us')]
-        ]"
+
     />
 @endsection
 
 @section('breadcrumbs')
-    <x-breadcrumb :items="[
-        ['name' => 'Accueil', 'url' => route('index')],
-        ['name' => 'À propos de nous', 'url' => route('about_us')]
-    ]" />
+    <x-breadcrumb
+        :items="[
+            ['name' => 'Accueil', 'url' => route('index')],
+            ['name' => 'À propos de nous', 'url' => route('about_us')]
+        ]"
+        theme="dark"
+        class="breadcrumb-nav position-absolute"
+        style="top: 2rem; left: 0; right: 0; z-index: 10;"
+    />
 @endsection
 
 @section('content')
@@ -45,12 +47,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">À propos de nous</li>
-                                </ol>
-                            </nav>
+
                             <div class="about-hero-content text-center">
                                 <span class="about-hero-subtitle">Bienvenue chez Muster & Dikson</span>
                                 <h1 class="about-hero-title">Notre Histoire et Nos Valeurs</h1>

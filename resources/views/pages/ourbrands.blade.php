@@ -22,6 +22,18 @@
     <link rel="canonical" href="{{ url()->current() }}">
 @endsection
 
+@section('breadcrumbs')
+    <x-breadcrumb
+        :items="[
+            ['name' => 'Accueil', 'url' => route('index')],
+            ['name' => 'Nos marques', 'url' => route('ourbrands')]
+        ]"
+        theme="dark"
+        class="breadcrumb-nav position-absolute"
+        style="top: 2rem; left: 0; right: 0; z-index: 10;"
+    />
+@endsection
+
 @section('content')
     <div class="page-wrapper">
         <main class="main">
@@ -30,12 +42,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('index')}}"><i class="fas fa-home"></i> Accueil</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Nos marques</li>
-                                </ol>
-                            </nav>
+
                             <div class="brands-hero-content text-center">
                                 <span class="brands-hero-subtitle">Excellence professionnelle</span>
                                 <h1 class="brands-hero-title">Nos marques professionnelles</h1>
@@ -106,34 +113,35 @@
                     </div>
 
                     <style>
-
-                        .brand-card {
+                        /* Force higher specificity for brand card hover effects */
+                        .brands-intro-section .brand-card {
                             position: relative;
                             height: 450px;
                             width: 100%;
                             border-radius: 16px;
                             overflow: hidden;
                             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                            transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+                            transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1) !important;
+                            cursor: pointer;
                         }
 
-                        .brand-card:hover {
-                            transform: translateY(-10px);
-                            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+                        .brands-intro-section .brand-card:hover {
+                            transform: translateY(-10px) !important;
+                            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
                         }
 
-                        .brand-image {
+                        .brands-intro-section .brand-image {
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
-                            transition: transform 0.7s ease;
+                            transition: transform 0.7s ease !important;
                         }
 
-                        .brand-card:hover .brand-image {
-                            transform: scale(1.05);
+                        .brands-intro-section .brand-card:hover .brand-image {
+                            transform: scale(1.05) !important;
                         }
 
-                        .brand-overlay {
+                        .brands-intro-section .brand-overlay {
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -143,11 +151,11 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            transition: all 0.5s ease;
+                            transition: all 0.5s ease !important;
                         }
 
-                        .brand-card:hover .brand-overlay {
-                            background: rgba(0,0,0,0.1);
+                        .brands-intro-section .brand-card:hover .brand-overlay {
+                            background: rgba(0,0,0,0.1) !important;
                         }
 
                         .brand-logo {
@@ -178,7 +186,7 @@
                             transform: scale(1.1);
                         }
 
-                        .brand-content {
+                        .brands-intro-section .brand-content {
                             position: absolute;
                             bottom: -100px;
                             left: 0;
@@ -187,16 +195,16 @@
                             background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
                             color: white;
                             text-align: center;
-                            transition: all 0.5s ease;
+                            transition: all 0.5s ease !important;
                             opacity: 0;
                         }
 
-                        .brand-card:hover .brand-content {
-                            bottom: 0;
-                            opacity: 1;
+                        .brands-intro-section .brand-card:hover .brand-content {
+                            bottom: 0 !important;
+                            opacity: 1 !important;
                         }
 
-                        .btn-discover {
+                        .brands-intro-section .btn-discover {
                             display: inline-block;
                             padding: 10px 25px;
                             background-color: white;
@@ -204,21 +212,21 @@
                             border-radius: 30px;
                             font-weight: 600;
                             text-decoration: none;
-                            transition: all 0.3s ease;
+                            transition: all 0.5s ease 0.2s !important;
                             transform: translateY(20px);
                             opacity: 0;
-                            transition: all 0.5s ease 0.2s;
                         }
 
-                        .brand-card:hover .btn-discover {
-                            transform: translateY(0);
-                            opacity: 1;
+                        .brands-intro-section .brand-card:hover .btn-discover {
+                            transform: translateY(0) !important;
+                            opacity: 1 !important;
                         }
 
-                        .btn-discover:hover {
-                            background-color: #f8f9fa;
+                        .brands-intro-section .btn-discover:hover {
+                            background-color: #f8f9fa !important;
                             transform: translateY(-3px) !important;
-                            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+                            color: #333 !important;
                         }
 
                         /* Animation for smooth transitions */
@@ -234,7 +242,78 @@
                         .col-md-4:nth-child(1) .brand-card { animation-delay: 0.1s; }
                         .col-md-4:nth-child(2) .brand-card { animation-delay: 0.3s; }
                         .col-md-4:nth-child(3) .brand-card { animation-delay: 0.5s; }
+
+                        /* Force hover class for JavaScript-triggered effects */
+                        .brands-intro-section .brand-card.force-hover {
+                            transform: translateY(-10px) !important;
+                            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+                        }
+
+                        .brands-intro-section .brand-card.force-hover .brand-image {
+                            transform: scale(1.05) !important;
+                        }
+
+                        .brands-intro-section .brand-card.force-hover .brand-overlay {
+                            background: rgba(0,0,0,0.1) !important;
+                        }
+
+                        .brands-intro-section .brand-card.force-hover .brand-content {
+                            bottom: 0 !important;
+                            opacity: 1 !important;
+                        }
+
+                        .brands-intro-section .brand-card.force-hover .btn-discover {
+                            transform: translateY(0) !important;
+                            opacity: 1 !important;
+                        }
+
+                        /* Ensure hover effects work on touch devices */
+                        @media (hover: none) {
+                            .brands-intro-section .brand-card:active .brand-image {
+                                transform: scale(1.05) !important;
+                            }
+
+                            .brands-intro-section .brand-card:active .brand-content {
+                                bottom: 0 !important;
+                                opacity: 1 !important;
+                            }
+
+                            .brands-intro-section .brand-card:active .btn-discover {
+                                transform: translateY(0) !important;
+                                opacity: 1 !important;
+                            }
+                        }
                     </style>
+
+                    <script>
+                        // Ensure hover effects work properly
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const brandCards = document.querySelectorAll('.brand-card');
+
+                            brandCards.forEach(card => {
+                                // Force hover state on mouse enter
+                                card.addEventListener('mouseenter', function() {
+                                    this.classList.add('force-hover');
+                                });
+
+                                // Remove hover state on mouse leave
+                                card.addEventListener('mouseleave', function() {
+                                    this.classList.remove('force-hover');
+                                });
+
+                                // Handle touch devices
+                                card.addEventListener('touchstart', function() {
+                                    this.classList.add('force-hover');
+                                });
+
+                                card.addEventListener('touchend', function() {
+                                    setTimeout(() => {
+                                        this.classList.remove('force-hover');
+                                    }, 2000);
+                                });
+                            });
+                        });
+                    </script>
 
                     </div>
                 </section>
