@@ -43,7 +43,7 @@
 <style>
 .breadcrumb-nav {
     margin-bottom: 0;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
 }
 
 .breadcrumb-nav .container {
@@ -59,7 +59,7 @@
     list-style: none;
     background: transparent;
     border: none;
-    font-size: 0.875rem;
+    font-size: 1rem;
     box-shadow: none;
 }
 
@@ -73,7 +73,7 @@
     content: "›";
     padding: 0 0.5rem;
     color: #999;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -107,30 +107,31 @@
 
 /* Icon support */
 .breadcrumb-item i {
-    margin-right: 0.25rem;
-    font-size: 0.75rem;
-    opacity: 0.7;
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 /* Mobile responsive */
 @media (max-width: 768px) {
     .breadcrumb {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
 
     .breadcrumb-item + .breadcrumb-item::before {
         padding: 0 0.4rem;
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 480px) {
     .breadcrumb {
-        font-size: 0.75rem;
+        font-size: 0.9rem;
     }
 
     .breadcrumb-item + .breadcrumb-item::before {
-        padding: 0 0.3rem;
+        padding: 0 0.35rem;
+        font-size: 0.9rem;
     }
 }
 
