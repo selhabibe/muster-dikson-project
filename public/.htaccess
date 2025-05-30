@@ -5,6 +5,18 @@
 
     RewriteEngine On
 
+    # Force HTTPS (SSL)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Force WWW (redirect non-www to www)
+    RewriteCond %{HTTP_HOST} ^muster-dikson\.com [NC]
+    RewriteRule ^(.*)$ https://www.muster-dikson.com/$1 [L,R=301]
+
+    # Alternative: Force non-WWW (uncomment if you prefer non-www)
+    # RewriteCond %{HTTP_HOST} ^www\.musterdikson\.com [NC]
+    # RewriteRule ^(.*)$ https://musterdikson.com/$1 [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

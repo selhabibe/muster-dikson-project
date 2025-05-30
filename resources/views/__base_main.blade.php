@@ -43,23 +43,40 @@
     </script>
 
 
+    <!-- Critical CSS (inline for performance) -->
+    <style>
+        /* Critical above-the-fold styles */
+        .page-wrapper{min-height:100vh;display:flex;flex-direction:column}
+        main{flex:1}
+        .container{max-width:1200px;margin:0 auto;padding:0 15px}
+        .btn{display:inline-block;padding:12px 24px;border:none;border-radius:4px;text-decoration:none;text-align:center;cursor:pointer;transition:all 0.3s ease;font-weight:500}
+        .btn-primary{background-color:#20c7d9;color:white}
+        .btn-primary:hover{background-color:#1ba3b3}
+        h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.4;color:#222;margin:0 0 1rem}
+        .loading{opacity:0.6;pointer-events:none}
+    </style>
+
+    <!-- Combined CSS File (loads asynchronously) -->
+    <link rel="preload" href="{{ asset('css/combined.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/combined.min.css') }}"></noscript>
+
+    <!-- Essential CSS Files (loaded synchronously) -->
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/fontawesome-free/css/all.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/animate/animate.min.css')}}">
-
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/magnific-popup/magnific-popup.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/owl-carousel/owl.carousel.min.css')}}">
-
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/sticky-icon/stickyicon.css')}}">
-
-    <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.min.css')}}">
 
-    <!-- Cart Drawer CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/cart-drawer.css')}}">
+    <!-- Non-critical CSS (loaded asynchronously) -->
+    <link rel="preload" href="{{asset('vendor/template/animate/animate.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('vendor/template/magnific-popup/magnific-popup.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('vendor/template/owl-carousel/owl.carousel.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('vendor/template/sticky-icon/stickyicon.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <!-- Stock Alerts CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/stock-alerts.css')}}">
+    <!-- Fallback for browsers without JavaScript -->
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/animate/animate.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/magnific-popup/magnific-popup.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/owl-carousel/owl.carousel.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/template/sticky-icon/stickyicon.css')}}">
+    </noscript>
 </head>
 
 <body class="contact-us">
@@ -83,17 +100,33 @@
 
     @include('__menu_mobile')
 
-    <!-- Plugins JS File -->
-
+    <!-- Critical JS (loaded synchronously) -->
     <script src="{{asset('/vendor/template/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('vendor/template/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('vendor/template/jquery.gmap/jquery.gmap.min.js')}}"></script>
 
-    <!-- Main JS File -->
-    <script src="{{asset('js/main.min.js')}}"></script>
+    <!-- Combined JS File (loads asynchronously) -->
+    <script src="{{asset('js/combined.min.js')}}" async></script>
 
-    <!-- Cart Drawer JS -->
-    <script src="{{asset('js/cart-drawer.js')}}"></script>
+    <!-- Page-specific JS (loads after combined) -->
+    <script>
+        // Load page-specific scripts after page load
+        window.addEventListener('load', function() {
+            const scripts = [
+                "{{asset('vendor/template/magnific-popup/jquery.magnific-popup.min.js')}}",
+                "{{asset('vendor/template/jquery.gmap/jquery.gmap.min.js')}}",
+                "{{asset('js/main.min.js')}}",
+                "{{asset('js/cart-drawer.js')}}"
+            ];
+
+            scripts.forEach((src, index) => {
+                setTimeout(() => {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    script.async = true;
+                    document.head.appendChild(script);
+                }, index * 100);
+            });
+        });
+    </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key="></script>
     <script>

@@ -1,7 +1,7 @@
 @props([
-    'title' => 'Muster & Dikson - Produits Professionnels de Coiffure et Beauté',
-    'description' => 'Découvrez les produits professionnels Muster & Dikson pour coiffeurs et esthéticiennes. Qualité et innovation depuis 1965.',
-    'keywords' => 'Muster, Dikson, coiffure professionnelle, produits capillaires, beauté, Maroc',
+    'title' => 'Muster & Dikson - Produits Professionnels de Coiffure et Beauté au Maroc',
+    'description' => 'Découvrez les produits professionnels Muster & Dikson pour coiffeurs et esthéticiennes. Qualité et innovation depuis 1965. Distributeur officiel au Maroc.',
+    'keywords' => 'Muster, Dikson, coiffure professionnelle, produits capillaires, beauté, Maroc, MLPharma, ciseaux professionnels',
     'canonical' => null,
     'image' => null,
     'type' => 'website',
@@ -14,14 +14,30 @@
     $canonical = $canonical ?? url()->current();
     $image = $image ?? asset('images/front/social-share-default.jpg');
     $siteName = 'Muster & Dikson';
+
+    // Optimize title length (max 60 characters for SEO)
+    $optimizedTitle = strlen($title) > 60 ? substr($title, 0, 57) . '...' : $title;
+
+    // Ensure title includes brand name if not already present
+    if (!str_contains($title, 'Muster') && !str_contains($title, 'Dikson')) {
+        $optimizedTitle = $title . ' | Muster & Dikson';
+        if (strlen($optimizedTitle) > 60) {
+            $optimizedTitle = substr($title, 0, 40) . '... | Muster & Dikson';
+        }
+    }
+
+    // Optimize description length (max 160 characters for SEO)
+    $optimizedDescription = strlen($description) > 160 ? substr($description, 0, 157) . '...' : $description;
 @endphp
 
 <!-- Primary Meta Tags -->
-<title>{{ $title }}</title>
-<meta name="title" content="{{ $title }}">
-<meta name="description" content="{{ $description }}">
+<title>{{ $optimizedTitle }}</title>
+<meta name="title" content="{{ $optimizedTitle }}">
+<meta name="description" content="{{ $optimizedDescription }}">
 <meta name="keywords" content="{{ $keywords }}">
 <meta name="author" content="Muster & Dikson">
+<meta name="generator" content="Laravel {{ app()->version() }}">
+<meta name="theme-color" content="#1a365d">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="{{ $canonical }}">
@@ -36,18 +52,22 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ $type }}">
 <meta property="og:url" content="{{ $canonical }}">
-<meta property="og:title" content="{{ $title }}">
-<meta property="og:description" content="{{ $description }}">
+<meta property="og:title" content="{{ $optimizedTitle }}">
+<meta property="og:description" content="{{ $optimizedDescription }}">
 <meta property="og:image" content="{{ $image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:site_name" content="{{ $siteName }}">
 <meta property="og:locale" content="fr_FR">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ $canonical }}">
-<meta property="twitter:title" content="{{ $title }}">
-<meta property="twitter:description" content="{{ $description }}">
+<meta property="twitter:title" content="{{ $optimizedTitle }}">
+<meta property="twitter:description" content="{{ $optimizedDescription }}">
 <meta property="twitter:image" content="{{ $image }}">
+<meta property="twitter:site" content="@musterdikson">
+<meta property="twitter:creator" content="@musterdikson">
 
 <!-- Additional Meta Tags -->
 <meta name="theme-color" content="#1a365d">

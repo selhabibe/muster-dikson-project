@@ -33,23 +33,40 @@
             } )( document );
         </script>
 
+        <!-- Critical CSS (inline for performance) -->
+        <style>
+            /* Critical above-the-fold styles */
+            .page-wrapper{min-height:100vh;display:flex;flex-direction:column}
+            main{flex:1}
+            .container{max-width:1200px;margin:0 auto;padding:0 15px}
+            .btn{display:inline-block;padding:12px 24px;border:none;border-radius:4px;text-decoration:none;text-align:center;cursor:pointer;transition:all 0.3s ease;font-weight:500}
+            .btn-primary{background-color:#20c7d9;color:white}
+            .btn-primary:hover{background-color:#1ba3b3}
+            h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.4;color:#222;margin:0 0 1rem}
+            .loading{opacity:0.6;pointer-events:none}
+        </style>
+
+        <!-- Combined CSS File (loads asynchronously) -->
+        <link rel="preload" href="{{ asset('css/combined.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ asset('css/combined.min.css') }}"></noscript>
+
+        <!-- Essential CSS Files (loaded synchronously) -->
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/fontawesome-free/css/all.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/animate/animate.min.css')}}">
-
-        <!-- Plugins CSS File -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/magnific-popup/magnific-popup.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/owl-carousel/owl.carousel.min.css')}}">
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/sticky-icon/stickyicon.css')}}">
-
-        <!-- Main CSS File -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/demo34.min.css')}}">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/newsletter.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/product-page.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/cart-drawer.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/custom/stock-alerts.css')}}">
+        <!-- Non-critical CSS (loaded asynchronously) -->
+        <link rel="preload" href="{{ asset('vendor/template/animate/animate.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" href="{{ asset('vendor/template/magnific-popup/magnific-popup.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" href="{{ asset('vendor/template/owl-carousel/owl.carousel.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" href="{{ asset('vendor/template/sticky-icon/stickyicon.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+        <!-- Fallback for browsers without JavaScript -->
+        <noscript>
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/animate/animate.min.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/magnific-popup/magnific-popup.min.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/owl-carousel/owl.carousel.min.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendor/template/sticky-icon/stickyicon.css')}}">
+        </noscript>
 
 
     </head>
