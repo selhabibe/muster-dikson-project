@@ -404,6 +404,7 @@
             });
         });
     </script>
+    
 
     <style>
         /* Shop Hero Section Styles */
