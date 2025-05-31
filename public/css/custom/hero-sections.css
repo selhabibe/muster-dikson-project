@@ -1,0 +1,110 @@
+/* Unified Hero Sections CSS */
+/* This file contains all hero section styles used across the website */
+
+/* Specific Hero Section Classes */
+.shop-hero-section,
+.brand-hero-section,
+.brands-hero-section {
+    padding: 6rem 0 4rem;
+    background-color: #1A2A3A;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.shop-hero-section::before,
+.brand-hero-section::before,
+.brands-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85));
+    z-index: 1;
+}
+
+.shop-hero-section .container,
+.brand-hero-section .container,
+.brands-hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Specific Content Classes */
+.shop-hero-content,
+.brand-hero-content,
+.brands-hero-content {
+    padding: 2rem 0;
+}
+
+/* Specific Subtitle Classes */
+.shop-hero-subtitle,
+.brand-hero-subtitle,
+.brands-hero-subtitle {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #20c7d9;
+    letter-spacing: 1px;
+}
+
+/* Specific Title Classes */
+.shop-hero-title,
+.brand-hero-title,
+.brands-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Specific Description Classes */
+.shop-hero-description,
+.brand-hero-description,
+.brands-hero-description {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .shop-hero-title,
+    .brand-hero-title,
+    .brands-hero-title {
+        font-size: 2.8rem;
+    }
+
+    .shop-hero-description,
+    .brand-hero-description,
+    .brands-hero-description {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .shop-hero-section,
+    .brand-hero-section,
+    .brands-hero-section {
+        padding: 4rem 0 3rem;
+    }
+
+    .shop-hero-title,
+    .brand-hero-title,
+    .brands-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .shop-hero-description,
+    .brand-hero-description,
+    .brands-hero-description {
+        font-size: 1.2rem;
+    }
+}

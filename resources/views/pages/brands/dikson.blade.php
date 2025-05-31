@@ -296,47 +296,17 @@
         });
     </script>
 
+    <!-- Load unified JavaScript files -->
+    <script src="{{ asset('js/custom/newsletter.js') }}"></script>
+
+    <!-- Add background image style for this specific page -->
     <style>
-        /* Brand Hero Section Styles */
         .brand-hero-section {
-            padding: 6rem 0 4rem;
-            background-color: #1A2A3A;
             background-image: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), url('{{asset('images/demos/demo-beauty/page-header.jpg')}}');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            margin-bottom: 3rem;
         }
 
 
-
-        .brand-hero-content {
-            padding: 2rem 0;
-        }
-
-        .brand-hero-subtitle {
-            display: inline-block;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            color: #20c7d9;
-            letter-spacing: 1px;
-        }
-
-        .brand-hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .brand-hero-description {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.9);
-        }
+        /* Dikson brand-specific styles that differ from unified components */
 
         /* Brand Intro Section Styles */
         .brand-intro-section {
@@ -508,33 +478,24 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* Newsletter Section Styles */
+        /* Dikson-specific newsletter section styles */
         .newsletter-section {
             padding: 5rem 0;
             background-color: #f8f9fa;
         }
 
         .newsletter-container {
-            background-color: #1A2A3A;
             border-radius: 10px;
-            padding: 3rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .newsletter-title {
             font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
             text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         .newsletter-description {
             font-size: 1.3rem;
             line-height: 1.6;
-            margin-bottom: 0;
-            color: white;
             opacity: 0.95;
         }
 
@@ -599,7 +560,6 @@
             border-color: white;
         }
 
-        /* New stylish input and button styles */
         .stylish-input {
             height: 50px;
             border-radius: 8px;
@@ -647,107 +607,14 @@
             gap: 0.75rem;
         }
 
-        /* Newsletter message styles */
-        .newsletter-message {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 10px 15px;
-            font-size: 1rem;
-            border-left: 3px solid #20c7d9;
-            animation: fadeInDown 0.5s ease-in-out;
-        }
-
-        .newsletter-message i {
-            color: #20c7d9;
-            margin-right: 8px;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Alert styles */
-        .alert {
-            padding: 0.75rem 1.25rem;
-            margin-bottom: 1rem;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.5s ease-in-out;
-            font-size: 1rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .alert-success {
-            color: #ffffff;
-            background-color: #28a745;
-            border-left: 4px solid #1e7e34;
-        }
-
-        .alert-info {
-            color: #ffffff;
-            background-color: #17a2b8;
-            border-left: 4px solid #117a8b;
-        }
-
-        .alert-danger {
-            color: #ffffff;
-            background-color: #dc3545;
-            border-left: 4px solid #bd2130;
-        }
-
-        /* Responsive Styles */
+        /* Dikson-specific responsive styles */
         @media (max-width: 991px) {
-            .brand-hero-title {
-                font-size: 2.8rem;
-            }
-
-            .brand-hero-description {
-                font-size: 1.3rem;
-            }
-
             .brand-description h2 {
                 font-size: 2.4rem;
             }
 
-            .newsletter-container {
-                padding: 2rem;
-            }
-
             .newsletter-content {
                 margin-bottom: 2rem;
-                text-align: center;
-            }
-
-            .newsletter-message {
                 text-align: center;
             }
 
@@ -762,18 +629,6 @@
         }
 
         @media (max-width: 767px) {
-            .brand-hero-section {
-                padding: 4rem 0 3rem;
-            }
-
-            .brand-hero-title {
-                font-size: 2.2rem;
-            }
-
-            .brand-hero-description {
-                font-size: 1.2rem;
-            }
-
             .brand-description h2 {
                 font-size: 2rem;
             }

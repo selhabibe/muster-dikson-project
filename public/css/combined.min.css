@@ -6,6 +6,14 @@
 @import url('custom/product-page.css');
 @import url('custom/cart-drawer.css');
 @import url('custom/stock-alerts.css');
+@import url('custom/hero-sections.css');
+@import url('custom/shop-components.css');
+@import url('custom/brand-components.css');
+
+/* Note: JavaScript files are loaded separately:
+   - /js/custom/shop-cart.js
+   - /js/custom/newsletter.js
+*/
 
 /* Critical CSS for above-the-fold content */
 .page-wrapper {
