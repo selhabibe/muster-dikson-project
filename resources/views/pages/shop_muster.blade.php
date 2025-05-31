@@ -56,7 +56,7 @@
                                 <div class="shop-intro-content text-center">
                                     <h2 class="section-title mb-4">Célébrez l'Art de la Beauté</h2>
                                     <p class="shop-intro-text">
-                                    , Müster Beauty Technology accompagne les professionnels de la beauté avec des technologies esthétiques hautement innovantes conçues pour des résultats visibles et une expérience de bien-être authentique. Notre mission est d'offrir des outils technologiques d'excellence, qui valorisent le talent des esthéticiennes, améliorent la qualité de la peau et offrent des moments de transformation profonde.
+                                    Müster Beauty Technology accompagne les professionnels de la beauté avec des technologies esthétiques hautement innovantes conçues pour des résultats visibles et une expérience de bien-être authentique. Notre mission est d'offrir des outils technologiques d'excellence, qui valorisent le talent des esthéticiennes, améliorent la qualité de la peau et offrent des moments de transformation profonde.
                                     </p>
                                     <p class="shop-intro-text-secondary">
                                         Nous croyons en la beauté comme renaissance et en la technologie comme alliée du changement. Un monde exclusif d'<strong>INNOVATION</strong>, d'<strong>EFFICACITÉ</strong> et de <strong>FONCTIONNALITÉ</strong>, pour faire vivre au client une <strong>EXPÉRIENCE BEAUTÉ UNIQUE ET COMPLÈTE</strong>.
@@ -466,14 +466,14 @@
         }
 
         .shop-intro-text {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             color: #555;
             margin-bottom: 1.5rem;
         }
 
         .shop-intro-text-secondary {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.7;
             color: #666;
             font-style: italic;
@@ -493,7 +493,7 @@
             color: white;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
             margin-right: 1rem;
@@ -525,7 +525,7 @@
             border: 2px solid #1A2A3A;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
             margin-bottom: 1rem;
