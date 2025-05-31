@@ -1,21 +1,21 @@
 @extends('.__base_main')
 
 @section('meta')
-    <meta name="description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes depuis 1989. Solutions professionnelles pour une expérience beauté unique et complète.">
+    <meta name="description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes. Solutions professionnelles pour une expérience beauté unique et complète.">
     <meta name="keywords" content="Muster Beauty Tech, technologies esthétiques, équipements beauté professionnels, innovation beauté, appareils esthétiques, bien-être authentique">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="Muster Beauty Tech - Technologies Esthétiques Innovantes | Muster & Dikson">
-    <meta property="og:description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes depuis 1989. Solutions professionnelles pour une expérience beauté unique et complète.">
+    <meta property="og:description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes. Solutions professionnelles pour une expérience beauté unique et complète.">
     <meta property="og:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="Muster Beauty Tech - Technologies Esthétiques Innovantes | Muster & Dikson">
-    <meta property="twitter:description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes depuis 1989. Solutions professionnelles pour une expérience beauté unique et complète.">
+    <meta property="twitter:description" content="Découvrez Muster Beauty Tech - Technologies esthétiques innovantes. Solutions professionnelles pour une expérience beauté unique et complète.">
     <meta property="twitter:image" content="{{ asset('images/demos/demo-beauty/page-header.jpg') }}">
 
     <!-- Canonical URL -->
@@ -39,7 +39,7 @@
                                 </ol>
                             </nav>
                             <div class="shop-hero-content text-center">
-                                <span class="shop-hero-subtitle">Excellence et Innovation depuis 1989</span>
+                                <span class="shop-hero-subtitle">Excellence et Innovation</span>
                                 <h1 class="shop-hero-title">Muster Beauty Tech</h1>
                                 <p class="shop-hero-description">Nous évoluons vers l'avenir de la beauté professionnelle, transformant la technologie en art et les esthéticiennes en véritables consultantes du changement</p>
                             </div>
@@ -56,7 +56,7 @@
                                 <div class="shop-intro-content text-center">
                                     <h2 class="section-title mb-4">Célébrez l'Art de la Beauté</h2>
                                     <p class="shop-intro-text">
-                                        Depuis 1989, Müster Beauty Technology accompagne les professionnels de la beauté avec des technologies esthétiques hautement innovantes conçues pour des résultats visibles et une expérience de bien-être authentique. Notre mission est d'offrir des outils technologiques d'excellence, qui valorisent le talent des esthéticiennes, améliorent la qualité de la peau et offrent des moments de transformation profonde.
+                                    , Müster Beauty Technology accompagne les professionnels de la beauté avec des technologies esthétiques hautement innovantes conçues pour des résultats visibles et une expérience de bien-être authentique. Notre mission est d'offrir des outils technologiques d'excellence, qui valorisent le talent des esthéticiennes, améliorent la qualité de la peau et offrent des moments de transformation profonde.
                                     </p>
                                     <p class="shop-intro-text-secondary">
                                         Nous croyons en la beauté comme renaissance et en la technologie comme alliée du changement. Un monde exclusif d'<strong>INNOVATION</strong>, d'<strong>EFFICACITÉ</strong> et de <strong>FONCTIONNALITÉ</strong>, pour faire vivre au client une <strong>EXPÉRIENCE BEAUTÉ UNIQUE ET COMPLÈTE</strong>.
@@ -158,7 +158,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="brand-story-content">
-                                        <h2 class="brand-story-title">Innovation & Excellence depuis 1989</h2>
+                                        <h2 class="brand-story-title">Innovation & Excellence</h2>
                                         <p class="brand-story-text">
                                             Müster Beauty Technology transforme la technologie en art et fait des esthéticiennes de véritables consultantes du changement. Avec des solutions innovantes, personnalisées et efficaces, nous offrons un nouveau standard de bien-être et d'authenticité pour chaque individu.
                                         </p>

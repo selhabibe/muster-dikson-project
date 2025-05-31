@@ -24,7 +24,7 @@
                     </div>
                     <div class="icon-box-content d-lg-show">
                         <h4 class="icon-box-title text-white">Appelez-nous:</h4>
-                        <p class="text-white">+212 671265232</p>
+                        <p class="text-white">+212 671 265 232</p>
                     </div>
                 </a>
             </div>
