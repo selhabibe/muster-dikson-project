@@ -205,7 +205,7 @@
 
                                         @if (session('success'))
                                             <div class="newsletter-message mb-3 text-white">
-                                                <p class="mb-0"><i class="fas fa-heart"></i> Bienvenue dans l'univers Muster Beauty Tech !</p>
+                                                <p class="mb-0 text-white"><i class="fas fa-heart"></i> Bienvenue dans l'univers Muster Beauty Tech !</p>
                                             </div>
                                             <div class="alert alert-success mt-3">
                                                 {{ session('success') }}
@@ -739,7 +739,7 @@
         }
 
         .brand-story-text {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             line-height: 1.7;
             color: #555;
             margin-bottom: 2rem;
@@ -755,14 +755,14 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: #333;
         }
 
         .feature-item i {
             color: #20c7d9;
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             width: 20px;
         }
 
