@@ -124,7 +124,7 @@
                         }
 
                         .brands-intro-section .brand-card:hover {
-                            transform: translateY(-10px) !important;
+                            /* transform: translateY(-10px) !important; */
                             box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
                         }
 
@@ -243,7 +243,7 @@
 
                         /* Force hover class for JavaScript-triggered effects */
                         .brands-intro-section .brand-card.force-hover {
-                            transform: translateY(-10px) !important;
+                            /* transform: translateY(-10px) !important; */
                             box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
                         }
 
