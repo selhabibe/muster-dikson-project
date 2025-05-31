@@ -33,13 +33,13 @@
     font-weight: 400;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+/* .breadcrumb-item + .breadcrumb-item::before {
     content: "›";
     padding: 0 0.5rem;
     color: #999;
     font-size: 1rem;
     font-weight: 300;
-}
+} */
 
 .breadcrumb-item a {
     color: #666;
@@ -149,11 +149,11 @@
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.inline-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+/* .inline-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
     content: ">" !important;
     color: rgba(255, 255, 255, 0.5) !important;
     padding: 0 0.5rem !important;
-}
+} */
 
 /* Special styling for shop pages with hero backgrounds */
 .shop-hero-section .breadcrumb {
@@ -176,10 +176,10 @@
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.shop-hero-section .breadcrumb-item + .breadcrumb-item::before {
+/* .shop-hero-section .breadcrumb-item + .breadcrumb-item::before {
     content: ">" !important;
     color: rgba(255, 255, 255, 0.5) !important;
-}
+} */
 
 /* Contact page specific styles */
 .contact-hero-section .breadcrumb {
@@ -202,10 +202,10 @@
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.contact-hero-section .breadcrumb-item + .breadcrumb-item::before {
+/* .contact-hero-section .breadcrumb-item + .breadcrumb-item::before {
     content: ">" !important;
     color: rgba(255, 255, 255, 0.5) !important;
-}
+} */
 
 /* About page specific styles */
 .about-hero-section .breadcrumb {
